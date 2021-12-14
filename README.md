@@ -1,0 +1,2 @@
+# technicalramblings.com
+blog

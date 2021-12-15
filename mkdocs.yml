@@ -75,7 +75,6 @@ theme:
   icon:
     repo: fontawesome/brands/github
   favicon: site_assets/favicon.ico
-  
   palette:
     - scheme: default
       toggle:

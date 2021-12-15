@@ -1,0 +1,106 @@
+site_name: technicalramblings.com
+site_description: A blog about selfhosting, unRAID and Linux ISOs
+site_author: GilbN
+site_url: https://docs.theme-park.dev
+
+repo_url: https://github.com/GilbN/technicalramblings.com
+repo_name: technicalramblings.com
+
+plugins:
+  - search
+  - git-revision-date-localized
+  - awesome-pages
+  - macros
+  - mkdocs-video
+  - redirects:
+      redirect_maps:
+        discord.md: 'https://discord.gg/HM5uUKU'
+
+markdown_extensions:
+  - pymdownx.snippets
+  - admonition
+  - attr_list
+  - codehilite
+  - footnotes
+  - lightgallery
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - toc:
+      permalink: true
+  - markdown_include.include:
+      base_path: blog
+
+nav:
+  - Home: index.md
+  - Blog:
+      How to add a custom login page for Unraid!: blog/how-to-add-a-custom-login-page-for-unraid/index.md
+      How to add dark mode to any app with this one simple trick!: blog/how-to-add-dark-mode-to-any-app-with-this-one-simple-trick/index.md
+      Visualizing Nginx geo data metrics  with Python, InfluxDB and Grafana: blog/visualizing-nginx-geo-data-metrics-with-python-influxdb-and-grafana/index.md
+      Blocking SSH Connections with the GeoLite2 Database: blog/blocking-ssh-connections-with-the-geolite2-database/index.md
+      How to setup a Ghost blog on Unraid: blog/how-to-setup-a-ghost-site-with-letsencrypt-and-mariadb-on-unraid/index.md
+      How to route different metrics in Telegraf to different Influx databases: blog/how-to-route-different-metrics-in-telegraf-to-different-influx-databases/index.md
+  - Support: /discord
+  - Donate: /donate
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.expand
+  language: en
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    repo: fontawesome/brands/github
+  favicon: site_assets/favicon.ico
+  
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+      primary: teal
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+      primary: red
+      accent: light green
+
+extra:
+  homepage: https://technicalramblings.com
+  social:
+    - icon: fontawesome/solid/heart
+      link: 'https://docs.theme-park.dev/donate'
+      name: Donate
+    - icon: fontawesome/brands/discord
+      link: 'https://docs.theme-park.dev/discord'
+      name: Discord
+    - icon: fontawesome/brands/docker
+      link: 'https://github.com/users/GilbN/packages/container/package/theme.park'
+      name: Docker
+    - icon: fontawesome/brands/github
+      link: 'https://github.com/gilbn'
+      name: GitHub

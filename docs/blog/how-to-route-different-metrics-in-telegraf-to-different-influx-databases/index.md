@@ -10,15 +10,15 @@ tags:
 coverImage: "sai-kiran-anagani-Tjbk79TARiE-unsplash-scaled.jpg"
 ---
 
+# {{ title }}
+
+<img src="images/{{ coverImage}}"></img>
+
 So, at the beginning of the last couple of years I have dropped my Influx Telegraf database containing all the host metrics gathered from the previous year. I did this because it was getting too big, and my container appdata backups where getting too big and taking too long to backup. Yes I know I could have just set a retention policy on the database and have it cleared every week, but I wanted some long term metrics like disk usage, so I could see the growth over the year.
 
 My Influxdb container appdata folder is currently 40GB so lets fix that.
 
-\[eckosc\_full\_width\_block\]
-
-\[caption id="attachment\_2077" align="alignnone" width="1024"\][![](images/chrome_FBHcvdXttX-1024x353.png)](https://technicalramblings.com/wp-content/uploads/2020/01/chrome_FBHcvdXttX.png) Disk usage shown in Grafana\[/caption\]
-
-\[/eckosc\_full\_width\_block\]
+[![](images/chrome_FBHcvdXttX-1024x353.png)](https://technicalramblings.com/wp-content/uploads/2020/01/chrome_FBHcvdXttX.png)
 
 ## Creating the long term database
 
@@ -28,11 +28,11 @@ Create the database with the following command: `CREATE DATABASE longterm_metric
 
 `CREATE DATABASE longterm_metrics WITH DURATION 365d REPLICATION 1 SHARD DURATION 1w NAME RP_longterm_365d`
 
-This will create the database and set the 365d retention policy to default for that database. If you want you can read more about replication and shards here:  [https://docs.influxdata.com/influxdb/v1.7/concepts/glossary/#replication-factor](https://docs.influxdata.com/influxdb/v1.7/concepts/glossary/#replication-factor) and [https://docs.influxdata.com/influxdb/v1.7/concepts/glossary/#shard](https://docs.influxdata.com/influxdb/v1.7/concepts/glossary/#shard)
+This will create the database and set the 365d retention policy to default for that database. If you want you can read more about replication and shards here: [https://docs.influxdata.com/influxdb/v1.7/concepts/glossary/#replication-factor](https://docs.influxdata.com/influxdb/v1.7/concepts/glossary/#replication-factor) and [https://docs.influxdata.com/influxdb/v1.7/concepts/glossary/#shard](https://docs.influxdata.com/influxdb/v1.7/concepts/glossary/#shard)
 
 You can also look up retention policies with the `show retention policies` command. First select which database to use with the `use <database>` command and then run the `show retention policies` command like so:
 
-```
+```bash
 > use longterm_metrics
 Using database longterm_metrics
 > show retention policies
@@ -46,7 +46,8 @@ RP_longterm_365d 8760h0m0s 168h0m0s           1        true
 
 Run the following command to create a new default retention policy on the `telegraf` database:
 
-\[eckosc\_status\_message title="Warning!" icon="" type="error" message="Note: This will ''reset'' the whole database!"\]
+!!! error "Note"
+    This will ''reset'' the whole database!
 
 The data won't be gone, it's still accessible using the autogen retention policy. But the command below sets the new one as `default`, and that's what the panels normally use in Grafana.
 
@@ -66,7 +67,8 @@ Read more here: [https://docs.influxdata.com/influxdb/v1.7/query\_language/datab
 
 Now in Telegraf we simply need to add an extra output that tells Telegraf to also route the metrics we want to another database.
 
-\[eckosc\_status\_message title="Note" icon="" type="info" message="This won't stop telegraf from writing the metrics to the OG telegraf database,  it will write to both"\]
+!!! info "Note"
+    This won't stop telegraf from writing the metrics to the OG telegraf database, it will write to both
 
 Add the following to the telegraf.conf file. Note add, not replace.
 
@@ -90,7 +92,7 @@ After you've added the lines restart Telegraf.
 
 Since my Telegraf datasource uses the `telegraf` database, we need to add a new data source that uses our new database.
 
-Click on **`Add data source`** and select InfluxDB. 
+Click on **`Add data source`** and select InfluxDB.
 
 [![](images/chrome_DujTbaihqK-300x125.png)](https://technicalramblings.com/wp-content/uploads/2019/07/chrome_DujTbaihqK.png)
 
@@ -102,7 +104,9 @@ Next give the data source a name, add the URL to InfluxDB, set the database to u
 
 ## Updating the Grafana panels
 
-Next it's just a matter of updating the Grafana panels to use the new data source. [![](images/chrome_Pda5MjQFo9-1024x819.png)](https://technicalramblings.com/wp-content/uploads/2020/01/chrome_Pda5MjQFo9.png)
+Next it's just a matter of updating the Grafana panels to use the new data source.
+
+[![](images/chrome_Pda5MjQFo9-1024x819.png)](https://technicalramblings.com/wp-content/uploads/2020/01/chrome_Pda5MjQFo9.png)
 
 If you use my Unraid System Dashboard [https://grafana.com/grafana/dashboards/7233](https://grafana.com/grafana/dashboards/7233) you can just download the latest version and select the disk data source in the drop down. [![](images/chrome_2kJVPFkmoX.png)](https://technicalramblings.com/wp-content/uploads/2020/01/chrome_2kJVPFkmoX.png)
 

@@ -10,9 +10,15 @@ jobs:
     name: Deploy docs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.4.0
-      - uses: actions/setup-python@v2.3.1
-        with:
-          python-version: 3.x
-      - run: pip install -r docs/requirements.txt
-      - run: mkdocs gh-deploy --force
+      - name: clear CF cache
+        run: |
+          curl -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
+          -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_CLEAR_CACHE }}" \
+          -H "Content-Type:application/json"
+      - name: deploy
+        - uses: actions/checkout@v2.4.0
+        - uses: actions/setup-python@v2.3.1
+          with:
+            python-version: 3.x
+        - run: pip install -r docs/requirements.txt
+        - run: mkdocs gh-deploy --force

@@ -16,9 +16,9 @@ jobs:
           -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_CLEAR_CACHE }}" \
           -H "Content-Type:application/json"
       - name: deploy
-        - uses: actions/checkout@v2.4.0
-        - uses: actions/setup-python@v2.3.1
-          with:
-            python-version: 3.x
-        - run: pip install -r docs/requirements.txt
-        - run: mkdocs gh-deploy --force
+        uses: actions/checkout@v2.4.0
+        uses: actions/setup-python@v2.3.1
+        with:
+          python-version: 3.x
+        run: pip install -r docs/requirements.txt
+        run: mkdocs gh-deploy --force

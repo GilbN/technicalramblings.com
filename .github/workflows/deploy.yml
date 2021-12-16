@@ -18,6 +18,5 @@ jobs:
           curl -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
           -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_CLEAR_CACHE }}" \
           -H "Content-Type:application/json"
-        run: |
           pip install -r docs/requirements.txt
           mkdocs gh-deploy --force

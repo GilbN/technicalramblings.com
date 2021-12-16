@@ -1,0 +1,1447 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A blog about selfhosting, unRAID and Linux ISOs">
+      
+      
+        <meta name="author" content="GilbN">
+      
+      
+        <link rel="canonical" href="https://docs.theme-park.dev/blog/spice-up-your-homepage-part-ii/">
+      
+      <link rel="icon" href="../../site_assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.2">
+    
+    
+      
+        <title>Spice up your homepage Part II - technicalramblings.com</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7951f6f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#spice-up-your-homepage-part-ii" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://technicalramblings.com" title="technicalramblings.com" class="md-header__button md-logo" aria-label="technicalramblings.com" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            technicalramblings.com
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Spice up your homepage Part II
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/GilbN/technicalramblings.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    technicalramblings.com
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../my-unraid-server/" class="md-tabs__link md-tabs__link--active">
+        Blog
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/about" class="md-tabs__link">
+      About
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/discord" class="md-tabs__link">
+      Support
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/donate" class="md-tabs__link">
+      Donate
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://technicalramblings.com" title="technicalramblings.com" class="md-nav__button md-logo" aria-label="technicalramblings.com" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    technicalramblings.com
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/GilbN/technicalramblings.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    technicalramblings.com
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Blog
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blog" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Blog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" data-md-state="indeterminate" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Blog
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blog" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Blog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../my-unraid-server/" class="md-nav__link">
+        My unRAID Server
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" data-md-state="indeterminate" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Backend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Backend" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Backend
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualizing-nginx-geo-data-metrics-with-python-influxdb-and-grafana/" class="md-nav__link">
+        Visualizing Nginx geo data metrics  with Python, InfluxDB and Grafana
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-route-different-metrics-in-telegraf-to-different-influx-databases/" class="md-nav__link">
+        How to route metrics in Telegraf to different Influx databases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-telegraf-edition/" class="md-nav__link">
+        Monitoring your UPS stats and cost with InfluxDB and Grafana on Unraid - Telegraf Edition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-nut-edition/" class="md-nav__link">
+        Monitoring your UPS stats and cost with InfluxDB and Grafana on Unraid - NUT Edition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-2019-edition/" class="md-nav__link">
+        Monitoring your UPS stats and cost with InfluxDB and Grafana on Unraid - Apcupsd Container Edition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-setup-grafana-influxdb-and-telegraf-to-monitor-your-unraid-system/" class="md-nav__link">
+        How to setup Grafana, InfluxDB and Telegraf to monitor your unRAID system
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migrating-view-history-between-two-plex-servers-avoiding-negative-unwatched-count/" class="md-nav__link">
+        Migrating/Merging View History between two Plex Servers - Avoiding Negative Unwatched Count
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-setup-a-cloudflare-worker-to-show-a-maintenance-page-when-ca-backup-plugin-is-running/" class="md-nav__link">
+        How to setup a Cloudflare worker to show a maintenance page when the CA Backup plugin is running on Unraid
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimizing-php-fpm-to-get-faster-load-times-of-tabs-in-organizr/" class="md-nav__link">
+        Optimizing PHP-FPM to get faster load times of tabs in Organizr
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../remotely-accessing-the-unraid-gui-with-guacamole-and-vnc-web-browser/" class="md-nav__link">
+        Remotely accessing the Unraid GUI with Guacamole and VNC Web Browser
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Frontend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Frontend" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Frontend
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-add-dark-mode-to-any-app-with-this-one-simple-trick/" class="md-nav__link">
+        How to add dark mode to any app with this one simple trick!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-add-a-custom-login-page-for-unraid/" class="md-nav__link">
+        How to add a custom login page for Unraid!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spice-up-your-homepage/" class="md-nav__link">
+        Spice up your homepage!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Spice up your homepage Part II
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Spice up your homepage Part II
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-grafana-and-varken-to-add-more-plex-stats-on-your-organizr-homepage" class="md-nav__link">
+    Using Grafana and Varken to add more Plex stats on your Organizr homepage.
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Grafana and Varken to add more Plex stats on your Organizr homepage.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-influxdb" class="md-nav__link">
+    Installing InfluxDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-varken" class="md-nav__link">
+    Installing Varken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-grafana" class="md-nav__link">
+    Installing Grafana
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizr-homepage" class="md-nav__link">
+    Organizr Homepage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-setup-a-ghost-site-with-letsencrypt-and-mariadb-on-unraid/" class="md-nav__link">
+        How to setup a Ghost blog on Unraid
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" data-md-state="indeterminate" type="checkbox" id="__nav_2_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Security" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blocking-countries-with-geolite2-using-the-letsencrypt-docker-container/" class="md-nav__link">
+        Blocking countries with GeoLite2 in nginx using the swag docker container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-add-email-notifications-to-fail2ban/" class="md-nav__link">
+        How to add email notifications to Fail2ban
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blocking-ssh-connections-with-the-geolite2-database/" class="md-nav__link">
+        Blocking SSH Connections with the GeoLite2 Database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adding-ban-unban-notifications-from-fail2ban-to-discord/" class="md-nav__link">
+        Adding ban/unban notifications from Fail2Ban to Discord!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adding-ban-unban-notifications-from-fail2ban-with-pushover/" class="md-nav__link">
+        Adding ban/unban notifications from Fail2Ban to Pushover!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redirecting-visitors-to-a-403-forbidden-page-when-accessing-the-wordpress-admin-page/" class="md-nav__link">
+        Redirecting visitors to a 403 forbidden page when accessing the WordPress admin page
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../howto-setup-gitlab-to-use-rack-attack-to-ban-abusive-ips/" class="md-nav__link">
+        How to setup GitLab to use Rack Attack and ban abusive IPs and rate limit requests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudflare-fail2ban-integration-with-automated-set_real_ip_from-in-nginx/" class="md-nav__link">
+        How to setup Cloudflare and fail2ban with automated “set_real_ip_from” in nginx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/about" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/discord" class="md-nav__link">
+        Support
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/donate" class="md-nav__link">
+        Donate
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-grafana-and-varken-to-add-more-plex-stats-on-your-organizr-homepage" class="md-nav__link">
+    Using Grafana and Varken to add more Plex stats on your Organizr homepage.
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Grafana and Varken to add more Plex stats on your Organizr homepage.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-influxdb" class="md-nav__link">
+    Installing InfluxDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-varken" class="md-nav__link">
+    Installing Varken
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-grafana" class="md-nav__link">
+    Installing Grafana
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizr-homepage" class="md-nav__link">
+    Organizr Homepage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/GilbN/technicalramblings.com/edit/master/docs/blog/spice-up-your-homepage-part-ii/index.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="spice-up-your-homepage-part-ii">Spice up your homepage Part II<a class="headerlink" href="#spice-up-your-homepage-part-ii" title="Permanent link">&para;</a></h1>
+<p><img src="images/orgdash.jpg"></img></p>
+<p>I thought I'd make a follow up to the <strong><a href="https://technicalramblings.com/blog/spice-up-your-homepage/">first post</a></strong> on customizing your Organizr homepage. This will tell you how to add Grafana panels, a custom Monitorr dashboard, custom buttons and links to tabs inside Organizr.</p>
+<h2 id="using-grafana-and-varken-to-add-more-plex-stats-on-your-organizr-homepage">Using Grafana and Varken to add more Plex stats on your Organizr homepage.<a class="headerlink" href="#using-grafana-and-varken-to-add-more-plex-stats-on-your-organizr-homepage" title="Permanent link">&para;</a></h2>
+<p>With Grafana, InfluxDB and Varken we can add some cool plex stats to the dashboard using html and css. And if you install telegraf you can get some great host metrics also.</p>
+<p>Here is a screenshot of the stats I currently have on my Homepage.</p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2019/01/GrafanaHP.png"><img alt="" src="images/GrafanaHP.png" /></a></p>
+<p>All the panels are data from InfluxDB sent by Varken. I'm running nightly so I can have Varken pull download and upload data from my <a href="https://www.ubnt.com/unifi-routing/usg/">Ubiquiti Unifi Security Gateway</a>. However, if you don't use Unifi you can setup <a href="https://www.influxdata.com/time-series-platform/telegraf/">telegraf</a> and that will give you the same stats from the host machine.</p>
+<h3 id="installing-influxdb">Installing InfluxDB<a class="headerlink" href="#installing-influxdb" title="Permanent link">&para;</a></h3>
+<p>Installing influxdb from CA is dead simple. You only need to select the host path for /var/lib/influxdb and change the host port if its in use. Varken will automatically create the database for you.</p>
+<h3 id="installing-varken">Installing <a href="https://github.com/Boerderij/Varken">Varken</a><a class="headerlink" href="#installing-varken" title="Permanent link">&para;</a></h3>
+<p>I'm using the docker container from the devs, and since it's not currently on the CA Appstore you will have to add it manually.<br />
+<strong>EDIT 16.03.19: They have added it to the CA appstore!</strong></p>
+<p>Search for Varken and click on <strong><code>Click Here To Get More Results From DockerHub</code></strong> If you can't see that link you need to enable additional dockerHub search results in CA Settings.</p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2019/01/54353454gfdgfd.png"><img alt="" src="images/54353454gfdgfd.png" /></a></p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2019/01/1111.png"><img alt="" src="images/1111.png" /></a></p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2019/01/123edwq2.png"><img alt="" src="images/123edwq2.png" /></a></p>
+<p>Select <code>**boerderij/varken**</code> and add the PGID and PUID and mount the appdata folder to /config. Varken doesn't need a port as "all" it does is feed influxdb with data it pulls from Tautulli, Ombi, Sonarr, Radarr ect.</p>
+<p>Set <strong>PGID</strong> to 100 and <strong>PUID</strong> to 99</p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2019/01/34343454gfdgfd.png"><img alt="" src="images/34343454gfdgfd.png" /></a></p>
+<p><img alt="" src="images/fdg435fdgfd.png" /></p>
+<p><img alt="" src="images/zxz34xfd.png" /></p>
+<p>Setting up Varken is quite simple. Head over to your appdata folder and copy paste the <strong><code>varken.example.ini</code></strong> file and rename it <strong><code>varken.ini</code></strong></p>
+<p>In that file you add the connection details to all the services you want it to pull data from. Read through the <strong><a href="https://wiki.cajun.pro/books/varken/page/breakdown">configuration wiki</a></strong> for setup details.</p>
+<blockquote>
+<p><strong>Tip:</strong> don't use the scheme(http://) when adding the different IPs. And if any of your services uses base url you need to add that.</p>
+</blockquote>
+<h3 id="installing-grafana">Installing Grafana<a class="headerlink" href="#installing-grafana" title="Permanent link">&para;</a></h3>
+<p>Follow the instructions and add your unraid/host ip and admin password.</p>
+<p>**GF_SERVER_ROOT_URL:**The url to which you will be navigating to get to the grafana dashboard. Typically your ip or hostname<br />
+**GF_SECURITY_ADMIN_PASSWORD**Your password to use with the admin user. The default is user admin with password the password you chose.</p>
+<p>When Installing from CA you will need to add one variable to be able to view dashboards without logging in. Now you don't have to add it, but you will need to log into Grafana before you'll be able to see the stats of each panel on your Organizr homepage.</p>
+<p>First install the container without the variable as we need to mount the<code>custom.ini</code> file in our appdata, and the file needs to exist before we can mount it.</p>
+<p>After you've installed the container you <strong>need</strong> to add two plugins for the Varken dashboards. The dashboards <strong>will</strong> fail to load without them. Now, I'm only using the worldmap plugin on my homepage but you might as well install them both.</p>
+<p>Open terminal and run:</p>
+<p><code>**docker exec -i -t Grafana grafana-cli plugins install grafana-piechart-panel**</code><br />
+and<br />
+<code>**docker exec -i -t Grafana grafana-cli plugins install grafana-worldmap-panel**</code></p>
+<p>Next go to you appdata location for Grafana and create the custom.ini file with the contents below:</p>
+<div class="highlight"><pre><span></span><code>[auth.anonymous]
+enabled=true
+</code></pre></div>
+<p>The variable you need to add is**GF_PATHS_CONFIG** and the value is <code>**/var/lib/grafana/custom.ini**</code><br />
+Like so: <strong><code>-e "GF_PATHS_CONFIG=/var/lib/grafana/custom.ini"</code></strong></p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2019/01/customvariable.png"><img alt="" src="images/customvariable.png" /></a></p>
+<blockquote>
+<p>Note: Any new dashboard you create will be visible to anyone when you add this, so beware. Protect your reverse proxy with Organizr server auth. You can also choose which dashboards are open in dashboard settings. (Remove viewer role in permissions)</p>
+</blockquote>
+<p><strong>Tip:</strong> You can create different organizations in Grafana and set the organization that you want open without auth. Like this:</p>
+<div class="highlight"><pre><span></span><code>[auth.anonymous]
+enabled=true
+org_name=&lt;organization_name&gt;
+</code></pre></div>
+<p><strong>Update</strong>: Grafana recently added iframe protection so you will need to disable that. It can be done in two ways. Editing the custom.ini or adding a header in your webserver.<br />
+Add:</p>
+<div class="highlight"><pre><span></span><code>[security]
+allow_embedding = true
+</code></pre></div>
+<p>in custom.ini<br />
+Or <strong><code>proxy_hide_header X-Frame-Options;</code></strong> in your reverse proxy.</p>
+<p>After you've added the variable log in to Grafana and add your datasource. Go to "Configuration" and click + Add data source. Choose type <strong><code>InfluxDB</code></strong><br />
+Call it Varken<br />
+Add your URL to InfluxDB<br />
+And add the database <strong><code>varken</code></strong> (lower case)<br />
+Click Save &amp; Test</p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2019/01/datasourcevarken.png"><img alt="" src="images/datasourcevarken-542x1024.png" /></a></p>
+<p>After you have finished setting it up you can head over here to find the Varken dashboards that you can import.  </p>
+<p>Check the links below and paste in the dashboard ID and follow the steps on the screen.</p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2019/01/import.png"><img alt="" src="images/import.png" /></a></p>
+<p><strong><a href="https://grafana.com/dashboards?search=Varken">https://grafana.com/dashboards?search=Varken</a></strong></p>
+<p>You can find the stream breakdown and daily play count panels here:<strong><a href="https://grafana.com/dashboards/9684">https://grafana.com/dashboards/9684</a></strong></p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2019/01/chrome_MPJkSPVj9m.png"><img alt="" src="images/chrome_MPJkSPVj9m-1024x272.png" /></a></p>
+<p>Add the dashboards you want. If you're using my dashboards select the correct datasource in the drop down like below.</p>
+<p><a href="https://grafana.com/grafana/dashboards/9558">https://grafana.com/grafana/dashboards/9558</a></p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2019/01/chrome_J8Hsl1hUxo.png"><img alt="" src="images/chrome_J8Hsl1hUxo-300x230.png" /></a><br />
+After you've done that your should be able to see stats from the varken database.</p>
+<p>The way I have my dashboards setup is the main Varken dash is closed for "visitors" and I have a separate one for my Organizr homepage that is open. But it's not really open as it's behind Organizr server auth.</p>
+<p>So <strong>grafana.domain.com</strong> is only accessible to my Organizr users and me. Grafana will need to be reverse proxied as you can't access the local instance of Grafana when accessing Organizr through your domain.</p>
+<p>For a reverse proxy example of Grafana look here:<a href="https://github.com/gilbN/Nostromo/blob/master/Server/nginx/site-confs/grafana">https://github.com/gilbN/Nostromo/blob/master/Server/nginx/site-confs/grafana</a></p>
+<h3 id="organizr-homepage">Organizr Homepage<a class="headerlink" href="#organizr-homepage" title="Permanent link">&para;</a></h3>
+<p>Below is the custom HTML that you can use add the different panels you want to the Organizr homepage.<br />
+Replace the source of each HTML class on this line.</p>
+<div class="highlight"><pre><span></span><code>src=&#39;https://grafana.domain.com/d-solo/bj0JnBMmz/org-dash?refresh=5s&amp;orgId=1&amp;panelId=22&#39;/&gt;
+</code></pre></div>
+<p>The first six are the small "widgets" and the last three are the bigger ones.</p>
+<p>If you don't want the big widgets you can just delete everything between<br />
+<strong><code>&lt;!-- -------------------BIG WIDGET START------------------- --&gt;</code></strong><br />
+and<br />
+<code>**&lt;!-- -------------------BIG WIDGET END------------------- --&gt;**</code></p>
+<p>And if you want fewer small widgets just delete everything between:<br />
+<strong><code>&lt;!-- -------------------WIDGET------------------- --&gt;</code></strong></p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2019/01/share.png"><img alt="" src="images/share.png" /></a></p>
+<p>To find the correct URL of each panel you just have to click on the name of the panel and select share, then select the Embed tab. **Remember to remove the "Current time range" as that will break the stats.<br />
+**Don't copy it all, we just need the iframe source.</p>
+<p>If you want to change the title of the custom html you can do so here:</p>
+<div class="highlight"><pre><span></span><code>&lt;!-- -------------------ADD TITLE HERE------------------- --&gt;
+&lt;div id=&quot;announcementRow&quot; class=&quot;row&quot;&gt;&lt;h4 class=&quot;pull-left&quot;&gt;
+    &lt;span&gt;YOUR-TITLE-HERE&lt;/span&gt;&lt;/h4&gt;&lt;hr class=&quot;hidden-xs&quot;&gt;&lt;/div&gt;
+</code></pre></div>
+<p>Each panel can link directly to a tab inside Organizr. For that to work you need to edit this line:</p>
+<div class="highlight"><pre><span></span><code>&lt;div class=&quot;iframe-link&quot; onclick=&quot;tabActions(event,&#39;TAB-NAME-HERE&#39;,1);&quot; href=&quot;#&quot; title=&quot;TITLE-HERE&quot;&gt;&lt;/div&gt;
+</code></pre></div>
+<p>Replace**<code>TAB-NAME-HERE</code><strong>with the actual tab name in Organizr. For the hover title, replace</strong><code>TITLE-HERE</code>**or just remove it if you don't want the title attribute. If you don't want it to link to a tab simply remove the whole div.</p>
+<p>`<style>
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    background: transparent;
+    box-shadow: none !important;
+    transition: all .4s ease-in-out;
+    cursor: pointer
+}</p>
+<p>/* -------------------Small widget------------------- */
+.flex-child { padding: 3px; flex-grow: 1; flex-basis: 0;}</p>
+<h1 calc_100_="calc(100%);" calc_80px_="calc(80px);" height:="height:" id="grafanadwidget" position:="position:" relative_="relative;" width:="width:">grafanadwidget<a class="headerlink" href="#grafanadwidget" title="Permanent link">&para;</a></h1>
+<p>/* -------------------Small widget------------------- */</p>
+<p>/* -------------------Big widget------------------- */
+.flex-child-big { padding: 3px; flex-grow: 1; flex-basis: 0;}</p>
+<h1 calc_100_="calc(100%);" calc_250px_="calc(250px);" height:="height:" id="grafanadwidget-big" position:="position:" relative_="relative;" width:="width:">grafanadwidget-big<a class="headerlink" href="#grafanadwidget-big" title="Permanent link">&para;</a></h1>
+<p>/* -------------------Big widget------------------- */</p>
+<p>/* -------------------iFrame Link------------------- <em>/
+.iframe-link { z-index:1; position:absolute; height: calc(80px); width: calc(100%); background-color: transparent; cursor: pointer}
+/</em> -------------------iFrame Link------------------- */</p>
+<h1 _important_="!important;" background-color:transparent="background-color:transparent" id="announcementrow">announcementRow<a class="headerlink" href="#announcementrow" title="Permanent link">&para;</a></h1>
+<h1 id="announcementrowh4">announcementRow&gt;h4 {<a class="headerlink" href="#announcementrowh4" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><code><span class="nt">padding-left</span><span class="o">:</span> <span class="nt">15px</span><span class="o">;</span>
+<span class="nt">font-family</span><span class="o">:</span> <span class="nt">Rubik</span><span class="o">,</span><span class="nt">sans-serif</span><span class="o">;</span>
+<span class="nt">margin</span><span class="o">:</span> <span class="nt">10px</span> <span class="nt">0</span><span class="o">;</span>
+<span class="nt">font-weight</span><span class="o">:</span> <span class="nt">300</span> <span class="o">!</span><span class="nt">important</span><span class="o">;</span>
+<span class="nt">line-height</span><span class="o">:</span> <span class="nt">22px</span><span class="o">;</span>
+<span class="nt">font-size</span><span class="o">:</span> <span class="nt">18px</span><span class="o">;</span>
+<span class="nt">color</span><span class="o">:</span> <span class="p">#</span><span class="nn">dce2ec</span><span class="o">;</span>
+</code></pre></div>
+
+<p>}
+.overflowhider { height: 100%; overflow: hidden;}
+@media only screen and (max-width: 650px) {.flex-child-big {flex-basis: auto;min-width: auto !important;}}
+@media only screen and (max-width: 1125px) {.flex-child-big {flex-basis: auto;min-width: 600px;flex-basis: fit-content;}}
+@media only screen and (max-width: 1649px) {.flex-child {flex-basis: auto;}}
+</style></p>
+<!-- -------------------ADD TITLE HERE------------------- -->
+<div id="announcementRow" class="row"><h4 class="pull-left">
+    <span>Grafana</span></h4><hr class="hidden-xs"></div>
+
+<!-- -------------------SMALL WIDGET START------------------- -->
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;content-box flex&quot;</span><span class="nt">&gt;</span>
+<span class="c">&lt;!-- -------------------WIDGET------------------- --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;flex-child&quot;</span> <span class="na">id=</span><span class="s">&quot;flex-grafanadwidget&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;overflowhider&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;iframe-link&quot;</span> <span class="na">onclick=</span><span class="s">&quot;tabActions(event,&#39;TAB-NAME-HERE&#39;,1);&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">title=</span><span class="s">&quot;TITLE-HERE&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;iframe</span> <span class="na">class=</span><span class="s">&quot;iframe&quot;</span> <span class="na">id=</span><span class="s">&quot;grafanadwidget&quot;</span> 
+<span class="na">frameborder=</span><span class="s">&quot;0&quot;</span> <span class="na">src=</span><span class="s">&quot;ADD-URL-TO-GRAFANA-PANEL-HERE&quot;</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;/div&gt;</span>
+<span class="c">&lt;!-- -------------------WIDGET------------------- --&gt;</span> 
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;flex-child&quot;</span> <span class="na">id=</span><span class="s">&quot;flex-grafanadwidget&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;overflowhider&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;iframe-link&quot;</span> <span class="na">onclick=</span><span class="s">&quot;tabActions(event,&#39;TAB-NAME-HERE&#39;,1);&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">title=</span><span class="s">&quot;TITLE-HERE&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;iframe</span> <span class="na">class=</span><span class="s">&quot;iframe&quot;</span> <span class="na">id=</span><span class="s">&quot;grafanadwidget&quot;</span> 
+<span class="na">frameborder=</span><span class="s">&quot;0&quot;</span> <span class="na">src=</span><span class="s">&quot;ADD-URL-TO-GRAFANA-PANEL-HERE&quot;</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;/div&gt;</span>
+<span class="c">&lt;!-- -------------------WIDGET------------------- --&gt;</span>     
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;flex-child&quot;</span> <span class="na">id=</span><span class="s">&quot;flex-grafanadwidget&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;overflowhider&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;iframe-link&quot;</span> <span class="na">onclick=</span><span class="s">&quot;tabActions(event,&#39;TAB-NAME-HERE&#39;,1);&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">title=</span><span class="s">&quot;TITLE-HERE&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;iframe</span> <span class="na">class=</span><span class="s">&quot;iframe&quot;</span> <span class="na">id=</span><span class="s">&quot;grafanadwidget&quot;</span> 
+<span class="na">frameborder=</span><span class="s">&quot;0&quot;</span> <span class="na">src=</span><span class="s">&quot;ADD-URL-TO-GRAFANA-PANEL-HERE&quot;</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;/div&gt;</span>
+<span class="c">&lt;!-- -------------------WIDGET------------------- --&gt;</span> 
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;flex-child&quot;</span> <span class="na">id=</span><span class="s">&quot;flex-grafanadwidget&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;overflowhider&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;iframe-link&quot;</span> <span class="na">onclick=</span><span class="s">&quot;tabActions(event,&#39;TAB-NAME-HERE&#39;,1);&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">title=</span><span class="s">&quot;TITLE-HERE&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;iframe</span> <span class="na">class=</span><span class="s">&quot;iframe&quot;</span> <span class="na">id=</span><span class="s">&quot;grafanadwidget&quot;</span> 
+<span class="na">frameborder=</span><span class="s">&quot;0&quot;</span> <span class="na">src=</span><span class="s">&quot;ADD-URL-TO-GRAFANA-PANEL-HERE&quot;</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;/div&gt;</span>
+<span class="c">&lt;!-- -------------------WIDGET------------------- --&gt;</span>     
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;flex-child&quot;</span> <span class="na">id=</span><span class="s">&quot;flex-grafanadwidget&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;overflowhider&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;iframe-link&quot;</span> <span class="na">onclick=</span><span class="s">&quot;tabActions(event,&#39;TAB-NAME-HERE&#39;,1);&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">title=</span><span class="s">&quot;TITLE-HERE&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;iframe</span> <span class="na">class=</span><span class="s">&quot;iframe&quot;</span> <span class="na">id=</span><span class="s">&quot;grafanadwidget&quot;</span> 
+<span class="na">frameborder=</span><span class="s">&quot;0&quot;</span> <span class="na">src=</span><span class="s">&quot;ADD-URL-TO-GRAFANA-PANEL-HERE&quot;</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;/div&gt;</span>
+<span class="c">&lt;!-- -------------------WIDGET------------------- --&gt;</span>     
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;flex-child&quot;</span> <span class="na">id=</span><span class="s">&quot;flex-grafanadwidget&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;overflowhider&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;iframe-link&quot;</span> <span class="na">onclick=</span><span class="s">&quot;tabActions(event,&#39;TAB-NAME-HERE&#39;,1);&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">title=</span><span class="s">&quot;TITLE-HERE&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;iframe</span> <span class="na">class=</span><span class="s">&quot;flex&quot;</span> <span class="na">id=</span><span class="s">&quot;grafanadwidget&quot;</span> 
+<span class="na">frameborder=</span><span class="s">&quot;0&quot;</span> <span class="na">src=</span><span class="s">&quot;ADD-URL-TO-GRAFANA-PANEL-HERE&quot;</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+<span class="nt">&lt;/div&gt;&lt;/div&gt;</span>
+</code></pre></div>
+
+</div>
+<!-- -------------------SMALL WIDGET END------------------- -->
+
+<!-- -------------------BIG WIDGET START------------------- -->
+<div class="content-box flex">
+    <!-- -------------------BIG WIDGET------------------- -->        
+    <div class="flex-child-big" id="flex-grafanadwidget-big">
+    <div class="overflowhider">
+    <div class="iframe-link" onclick="tabActions(event,'TAB-NAME-HERE',1);" href="#" title="TITLE-HERE"></div>
+    <iframe class="flex" id="grafanadwidget-big" frameborder="0" 
+    frameborder="0" src="ADD-URL-TO-GRAFANA-PANEL-HERE"></iframe>
+    </div></div>
+    <!-- -------------------BIG WIDGET------------------- -->     
+    <div class="flex-child-big" id="flex-grafanadwidget-big">
+    <div class="overflowhider">
+    <div class="iframe-link" onclick="tabActions(event,'TAB-NAME-HERE',1);" href="#" title="TITLE-HERE"></div>
+    <iframe class="iframe" id="grafanadwidget-big" frameborder="0" 
+    frameborder="0" src="ADD-URL-TO-GRAFANA-PANEL-HERE"></iframe>
+    </div></div>
+    <!-- -------------------BIG WIDGET------------------- -->     
+    <div class="flex-child-big" id="flex-grafanadwidget-big">
+    <div class="overflowhider">
+    <div class="iframe-link" onclick="tabActions(event,'TAB-NAME-HERE',1);" href="#" title="TITLE-HERE"></div>
+    <iframe class="iframe" id="grafanadwidget-big" frameborder="0" 
+    frameborder="0" src="ADD-URL-TO-GRAFANA-PANEL-HERE"></iframe>
+    </div></div>   
+</div>
+<!-- -------------------BIG WIDGET END------------------- -->
+<p>` </p>
+<h4 id="custom-css">Custom CSS<a class="headerlink" href="#custom-css" title="Permanent link">&para;</a></h4>
+<p>For the widgets to match the Organizr theme you need to use custom CSS.<br />
+You can do that by checking out my themes here.</p>
+<h4 id="httpsgithubcomgilbnthemeparkblobmasterreadmemdgrafana-themes"><a href="https://github.com/gilbN/theme.park/blob/master/README.md#grafana-themes">https://github.com/gilbN/theme.park/blob/master/README.md#grafana-themes</a><a class="headerlink" href="#httpsgithubcomgilbnthemeparkblobmasterreadmemdgrafana-themes" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="images/grafana.gif" /></p>
+<p>As Grafana doesn't support custom CSS you will need to use subfilter with nginx.</p>
+<p>Add this in you reverse proxy of Grafana:</p>
+<div class="highlight"><pre><span></span><code>proxy_set_header Accept-Encoding &quot;&quot;;
+sub_filter
+&#39;&lt;/head&gt;&#39;
+&#39;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://gilbn.github.io/theme.park/CSS/themes/grafana/dark.css&quot;&gt;
+&lt;/head&gt;&#39;;
+sub_filter_once on;
+</code></pre></div>
+<blockquote>
+<p>For the plex/aquamarine/hotline themes you can use the <strong><code>graforg-dashboard.css</code></strong> instead.</p>
+</blockquote>
+<p>For panel integration on the Organizr homepage you can use<code>organizr-dashboard.css</code> if you use any of the custom themes. The theme is an "internal" theme that is meant to be used in an Organizr iframe as the background is set to transparent.</p>
+<p><strong>NOTE:</strong> When viewing Grafana in Organizr iframe using<code>organizr-dashboard.css</code>it will follow the Organizr theme. When viewing it outside of Organizr iframe the background will be white ect. If you don't want this you can create two reverse proxies. One for grafana organizr homepage integration and one for the regular grafana theme.</p>
+<h3 id="custom-buttons">Custom buttons<a class="headerlink" href="#custom-buttons" title="Permanent link">&para;</a></h3>
+<p><img alt="Netflix Theme" src="images/orgv2_custom_button_netflix.png" /></p>
+<p>Custom buttons is very easy to add. Just choose your flavor from the organizrTools repo and you're pretty much done!<br />
+You can have buttons that link directly to tabs or buttons that uses Organizr built in functions like speed test or the request content function.</p>
+<p><img alt="Image" src="https://camo.githubusercontent.com/2d45842482923589dd0571e89c732cf84ddaae47/68747470733a2f2f692e696d6775722e636f6d2f6e3938716136622e706e67" /></p>
+<p>You can even link to tabs through html links.</p>
+<div class="highlight"><pre><span></span><code>&lt;a onclick=&quot;tabActions(event,&#39;TAB NAME&#39;,1);&quot; href=&quot;#&quot;&gt;CUSTOM LINK TEXT&lt;/a&gt;
+</code></pre></div>
+<p><a href="https://github.com/organizrTools/orgv2">https://github.com/organizrTools/orgv2</a>_custom_buttons</p>
+<p>I chose to edit the css a bit:</p>
+<p><a href="https://i.imgur.com/tPh3ny9.png"><img alt="" src="images/tPh3ny9.png" /></a></p>
+<div class="highlight"><pre><span></span><code>.cbutton {
+    border-radius: 3px;
+    border: 4px solid;
+    border-color: #e5a00d;
+    padding: 0px;
+    width: auto;
+    height: auto;
+    background-color: #e5a00d;
+    position: relative;
+    text-align: center;
+}
+</code></pre></div>
+<h3 id="monitorr"><a href="https://github.com/Monitorr/Monitorr">Monitorr</a><a class="headerlink" href="#monitorr" title="Permanent link">&para;</a></h3>
+<p><a href="https://i.imgur.com/SaFa9YJ.png"><img alt="" src="images/SaFa9YJ.png" /></a></p>
+<p>Monitorr is a live display over the status of any webapp or service. And with some custom CSS we can have it match the Organizr-theme much better than the original.</p>
+<p>By using my <code>**dark.css**</code> theme from my <a href="https://github.com/gilbN/theme.park/blob/master/README.md#monitorr-themes">theme.park</a> repo you get a theme that blends with Organizr and it will compress the tiles a little so you can have more services on display.</p>
+<p>If you use a custom theme with organizr I reccoment the <code>organizr-dashboard.css</code><br />
+This theme will mess with your Monitorr base theme. And it will hide the settings button. Go to /monitorr/settings.php for settings.<br />
+It is created purely for use with "minimum" version of the index.php <code>https://domain.com/monitorr/index.min.php</code>for Organizr homepage integration.</p>
+<p><strong>NOTE:</strong> When viewing monitorr in an Organizr iframe using <code>organizr-dashboard.css</code> it will follow the Organizr theme as the background is transparent. When viewing it outside of Organizr iframe the background will be white ect. If you don't want this you can create two reverse proxies. One for monitorr organizr homepage integration and one for the other monitorr themes. And use subfilter on both instead of adding <code>@import "https://gilbn.github.io/theme.park/CSS/themes/organizr-dashboard.css";</code> in the monitorr custom css.</p>
+<h4 id="adding-the-theme-with-nginx">Adding the theme with Nginx.<a class="headerlink" href="#adding-the-theme-with-nginx" title="Permanent link">&para;</a></h4>
+<p>Add this to your Montorr minimized reverse proxy:</p>
+<div class="highlight"><pre><span></span><code>proxy_set_header Accept-Encoding &quot;&quot;;
+sub_filter
+&#39;&lt;/head&gt;&#39;
+&#39;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://gilbn.github.io/theme.park/CSS/themes/monitorr/organizr-dashboard.css&quot;&gt;
+&lt;/head&gt;&#39;;
+sub_filter_once on;
+</code></pre></div>
+<p>And the**<code>dark/aquamarine/hotline.css</code>** on your main Monitorr reverse proxy.</p>
+<p>Adding it to Organizr is as simple as pasting this in custom HTML and changing the domain.</p>
+<div class="highlight"><pre><span></span><code>&lt;div id=&quot;announcementRow&quot; class=&quot;row&quot;&gt;&lt;h4 class=&quot;pull-left&quot;&gt;&lt;span&gt;Monitorr&lt;/span&gt;&lt;/h4&gt;&lt;hr class=&quot;hidden-xs&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;overflow:hidden; height:260px; -webkit-overflow-scrolling: touch; overflow-y: scroll;&quot;&gt;
+&lt;iframe class=&quot;iframe&quot; frameborder=&quot;0&quot; src=&quot;https://monitorr.domain.com/index.min.php&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</code></pre></div>
+<p>It's the**<code>/index.min.php</code>** that will display the minimized version.</p>
+<p>If you want to hide the scroll bar you can change the div style to <code>&lt;div style="overflow:hidden; height:260px"&gt;</code> (FYI This will disable scrolling)</p>
+<p>Or you can do <code>&lt;div style="overflow:hidden; height:260px; width: calc(100% + 42px); -webkit-overflow-scrolling: touch; overflow-y: scroll;"&gt;</code> if you use Firefox or <code>&lt;div style="overflow:hidden; height:260px; width: calc(100% + 36px); -webkit-overflow-scrolling: touch; overflow-y: scroll;"&gt;</code> if you use Chrome.</p>
+<h3 id="custom-title">Custom title<a class="headerlink" href="#custom-title" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="images/mxjXyqS.png" /></p>
+<p>If you want to add a custom title to your different customizations you can simply add this line above it and replace the**<code>YOUR-CUSTOM-TITLE</code>**text with what you want.</p>
+<div class="highlight"><pre><span></span><code>&lt;div id=&quot;announcementRow&quot; class=&quot;row&quot;&gt;&lt;h4 class=&quot;pull-left&quot;&gt;&lt;span&gt;YOUR-CUSTOM-TITLE&lt;/span&gt;&lt;/h4&gt;&lt;hr class=&quot;hidden-xs&quot;&gt;&lt;/div&gt;
+</code></pre></div>
+<p>If you have any other awesome homepage customization please let me know in the comments!</p>
+<p>Edit: Thank you CauseFX for the iFrame fix!❤️</p>
+<h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server!<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>
+<h4 id="_1"><a href="https://discord.gg/HSPa4cz"><img alt="" src="https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&amp;logo=discord" title="Geoip2Influx!" /></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2021</span>
+      
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../spice-up-your-homepage/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Spice up your homepage!" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Spice up your homepage!
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../how-to-setup-a-ghost-site-with-letsencrypt-and-mariadb-on-unraid/" class="md-footer__link md-footer__link--next" aria-label="Next: How to setup a Ghost blog on Unraid" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              How to setup a Ghost blog on Unraid
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://docs.theme-park.dev/donate" target="_blank" rel="noopener" title="Donate" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://docs.theme-park.dev/discord" target="_blank" rel="noopener" title="Discord" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541zM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://github.com/users/GilbN/packages/container/package/theme.park" target="_blank" rel="noopener" title="Docker" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://github.com/gilbn" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.649a939e.min.js"></script>
+      
+    
+  </body>
+</html>

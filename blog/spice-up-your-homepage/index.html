@@ -1,0 +1,1921 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A blog about selfhosting, unRAID and Linux ISOs">
+      
+      
+        <meta name="author" content="GilbN">
+      
+      
+        <link rel="canonical" href="https://docs.theme-park.dev/blog/spice-up-your-homepage/">
+      
+      <link rel="icon" href="../../site_assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.2">
+    
+    
+      
+        <title>Spice up your homepage! - technicalramblings.com</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7951f6f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#spice-up-your-homepage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://technicalramblings.com" title="technicalramblings.com" class="md-header__button md-logo" aria-label="technicalramblings.com" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            technicalramblings.com
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Spice up your homepage!
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="light-green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/GilbN/technicalramblings.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    technicalramblings.com
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../my-unraid-server/" class="md-tabs__link md-tabs__link--active">
+        Blog
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/about" class="md-tabs__link">
+      About
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/discord" class="md-tabs__link">
+      Support
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/donate" class="md-tabs__link">
+      Donate
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://technicalramblings.com" title="technicalramblings.com" class="md-nav__button md-logo" aria-label="technicalramblings.com" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    technicalramblings.com
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/GilbN/technicalramblings.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    technicalramblings.com
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Blog
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blog" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Blog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" data-md-state="indeterminate" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Blog
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blog" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Blog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../my-unraid-server/" class="md-nav__link">
+        My unRAID Server
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" data-md-state="indeterminate" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Backend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Backend" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Backend
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualizing-nginx-geo-data-metrics-with-python-influxdb-and-grafana/" class="md-nav__link">
+        Visualizing Nginx geo data metrics  with Python, InfluxDB and Grafana
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-route-different-metrics-in-telegraf-to-different-influx-databases/" class="md-nav__link">
+        How to route metrics in Telegraf to different Influx databases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-telegraf-edition/" class="md-nav__link">
+        Monitoring your UPS stats and cost with InfluxDB and Grafana on Unraid - Telegraf Edition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-nut-edition/" class="md-nav__link">
+        Monitoring your UPS stats and cost with InfluxDB and Grafana on Unraid - NUT Edition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-2019-edition/" class="md-nav__link">
+        Monitoring your UPS stats and cost with InfluxDB and Grafana on Unraid - Apcupsd Container Edition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-setup-grafana-influxdb-and-telegraf-to-monitor-your-unraid-system/" class="md-nav__link">
+        How to setup Grafana, InfluxDB and Telegraf to monitor your unRAID system
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migrating-view-history-between-two-plex-servers-avoiding-negative-unwatched-count/" class="md-nav__link">
+        Migrating/Merging View History between two Plex Servers - Avoiding Negative Unwatched Count
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-setup-a-cloudflare-worker-to-show-a-maintenance-page-when-ca-backup-plugin-is-running/" class="md-nav__link">
+        How to setup a Cloudflare worker to show a maintenance page when the CA Backup plugin is running on Unraid
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimizing-php-fpm-to-get-faster-load-times-of-tabs-in-organizr/" class="md-nav__link">
+        Optimizing PHP-FPM to get faster load times of tabs in Organizr
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../remotely-accessing-the-unraid-gui-with-guacamole-and-vnc-web-browser/" class="md-nav__link">
+        Remotely accessing the Unraid GUI with Guacamole and VNC Web Browser
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Frontend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Frontend" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Frontend
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-add-dark-mode-to-any-app-with-this-one-simple-trick/" class="md-nav__link">
+        How to add dark mode to any app with this one simple trick!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-add-a-custom-login-page-for-unraid/" class="md-nav__link">
+        How to add a custom login page for Unraid!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Spice up your homepage!
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Spice up your homepage!
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#netdata" class="md-nav__link">
+    Netdata
+  </a>
+  
+    <nav class="md-nav" aria-label="Netdata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparation" class="md-nav__link">
+    Preparation
+  </a>
+  
+    <nav class="md-nav" aria-label="Preparation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editing-the-files" class="md-nav__link">
+    Editing the files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-themepark-theme" class="md-nav__link">
+    Using the theme.park theme
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the theme.park theme">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-html" class="md-nav__link">
+    Creating the HTML
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating the HTML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-html-for-total-cpu-utilization-and-disk-io" class="md-nav__link">
+    Custom HTML for total CPU utilization and Disk I/O
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    Nginx
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-it-to-your-organizr-homepage" class="md-nav__link">
+    Adding it to your Organizr homepage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-colors" class="md-nav__link">
+    Customizing colors
+  </a>
+  
+    <nav class="md-nav" aria-label="Customizing colors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bootstrap-slate-flat-337css" class="md-nav__link">
+    bootstrap-slate-flat-3.3.7.css
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboardslatecss" class="md-nav__link">
+    dashboard.slate.css
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customhtml" class="md-nav__link">
+    custom.html
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboardjs" class="md-nav__link">
+    dashboard.js
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blur-theme" class="md-nav__link">
+    Blur theme
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discord-widgetbot" class="md-nav__link">
+    Discord Widgetbot
+  </a>
+  
+    <nav class="md-nav" aria-label="Discord Widgetbot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizr-html-config" class="md-nav__link">
+    Organizr html config
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-chat-with-tawkto" class="md-nav__link">
+    Custom chat with Tawk.to
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-html-for-system-overview" class="md-nav__link">
+    Bonus HTML for system overview
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spice-up-your-homepage-part-ii/" class="md-nav__link">
+        Spice up your homepage Part II
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-setup-a-ghost-site-with-letsencrypt-and-mariadb-on-unraid/" class="md-nav__link">
+        How to setup a Ghost blog on Unraid
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" data-md-state="indeterminate" type="checkbox" id="__nav_2_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Security" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blocking-countries-with-geolite2-using-the-letsencrypt-docker-container/" class="md-nav__link">
+        Blocking countries with GeoLite2 in nginx using the swag docker container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-add-email-notifications-to-fail2ban/" class="md-nav__link">
+        How to add email notifications to Fail2ban
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blocking-ssh-connections-with-the-geolite2-database/" class="md-nav__link">
+        Blocking SSH Connections with the GeoLite2 Database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adding-ban-unban-notifications-from-fail2ban-to-discord/" class="md-nav__link">
+        Adding ban/unban notifications from Fail2Ban to Discord!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adding-ban-unban-notifications-from-fail2ban-with-pushover/" class="md-nav__link">
+        Adding ban/unban notifications from Fail2Ban to Pushover!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redirecting-visitors-to-a-403-forbidden-page-when-accessing-the-wordpress-admin-page/" class="md-nav__link">
+        Redirecting visitors to a 403 forbidden page when accessing the WordPress admin page
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../howto-setup-gitlab-to-use-rack-attack-to-ban-abusive-ips/" class="md-nav__link">
+        How to setup GitLab to use Rack Attack and ban abusive IPs and rate limit requests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudflare-fail2ban-integration-with-automated-set_real_ip_from-in-nginx/" class="md-nav__link">
+        How to setup Cloudflare and fail2ban with automated “set_real_ip_from” in nginx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/about" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/discord" class="md-nav__link">
+        Support
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/donate" class="md-nav__link">
+        Donate
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#netdata" class="md-nav__link">
+    Netdata
+  </a>
+  
+    <nav class="md-nav" aria-label="Netdata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparation" class="md-nav__link">
+    Preparation
+  </a>
+  
+    <nav class="md-nav" aria-label="Preparation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editing-the-files" class="md-nav__link">
+    Editing the files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-themepark-theme" class="md-nav__link">
+    Using the theme.park theme
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the theme.park theme">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-html" class="md-nav__link">
+    Creating the HTML
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating the HTML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-html-for-total-cpu-utilization-and-disk-io" class="md-nav__link">
+    Custom HTML for total CPU utilization and Disk I/O
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    Nginx
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-it-to-your-organizr-homepage" class="md-nav__link">
+    Adding it to your Organizr homepage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizing-colors" class="md-nav__link">
+    Customizing colors
+  </a>
+  
+    <nav class="md-nav" aria-label="Customizing colors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bootstrap-slate-flat-337css" class="md-nav__link">
+    bootstrap-slate-flat-3.3.7.css
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboardslatecss" class="md-nav__link">
+    dashboard.slate.css
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customhtml" class="md-nav__link">
+    custom.html
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboardjs" class="md-nav__link">
+    dashboard.js
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blur-theme" class="md-nav__link">
+    Blur theme
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discord-widgetbot" class="md-nav__link">
+    Discord Widgetbot
+  </a>
+  
+    <nav class="md-nav" aria-label="Discord Widgetbot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizr-html-config" class="md-nav__link">
+    Organizr html config
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-chat-with-tawkto" class="md-nav__link">
+    Custom chat with Tawk.to
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-html-for-system-overview" class="md-nav__link">
+    Bonus HTML for system overview
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/GilbN/technicalramblings.com/edit/master/docs/blog/spice-up-your-homepage/index.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="spice-up-your-homepage">Spice up your homepage!<a class="headerlink" href="#spice-up-your-homepage" title="Permanent link">&para;</a></h1>
+<p><img src="images/blurweb.jpg"></img></p>
+<p>Spice up your homepage! A HowTo on custom Netdata pages, embedding Discord and adding customer support chat!</p>
+<p>I'm going to integrate these applications into my Organizr homepage but this will pretty much work on any site of your choosing.</p>
+<h2 id="netdata">Netdata<a class="headerlink" href="#netdata" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="images/2017-09-27_22-50-07.gif" title="Netdata gif" /></p>
+<p>First I'd recommend you to check out the Netdata wiki on<a href="https://github.com/firehol/netdata/wiki/Custom-Dashboards">custom dashboards</a>as it explains**alot**.</p>
+<h3 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Note: This guide assumes you have already reverse proxied netdata.</p>
+</blockquote>
+<p>Before we can start we need some files from the Netdata /web folder. And since I'm using the docker I will have to get them using cli.</p>
+<p>The files we need are:</p>
+<div class="highlight"><pre><span></span><code>dashboard.js
+bootstrap-slate-flat-3.3.7.css or bootstrap-3.3.7.css
+dashboard.slate.css or dashboard.css
+</code></pre></div>
+<p>I will be using using the slate (dark) theme for this guide.</p>
+<blockquote>
+<p>Note-2: I've made it so that if you don't want to mess with the js or css files, you can use my Netdata theme and subfilter that with nginx. Scroll down to the <a href="https://github.com/gilbN/theme.park"><strong>theme.park</strong></a> part!</p>
+</blockquote>
+<p>The CSS files are located in the <strong>/css</strong> folder and the JS file is in the /web folder.</p>
+<ol>
+<li>Open a terminal and exec into the docker container with this command:<strong><code>docker exec -it Netdata bash</code></strong> Goto this location:<strong><code>cd usr/share/netdata/web/</code></strong></li>
+<li>Copy the files to your appdata config path: (Host path 1) <strong><code>cp dashboard.js dashboard.slate.css /etc/netdata/override</code></strong></li>
+<li>Change directory with the cd command<code>cd css/</code>Copy the bootstrap.css file. <strong><code>cp bootstrap-slate-flat-3.3.7.css /etc/netdata/override</code></strong></li>
+</ol>
+<p>Tip: Use the**<code>ls</code>**command to list all files in a specific directory.</p>
+<h4 id="editing-the-files">Editing the files<a class="headerlink" href="#editing-the-files" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Copy the files to a new <strong>subdirectory</strong> in your <strong>nginx root folder</strong> (e.g appdata/letsencrypt/www/customnetdata)</li>
+<li>Create a new folder called css (e.g customnetdata/css)</li>
+</ol>
+<p>Copy bootstrap-slate-flat-3.3.7.css and dashboard.slate.css to the css folder I'm using the dark theme (slate) css but using the regular works just fine. Just remember to edit the your custom html to use the white theme.</p>
+<ol>
+<li>In the dashboard.js file, scroll down to**<code>NETDATA.themes</code>**and change it so it points to the files you have added in the css folder. Add css/</li>
+</ol>
+<p>Before</p>
+<div class="highlight"><pre><span></span><code>slate: {
+bootstrap_css: NETDATA.serverDefault + &#39;css/bootstrap-slate-flat-3.3.7.css?v20161229-1&#39;,
+dashboard_css: NETDATA.serverDefault + &#39;dashboard.slate.css?v20170725-1&#39;,
+</code></pre></div>
+<p>After</p>
+<div class="highlight"><pre><span></span><code>slate: {
+bootstrap_css: &#39;css/bootstrap-slate-flat-3.3.7.css?v20161229-1&#39;,
+dashboard_css: &#39;css/dashboard.slate.css?v20170725-1&#39;,
+</code></pre></div>
+<h3 id="using-the-themepark-theme">Using the <strong><a href="https://github.com/gilbN/theme.park">theme.park</a></strong> theme<a class="headerlink" href="#using-the-themepark-theme" title="Permanent link">&para;</a></h3>
+<p>If you don't want to edit css or js files you can instead only copy the <strong>html</strong> code at the bottom and the make the necessary modifications to that file. In the html code, scroll down to this line:</p>
+<div class="highlight"><pre><span></span><code>&lt;script type=&quot;text/javascript&quot; src=&quot;dashboard.js&quot;&gt;&lt;/script&gt;
+</code></pre></div>
+<p>And add your Netdata domain, like so:</p>
+<div class="highlight"><pre><span></span><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://YOUR-DOMAIN.COM/netdata/dashboard.js&quot;&gt;&lt;/script&gt;
+</code></pre></div>
+<p>By doing this you can instead <a href="http://nginx.org/en/docs/http/ngx_http_sub_module.html">subfilter</a> the CSS changes using nginx and my <a href="https://github.com/gilbN/theme.park">theme repository on github!</a> (read more at the <strong>nginx part</strong>) After that follow along the rest of the HTML instructions below.</p>
+<p><strong>NOTE:</strong> If you get an error thatlib/jquery-2.2.4.min.js cant be found you can try and edit line [136] in dashboard.js that says<code>**NETDATA.serverStatic =** **NETDATA.serverDefault;**</code>to**<code>NETDATA.serverStatic = "https://yourdomain.com/netdata/";</code>**</p>
+<h4 id="creating-the-html">Creating the HTML<a class="headerlink" href="#creating-the-html" title="Permanent link">&para;</a></h4>
+<p>Create your custom HTML. You can use the one I have added below and work off that. In this guide I have named it**<code>custom.html</code>**</p>
+<p>In my example I have added a total CPU utilization dygraph and a disk I/O read-write dygraph. If you want a diffrent graph type change the**<code>data-chart-library</code>**See the<a href="https://github.com/firehol/netdata/wiki/Custom-Dashboards">Netdata wiki</a></p>
+<p>To make it work externally you need to add your external Netdata address in the html! <strong>(Netdata needs to be reverse proxied)</strong> If you add your local ip address you will get an error when trying to load it through HTTPS.</p>
+<div class="highlight"><pre><span></span><code>// Set the default netdata server.
+// on charts without a &#39;data-host&#39;, this one will be used.
+// the default is the server that dashboard.js is downloaded from.
+
+var netdataServer = &#39;https://YOURNETDATADOMAIN.COM/&#39;;
+</code></pre></div>
+<p>e.g**<code>https://yourdomain.com/netdata/</code>**</p>
+<blockquote>
+<p>Note: The trailing slash onhttps://domain.com/netdata**/** is very important. If you dont add it you will get Strict MIME errors in your browser console, and it won't load properly.</p>
+</blockquote>
+<h5 id="custom-html-for-total-cpu-utilization-and-disk-io">Custom HTML for total CPU utilization and Disk I/O<a class="headerlink" href="#custom-html-for-total-cpu-utilization-and-disk-io" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
+&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black-translucent&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;
+&lt;ul&gt;
+&lt;/ul&gt;
+&lt;div style=&quot;width: 100%; display: inline-block;&quot;&gt;
+&lt;div data-netdata=&quot;system.cpu&quot;
+data-chart-library=&quot;dygraph&quot;
+data-width=&quot;100%&quot;
+data-height=&quot;140&quot;
+data-after=&quot;-300&quot;
+data-dt-element-name=&quot;time203&quot;
+&gt;&lt;/div&gt; 
+&lt;div style=&quot;width: 100%; display: inline-block;&quot;&gt;
+&lt;div data-netdata=&quot;system.io&quot;
+data-chart-library=&quot;dygraph&quot;
+data-width=&quot;100%&quot;
+data-height=&quot;120&quot;
+data-after=&quot;-300&quot;
+data-dt-element-name=&quot;time203&quot;
+data-colors=&quot;#FF5555 #44c442&quot;
+&gt;&lt;/div&gt; 
+&lt;/center&gt; 
+&lt;/body&gt;
+
+&lt;script&gt;
+// this section has to appear before loading dashboard.js
+
+// Select a theme.
+// uncomment on of the two themes:
+
+// var netdataTheme = &#39;default&#39;; // this is white
+var netdataTheme = &#39;slate&#39;; // this is dark
+
+// Set the default netdata server.
+// on charts without a &#39;data-host&#39;, this one will be used.
+// the default is the server that dashboard.js is downloaded from.
+
+var netdataServer = &#39;https://YOURNETDATADOMAIN.COM/&#39;;
+&lt;/script&gt;
+
+&lt;!-- &lt;script type=&quot;text/javascript&quot; src=&quot;/dashboard.js&quot;&gt;&lt;/script&gt; --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;dashboard.js?v20170724-7&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+// Set options for TV operation
+// This has to be done, after dashboard.js is loaded
+
+// destroy charts not shown (lowers memory on the browser)
+// NETDATA.options.current.destroy_on_hide = false;
+
+// set this to false, to always show all dimensions
+//NETDATA.options.current.eliminate_zero_dimensions = true;
+
+// lower the pressure on this browser
+NETDATA.options.current.concurrent_refreshes = false;
+
+// if the tv browser is too slow (a pi?)
+// set this to false
+//NETDATA.options.current.parallel_refresher = true;
+
+// always update the charts, even if focus is lost
+
+NETDATA.options.current.stop_updates_when_focus_is_lost = false;
+
+// Since you may render charts from many servers and any of them may
+// become offline for some time, the charts will break.
+// This will reload the page every RELOAD_EVERY minutes
+
+var RELOAD_EVERY = 1;
+setTimeout(function(){
+location.reload();
+}, RELOAD_EVERY * 60 * 1000);
+
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre></div>
+<h3 id="nginx">Nginx<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h3>
+<p>In your nginx config you can add this in your main server block to create a sub-directory.</p>
+<div class="highlight"><pre><span></span><code># CUSTOM NETDATA
+location /customnetdata {
+#auth_request /auth-user;
+root /config/www/;
+index custom.html;
+}
+</code></pre></div>
+<p>Below is the location block you need to use for the <strong><a href="https://github.com/gilbN/theme.park">theme.park</a></strong> theme.</p>
+<div class="highlight"><pre><span></span><code># CUSTOM NETDATA USING THEME.PARK CSS
+location /customnetdata {
+#auth_request /auth-user;
+root /config/www/;
+index custom.html;
+proxy_set_header Accept-Encoding &quot;&quot;;
+sub_filter
+&#39;&lt;/head&gt;&#39;
+&#39;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://gilbn.github.io/theme.park/CSS/themes/netdata/organizr-dashboard.css&quot;&gt;  
+&lt;/head&gt;&#39;;
+sub_filter_once on; 
+}
+</code></pre></div>
+<p>By using **<code>https://gilbn.github.io/theme.park/CSS/themes/netdata/organizr-dashboard.css</code>**it will match any theme Organizr is using as the background is transparent.</p>
+<h3 id="adding-it-to-your-organizr-homepage">Adding it to your Organizr homepage<a class="headerlink" href="#adding-it-to-your-organizr-homepage" title="Permanent link">&para;</a></h3>
+<p>Adding it to your Org homepage is quite simple. Just add the code below and edit it to match your domain.</p>
+<p>Go to Settings &rarr; Edit Homepage &rarr; Custom HTML</p>
+<p>If you have added more graphs you'll need to change the height.</p>
+<div class="highlight"><pre><span></span><code>&lt;div style=&quot;overflow:hidden;height:282px;width:100%;position: relative;&quot;&gt; 
+&lt;embed style=&quot;height:calc(100%);width:calc(100%)&quot; src=&#39;https://yourdomain.com/customnetdata/custom.html&#39; /&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;/ul&gt;
+</code></pre></div>
+<h3 id="customizing-colors">Customizing colors<a class="headerlink" href="#customizing-colors" title="Permanent link">&para;</a></h3>
+<p><em>- For the blur theme, scroll down</em></p>
+<h5 id="bootstrap-slate-flat-337css">bootstrap-slate-flat-3.3.7.css<a class="headerlink" href="#bootstrap-slate-flat-337css" title="Permanent link">&para;</a></h5>
+<p>Set the background-color to what you want. I set it to transparent so if I change my Org theme it will follow that.</p>
+<div class="highlight"><pre><span></span><code>body {
+font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.42857143;
+color: #c8c8c8;
+background-color: transparent;
+}
+</code></pre></div>
+<h5 id="dashboardslatecss">dashboard.slate.css<a class="headerlink" href="#dashboardslatecss" title="Permanent link">&para;</a></h5>
+<p>Next is changing the**<code>.netdata-legend-value</code>**The background-color is the legend percent bacground color.</p>
+<div class="highlight"><pre><span></span><code>.netdata-legend-value {
+/*margin-left: 14px;*/
+position: absolute;
+right: 10px;
+float: right;
+text-align: right;
+font-size: 11px; /* legend: dimension value size */
+font-weight: bold;
+vertical-align: bottom;
+background-color: transparent;
+margin-top: 0px;
+z-index: 10;
+padding: 0px;
+padding-left: 15px;
+cursor: pointer;
+/* -webkit-font-smoothing: none; */
+}
+</code></pre></div>
+<p><strong><code>background-color: transparent;</code></strong></p>
+<p>**<code>color: #E5A00D;</code>**I chose orange to match my Organizr theme.</p>
+<div class="highlight"><pre><span></span><code>.netdata-legend-resize-handler {
+display: block;
+position: absolute;
+bottom: 0px;
+right: 0px;
+height: 15px;
+width: 30px;
+background-color: transparent;
+font-size: 12px;
+vertical-align: middle;
+line-height: 15px;
+cursor: ns-resize;
+color: #E5A00D;
+text-align: center;
+overflow: hidden;
+z-index: 20;
+padding: 0px;
+margin: 0px;
+}
+</code></pre></div>
+<p>It's the same for the legend tool box, set it to transparent or what ever you like.</p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2017/10/chart-tool-box-buttons.png"><img alt="" src="images/chart-tool-box-buttons.png" title="Netdata toolbox" /></a></p>
+<div class="highlight"><pre><span></span><code>.netdata-legend-toolbox {
+display: block;
+position: absolute;
+bottom: 0px;
+right: 30px;
+height: 15px;
+width: 110px;
+background-color: transparent;
+font-size: 12px;
+vertical-align: middle;
+line-height: 15px;
+color: #E5A00D;
+text-align: center;
+overflow: hidden;
+z-index: 20;
+padding: 0px;
+margin: 0px;
+}
+</code></pre></div>
+<p>Repeat the steps. Set the background to transparent or what ever you like. Set<code>color</code>to the color you want the buttons to be.</p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2017/10/chart-resize-buttons.png"><img alt="" src="images/chart-resize-buttons.png" title="Netdata toolbox" /></a></p>
+<div class="highlight"><pre><span></span><code>.netdata-legend-toolbox-button {
+display: inline-block;
+position: relative;
+height: 15px;
+width: 18px;
+background-color: transparent;
+font-size: 12px;
+vertical-align: middle;
+line-height: 15px;
+color: #E5A00D;
+text-align: center;
+overflow: hidden;
+z-index: 21;
+padding: 0px;
+margin: 0px;
+cursor: pointer;
+}
+</code></pre></div>
+<p>To edit the text color change the html,body</p>
+<p>This will**not**change the graph text color</p>
+<div class="highlight"><pre><span></span><code>html,
+body {
+/*font-family: Calibri,&quot;Segoe UI&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;*/
+font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+font-style: normal;
+font-variant: normal;
+color: #E5A00D;
+}
+</code></pre></div>
+<p>The graph text color is changed with</p>
+<div class="highlight"><pre><span></span><code>.dygraph-axis-label {
+color: #6c7075;
+}
+</code></pre></div>
+<h5 id="customhtml">custom.html<a class="headerlink" href="#customhtml" title="Permanent link">&para;</a></h5>
+<p>Changing the data chart colors is done in the custom HTML.</p>
+<div class="highlight"><pre><span></span><code>&lt;div data-netdata=&quot;unique.id&quot;
+data-colors=&quot;#AABBCC #DDEEFF ...&quot;
+&gt;&lt;/div&gt;
+</code></pre></div>
+<h5 id="dashboardjs">dashboard.js<a class="headerlink" href="#dashboardjs" title="Permanent link">&para;</a></h5>
+<p>If you want to change the grid and axis color you can do that in the NETDATA.themes section in the dashboard.js file.</p>
+<div class="highlight"><pre><span></span><code>grid: &#39;#283236&#39;,
+axis: &#39;#283236&#39;,
+</code></pre></div>
+<h3 id="blur-theme">Blur theme<a class="headerlink" href="#blur-theme" title="Permanent link">&para;</a></h3>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2017/10/blurweb-1.jpg"><img alt="" src="images/blurweb-1-1024x521.jpg" title="Netdata Blur theme" /></a></p>
+<p>If you want to make your custom Netdata html match the<a href="https://github.com/leram84/layer.Cake/">layer#Cake blur-theme</a>you can do this:</p>
+<p>In**<code>dashboard.slate.css</code>**change this:</p>
+<p>Change the body text color to #FFFFFF</p>
+<div class="highlight"><pre><span></span><code>html,
+body {
+/*font-family: Calibri,&quot;Segoe UI&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;*/
+font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+font-style: normal;
+font-variant: normal;
+color: #FFFFFF;
+}
+</code></pre></div>
+<p>And set the other color options in the examples above to**<code>(0, 0%, 100%, .45)</code>**</p>
+<p>For the grid and axis color set it to transparent in**<code>dashboard.js</code>**</p>
+<div class="highlight"><pre><span></span><code>grid: &#39;transparent&#39;,
+axis: &#39;transparent&#39;,
+</code></pre></div>
+<p>In the**<code>bootstrap-slate-flat-3.3.7.css</code>** Set the background color of the graph body to**<code>rgba(0, 0, 0, .15);</code>**</p>
+<div class="highlight"><pre><span></span><code>body {
+font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.42857143;
+color: #c8c8c8;
+background-color: rgba(0, 0, 0, .15);
+}
+</code></pre></div>
+<hr />
+<h2 id="discord-widgetbot">Discord Widgetbot<a class="headerlink" href="#discord-widgetbot" title="Permanent link">&para;</a></h2>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2017/10/chrome_2017-10-19_22-09-55.png"><img alt="" src="images/chrome_2017-10-19_22-09-55-1024x301.png" title="Discord WidgetBot" /></a></p>
+<p>First you'll need to create your own Discord Server. After you've done that head over to<a href="https://widgetbot.voakie.com/">https://widgetbot.voakie.com/</a>an sign in with your Discord credentials.</p>
+<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Connect the WidgetBot with your user and choose your server in the "Configurator"</li>
+<li>Selct the channel you want to embed.</li>
+<li>If you want to change the colors of the widget you need to sign up to the patreon here:<a href="https://www.patreon.com/widgetbot">https://www.patreon.com/widgetbot</a></li>
+</ol>
+<h3 id="organizr-html-config">Organizr html config<a class="headerlink" href="#organizr-html-config" title="Permanent link">&para;</a></h3>
+<p>Add this in the homepage HTML and edit the values to your liking.</p>
+<div class="highlight"><pre><span></span><code>&lt;div style=&quot;overflow:hidden;height:300px&quot;&gt; 
+&lt;embed style=&quot;height:calc(100% + 115px)&quot; width=&#39;100%&#39; src=&#39;URL TO YOUR WIDGET&#39; /&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;/ul&gt;
+</code></pre></div>
+<h2 id="custom-chat-with-tawkto">Custom chat with Tawk.to<a class="headerlink" href="#custom-chat-with-tawkto" title="Permanent link">&para;</a></h2>
+<p>Go to<a href="https://www.tawk.to/">https://www.tawk.to/</a></p>
+<p>Create an account and add the widget code to the custom HTML. If you want the chat box to be on every page add the code to the custom CSS.</p>
+<p>You can also change the colors in the Widget Appearance settings!</p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2017/10/tawk.gif"><img alt="" src="images/tawk-293x300.gif" title="Tawk Gif" /></a></p>
+<h2 id="bonus-html-for-system-overview">Bonus HTML for system overview<a class="headerlink" href="#bonus-html-for-system-overview" title="Permanent link">&para;</a></h2>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2017/10/chrome_2017-10-19_22-27-38.png"><img alt="" src="images/chrome_2017-10-19_22-27-38-1024x181.png" title="Netdata overview" /></a></p>
+<div class="highlight"><pre><span></span><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
+&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black-translucent&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;
+&lt;ul&gt;
+&lt;/ul&gt;
+&lt;div style=&quot;display: inline-block; position: relative;&quot;&gt;
+&lt;div data-netdata=&quot;system.io&quot;
+data-dimensions=&quot;in&quot;&#39;
+data-chart-library=&quot;easypiechart&quot;
+data-title=&quot;Disk Read&quot;&#39;
+data-width=&quot;200&quot;
+data-height=&quot;200&quot;
+data-after=&quot;-300&quot;
+data-points=&quot;300&quot;
+data-dt-element-name=&quot;time701&quot;
+&gt;&lt;/div&gt;
+&lt;/div&gt; 
+
+&lt;div style=&quot;display: inline-block; position: relative;&quot;&gt;
+&lt;div data-netdata=&quot;system.io&quot;
+data-dimensions=&quot;out&quot;&#39;
+data-chart-library=&quot;easypiechart&quot;
+data-title=&quot;Disk Write&quot;&#39;
+data-width=&quot;200&quot;
+data-height=&quot;200&quot;
+data-after=&quot;-300&quot;
+data-points=&quot;300&quot;
+data-dt-element-name=&quot;time701&quot;
+&gt;&lt;/div&gt;
+&lt;/div&gt; 
+
+&lt;div style=&quot;display: inline-block; position: relative;&quot;&gt;
+&lt;div data-netdata=&quot;system.cpu&quot;
+data-chart-library=&quot;gauge&quot;
+data-title=&quot;CPU&quot;
+data-units=&quot;%&quot;
+data-gauge-max-value=&quot;100&quot;
+data-width=&quot;400&quot;
+data-height=&quot;200&quot;
+data-after=&quot;-300&quot;
+data-points=&quot;300&quot;
+data-colors=&quot;#22AA99&quot;
+data-dt-element-name=&quot;time701&quot;
+&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;display: inline-block; position: relative;&quot;&gt;
+&lt;div data-netdata=&quot;system.net&quot;
+data-dimensions=&quot;received&quot;
+data-chart-library=&quot;easypiechart&quot;
+data-title=&quot;IPv4 Inbound&quot;
+data-width=&quot;200&quot;
+data-height=&quot;200&quot;
+data-after=&quot;-300&quot;
+data-points=&quot;300&quot;
+data-dt-element-name=&quot;time701&quot;
+&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;display: inline-block; position: relative;&quot;&gt;
+&lt;div data-netdata=&quot;system.net&quot;
+data-dimensions=&quot;sent&quot;
+data-chart-library=&quot;easypiechart&quot;
+data-title=&quot;IPv4 Outbound&quot;
+data-width=&quot;200&quot;
+data-height=&quot;200&quot;
+data-after=&quot;-300&quot;
+data-points=&quot;300&quot;
+data-dt-element-name=&quot;time701&quot;
+&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div style=&quot;display: inline-block; position: relative;&quot;&gt;
+&lt;div data-netdata=&quot;system.ram&quot;
+data-dimensions=&quot;used|buffers|active|wired&quot;
+data-append-options=&quot;percentage&quot;
+data-chart-library=&quot;easypiechart&quot;
+data-title=&quot;Used RAM&quot;
+data-units=&quot;%&quot;
+data-easypiechart-max-value=&quot;100&quot;
+data-colors=&quot;#EE9911&quot;
+data-width=&quot;170&quot;
+data-height=&quot;170&quot;
+data-after=&quot;-300&quot;
+data-points=&quot;300&quot;
+data-dt-element-name=&quot;time701&quot;
+&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/center&gt; 
+&lt;/body&gt;
+
+&lt;script&gt;
+// this section has to appear before loading dashboard.js
+
+// Select a theme.
+// uncomment on of the two themes:
+
+// var netdataTheme = &#39;default&#39;; // this is white
+var netdataTheme = &#39;slate&#39;; // this is dark
+
+// Set the default netdata server.
+// on charts without a &#39;data-host&#39;, this one will be used.
+// the default is the server that dashboard.js is downloaded from.
+
+var netdataServer = &#39;https://YOURNETDATADOMAIN.COM/&#39;;
+&lt;/script&gt;
+
+&lt;!-- &lt;script type=&quot;text/javascript&quot; src=&quot;http://my.server:19999/dashboard.js&quot;&gt;&lt;/script&gt; --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;dashboard.js?v20170105-7&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+// Set options for TV operation
+// This has to be done, after dashboard.js is loaded
+
+// destroy charts not shown (lowers memory on the browser)
+NETDATA.options.current.destroy_on_hide = true;
+
+// set this to false, to always show all dimensions
+//NETDATA.options.current.eliminate_zero_dimensions = true;
+
+// lower the pressure on this browser
+//NETDATA.options.current.concurrent_refreshes = false;
+
+// if the tv browser is too slow (a pi?)
+// set this to false
+//NETDATA.options.current.parallel_refresher = true;
+
+// always update the charts, even if focus is lost
+
+NETDATA.options.current.stop_updates_when_focus_is_lost = false;
+
+// Since you may render charts from many servers and any of them may
+// become offline for some time, the charts will break.
+// This will reload the page every RELOAD_EVERY minutes
+
+var RELOAD_EVERY = 1;
+setTimeout(function(){
+location.reload();
+}, RELOAD_EVERY * 60 * 1000);
+
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre></div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2021</span>
+      
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../how-to-add-a-custom-login-page-for-unraid/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How to add a custom login page for Unraid!" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              How to add a custom login page for Unraid!
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../spice-up-your-homepage-part-ii/" class="md-footer__link md-footer__link--next" aria-label="Next: Spice up your homepage Part II" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Spice up your homepage Part II
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://docs.theme-park.dev/donate" target="_blank" rel="noopener" title="Donate" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://docs.theme-park.dev/discord" target="_blank" rel="noopener" title="Discord" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541zM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://github.com/users/GilbN/packages/container/package/theme.park" target="_blank" rel="noopener" title="Docker" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://github.com/gilbn" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.649a939e.min.js"></script>
+      
+    
+  </body>
+</html>

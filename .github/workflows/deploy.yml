@@ -11,15 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.4.0
-      - name: clear CF cache
+      - uses: actions/setup-python@v2.3.1
+        with:
+          python-version: 3.x
         run: |
           curl -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
           -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_CLEAR_CACHE }}" \
           -H "Content-Type:application/json"
-      - name: Set up Python ${{ matrix.python-version }} and deploya
-        uses: actions/setup-python@v2.3.1
-        with:
-          python-version: 3.x
         run: |
           pip install -r docs/requirements.txt
           mkdocs gh-deploy --force

@@ -13,6 +13,22 @@ coverImage: "blog.jpg"
 
 # {{ title }}
 
+<small>Written: {{ date }}</small>
+
+<small>Tags</small>
+{% for tag in tags %}
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ tag }}</a>
+</p>
+{% endfor %}
+
+<small>Category</small>
+{% for cat in categories %}
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ cat }}</a>
+</p>
+{% endfor %}
+
 <img src="images/{{ coverImage}}"></img>
 
 Since this blog will mostly be for my own sake. Just me writing down some guides on different things so I don't forget. I think it's appropriate that my first post will be about my server..

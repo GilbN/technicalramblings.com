@@ -15,27 +15,44 @@ coverImage: "DitjZRghqs.gif"
 
 # {{ title }}
 
+<small>Written: {{ date }}</small>
+
+<small>Tags</small>
+{% for tag in tags %}
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ tag }}</a>
+</p>
+{% endfor %}
+
+<small>Category</small>
+{% for cat in categories %}
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ cat }}</a>
+</p>
+{% endfor %}
+
 <img src="images/{{ coverImage}}"></img>
 
 So after my last [post](https://technicalramblings.com/blog/how-to-setup-a-cloudflare-worker-to-show-a-maintenance-page-when-ca-backup-plugin-is-running/) I woke up to around 40+ and counting notifications on IP's that fail2ban had banned over the night. They were all failed attempts to get past the basic auth prompt I have on my Wordpress admin page. So with the last post fresh in my mind I knew it was possible to have a Cloudflare worker load a different page for visitors based on their IP.
 
 This was my fail2ban channel on discord. If you want these kind of notifications check out my [fail2ban post!](https://technicalramblings.com/blog/adding-ban-unban-notifications-from-fail2ban-to-discord/)
 
-[![](images/Discord_ZyHOqXgmhb-1024x615.png)](https://technicalramblings.com/wp-content/uploads/2019/08/Discord_ZyHOqXgmhb.png)
+[![](images/Discord_ZyHOqXgmhb.png)](images/Discord_ZyHOqXgmhb.png)
 
 So using the same [resource](https://www.resdevops.com/2018/03/20/cloudflare-workers-maintenance-mode-static-page/) as in the first Cloudflare worker post we can easily route visitors to a custom 403 Forbidden page. Now they can't even try to get passed the basic auth! Have a look here: [https://technicalramblings.com/wp-admin](https://technicalramblings.com/wp-admin/)
 
-\[eckosc\_status\_message title="Note" icon="fa-exclamation-circle" type="info" message="If you have a dynamic ip that often changes, this might not be the best solution for you!"\]
+!!! warning "Note"
+      If you have a dynamic ip that often changes, this might not be the best solution for you!
 
 ## Creating a worker
 
 On your Cloudflare dashboard click on Workers and go through the first time setup if you haven't done that yet. Next click on `Manage Workers` and `Create a Worker`
 
-[![](images/chrome_fgJWpnVXDC-1024x504.png)](https://technicalramblings.com/wp-content/uploads/2019/08/chrome_fgJWpnVXDC.png)
+[![](images/chrome_fgJWpnVXDC.png)](images/chrome_fgJWpnVXDC.png)
 
 Paste the script below.
 
-```
+```js
 addEventListener("fetch", event => {
   event.respondWith(fetchAndReplace(event.request));
 });
@@ -122,7 +139,7 @@ html,body{
 
 Add your whitelisted IP's in this section:
 
-```
+```js
 //Return 403 page if you're not calling from a trusted IP
 const white_list = [
 '1.2.3.4',
@@ -134,23 +151,17 @@ Save and deploy the worker.
 
 Go back to the main worker page and add your routes. The two routes I use are `domain.com/wp-login*` and `domain.com/wp-admin*`
 
-
-
-[![](images/chrome_bnPghaQ6NZ-1024x720.png)](https://technicalramblings.com/wp-content/uploads/2019/08/chrome_bnPghaQ6NZ.png)
+[![](images/chrome_bnPghaQ6NZ-1024x720.png)](images/chrome_bnPghaQ6NZ.png)
 
 The page should now look like this when accessing from another IP than the white listed ones.
 
-\[eckosc\_full\_width\_block\]
-
-[![](images/DitjZRghqs.gif)](https://technicalramblings.com/wp-content/uploads/2019/08/DitjZRghqs.gif)
-
-\[/eckosc\_full\_width\_block\]
+[![](images/DitjZRghqs.gif)](images/DitjZRghqs.gif)
 
 Neat right!
 
 If you want a different page showing it's as simple as replacing the html. I just googled `403 forbidden template` and found the one above on codepen.
 
-### If you need any extra help join the Discord server!
+### If you need any extra help join the Discord server
 
 #### [![](https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&logo=discord "technicalramblings/theme.park!")](https://discord.gg/HM5uUKU)
 

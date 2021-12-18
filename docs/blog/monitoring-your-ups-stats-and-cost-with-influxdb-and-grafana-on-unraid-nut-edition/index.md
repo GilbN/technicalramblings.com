@@ -18,6 +18,22 @@ coverImage: "Unraid-UPS-Dashboard-NUT-Edition.jpg"
 
 # {{ title }}
 
+<small>Written: {{ date }}</small>
+
+<small>Tags</small>
+{% for tag in tags %}
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ tag }}</a>
+</p>
+{% endfor %}
+
+<small>Category</small>
+{% for cat in categories %}
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ cat }}</a>
+</p>
+{% endfor %}
+
 <img src="images/{{ coverImage}}"></img>
 
 This quick guide will explain how to setup Grafana and InfluxDB to monitor your UPS power usage using the NUT plugin and [maihai/nut-influxdb-exporter](https://hub.docker.com/r/maihai/nut-influxdb-exporter) docker container on Unraid. This pretty much just a rewrite of [this](https://technicalramblings.com/blog/monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-2019-edition/) article but for the NUT plugin.
@@ -29,7 +45,7 @@ If you haven't installed or used Grafana and InfluxDB, I recommend reading **[th
 ### InfluxDB
 
 !!! error "Dont' use the latest tag"
-    The `:latest` tag will run InfluxDB V2! This guide was written for v1.8. Change the tag to `:1.8.4` for it to work!
+    The `:latest` tag will run InfluxDB V2! This guide was written for v1.8. Change the tag to `:1.8.x` for it to work!
 
 [![](images/chrome_EZLftLwtMU-1024x140.png)](https://technicalramblings.com/wp-content/uploads/2019/07/chrome_EZLftLwtMU.png)
 
@@ -37,7 +53,9 @@ If you haven't installed or used Grafana and InfluxDB, I recommend reading **[th
 
 Search for `nut influx exporter`in CA and click install. Fill out the different container variables to match your setup. Remember to click on `Show more settings...` to see the rest of the variables. If your UPS reports the `WATTS/Nominal Power`metric you can remove this variable. You can see if it reports it by going to the dashboard and look at the stats or run the `upsc ups` command.
 
-[![](images/chrome_YuxgsyuWXx.png)](https://technicalramblings.com/wp-content/uploads/2019/08/chrome_YuxgsyuWXx.png) [![](images/chrome_aQWh2c1xi8.png)](https://technicalramblings.com/wp-content/uploads/2019/08/chrome_aQWh2c1xi8.png)
+[![](images/chrome_YuxgsyuWXx.png)](images/chrome_YuxgsyuWXx.png)
+
+[![](images/chrome_aQWh2c1xi8.png)](images/chrome_aQWh2c1xi8.png)
 
 The `INFLUXDB_HOST` and `NUT_HOST` will most likely be your Unraid IP and `INFLUXDB_PORT` is the port for your InfluxDB http service. Default it will be `8086`. You can leave user and password blank if you don't have a specific user you want to use in your InfluxDB instance. And the same for the NUT port, username and password.
 
@@ -45,28 +63,24 @@ The database will be created at the launch of the container, so you don't need t
 
 The default interval is set to 20 seconds, and if I recall correctly that is the max for NUT. I tried setting it to 10 seconds using the INTERVAL variable but when I did that it reported the same metric twice all the time.
 
-\[eckosc\_full\_width\_block\]
-
-[![](images/chrome_wYtf3KrmV1.png)](https://technicalramblings.com/wp-content/uploads/2019/08/chrome_wYtf3KrmV1.png)
-
-\[/eckosc\_full\_width\_block\]
+[![](images/chrome_wYtf3KrmV1.png)](images/chrome_wYtf3KrmV1.png)
 
 ## UPS Dashboard
 
 After you have installed the apcupsd container add the datasource in Grafana and use the database name you chose above.
 
-[![](images/chrome_nl4x2mytiq-656x1024.png)](https://technicalramblings.com/wp-content/uploads/2019/08/chrome_nl4x2mytiq.png)
+[![](images/chrome_nl4x2mytiq.png)](images/chrome_nl4x2mytiq.png)
 
-Next import my new UPS dashboard and select the correct datasource in the drop down menu at the top. **Link to dashboard: [https://grafana.com/grafana/dashboards/10914](https://grafana.com/grafana/dashboards/10914)** [![](images/chrome_SVgr21l7aF.png)](https://technicalramblings.com/wp-content/uploads/2019/07/chrome_SVgr21l7aF.png)
+Next import my new UPS dashboard and select the correct datasource in the drop down menu at the top. **Link to dashboard: [https://grafana.com/grafana/dashboards/10914](https://grafana.com/grafana/dashboards/10914)**
+
+[![](images/chrome_SVgr21l7aF.png)](https://technicalramblings.com/wp-content/uploads/2019/07/chrome_SVgr21l7aF.png)
 
 And that's it! Enjoy your new and improved UPS stats!
 
-[\[eckosc\_full\_width\_block\]![](images/chrome_Z69ocJp2IO-1024x660.png)](https://technicalramblings.com/wp-content/uploads/2019/07/chrome_Z69ocJp2IO.png)
-
-\[/eckosc\_full\_width\_block\]
+[![](images/chrome_Z69ocJp2IO-1024x660.png)](https://technicalramblings.com/wp-content/uploads/2019/07/chrome_Z69ocJp2IO.png)
 
 The custom theme for Grafana can be found here: [https://github.com/gilbN/theme.park](https://github.com/gilbN/theme.park)
 
-### If you need any extra help join the Discord server!
+### If you need any extra help join the Discord server
 
 #### [![](https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&logo=discord "technicalramblings/theme.park!")](https://discord.gg/HM5uUKU)

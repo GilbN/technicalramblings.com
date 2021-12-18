@@ -19,6 +19,22 @@ coverImage: "Cloudflare-fail2ban-integration.jpg"
 
 # {{ title }}
 
+<small>Written: {{ date }}</small>
+
+<small>Tags</small>
+{% for tag in tags %}
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ tag }}</a>
+</p>
+{% endfor %}
+
+<small>Category</small>
+{% for cat in categories %}
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ cat }}</a>
+</p>
+{% endfor %}
+
 <img src="images/{{ coverImage}}"></img>
 
 If you've decided to use cloudflare as a CDN you've might have noticed that fail2ban isn't working as expected. The fail2ban.log file will say that it has banned an IP, but since the connection is going through Cloudflare it will still let the banned IP browse your website. But luckily Cloudflare has an API we can use to update the Cloudflare firewall on the fly.
@@ -27,11 +43,11 @@ If you've decided to use cloudflare as a CDN you've might have noticed that fail
 
 If you've read my other **[fail2ban](https://technicalramblings.com/?s=fail2ban)** guides you already know I'm using linuxservers swag container. So there won't be any walkthrough of installing fail2ban. I will only go through the cloudflare configuration.
 
-Go to your appdata location and find the **`action.d`** folder `**appdata/swag/fail2ban/action.d**`
+Go to your appdata location and find the **`action.d`** folder **`appdata/swag/fail2ban/action.d`**
 
 In that folder there already is an action for cloudflare (**cloudflare.conf**) but that is using the deprecated API. Create a new file called **`cloudflare-apiv4.conf`** and add the following:
 
-```
+```bash
 #
 # Author: Gilbn from https://technicalramblings.com
 # Adapted Source: https://github.com/fail2ban/fail2ban/blob/master/config/action.d/cloudflare.conf and https://guides.wp-bullet.com/integrate-fail2ban-cloudflare-api-v4-guide/
@@ -114,17 +130,18 @@ At the end of the config file add your cloudflare email on the "**cfuser**" line
 
 Your Cloudflare token can be found on your profile page. Use the "**Global API Key**"
 
-## [![](images/TqNz3ky.png)](https://i.imgur.com/TqNz3ky.png)
+[![](images/TqNz3ky.png)](images/TqNz3ky.png)
 
 ## Updating jail.local
 
-Next is updating or adding your jails in the jail.local file. Go to your appdata location`**appdata/swag/fail2ban/**`and edit the file called jail.local. The only thing you really need to add is the action fail2ban will run after it has banned an IP.
+Next is updating or adding your jails in the jail.local file. Go to your appdata location **`appdata/swag/fail2ban/`**and edit the file called jail.local. The only thing you really need to add is the action fail2ban will run after it has banned an IP.
 
-Add`action = cloudflare-apiv4`in the jails you want to use it on. For me that would be all the jails.
+Add `action = cloudflare-apiv4` in the jails you want to use it on. For me that would be all the jails.
 
-**Example:** \[eckosc\_status\_message title="Default action!" icon="" type="error" message="If you only have the **cloudflare**action in the jail it will not update the iptables as it replaces the default action. You can add the action **iptables-allports**and it will then run both actions when banning"\]
+!!! error "Default action!"
+    If you only have the **`cloudflare`** action in the jail it will not update the iptables as it replaces the default action. You can add the action **`iptables-allports`** and it will then run both actions when banning
 
-```
+```bash
 [nginx-http-auth]
 
 enabled  = true
@@ -136,7 +153,7 @@ logpath  = /config/log/nginx/error.log
 ignoreip = 192.168.1.0/24
 ```
 
-```
+```bash
 [organizrv2-auth]
 
 enabled  = true
@@ -148,27 +165,38 @@ logpath  = /fail2ban/organizrLoginLog.json
 ignoreip = 192.168.1.0/24
 ```
 
-#### Optional: Specifying which site the ban works on
+### Optional: Specifying which site the ban works on
 
-If you have several sites on your Cloudflare account and you want to specify which one the action should work on, you need to change the URL on the **actionban** line. Instead of **user** it needs to say /**zones**/ and then your **zone ID**. **`actionban = curl -s -X POST "https://api.cloudflare.com/client/v4/zones/YOUR-CLOUDFLARE-ZONE-ID/firewall/access_rules/rules" \`**
+If you have several sites on your Cloudflare account and you want to specify which one the action should work on, you need to change the URL on the **actionban** line. Instead of **user** it needs to say **zones** and then your **zone ID**.
 
-And the same on the **actionunban** line: **`actionunban = curl -s -X DELETE "https://api.cloudflare.com/client/v4/zones/YOUR-CLOUDFLARE-ZONE-ID/firewall/access_rules/rules/$( \ curl -s -X GET "https://api.cloudflare.com/client/v4/zones/YOUR-CLOUDFLARE-ZONE-ID/firewall/access_rules/rules?mode=block&configuration_target=ip&configuration_value=1.2.3.4&page=1&per_page=1&match=all" \`**
+```bash
+actionban = curl -s -X POST "https://api.cloudflare.com/client/v4/zones/YOUR-CLOUDFLARE-ZONE-ID/firewall/access_rules/rules" \
+```
+
+And the same on the **actionunban** line:
+
+```bash
+actionunban = curl -s -X DELETE "https://api.cloudflare.com/client/v4/zones/YOUR-CLOUDFLARE-ZONE-ID/firewall/access_rules/rules/$( \ curl -s -X GET "https://api.cloudflare.com/client/v4/zones/YOUR-CLOUDFLARE-ZONE-ID/firewall/access_rules/rules?mode=block&configuration_target=ip&configuration_value=1.2.3.4&page=1&per_page=1&match=all" \
+```
 
 Your zone ID can be found on the overview page on Cloudflare.
 
-#### [![](images/AMj7LuX.png)](https://i.imgur.com/AMj7LuX.png)
+[![](images/AMj7LuX.png)](https://i.imgur.com/AMj7LuX.png)
 
-**I recommend adding a whitelist on your WAN IP so you don't accidently ban yourself!**
+!!! warning "Whitelist"
+    I recommend adding a whitelist on your WAN IP so you don't accidently ban yourself!
 
-You can add the whitelist on Cloudflare by going to **Firewall** and then **Tools.** There you can add the access rule. [![](images/chrome_qckOhsyCxK-1024x639.png)](https://technicalramblings.com/wp-content/uploads/2018/10/chrome_qckOhsyCxK.png)
+You can add the whitelist on Cloudflare by going to **Firewall** and then **Tools.** There you can add the access rule.
+
+[![](images/chrome_qckOhsyCxK-1024x639.png)](https://technicalramblings.com/wp-content/uploads/2018/10/chrome_qckOhsyCxK.png)
 
 ## Nginx
 
 Next up is configuring nginx so that it won't just ban the Cloudflare CDN IP but the actual IP of the visitor.
 
-Add the following section to your **http block** in the `nginx.conf` file found in`**appdata/swag/nginx/**`
+Add the following section to your **http block** in the `nginx.conf` file found in **`appdata/swag/nginx/`**
 
-```
+```nginx
 set_real_ip_from 103.21.244.0/22;
 set_real_ip_from 103.22.200.0/22;
 set_real_ip_from 103.31.4.0/22;
@@ -200,7 +228,7 @@ The IP's are from these URLS: [https://www.cloudflare.com/ips-v4](https://www.cl
 
 You can set it up as an include like this too:
 
-```
+```nginx
 ##
 # CF Real IP
 ##
@@ -212,17 +240,17 @@ After that you need to restart the swag container for the changes to take effect
 
 Next you can test that it actually works by using a vpn ect and ban yourself. Set bantime to 60 for it to only ban the IP for 1 minute. After the IP is banned you can see the new firewall rule on cloudflare dashboard.
 
-[![](images/CHewDQu.png)](https://i.imgur.com/CHewDQu.png)
+[![](images/CHewDQu.png)](images/CHewDQu.png)
 
 I've noticed that with the new API it is much faster in banning and unbanning IP's! When using the old API it could sometimes take up to 2 minutes for the rule to show in Cloudflare. Now it's there in a matter of seconds.
 
-## Automatically updating thecf\_real-ip.conf
+## Automatically updating the cf_real-ip.conf
 
 Tronyx over at the discord forums graciously shared his script for updating the Cloudflare ip list. This list is not static and Cloudflare updates it once in a while.
 
 The script below will update the list with any changes in the list of IPs from CF
 
-```
+```bash
 #!/bin/bash
 printf "set_real_ip_from %b;\n" $({
   curl -s -w '\n' "https://www.cloudflare.com/ips-v4" &
@@ -233,25 +261,24 @@ printf "set_real_ip_from %b;\n" $({
 
 I use unraid so I will use the User Scripts plugin to setup a cronjob that will run once a week.
 
-1. Go to Settings > User Scripts and click **`Add New Script`** 
+1. Go to Settings > User Scripts and click **`Add New Script`**
 2. Give it a name and a description if you want
 3. Click edit script and add it inside the box.
 4. You will need to update the path in the last line to you nginx appdata folder
 5. Set the schedule to weekly and click apply and done.
-    
-    ```
-    #!/bin/bash
-    printf "set_real_ip_from %b;\n" $({
-      curl -s -w '\n' "https://www.cloudflare.com/ips-v4" &
-      curl -s -w '\n' "https://www.cloudflare.com/ips-v6" &
-      ip route | grep -v default | awk '{print $1}'
-    }) > /mnt/user/docker/swag/nginx/cf_real-ip.conf
-    ```
-    
 
-#### For any questions you can find me here:
+  ```bash
+  #!/bin/bash
+  printf "set_real_ip_from %b;\n" $({
+    curl -s -w '\n' "https://www.cloudflare.com/ips-v4" &
+    curl -s -w '\n' "https://www.cloudflare.com/ips-v6" &
+    ip route | grep -v default | awk '{print $1}'
+  }) > /mnt/user/docker/swag/nginx/cf_real-ip.conf
+  ```
 
-####  [![Discord](https://img.shields.io/discord/591352397830553601.svg?color=6f83cc&label=Discord&logo=sd&style=for-the-badge)](https://discordapp.com/invite/TrNtY7N) 
+### For any questions you can find me here
+
+####  [![Discord](https://img.shields.io/discord/591352397830553601.svg?color=6f83cc&label=Discord&logo=sd&style=for-the-badge)](https://discordapp.com/invite/TrNtY7N)
 
 Sources:
 

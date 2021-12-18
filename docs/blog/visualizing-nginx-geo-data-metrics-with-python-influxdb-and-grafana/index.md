@@ -16,12 +16,28 @@ coverImage: "68747470733a2f2f692e696d6775722e636f6d2f6d6830496859412e6a7067.jpg"
 
 # {{ title }}
 
+<small>Written: {{ date }}</small>
+
+<small>Tags</small>
+{% for tag in tags %}
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ tag }}</a>
+</p>
+{% endfor %}
+
+<small>Category</small>
+{% for cat in categories %}
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ cat }}</a>
+</p>
+{% endfor %}
+
 <img src="images/{{ coverImage}}"></img>
 
 A couple of weeks ago I saw someone posted an [article](https://medium.com/faun/total-nginx-monitoring-with-application-performance-and-a-bit-more-using-8fc6d731051b) on on the LinuxServer discord describing how to send geo data statistics from Nginx to InfluxDB. I have seen similar articles in the past and I always wanted to try it out, and because adding new dashboards to Grafana is always fun :)
 
 !!! note  "Note"
-    For people not using the letsencrypt/swag container, I've added a standalone container you can use here: **https://github.com/gilbN/geoip2influx**
+    For people not using the letsencrypt/swag container, I've added a standalone container you can use here: **https://github.com/gilbN/    geoip2influx**
 
 The article was a couple of years old so he was using the now deprecated maxmind geoip database. But the rest of the Nginx configs looked just fine. As for the sending of the geo data metrics to InfluxDB, he was using a python2 script.
 
@@ -86,7 +102,7 @@ The database will be created automatically by the python script, so no need to c
 
 `-e INFLUX_RETENTION` and `-e INFLUX_SHARD`
 
-**Update 06.06.20**: To try and mitigate `max-values-per-tag limit exceeded` errors I've added retention to the database. It will only add the retention policy if the database doesn't exist. Read more about retention policies here: [https://www.influxdata.com/blog/influxdb-shards-retention-policies/](https://www.influxdata.com/blog/influxdb-shards-retention-policies/) and [https://docs.influxdata.com/influxdb/v1.2/concepts/key\_concepts/#retention-policy](https://docs.influxdata.com/influxdb/v1.2/concepts/key_concepts/#retention-policy)
+**Update 06.06.20**: To try and mitigate `max-values-per-tag limit exceeded` errors I've added retention to the database. It will only add the retention policy if the database doesn't exist. Read more about retention policies here: [https://www.influxdata.com/blog/influxdb-shards-retention-policies/](https://www.influxdata.com/blog/influxdb-shards-retention-policies/) and [https://docs.influxdata.com/influxdb/v1.2/concepts/key_concepts/#retention-policy](https://docs.influxdata.com/influxdb/v1.2/concepts/key_concepts/#retention-policy)
 
 `-e MAXMINDDB_LICENSE_KEY=<license-key>`
 
@@ -140,7 +156,7 @@ If you separate your nginx log files but want this mod to parse all of them you 
 
 As nginx can have multiple`access log`directives in a block, just add another one in the server block.
 
-**Example**
+#### Example
 
 ```nginx
 access_log /config/log/nginx/technicalramblings/access.log custom;
@@ -174,6 +190,6 @@ location /nginx_status {
 
 Sources: [https://medium.com/faun/total-nginx-monitoring-with-application-performance-and-a-bit-more-using-8fc6d731051b](https://medium.com/faun/total-nginx-monitoring-with-application-performance-and-a-bit-more-using-8fc6d731051b) [https://geoip2.readthedocs.io/en/latest/](https://geoip2.readthedocs.io/en/latest/) [https://www.influxdata.com/blog/getting-started-python-influxdb/](https://www.influxdata.com/blog/getting-started-python-influxdb/) [https://grafana.com/grafana/dashboards/8522](https://grafana.com/grafana/dashboards/8522) [https://www.geeksforgeeks.org/python-reading-last-n-lines-of-a-file/](https://www.geeksforgeeks.org/python-reading-last-n-lines-of-a-file/)
 
-### If you need any extra help join the Discord server!
+### If you need any extra help join the Discord server
 
-#### [![](https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&logo=discord "Geoip2Influx!")](https://discord.gg/HSPa4cz)
+[![](https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&logo=discord "Geoip2Influx!")](https://discord.gg/HSPa4cz)

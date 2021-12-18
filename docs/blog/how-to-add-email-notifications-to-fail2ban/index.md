@@ -13,17 +13,34 @@ coverImage: "fail2ban-email.jpg"
 
 # {{ title }}
 
+<small>Written: {{ date }}</small>
+
+<small>Tags</small>
+{% for tag in tags %}
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ tag }}</a>
+</p>
+{% endfor %}
+
+<small>Category</small>
+{% for cat in categories %}
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ cat }}</a>
+</p>
+{% endfor %}
+
 <img src="images/{{ coverImage}}"></img>
 
-Following up an my other two post about Fail2ban notifications, that you can read here: [Adding ban/unban notifications from Fail2Ban to Discord!](https://technicalramblings.com/blog/adding-ban-unban-notifications-from-fail2ban-to-discord/) and here[Adding ban/unban notifications from Fail2Ban to Pushover!](https://technicalramblings.com/blog/adding-ban-unban-notifications-from-fail2ban-with-pushover/) I recently got email notifications working (Thank you _count\_confucius_) and thought I'd share how to get that working!
+Following up an my other two post about Fail2ban notifications, that you can read here: [Adding ban/unban notifications from Fail2Ban to Discord!](https://technicalramblings.com/blog/adding-ban-unban-notifications-from-fail2ban-to-discord/) and here[Adding ban/unban notifications from Fail2Ban to Pushover!](https://technicalramblings.com/blog/adding-ban-unban-notifications-from-fail2ban-with-pushover/) I recently got email notifications working (Thank you _count_confucius_) and thought I'd share how to get that working!
 
 ## Adding the action
 
-\[eckosc\_status\_message title="Note" icon="fa-exclamation-circle" type="info" message="I am using the linuxserver letsencrypt container in this guide. https://github.com/linuxserver/docker-letsencrypt"\]
+!!! note "Note"
+    I am using the linuxserver swag container in this guide. https://github.com/linuxserver/docker-swag
 
 Go into your `/action.d` folder and copy and rename `sendmail-whois.conf` to `sendmail-whois.local`. Edit the file and replace the `actionban` and add the `actionunban` with the code below:
 
-```
+```bash
 actionban =   printf %%b "Subject:🕵️ [Fail2Ban] <name>: BANNED IP <ip>! 🔨
               Date: `LC_ALL=C date +"%%a, %%d %%h %%Y %%T %%z"`
               From: <sendername> <<sender>>
@@ -58,7 +75,7 @@ If you want emails on start and stop, add the code above and just change the sub
 
 In your jail.local file add the following in the `[DEFAULT]` section:
 
-```
+```bash
 action = iptables-allports
           %(action_mw)s[from=example@gmail.com, password=secretpassword, destination=example@gmail.com, sendername=Fail2Ban]
 ```
@@ -79,6 +96,6 @@ The email will look like this:
 
 [![](images/chrome_WTM61hydPD.png)](https://technicalramblings.com/wp-content/uploads/2019/09/chrome_WTM61hydPD.png)
 
-### If you need any extra help join the Discord server!
+### If you need any extra help join the Discord server
 
 #### [![](https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&logo=discord "technicalramblings/theme.park!")](https://discord.gg/HM5uUKU)

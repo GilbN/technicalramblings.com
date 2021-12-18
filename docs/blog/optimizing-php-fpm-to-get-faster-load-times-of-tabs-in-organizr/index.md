@@ -13,9 +13,25 @@ coverImage: "php-tuning4.jpg"
 
 # {{ title }}
 
+<small>Written: {{ date }}</small>
+
+<small>Tags</small>
+{% for tag in tags %}
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ tag }}</a>
+</p>
+{% endfor %}
+
+<small>Category</small>
+{% for cat in categories %}
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ cat }}</a>
+</p>
+{% endfor %}
+
 <img src="images/{{ coverImage}}"></img>
 
-For me this all started when I was setting up [Logarr](https://github.com/Monitorr/logarr)and opened the Organizr(v1) container php error log `**/log/php/error.log**` and saw that this error was repeating on an hourly basis:
+For me this all started when I was setting up [Logarr](https://github.com/Monitorr/logarr) and opened the Organizr(v1) container php error log **`/log/php/error.log`** and saw that this error was repeating on an hourly basis:
 
 **`WARNING: [pool www] server reached pm.max_children setting (5), consider raising it[_timestamp_]`**
 
@@ -23,7 +39,7 @@ This means that there are not enough PHP-FPM processes. In Organizr v2 I did not
 
 _Note that for this guide, it does not matter if you use Organizr V1 or V2._
 
-We need write-access to**`/etc/php7/php-fpm.d/www.conf`** in order to optimize the following settings:
+We need write-access to **`/etc/php7/php-fpm.d/www.conf`** in order to optimize the following settings:
 
 **`pm pm.max_children pm.start_servers pm.min_spare_servers pm.max_spare_servers pm.max_requests`**
 
@@ -33,7 +49,9 @@ We need to perform this step because the file must 'exist' before it can be mapp
 
 First docker exec into your Organizr docker container. Assuming you are using a fairly new version of UnRaid, click your Organizr container icon and then click "Console".
 
-[![](images/chrome_2018-07-15_12-26-18-216x300.png)](https://technicalramblings.com/wp-content/uploads/2018/07/chrome_2018-07-15_12-26-18.png) If not _run_ **`docker exec -it [contrainername] bash`** in the console
+[![](images/chrome_2018-07-15_12-26-18.png)](images/chrome_2018-07-15_12-26-18.png)
+
+If not _run_ **`docker exec -it [contrainername] bash`** in the console
 
 In the console window, _run_ the command: **`cp /etc/php7/php-fpm.d/www.conf /config/php`** A copy of www.conf is now present in Organizr's php-folder.
 
@@ -41,7 +59,7 @@ In the console window, _run_ the command: **`cp /etc/php7/php-fpm.d/www.conf /co
 
 Create the following new path for your Organizr docker container in UnRaid:
 
-```
+```php
 * Config Type: Path
 * Name: phpchildren
 * Container Path: /etc/php7/php-fpm.d/www.conf
@@ -52,45 +70,45 @@ Create the following new path for your Organizr docker container in UnRaid:
 
 The same is shown here:
 
-[![](images/chrome_2018-07-15_12-37-31-300x223.png)](https://technicalramblings.com/wp-content/uploads/2018/07/chrome_2018-07-15_12-37-31.png)
+[![](images/chrome_2018-07-15_12-37-31.png)](images/chrome_2018-07-15_12-37-31.png)
 
 ## Calculate and change settings in www.conf
 
 Open the **www.conf** file with notepad++ or similar to edit the following values:
 
-##### pm
+### pm
 
 `**pm = dynamic**` means that the number of servers specified in **`pm.start_servers`** will always be running in the PHP-FPM process, and more will be created if needed. **`pm = ondemand`** means that `**pm.start_servers**` is ignored and servers will be created if they are needed.
 
 Personally, I have decided to use the default**`pm = dynamic`** because I have very much RAM compared how loaded my webserver is. If I always needed resources to be freed up, I would have chosen the ondemand setting.
 
-##### pm.max\_children
+#### pm.max_children
 
 Open the terminal in UnRaid. Run the command **`ps -ylC php-fpm --sort:rss`** You will likely get a bunch of php-fpm processes like I do:
 
-[![](images/chrome_2018-07-15_12-51-17.png)](https://technicalramblings.com/wp-content/uploads/2018/07/chrome_2018-07-15_12-51-17.png)
+[![](images/chrome_2018-07-15_12-51-17.png)](images/chrome_2018-07-15_12-51-17.png)
 
 The RSS column shows non-swapped physical memory usage by PHP-FPM processes in kilobytes.
 
-An appropriate value for pm.max\_children can be calculated as: **`pm.max_children =`** Total RAM dedicated to the web server / Max child process size
+An appropriate value for pm.max_children can be calculated as: **`pm.max_children =`** Total RAM dedicated to the web server / Max child process size
 
-The max child process size for me is **19MB** and my server-rig has 32GB of RAM. I decide that I want to use a maximum of, say, 20GB on PHP-FPM processes. Evaluating the formula with these values yields pm.max\_children = 20000 / 19 = 1053 ~ 1000. Thus, Iset **`pm.max_children = 1000`**. This is ridiculously high. But I have the RAM for it. For reference, in myshell's guide linked below, he concludes an appropriate pm.max\_children = 72 with 8 GB ram installed, so the less RAM and more load you have on your server, the more important this calculation and setting becomes.
+The max child process size for me is **19MB** and my server-rig has 32GB of RAM. I decide that I want to use a maximum of, say, 20GB on PHP-FPM processes. Evaluating the formula with these values yields pm.max_children = 20000 / 19 = 1053 ~ 1000. Thus, Iset **`pm.max_children = 1000`**. This is ridiculously high. But I have the RAM for it. For reference, in myshell's guide linked below, he concludes an appropriate pm.max_children = 72 with 8 GB ram installed, so the less RAM and more load you have on your server, the more important this calculation and setting becomes.
 
-##### pm.min\_spare\_servers
+##### pm.min_spare_servers
 
 Set **`pm.min_spare_servers = 1`**
 
-##### pm.max\_spare\_servers
+##### pm.max_spare_servers
 
-An appropriate value for **pm.max\_spare\_servers** can be calculated as: pm.max\_spare\_servers = 2 x number of cores OR 4 x number of cores
+An appropriate value for **pm.max_spare_servers** can be calculated as: pm.max_spare_servers = 2 x number of cores OR 4 x number of cores
 
-Personally I have 8 cores in my AMD Ryzen 1700 processor and start with using the 2x method. Evaluating the formula with these values yields pm.max\_spare\_servers = 2 x 8 = 16. Thus I set **`pm.max_spare_servers = 16`**.But I could also try with **`pm.max_spare_servers = 32`** and see if I get better performance with that.
+Personally I have 8 cores in my AMD Ryzen 1700 processor and start with using the 2x method. Evaluating the formula with these values yields pm.max_spare_servers = 2 x 8 = 16. Thus I set **`pm.max_spare_servers = 16`**.But I could also try with **`pm.max_spare_servers = 32`** and see if I get better performance with that.
 
-##### pm.start\_servers
+##### pm.start_servers
 
-An appropriate value for **pm.start\_servers** can be calculated as: pm.start\_servers = pm.max\_spare\_servers / 2 Evaluating this gives pm.start\_servers = 16 / 2 = 8. Thus I set **`pm.start_servers = 8`**.
+An appropriate value for **pm.start_servers** can be calculated as: pm.start_servers = pm.max_spare_servers / 2 Evaluating this gives pm.start_servers = 16 / 2 = 8. Thus I set **`pm.start_servers = 8`**.
 
-##### pm.max\_requests
+##### pm.max_requests
 
 Set **`pm.max_requests = 500`**
 
@@ -100,6 +118,6 @@ Restart your Organizr docker container and enjoy an even faster Organizr experie
 
 Sources: [https://myshell.co.uk/blog/2012/07/adjusting-child-processes-for-php-fpm-nginx/](https://myshell.co.uk/blog/2012/07/adjusting-child-processes-for-php-fpm-nginx/) [https://ma.ttias.be/a-better-way-to-run-php-fpm/](https://ma.ttias.be/a-better-way-to-run-php-fpm/) [https://stackoverflow.com/questions/25097179/warning-pool-www-seems-busy-you-may-need-to-increase-pm-start-servers-or-pm](https://stackoverflow.com/questions/25097179/warning-pool-www-seems-busy-you-may-need-to-increase-pm-start-servers-or-pm)
 
-#### For any questions you can find me here:
+#### For any questions you can find me here
 
-####  [![Discord](https://img.shields.io/discord/591352397830553601.svg?color=6f83cc&label=Discord&logo=sd&style=for-the-badge)](https://discordapp.com/invite/TrNtY7N)
+[![Discord](https://img.shields.io/discord/591352397830553601.svg?color=6f83cc&label=Discord&logo=sd&style=for-the-badge)](https://discordapp.com/invite/TrNtY7N)

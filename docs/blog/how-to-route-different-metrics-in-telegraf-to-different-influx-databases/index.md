@@ -12,6 +12,22 @@ coverImage: "sai-kiran-anagani-Tjbk79TARiE-unsplash-scaled.jpg"
 
 # {{ title }}
 
+<small>Written: {{ date }}</small>
+
+<small>Tags</small>
+{% for tag in tags %}
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ tag }}</a>
+</p>
+{% endfor %}
+
+<small>Category</small>
+{% for cat in categories %}
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ cat }}</a>
+</p>
+{% endfor %}
+
 <img src="images/{{ coverImage}}"></img>
 
 So, at the beginning of the last couple of years I have dropped my Influx Telegraf database containing all the host metrics gathered from the previous year. I did this because it was getting too big, and my container appdata backups where getting too big and taking too long to backup. Yes I know I could have just set a retention policy on the database and have it cleared every week, but I wanted some long term metrics like disk usage, so I could see the growth over the year.
@@ -46,7 +62,7 @@ RP_longterm_365d 8760h0m0s 168h0m0s           1        true
 
 Run the following command to create a new default retention policy on the `telegraf` database:
 
-!!! error "Note"
+!!! danger "Danger"
     This will ''reset'' the whole database!
 
 The data won't be gone, it's still accessible using the autogen retention policy. But the command below sets the new one as `default`, and that's what the panels normally use in Grafana.
@@ -72,7 +88,7 @@ Now in Telegraf we simply need to add an extra output that tells Telegraf to als
 
 Add the following to the telegraf.conf file. Note add, not replace.
 
-```
+```bash
 [[outputs.influxdb]]
   urls = ["http://192.168.1.34:8086"] # required
   database = "longterm_metrics" # required

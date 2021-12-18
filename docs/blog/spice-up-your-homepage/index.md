@@ -18,6 +18,22 @@ coverImage: "blurweb.jpg"
 
 # {{ title }}
 
+<small>Written: {{ date }}</small>
+
+<small>Tags</small>
+{% for tag in tags %}
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ tag }}</a>
+</p>
+{% endfor %}
+
+<small>Category</small>
+{% for cat in categories %}
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ cat }}</a>
+</p>
+{% endfor %}
+
 <img src="images/{{ coverImage}}"></img>
 
 Spice up your homepage! A HowTo on custom Netdata pages, embedding Discord and adding customer support chat!
@@ -38,7 +54,7 @@ Before we can start we need some files from the Netdata /web folder. And since I
 
 The files we need are:
 
-```
+```js
 dashboard.js
 bootstrap-slate-flat-3.3.7.css or bootstrap-3.3.7.css
 dashboard.slate.css or dashboard.css
@@ -50,11 +66,11 @@ I will be using using the slate (dark) theme for this guide.
 
 The CSS files are located in the **/css** folder and the JS file is in the /web folder.
 
-1. Open a terminal and exec into the docker container with this command:**`docker exec -it Netdata bash`** Goto this location:**`cd usr/share/netdata/web/`**
+1. Open a terminal and exec into the docker container with this command: **`docker exec -it Netdata bash`** Goto this location:**`cd usr/share/netdata/web/`**
 2. Copy the files to your appdata config path: (Host path 1) **`cp dashboard.js dashboard.slate.css /etc/netdata/override`**
-3. Change directory with the cd command`cd css/`Copy the bootstrap.css file. **`cp bootstrap-slate-flat-3.3.7.css /etc/netdata/override`**
+3. Change directory with the cd command `cd css/` Copy the bootstrap.css file. **`cp bootstrap-slate-flat-3.3.7.css /etc/netdata/override`**
 
-Tip: Use the**`ls`**command to list all files in a specific directory.
+Tip: Use the **`ls`** command to list all files in a specific directory.
 
 #### Editing the files
 
@@ -67,7 +83,7 @@ Copy bootstrap-slate-flat-3.3.7.css and dashboard.slate.css to the css folder I'
 
 Before
 
-```
+```js
 slate: {
 bootstrap_css: NETDATA.serverDefault + 'css/bootstrap-slate-flat-3.3.7.css?v20161229-1',
 dashboard_css: NETDATA.serverDefault + 'dashboard.slate.css?v20170725-1',
@@ -75,7 +91,7 @@ dashboard_css: NETDATA.serverDefault + 'dashboard.slate.css?v20170725-1',
 
 After
 
-```
+```js
 slate: {
 bootstrap_css: 'css/bootstrap-slate-flat-3.3.7.css?v20161229-1',
 dashboard_css: 'css/dashboard.slate.css?v20170725-1',
@@ -85,29 +101,29 @@ dashboard_css: 'css/dashboard.slate.css?v20170725-1',
 
 If you don't want to edit css or js files you can instead only copy the **html** code at the bottom and the make the necessary modifications to that file. In the html code, scroll down to this line:
 
-```
+```html
 <script type="text/javascript" src="dashboard.js"></script>
 ```
 
 And add your Netdata domain, like so:
 
-```
+```html
 <script type="text/javascript" src="https://YOUR-DOMAIN.COM/netdata/dashboard.js"></script>
 ```
 
 By doing this you can instead [subfilter](http://nginx.org/en/docs/http/ngx_http_sub_module.html) the CSS changes using nginx and my [theme repository on github!](https://github.com/gilbN/theme.park) (read more at the **nginx part**) After that follow along the rest of the HTML instructions below.
 
-**NOTE:** If you get an error thatlib/jquery-2.2.4.min.js cant be found you can try and edit line \[136\] in dashboard.js that says`**NETDATA.serverStatic =** **NETDATA.serverDefault;**`to**`NETDATA.serverStatic = "https://yourdomain.com/netdata/";`**
+**NOTE:** If you get an error thatlib/jquery-2.2.4.min.js cant be found you can try and edit line [136] in dashboard.js that says **`NETDATA.serverStatic = NETDATA.serverDefault;`** to **`NETDATA.serverStatic = "https://yourdomain.com/netdata/";`**
 
 #### Creating the HTML
 
-Create your custom HTML. You can use the one I have added below and work off that. In this guide I have named it**`custom.html`**
+Create your custom HTML. You can use the one I have added below and work off that. In this guide I have named it **`custom.html`**
 
-In my example I have added a total CPU utilization dygraph and a disk I/O read-write dygraph. If you want a diffrent graph type change the**`data-chart-library`**See the[Netdata wiki](https://github.com/firehol/netdata/wiki/Custom-Dashboards)
+In my example I have added a total CPU utilization dygraph and a disk I/O read-write dygraph. If you want a diffrent graph type change the **`data-chart-library`** See the[Netdata wiki](https://github.com/firehol/netdata/wiki/Custom-Dashboards)
 
 To make it work externally you need to add your external Netdata address in the html! **(Netdata needs to be reverse proxied)** If you add your local ip address you will get an error when trying to load it through HTTPS.
 
-```
+```js
 // Set the default netdata server.
 // on charts without a 'data-host', this one will be used.
 // the default is the server that dashboard.js is downloaded from.
@@ -115,13 +131,13 @@ To make it work externally you need to add your external Netdata address in the 
 var netdataServer = 'https://YOURNETDATADOMAIN.COM/';
 ```
 
-e.g**`https://yourdomain.com/netdata/`**
+e.g **`https://yourdomain.com/netdata/`**
 
-> Note: The trailing slash onhttps://domain.com/netdata**/** is very important. If you dont add it you will get Strict MIME errors in your browser console, and it won't load properly.
+> Note: The trailing slash on https://domain.com/netdata/ is very important. If you dont add it you will get Strict MIME errors in your browser console, and it won't load properly.
 
 ##### Custom HTML for total CPU utilization and Disk I/O
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -214,7 +230,7 @@ location.reload();
 
 In your nginx config you can add this in your main server block to create a sub-directory.
 
-```
+```nginx
 # CUSTOM NETDATA
 location /customnetdata {
 #auth_request /auth-user;
@@ -225,7 +241,7 @@ index custom.html;
 
 Below is the location block you need to use for the **[theme.park](https://github.com/gilbN/theme.park)** theme.
 
-```
+```nginx
 # CUSTOM NETDATA USING THEME.PARK CSS
 location /customnetdata {
 #auth_request /auth-user;
@@ -240,7 +256,7 @@ sub_filter_once on;
 }
 ```
 
-By using **`https://gilbn.github.io/theme.park/CSS/themes/netdata/organizr-dashboard.css`**it will match any theme Organizr is using as the background is transparent.
+By using **`https://gilbn.github.io/theme.park/CSS/themes/netdata/organizr-dashboard.css`** it will match any theme Organizr is using as the background is transparent.
 
 ### Adding it to your Organizr homepage
 
@@ -250,7 +266,7 @@ Go to Settings --> Edit Homepage --> Custom HTML
 
 If you have added more graphs you'll need to change the height.
 
-```
+```html
 <div style="overflow:hidden;height:282px;width:100%;position: relative;"> 
 <embed style="height:calc(100%);width:calc(100%)" src='https://yourdomain.com/customnetdata/custom.html' />
 </div>
@@ -258,15 +274,15 @@ If you have added more graphs you'll need to change the height.
 </ul>
 ```
 
-###  Customizing colors
+### Customizing colors
 
- _- For the blur theme, scroll down_
+- For the blur theme, scroll down
 
-##### bootstrap-slate-flat-3.3.7.css
+#### bootstrap-slate-flat-3.3.7.css
 
 Set the background-color to what you want. I set it to transparent so if I change my Org theme it will follow that.
 
-```
+```css
 body {
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 14px;
@@ -278,9 +294,9 @@ background-color: transparent;
 
 ##### dashboard.slate.css
 
-Next is changing the**`.netdata-legend-value`**The background-color is the legend percent bacground color.
+Next is changing the **`.netdata-legend-value`** The background-color is the legend percent bacground color.
 
-```
+```css
 .netdata-legend-value {
 /*margin-left: 14px;*/
 position: absolute;
@@ -304,7 +320,7 @@ cursor: pointer;
 
 **`color: #E5A00D;`**I chose orange to match my Organizr theme.
 
-```
+```css
 .netdata-legend-resize-handler {
 display: block;
 position: absolute;
@@ -328,9 +344,9 @@ margin: 0px;
 
 It's the same for the legend tool box, set it to transparent or what ever you like.
 
-[![](images/chart-tool-box-buttons.png "Netdata toolbox")](https://technicalramblings.com/wp-content/uploads/2017/10/chart-tool-box-buttons.png)
+[![](images/chart-tool-box-buttons.png)](images/chart-tool-box-buttons.png)
 
-```
+```css
 .netdata-legend-toolbox {
 display: block;
 position: absolute;
@@ -353,9 +369,9 @@ margin: 0px;
 
 Repeat the steps. Set the background to transparent or what ever you like. Set`color`to the color you want the buttons to be.
 
-[![](images/chart-resize-buttons.png "Netdata toolbox")](https://technicalramblings.com/wp-content/uploads/2017/10/chart-resize-buttons.png)
+[![](images/chart-resize-buttons.png)](images/chart-resize-buttons.png)
 
-```
+```css
 .netdata-legend-toolbox-button {
 display: inline-block;
 position: relative;
@@ -377,9 +393,9 @@ cursor: pointer;
 
 To edit the text color change the html,body
 
-This will**not**change the graph text color
+This will **not** change the graph text color
 
-```
+```css
 html,
 body {
 /*font-family: Calibri,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;*/
@@ -392,7 +408,7 @@ color: #E5A00D;
 
 The graph text color is changed with
 
-```
+```css
 .dygraph-axis-label {
 color: #6c7075;
 }
@@ -402,7 +418,7 @@ color: #6c7075;
 
 Changing the data chart colors is done in the custom HTML.
 
-```
+```html
 <div data-netdata="unique.id"
 data-colors="#AABBCC #DDEEFF ..."
 ></div>
@@ -412,22 +428,22 @@ data-colors="#AABBCC #DDEEFF ..."
 
 If you want to change the grid and axis color you can do that in the NETDATA.themes section in the dashboard.js file.
 
-```
+```js
 grid: '#283236',
 axis: '#283236',
 ```
 
 ### Blur theme
 
-[![](images/blurweb-1-1024x521.jpg "Netdata Blur theme")](https://technicalramblings.com/wp-content/uploads/2017/10/blurweb-1.jpg)
+[![](images/blurweb-1-1024x521.jpg)](images/blurweb-1.jpg)
 
 If you want to make your custom Netdata html match the[layer#Cake blur-theme](https://github.com/leram84/layer.Cake/)you can do this:
 
-In**`dashboard.slate.css`**change this:
+In **`dashboard.slate.css`** change this:
 
 Change the body text color to #FFFFFF
 
-```
+```css
 html,
 body {
 /*font-family: Calibri,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;*/
@@ -438,18 +454,18 @@ color: #FFFFFF;
 }
 ```
 
-And set the other color options in the examples above to**`(0, 0%, 100%, .45)`**
+And set the other color options in the examples above to **`(0, 0%, 100%, .45)`**
 
-For the grid and axis color set it to transparent in**`dashboard.js`**
+For the grid and axis color set it to transparent in **`dashboard.js`**
 
-```
+```js
 grid: 'transparent',
 axis: 'transparent',
 ```
 
-In the**`bootstrap-slate-flat-3.3.7.css`** Set the background color of the graph body to**`rgba(0, 0, 0, .15);`**
+In the **`bootstrap-slate-flat-3.3.7.css`** Set the background color of the graph body to **`rgba(0, 0, 0, .15);`**
 
-```
+```css
 body {
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 14px;
@@ -463,7 +479,7 @@ background-color: rgba(0, 0, 0, .15);
 
 ## Discord Widgetbot
 
-[![](images/chrome_2017-10-19_22-09-55-1024x301.png "Discord WidgetBot")](https://technicalramblings.com/wp-content/uploads/2017/10/chrome_2017-10-19_22-09-55.png)
+[![](images/chrome_2017-10-19_22-09-55-1024x301.png)](images/chrome_2017-10-19_22-09-55.png)
 
 First you'll need to create your own Discord Server. After you've done that head over to[https://widgetbot.voakie.com/](https://widgetbot.voakie.com/)an sign in with your Discord credentials.
 
@@ -477,7 +493,7 @@ First you'll need to create your own Discord Server. After you've done that head
 
 Add this in the homepage HTML and edit the values to your liking.
 
-```
+```html
 <div style="overflow:hidden;height:300px"> 
 <embed style="height:calc(100% + 115px)" width='100%' src='URL TO YOUR WIDGET' />
 </div>
@@ -493,13 +509,13 @@ Create an account and add the widget code to the custom HTML. If you want the ch
 
 You can also change the colors in the Widget Appearance settings!
 
-[![](images/tawk-293x300.gif "Tawk Gif")](https://technicalramblings.com/wp-content/uploads/2017/10/tawk.gif)
+[![](images/tawk-293x300.gif)](images/tawk.gif)
 
 ## Bonus HTML for system overview
 
-[![](images/chrome_2017-10-19_22-27-38-1024x181.png "Netdata overview")](https://technicalramblings.com/wp-content/uploads/2017/10/chrome_2017-10-19_22-27-38.png)
+[![](images/chrome_2017-10-19_22-27-38-1024x181.png)](images/chrome_2017-10-19_22-27-38.png)
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -15,6 +15,22 @@ coverImage: "chrome_xMDgnog4Hj.jpg"
 
 # {{ title }}
 
+<small>Written: {{ date }}</small>
+
+<small>Tags</small>
+{% for tag in tags %}
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ tag }}</a>
+</p>
+{% endfor %}
+
+<small>Category</small>
+{% for cat in categories %}
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ cat }}</a>
+</p>
+{% endfor %}
+
 <img src="images/{{ coverImage}}"></img>
 
 Since I use the CA Backup/Restore plugin every night my blog site will some times show the Cloudflare 523 error: origin is unreachable for around 1 hour before the plugin finishes and starts all my docker containers up again. So since that has been a minor annoyance for some time, I decided to look into how I could set up a maintenance page automatically when the backup starts.
@@ -29,29 +45,25 @@ This is all made possible by using the Cloudflare API and Cloudflare workers. We
 
 On your Cloudflare dashboard click on Workers and go through the first time setup if you haven't done that yet. Next click on `Manage Workers` and `Create a Worker`
 
-[![](images/chrome_fgJWpnVXDC-300x148.png)](https://technicalramblings.com/wp-content/uploads/2019/08/chrome_fgJWpnVXDC.png) Give your worker a name and paste the code below. Edit the html part to say what you want. Click `Save and Deploy.` After a minute or so you should be able to visit the page the worker is deployed on.
+[![](images/chrome_fgJWpnVXDC.png)](images/chrome_fgJWpnVXDC.png) Give your worker a name and paste the code below. Edit the html part to say what you want. Click `Save and Deploy.` After a minute or so you should be able to visit the page the worker is deployed on.
 
-[![](images/chrome_8MjGm07luY-300x253.png)](https://technicalramblings.com/wp-content/uploads/2019/08/chrome_8MjGm07luY.png) After you've created the worker, go back to the main page and click on `Add route`
+[![](images/chrome_8MjGm07luY.png)](images/chrome_8MjGm07luY.png) After you've created the worker, go back to the main page and click on `Add route`
 
-[![](images/chrome_4bdWottWlo-300x211.png)](https://technicalramblings.com/wp-content/uploads/2019/08/chrome_4bdWottWlo.png)
+[![](images/chrome_4bdWottWlo.png)](images/chrome_4bdWottWlo.png)
 
 Set the route to a subdomain that doesnt point to your site. I'm using `maintenance.technicalramblings.com` Remember to add the DNS record before you create the route. The subdomain you choose shouldn't be something you use as that will disrupt that domain. So I just added something that made sense to me. The subdomains only purpose is to be a placeholder for the maintenance page when the nightly backups aren't running.
 
 The way I have this setup is that I am using the API to update the "route pattern" that the worker is using. So when the backup starts it will run a script that updates the route pattern to `technicalramblings.com/*` and sets the route to use the `maintenance` worker. This will display the page in the screenshot below when someone is trying to access my blog.
 
-\[eckosc\_full\_width\_block\]
-
-[![](images/chrome_xMDgnog4Hj-1024x604.jpg)](https://technicalramblings.com/wp-content/uploads/2019/08/chrome_xMDgnog4Hj.jpg)
-
-\[/eckosc\_full\_width\_block\]
+[![](images/chrome_xMDgnog4Hj.jpg)](images/chrome_xMDgnog4Hj.jpg)
 
 When the backup is finished a script will run and it will change the "route pattern" back to `maintenance.technicalramblings.com/*` I have also added another worker that I called `up` So when everything is back up the maintenance subdomain will display this:
 
-[![](images/chrome_mV8coRRhml-1024x348.png)](https://technicalramblings.com/wp-content/uploads/2019/08/chrome_mV8coRRhml.png)
+[![](images/chrome_mV8coRRhml.png)](images/chrome_mV8coRRhml.png)
 
 The `up` script is identical with only the html part changed. Its not really needed, but I wanted the maintenance page to display something different when the backup was not running in case someone stumbled over the subdomain.
 
-```
+```js
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
 })
@@ -119,17 +131,21 @@ So, for this to all work automatically we need to add a couple of start/stop scr
 
 We can only get the ID by using the Cloudflare API. So run the curl command below to get the route ID you created. Remember to change the zone, API key and email.
 
-```
+```bash
 curl -X GET "https://api.cloudflare.com/client/v4/zones/YOUR-ZONE-ID/workers/routes/" \
 -H "X-Auth-Email: YOUR@CLOUDFLARE-EMAIL.com" \
 -H "X-Auth-Key: YOUR-API-KEY"
 ```
 
-The Zone ID is found on the overview page of the domain you want to use, and the API Key is found on the api tokens page [https://dash.cloudflare.com/profile/api-tokens](https://dash.cloudflare.com/profile/api-tokens) Use the global token.[![](images/chrome_ha6T98Kigw-1024x625.png)](https://technicalramblings.com/wp-content/uploads/2019/08/chrome_ha6T98Kigw.png) [![](images/chrome_V3J4cdYb29-1024x508.png)](https://technicalramblings.com/wp-content/uploads/2019/08/chrome_V3J4cdYb29.png)
+The Zone ID is found on the overview page of the domain you want to use, and the API Key is found on the api tokens page [https://dash.cloudflare.com/profile/api-tokens](https://dash.cloudflare.com/profile/api-tokens) Use the global token.
+
+[![](images/chrome_ha6T98Kigw.png)](images/chrome_ha6T98Kigw.png)
+
+[![](images/chrome_V3J4cdYb29.png)](images/chrome_V3J4cdYb29.png)
 
 The command should output something like this:
 
-```
+```json
 {
   "result": [
     {
@@ -146,11 +162,11 @@ The command should output something like this:
 
 The id is the `route id` we need to use in the start/stop scripts, so save that.
 
-#### Stop script:
+### Stop script
 
 (Runs when CA Backup **starts**. It's called stop script because it runs when stopping the containers)
 
-```
+```bash
 #!/bin/bash
 email='EXAMPLE@DOMAIN.COM'
 apikey='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
@@ -172,7 +188,7 @@ Update the scripts to use your api key, route id and zone id ect. You can try th
 
 (Runs when CA Backup is **finished** and the containers have been started):
 
-```
+```bash
 #!/bin/bash
 email='EXAMPLE@DOMAIN.COM'
 apikey='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
@@ -190,9 +206,11 @@ curl -X PUT "https://api.cloudflare.com/client/v4/zones/"$zone_id"/workers/route
 
 Next create the scripts at your desired location. `nano start.sh` paste the contents, save and run `chmod +x start.sh` Test the script with `./start.sh` Do the same for the stop script
 
-Add the paths in the CA Backup plugin settings. [![](images/chrome_3YVtlnhG89-1024x496.png)](https://technicalramblings.com/wp-content/uploads/2019/08/chrome_3YVtlnhG89.png)
+Add the paths in the CA Backup plugin settings.
 
-### If you need any extra help join the Discord server!
+[![](images/chrome_3YVtlnhG89.png)](images/chrome_3YVtlnhG89.png)
+
+### If you need any extra help join the Discord server
 
 #### [![](https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&logo=discord "technicalramblings/theme.park!")](https://discord.gg/HM5uUKU)
 

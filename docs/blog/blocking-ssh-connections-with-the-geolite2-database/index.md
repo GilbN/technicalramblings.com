@@ -10,11 +10,26 @@ tags:
   - "security"
   - "ssh"
 coverImage: "arget-zvHhKiVuR9M-unsplash-scaled.jpg"
-authors:
-    - Tronyx
+author: "Tronyx"
 ---
 
 # {{ title }}
+
+<small>Written by {{ author }} {{ date }}</small>
+
+<small>Tags</small>
+{% for tag in tags %}
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ tag }}</a>
+</p>
+{% endfor %}
+
+<small>Category</small>
+{% for cat in categories %}
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ cat }}</a>
+</p>
+{% endfor %}
 
 <img src="images/{{ coverImage}}"></img>
 
@@ -23,6 +38,7 @@ This guide will make it possible to block SSH access to your server based on the
 First and foremost, I need to give credit where it is due. This method is a modified and combined version of these two approaches to achieving this, so most of the credit goes to them:
 
 - [https://www.claudiokuenzler.com/blog/676/ssh-access-filter-based-on-geoip-database-allow-deny](https://www.claudiokuenzler.com/blog/676/ssh-access-filter-based-on-geoip-database-allow-deny)
+  
 - [https://www.axllent.org/docs/view/ssh-geoip/](https://www.axllent.org/docs/view/ssh-geoip/)
 
 ## Setting up the MaxMind GeoLite2 Database

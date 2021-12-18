@@ -1,5 +1,5 @@
 ---
-title: "How to setup a Ghost blog with swag/letsencrypt and MariaDB on Unraid"
+title: "How to setup a Ghost blog with swag and MariaDB on Unraid"
 date: "2020-02-03"
 categories: 
   - "frontend"
@@ -20,6 +20,22 @@ coverImage: "ghost-admin-home-header-0c20f780aac8e98af7a56076ae8228b8.png"
 
 # {{ title }}
 
+<small>Written: {{ date }}</small>
+
+<small>Tags</small>
+{% for tag in tags %}
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ tag }}</a>
+</p>
+{% endfor %}
+
+<small>Category</small>
+{% for cat in categories %}
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ cat }}</a>
+</p>
+{% endfor %}
+
 <img src="images/{{ coverImage}}"></img>
 
 Now, I don't really have any issues with Wordpress, I like it. But It's always fun to try something new to see if you're missing out. The setup process is fairly similar to Wordpress except I will be using the Ghost docker container this time. There is also some custom setup you might have to do with the Ghost template to make it work.
@@ -38,9 +54,9 @@ Installing MariaDB is very straight forward. Go to the "Apps" tab and search for
 3. Add the database user variable. `MYSQL_USER`
 4. Add the user password variable. `MYSQL_PASSWORD`
 
-[![](images/chrome_28HMhdICdd-300x144.png)](https://technicalramblings.com/wp-content/uploads/2020/02/chrome_28HMhdICdd.png)
+[![](images/chrome_28HMhdICdd.png)](images/chrome_28HMhdICdd.png)
 
-[![](images/chrome_tTfSFWWBQF-300x105.png)](https://technicalramblings.com/wp-content/uploads/2020/02/chrome_tTfSFWWBQF.png)
+[![](images/chrome_tTfSFWWBQF.png)](images/chrome_tTfSFWWBQF.png)
 
 ### Optional: Create the ghost database manually
 
@@ -103,9 +119,18 @@ It covers all the basics on setting up this container. There's no point for me i
 If you already have swag setup and working with a domain and want to use another domain for your ghost site you can do that by using the **`EXTRA_DOMAINS`** variable.
 
 1. Click on **Add another Path, Port or Variable**
-2. Add these values. Config Type: **Variable** Name:**Extra domain** Key:**EXTRA_DOMAINS** Value:**yourotherdomain.com, ghost.yourotherdomain.com**
 
-[![](images/chrome_2017-12-25_17-57-18-300x202.png)](https://technicalramblings.com/wp-content/uploads/2017/12/chrome_2017-12-25_17-57-18.png)
+2. Add these values:
+
+Config Type: **Variable**
+
+Name: **Extra domain**
+
+Key: **EXTRA_DOMAINS**
+
+Value: **yourotherdomain.com, ghost.yourotherdomain.com**
+
+[![](images/chrome_2017-12-25_17-57-18.png)](images/chrome_2017-12-25_17-57-18.png)
 
 ## Nginx
 
@@ -161,8 +186,8 @@ location /blog {
         resolver 127.0.0.11 valid=30s;
         set $upstream_ghost ghost;
         proxy_pass http://$upstream_ghost:2368;
-	    include /config/nginx/proxy.conf;
-	    proxy_redirect off;
+        include /config/nginx/proxy.conf;
+        proxy_redirect off;
 }
 ```
 
@@ -181,7 +206,7 @@ Ghost was fairly simple to install, but I had to do some modifications to the Un
 
 So for a Gmail setup you need only to set the Mail service to `Gmail` and add the necessary variables. Note: The `Username and Password for Mailgun` is just the mail username and password variables. Doesn't really have anything to do with Mailgun.
 
-[![](images/raw-300x100.png)](https://technicalramblings.com/wp-content/uploads/2020/02/raw.png)
+[![](images/raw-300x100.png)](images/raw.png)
 
 For a Mailgun setup see the Ghost docs: [https://ghost.org/docs/concepts/config/#configure-mail-with-mailgun](https://ghost.org/docs/concepts/config/#configure-mail-with-mailgun)
 
@@ -189,13 +214,13 @@ The rest is just filling out the different variables.
 
 Remember to a subdirectory in the URL field if you hare using that. For example: `https://technicalramblings.com/blog` or `https://ghost.technicalramblings.com/blog`
 
-[![](images/chrome_iZ4gDBn8f2-300x243.png)](https://technicalramblings.com/wp-content/uploads/2020/02/chrome_iZ4gDBn8f2.png)
+[![](images/chrome_iZ4gDBn8f2-300x243.png)](images/chrome_iZ4gDBn8f2.png)
 
 ## Make the site private
 
 A nice feature Ghost has is a setting which can make the site private with password protection. Just go into the general settings and enable it under advanced settings.
 
-[![](images/chrome_aqMtfXUWj9-300x66.png)](https://technicalramblings.com/wp-content/uploads/2020/02/chrome_aqMtfXUWj9.png)
+[![](images/chrome_aqMtfXUWj9-300x66.png)](images/chrome_aqMtfXUWj9.png)
 
 ### If you need any extra help join the Discord server!
 

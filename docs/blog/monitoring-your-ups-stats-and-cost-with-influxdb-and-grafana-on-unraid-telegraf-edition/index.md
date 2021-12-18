@@ -20,6 +20,22 @@ coverImage: "Unraid-UPS-Dashboard-Telegraf-Edition.jpg"
 
 # {{ title }}
 
+<small>Written: {{ date }}</small>
+
+<small>Tags</small>
+{% for tag in tags %}
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ tag }}</a>
+</p>
+{% endfor %}
+
+<small>Category</small>
+{% for cat in categories %}
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">{{ cat }}</a>
+</p>
+{% endfor %}
+
 <img src="images/{{ coverImage}}"></img>
 
 So.. I just found out that Telegraf recently added Apcupsd as a [plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/apcupsd). So naturally I created a dashboard for it :) I promise, this is the last UPS stats blog post for a while!
@@ -31,7 +47,7 @@ Just skip down to the plugin part if you're already up and running.
 Search for **`influxdb`** in Community Apps and install it using the default template. Select your appdata path and host ports if the default ones are taken. There is no other setup than just installing the container.
 
 !!! error "Note"
-    Dont' use the latest tag" icon="fa-exclamation-triangle" type="warn" message="The `:latest` tag will run InfluxDB V2! This guide was written for v1.8. Change the tag to `:1.8.4` for it to work!
+    Dont' use the latest tag" icon="fa-exclamation-triangle" type="warn" message="The `:latest` tag will run InfluxDB V2! This guide was written for v1.8. Change the tag to `:1.8.x` for it to work!
 
 [![](images/chrome_EZLftLwtMU-1024x140.png)](images/chrome_EZLftLwtMU-1024x140.png)
 

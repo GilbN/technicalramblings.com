@@ -583,10 +583,11 @@
         
           <li class="md-nav__item">
   <a href="#stop-script" class="md-nav__link">
-    Stop script:
+    Stop script
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Stop script">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#start-script" class="md-nav__link">
@@ -595,12 +596,17 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#if-you-need-any-extra-help-join-the-discord-server" class="md-nav__link">
-    If you need any extra help join the Discord server!
+    If you need any extra help join the Discord server
   </a>
   
-    <nav class="md-nav" aria-label="If you need any extra help join the Discord server!">
+    <nav class="md-nav" aria-label="If you need any extra help join the Discord server">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1006,10 +1012,11 @@
         
           <li class="md-nav__item">
   <a href="#stop-script" class="md-nav__link">
-    Stop script:
+    Stop script
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Stop script">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#start-script" class="md-nav__link">
@@ -1018,12 +1025,17 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#if-you-need-any-extra-help-join-the-discord-server" class="md-nav__link">
-    If you need any extra help join the Discord server!
+    If you need any extra help join the Discord server
   </a>
   
-    <nav class="md-nav" aria-label="If you need any extra help join the Discord server!">
+    <nav class="md-nav" aria-label="If you need any extra help join the Discord server">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1061,6 +1073,37 @@
 
 
 <h1 id="how-to-setup-a-cloudflare-worker-to-show-a-maintenance-page-when-the-ca-backup-plugin-is-running-on-unraid">How to setup a Cloudflare worker to show a maintenance page when the CA Backup plugin is running on Unraid<a class="headerlink" href="#how-to-setup-a-cloudflare-worker-to-show-a-maintenance-page-when-the-ca-backup-plugin-is-running-on-unraid" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2019-08-14</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">backup</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">cloudflare</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">maintenance</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">script</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">unraid</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">wordpress</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">frontend</a>
+</p>
+
 <p><img src="images/chrome_xMDgnog4Hj.jpg"></img></p>
 <p>Since I use the CA Backup/Restore plugin every night my blog site will some times show the Cloudflare 523 error: origin is unreachable for around 1 hour before the plugin finishes and starts all my docker containers up again. So since that has been a minor annoyance for some time, I decided to look into how I could set up a maintenance page automatically when the backup starts.</p>
 <p>Note: This wouldn't have been an issue if the "Always Online" fuctionality worked on my site</p>
@@ -1068,142 +1111,137 @@
 <p>This is all made possible by using the Cloudflare API and Cloudflare workers. We will need to create a worker and setup a route for it.</p>
 <h2 id="creating-a-worker">Creating a worker<a class="headerlink" href="#creating-a-worker" title="Permanent link">&para;</a></h2>
 <p>On your Cloudflare dashboard click on Workers and go through the first time setup if you haven't done that yet. Next click on <code>Manage Workers</code> and <code>Create a Worker</code></p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/08/chrome_fgJWpnVXDC.png"><img alt="" src="images/chrome_fgJWpnVXDC-300x148.png" /></a> Give your worker a name and paste the code below. Edit the html part to say what you want. Click <code>Save and Deploy.</code> After a minute or so you should be able to visit the page the worker is deployed on.</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/08/chrome_8MjGm07luY.png"><img alt="" src="images/chrome_8MjGm07luY-300x253.png" /></a> After you've created the worker, go back to the main page and click on <code>Add route</code></p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/08/chrome_4bdWottWlo.png"><img alt="" src="images/chrome_4bdWottWlo-300x211.png" /></a></p>
+<p><a href="images/chrome_fgJWpnVXDC.png"><img alt="" src="images/chrome_fgJWpnVXDC.png" /></a> Give your worker a name and paste the code below. Edit the html part to say what you want. Click <code>Save and Deploy.</code> After a minute or so you should be able to visit the page the worker is deployed on.</p>
+<p><a href="images/chrome_8MjGm07luY.png"><img alt="" src="images/chrome_8MjGm07luY.png" /></a> After you've created the worker, go back to the main page and click on <code>Add route</code></p>
+<p><a href="images/chrome_4bdWottWlo.png"><img alt="" src="images/chrome_4bdWottWlo.png" /></a></p>
 <p>Set the route to a subdomain that doesnt point to your site. I'm using <code>maintenance.technicalramblings.com</code> Remember to add the DNS record before you create the route. The subdomain you choose shouldn't be something you use as that will disrupt that domain. So I just added something that made sense to me. The subdomains only purpose is to be a placeholder for the maintenance page when the nightly backups aren't running.</p>
 <p>The way I have this setup is that I am using the API to update the "route pattern" that the worker is using. So when the backup starts it will run a script that updates the route pattern to <code>technicalramblings.com/*</code> and sets the route to use the <code>maintenance</code> worker. This will display the page in the screenshot below when someone is trying to access my blog.</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">eckosc\_full\_width\_block</div>
-<script type="math/tex; mode=display">eckosc\_full\_width\_block</script>
-</div>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/08/chrome_xMDgnog4Hj.jpg"><img alt="" src="images/chrome_xMDgnog4Hj-1024x604.jpg" /></a></p>
-<div class="arithmatex">
-<div class="MathJax_Preview">/eckosc\_full\_width\_block</div>
-<script type="math/tex; mode=display">/eckosc\_full\_width\_block</script>
-</div>
+<p><a href="images/chrome_xMDgnog4Hj.jpg"><img alt="" src="images/chrome_xMDgnog4Hj.jpg" /></a></p>
 <p>When the backup is finished a script will run and it will change the "route pattern" back to <code>maintenance.technicalramblings.com/*</code> I have also added another worker that I called <code>up</code> So when everything is back up the maintenance subdomain will display this:</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/08/chrome_mV8coRRhml.png"><img alt="" src="images/chrome_mV8coRRhml-1024x348.png" /></a></p>
+<p><a href="images/chrome_mV8coRRhml.png"><img alt="" src="images/chrome_mV8coRRhml.png" /></a></p>
 <p>The <code>up</code> script is identical with only the html part changed. Its not really needed, but I wanted the maintenance page to display something different when the backup was not running in case someone stumbled over the subdomain.</p>
-<div class="highlight"><pre><span></span><code>addEventListener(&#39;fetch&#39;, event =&gt; {
-  event.respondWith(handleRequest(event.request))
-})
+<div class="highlight"><pre><span></span><code><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;fetch&#39;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">respondWith</span><span class="p">(</span><span class="nx">handleRequest</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">request</span><span class="p">))</span>
+<span class="p">})</span>
 
-/**
- * Respond to the request
- * @param {Request} request
- */
-async function handleRequest(request) {
+<span class="cm">/**</span>
+<span class="cm"> * Respond to the request</span>
+<span class="cm"> * @param {Request} request</span>
+<span class="cm"> */</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">handleRequest</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
 
-let modifiedHeaders = new Headers()
+<span class="kd">let</span> <span class="nx">modifiedHeaders</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Headers</span><span class="p">()</span>
 
-  modifiedHeaders.set(&#39;Content-Type&#39;, &#39;text/html&#39;)
-  modifiedHeaders.append(&#39;Pragma&#39;, &#39;no-cache&#39;)
+  <span class="nx">modifiedHeaders</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/html&#39;</span><span class="p">)</span>
+  <span class="nx">modifiedHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;Pragma&#39;</span><span class="p">,</span> <span class="s1">&#39;no-cache&#39;</span><span class="p">)</span>
 
-  return new Response(maintenancepage, {headers: modifiedHeaders})
-}
-let maintenancepage = `
+  <span class="k">return</span> <span class="ow">new</span> <span class="nx">Response</span><span class="p">(</span><span class="nx">maintenancepage</span><span class="p">,</span> <span class="p">{</span><span class="nx">headers</span><span class="o">:</span> <span class="nx">modifiedHeaders</span><span class="p">})</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">maintenancepage</span> <span class="o">=</span> <span class="sb">`</span>
 
-&lt;!doctype html&gt;
-&lt;title&gt;Site Maintenance&lt;/title&gt;
-&lt;style&gt;
-  body { 
-        text-align: center; 
-        padding: 150px; 
-        background: url(&#39;https://raw.githubusercontent.com/gilbN/Nostromo/master/blog/Senja-death-star.jpg&#39;) no-repeat center center fixed; 
-        background-size: cover;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-      }
+<span class="sb">&lt;!doctype html&gt;</span>
+<span class="sb">&lt;title&gt;Site Maintenance&lt;/title&gt;</span>
+<span class="sb">&lt;style&gt;</span>
+<span class="sb">  body { </span>
+<span class="sb">        text-align: center; </span>
+<span class="sb">        padding: 150px; </span>
+<span class="sb">        background: url(&#39;https://raw.githubusercontent.com/gilbN/Nostromo/master/blog/Senja-death-star.jpg&#39;) no-repeat center center fixed; </span>
+<span class="sb">        background-size: cover;</span>
+<span class="sb">        -webkit-background-size: cover;</span>
+<span class="sb">        -moz-background-size: cover;</span>
+<span class="sb">        -o-background-size: cover;</span>
+<span class="sb">      }</span>
 
-    .content {
-        background-color: rgba(255, 255, 255, 0.75); 
-        background-size: 100%;      
-        color: inherit;
-        padding: 1px 100px 10px 100px;
-        border-radius: 15px;        
-    }
+<span class="sb">    .content {</span>
+<span class="sb">        background-color: rgba(255, 255, 255, 0.75); </span>
+<span class="sb">        background-size: 100%;      </span>
+<span class="sb">        color: inherit;</span>
+<span class="sb">        padding: 1px 100px 10px 100px;</span>
+<span class="sb">        border-radius: 15px;        </span>
+<span class="sb">    }</span>
 
-  h1 { font-size: 40pt;}
-  body { font: 20px Helvetica, sans-serif; color: #333; }
-  article { display: block; text-align: left; width: 75%; margin: 0 auto; }
-  a:hover { color: #333; text-decoration: none; }
-&lt;/style&gt;
+<span class="sb">  h1 { font-size: 40pt;}</span>
+<span class="sb">  body { font: 20px Helvetica, sans-serif; color: #333; }</span>
+<span class="sb">  article { display: block; text-align: left; width: 75%; margin: 0 auto; }</span>
+<span class="sb">  a:hover { color: #333; text-decoration: none; }</span>
+<span class="sb">&lt;/style&gt;</span>
 
-&lt;article&gt; 
-  &lt;div class=&quot;background&quot;&gt;
-    &lt;div class=&quot;content&quot;&gt;
-      &lt;h1&gt;We&amp;rsquo;ll be right back!&lt;/h1&gt;
-        &lt;p&gt;We&#39;re very sorry for the inconvenience but we&amp;rsquo;re performing maintenance.&lt;/p&gt;
-        &lt;p&gt;Maintenance is performed between &lt;strong&gt;3AM&lt;/strong&gt; to &lt;strong&gt;4AM&lt;/strong&gt; &lt;strong&gt;UTC&lt;/strong&gt;.&lt;/p&gt;
-        &lt;p&gt;Please check back soon...&lt;/p&gt;
-        &lt;p&gt;You can use &lt;span style=&quot;color: #000000;&quot;&gt;&lt;strong&gt;&lt;a style=&quot;color: #000000;&quot; href=&quot;https://cachedview.com/&quot;&gt;https://cachedview.com/&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt; in the mean time.&lt;/p&gt;
-        &lt;p&gt;&amp;mdash; &lt;B&gt;GilbN&lt;/B&gt;&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/article&gt;
-`;
+<span class="sb">&lt;article&gt; </span>
+<span class="sb">  &lt;div class=&quot;background&quot;&gt;</span>
+<span class="sb">    &lt;div class=&quot;content&quot;&gt;</span>
+<span class="sb">      &lt;h1&gt;We&amp;rsquo;ll be right back!&lt;/h1&gt;</span>
+<span class="sb">        &lt;p&gt;We&#39;re very sorry for the inconvenience but we&amp;rsquo;re performing maintenance.&lt;/p&gt;</span>
+<span class="sb">        &lt;p&gt;Maintenance is performed between &lt;strong&gt;3AM&lt;/strong&gt; to &lt;strong&gt;4AM&lt;/strong&gt; &lt;strong&gt;UTC&lt;/strong&gt;.&lt;/p&gt;</span>
+<span class="sb">        &lt;p&gt;Please check back soon...&lt;/p&gt;</span>
+<span class="sb">        &lt;p&gt;You can use &lt;span style=&quot;color: #000000;&quot;&gt;&lt;strong&gt;&lt;a style=&quot;color: #000000;&quot; href=&quot;https://cachedview.com/&quot;&gt;https://cachedview.com/&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt; in the mean time.&lt;/p&gt;</span>
+<span class="sb">        &lt;p&gt;&amp;mdash; &lt;B&gt;GilbN&lt;/B&gt;&lt;/p&gt;</span>
+<span class="sb">    &lt;/div&gt;</span>
+<span class="sb">  &lt;/div&gt;</span>
+<span class="sb">&lt;/article&gt;</span>
+<span class="sb">`</span><span class="p">;</span>
 </code></pre></div>
 <h2 id="ca-backup-scripts">CA Backup Scripts<a class="headerlink" href="#ca-backup-scripts" title="Permanent link">&para;</a></h2>
 <p>So, for this to all work automatically we need to add a couple of start/stop scripts to the CA Backup plugin. But before we can do that we need to get the ID of the route we just created.</p>
 <p>We can only get the ID by using the Cloudflare API. So run the curl command below to get the route ID you created. Remember to change the zone, API key and email.</p>
-<div class="highlight"><pre><span></span><code>curl -X GET &quot;https://api.cloudflare.com/client/v4/zones/YOUR-ZONE-ID/workers/routes/&quot; \
--H &quot;X-Auth-Email: YOUR@CLOUDFLARE-EMAIL.com&quot; \
--H &quot;X-Auth-Key: YOUR-API-KEY&quot;
+<div class="highlight"><pre><span></span><code>curl -X GET <span class="s2">&quot;https://api.cloudflare.com/client/v4/zones/YOUR-ZONE-ID/workers/routes/&quot;</span> <span class="se">\</span>
+-H <span class="s2">&quot;X-Auth-Email: YOUR@CLOUDFLARE-EMAIL.com&quot;</span> <span class="se">\</span>
+-H <span class="s2">&quot;X-Auth-Key: YOUR-API-KEY&quot;</span>
 </code></pre></div>
-<p>The Zone ID is found on the overview page of the domain you want to use, and the API Key is found on the api tokens page <a href="https://dash.cloudflare.com/profile/api-tokens">https://dash.cloudflare.com/profile/api-tokens</a> Use the global token.<a href="https://technicalramblings.com/wp-content/uploads/2019/08/chrome_ha6T98Kigw.png"><img alt="" src="images/chrome_ha6T98Kigw-1024x625.png" /></a> <a href="https://technicalramblings.com/wp-content/uploads/2019/08/chrome_V3J4cdYb29.png"><img alt="" src="images/chrome_V3J4cdYb29-1024x508.png" /></a></p>
+<p>The Zone ID is found on the overview page of the domain you want to use, and the API Key is found on the api tokens page <a href="https://dash.cloudflare.com/profile/api-tokens">https://dash.cloudflare.com/profile/api-tokens</a> Use the global token.</p>
+<p><a href="images/chrome_ha6T98Kigw.png"><img alt="" src="images/chrome_ha6T98Kigw.png" /></a></p>
+<p><a href="images/chrome_V3J4cdYb29.png"><img alt="" src="images/chrome_V3J4cdYb29.png" /></a></p>
 <p>The command should output something like this:</p>
-<div class="highlight"><pre><span></span><code>{
-  &quot;result&quot;: [
-    {
-      &quot;id&quot;: &quot;8998sfd23sd48ds0g5jk3s5sdhd098&quot;,
-      &quot;pattern&quot;: &quot;maintenance.technicalramblings.com/*&quot;,
-      &quot;script&quot;: &quot;maintenance&quot;
-    }
-  ],
-  &quot;success&quot;: true,
-  &quot;errors&quot;: [],
-  &quot;messages&quot;: []
-}
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;result&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;8998sfd23sd48ds0g5jk3s5sdhd098&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;maintenance.technicalramblings.com/*&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;script&quot;</span><span class="p">:</span> <span class="s2">&quot;maintenance&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;success&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;errors&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>The id is the <code>route id</code> we need to use in the start/stop scripts, so save that.</p>
-<h4 id="stop-script">Stop script:<a class="headerlink" href="#stop-script" title="Permanent link">&para;</a></h4>
+<h3 id="stop-script">Stop script<a class="headerlink" href="#stop-script" title="Permanent link">&para;</a></h3>
 <p>(Runs when CA Backup <strong>starts</strong>. It's called stop script because it runs when stopping the containers)</p>
-<div class="highlight"><pre><span></span><code>#!/bin/bash
-email=&#39;EXAMPLE@DOMAIN.COM&#39;
-apikey=&#39;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#39;
-zone_id=&#39;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#39;
-route_id=&#39;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#39;
-route_pattern=&#39;technicalramblings.com/*&#39;
-worker=&#39;maintenance&#39;
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nv">email</span><span class="o">=</span><span class="s1">&#39;EXAMPLE@DOMAIN.COM&#39;</span>
+<span class="nv">apikey</span><span class="o">=</span><span class="s1">&#39;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#39;</span>
+<span class="nv">zone_id</span><span class="o">=</span><span class="s1">&#39;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#39;</span>
+<span class="nv">route_id</span><span class="o">=</span><span class="s1">&#39;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#39;</span>
+<span class="nv">route_pattern</span><span class="o">=</span><span class="s1">&#39;technicalramblings.com/*&#39;</span>
+<span class="nv">worker</span><span class="o">=</span><span class="s1">&#39;maintenance&#39;</span>
 
-curl -X PUT &quot;https://api.cloudflare.com/client/v4/zones/&quot;$zone_id&quot;/workers/routes/&quot;$route_id&quot;&quot; \
--H &quot;X-Auth-Email: &quot;$email&quot;&quot; \
--H &quot;X-Auth-Key: &quot;$apikey&quot;&quot; \
--H &quot;Content-Type: application/json&quot; \
---data &#39;{&quot;pattern&quot;:&quot;&#39;&quot;$route_pattern&quot;&#39;&quot;,&quot;script&quot;:&quot;&#39;&quot;$worker&quot;&#39;&quot;}&#39;
+curl -X PUT <span class="s2">&quot;https://api.cloudflare.com/client/v4/zones/&quot;</span><span class="nv">$zone_id</span><span class="s2">&quot;/workers/routes/&quot;</span><span class="nv">$route_id</span><span class="s2">&quot;&quot;</span> <span class="se">\</span>
+-H <span class="s2">&quot;X-Auth-Email: &quot;</span><span class="nv">$email</span><span class="s2">&quot;&quot;</span> <span class="se">\</span>
+-H <span class="s2">&quot;X-Auth-Key: &quot;</span><span class="nv">$apikey</span><span class="s2">&quot;&quot;</span> <span class="se">\</span>
+-H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+--data <span class="s1">&#39;{&quot;pattern&quot;:&quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$route_pattern</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,&quot;script&quot;:&quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$worker</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;}&#39;</span>
 </code></pre></div>
 <p>Update the scripts to use your api key, route id and zone id ect. You can try the script by setting the domain variable to a test domain (Must be the same domain as the zone ID ). Note: the pattern I use has a <code>wildcard</code> at the end so it will match any url from my blog. You can read more about the matching behavior here <a href="https://workers.cloudflare.com/docs/reference/workers-concepts/routes/">https://workers.cloudflare.com/docs/reference/workers-concepts/routes/</a></p>
 <h4 id="start-script">Start script<a class="headerlink" href="#start-script" title="Permanent link">&para;</a></h4>
 <p>(Runs when CA Backup is <strong>finished</strong> and the containers have been started):</p>
-<div class="highlight"><pre><span></span><code>#!/bin/bash
-email=&#39;EXAMPLE@DOMAIN.COM&#39;
-apikey=&#39;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#39;
-zone_id=&#39;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#39;
-route_id=&#39;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#39;
-route_pattern=&#39;maintenance.technicalramblings.com/*&#39;
-worker=&#39;up&#39;
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nv">email</span><span class="o">=</span><span class="s1">&#39;EXAMPLE@DOMAIN.COM&#39;</span>
+<span class="nv">apikey</span><span class="o">=</span><span class="s1">&#39;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#39;</span>
+<span class="nv">zone_id</span><span class="o">=</span><span class="s1">&#39;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#39;</span>
+<span class="nv">route_id</span><span class="o">=</span><span class="s1">&#39;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&#39;</span>
+<span class="nv">route_pattern</span><span class="o">=</span><span class="s1">&#39;maintenance.technicalramblings.com/*&#39;</span>
+<span class="nv">worker</span><span class="o">=</span><span class="s1">&#39;up&#39;</span>
 
-curl -X PUT &quot;https://api.cloudflare.com/client/v4/zones/&quot;$zone_id&quot;/workers/routes/&quot;$route_id&quot;&quot; \
--H &quot;X-Auth-Email: &quot;$email&quot;&quot; \
--H &quot;X-Auth-Key: &quot;$apikey&quot;&quot; \
--H &quot;Content-Type: application/json&quot; \
---data &#39;{&quot;pattern&quot;:&quot;&#39;&quot;$route_pattern&quot;&#39;&quot;,&quot;script&quot;:&quot;&#39;&quot;$worker&quot;&#39;&quot;}&#39;
+curl -X PUT <span class="s2">&quot;https://api.cloudflare.com/client/v4/zones/&quot;</span><span class="nv">$zone_id</span><span class="s2">&quot;/workers/routes/&quot;</span><span class="nv">$route_id</span><span class="s2">&quot;&quot;</span> <span class="se">\</span>
+-H <span class="s2">&quot;X-Auth-Email: &quot;</span><span class="nv">$email</span><span class="s2">&quot;&quot;</span> <span class="se">\</span>
+-H <span class="s2">&quot;X-Auth-Key: &quot;</span><span class="nv">$apikey</span><span class="s2">&quot;&quot;</span> <span class="se">\</span>
+-H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+--data <span class="s1">&#39;{&quot;pattern&quot;:&quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$route_pattern</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;,&quot;script&quot;:&quot;&#39;</span><span class="s2">&quot;</span><span class="nv">$worker</span><span class="s2">&quot;</span><span class="s1">&#39;&quot;}&#39;</span>
 </code></pre></div>
 <p>Next create the scripts at your desired location. <code>nano start.sh</code> paste the contents, save and run <code>chmod +x start.sh</code> Test the script with <code>./start.sh</code> Do the same for the stop script</p>
-<p>Add the paths in the CA Backup plugin settings. <a href="https://technicalramblings.com/wp-content/uploads/2019/08/chrome_3YVtlnhG89.png"><img alt="" src="images/chrome_3YVtlnhG89-1024x496.png" /></a></p>
-<h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server!<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>
+<p>Add the paths in the CA Backup plugin settings.</p>
+<p><a href="images/chrome_3YVtlnhG89.png"><img alt="" src="images/chrome_3YVtlnhG89.png" /></a></p>
+<h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>
 <h4 id="_1"><a href="https://discord.gg/HM5uUKU"><img alt="" src="https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&amp;logo=discord" title="technicalramblings/theme.park!" /></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <p>Sources:</p>
 <p><a href="https://www.resdevops.com/2018/03/20/cloudflare-workers-maintenance-mode-static-page/">https://www.resdevops.com/2018/03/20/cloudflare-workers-maintenance-mode-static-page/</a></p>
@@ -1214,7 +1252,7 @@ curl -X PUT &quot;https://api.cloudflare.com/client/v4/zones/&quot;$zone_id&quot
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

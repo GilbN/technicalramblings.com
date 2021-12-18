@@ -781,7 +781,7 @@
         
           <li class="md-nav__item">
   <a href="#tip-this-database-gets-updated" class="md-nav__link">
-    TIP! This database gets updated!
+    TIP! This database gets updated
   </a>
   
 </li>
@@ -799,19 +799,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatically-updating-thecf_real-ipconf" class="md-nav__link">
-    Automatically updating thecf_real-ip.conf
+  <a href="#automatically-updating-the-cf_real-ipconf" class="md-nav__link">
+    Automatically updating the cf_real-ip.conf
   </a>
   
-    <nav class="md-nav" aria-label="Automatically updating thecf_real-ip.conf">
+    <nav class="md-nav" aria-label="Automatically updating the cf_real-ip.conf">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#if-you-need-any-extra-help-join-the-discord-server" class="md-nav__link">
-    If you need any extra help join the Discord server!
+    If you need any extra help join the Discord server
   </a>
   
-    <nav class="md-nav" aria-label="If you need any extra help join the Discord server!">
+    <nav class="md-nav" aria-label="If you need any extra help join the Discord server">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1059,7 +1059,7 @@
         
           <li class="md-nav__item">
   <a href="#tip-this-database-gets-updated" class="md-nav__link">
-    TIP! This database gets updated!
+    TIP! This database gets updated
   </a>
   
 </li>
@@ -1077,19 +1077,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatically-updating-thecf_real-ipconf" class="md-nav__link">
-    Automatically updating thecf_real-ip.conf
+  <a href="#automatically-updating-the-cf_real-ipconf" class="md-nav__link">
+    Automatically updating the cf_real-ip.conf
   </a>
   
-    <nav class="md-nav" aria-label="Automatically updating thecf_real-ip.conf">
+    <nav class="md-nav" aria-label="Automatically updating the cf_real-ip.conf">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#if-you-need-any-extra-help-join-the-discord-server" class="md-nav__link">
-    If you need any extra help join the Discord server!
+    If you need any extra help join the Discord server
   </a>
   
-    <nav class="md-nav" aria-label="If you need any extra help join the Discord server!">
+    <nav class="md-nav" aria-label="If you need any extra help join the Discord server">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1127,230 +1127,270 @@
 
 
 <h1 id="blocking-countries-with-geolite2-in-nginx-using-the-swagletsencrypt-docker-container">Blocking countries with GeoLite2 in nginx using the swag/letsencrypt docker container<a class="headerlink" href="#blocking-countries-with-geolite2-in-nginx-using-the-swagletsencrypt-docker-container" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2019-07-01</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">geoblock</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">geoip</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">geoip2</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">geolite2</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">letsencrypt</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">nginx</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">swag</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">backend</a>
+</p>
+
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">security</a>
+</p>
+
 <p><img src="images/Blocking-countries-with-GeoLite2-in-nginx-using-the-letsencrypt-docker-container.jpg"></img></p>
-<p>Since the GeoLite legacy database has been <a href="https://blog.maxmind.com/2018/01/02/discontinuation-of-the-geolite-legacy-databases/">discontinued</a>, we now have to use the GeoLite2 database to get new updates to the database. This will be a followup article from the <a href="https://technicalramblings.com/blog/blocking-countries-with-geoip2-using-the-letsencrypt-docker-container/">post</a> i made about the legacy database. As the new GeoLite2 database uses a new format (<a href="https://github.com/maxmind/libmaxminddb">maxminddb</a>) we couldn't just switch to the new database. Nginx also needed to be compiled with the <a href="https://github.com/leev/ngx_http_geoip2_module">geoip2 modul.</a> And with Aptalca's <a href="https://github.com/alpinelinux/aports/pull/6762">pull request</a> on the alpine repo added it will just be a matter of a minor update to the <code>**nginx.conf**</code> file!</p>
+<p>Since the GeoLite legacy database has been <a href="https://blog.maxmind.com/2018/01/02/discontinuation-of-the-geolite-legacy-databases/">discontinued</a>, we now have to use the GeoLite2 database to get new updates to the database. This will be a followup article from the <a href="https://technicalramblings.com/blog/blocking-countries-with-geoip2-using-the-letsencrypt-docker-container/">post</a> i made about the legacy database. As the new GeoLite2 database uses a new format (<a href="https://github.com/maxmind/libmaxminddb">maxminddb</a>) we couldn't just switch to the new database. Nginx also needed to be compiled with the <a href="https://github.com/leev/ngx_http_geoip2_module">geoip2 modul.</a> And with Aptalca's <a href="https://github.com/alpinelinux/aports/pull/6762">pull request</a> on the alpine repo added it will just be a matter of a minor update to the <strong><code>nginx.conf</code></strong> file!</p>
 <h2 id="geolite2-database">GeoLite2 database<a class="headerlink" href="#geolite2-database" title="Permanent link">&para;</a></h2>
-<div class="arithmatex">
-<div class="MathJax_Preview">eckosc\_status\_message title="Update" icon="fa-exclamation-triangle" type="info" message="As of 15.05.20 you can add the variable -e **MAXMINDDB\_LICENSE\_KEY** = &lt;lisencekey&gt; to have the container download the database and update it weekly!"</div>
-<script type="math/tex; mode=display">eckosc\_status\_message title="Update" icon="fa-exclamation-triangle" type="info" message="As of 15.05.20 you can add the variable -e **MAXMINDDB\_LICENSE\_KEY** = <lisencekey> to have the container download the database and update it weekly!"</script>
+<div class="admonition tip">
+<p class="admonition-title">Update</p>
+<p>As of 15.05.20 you can add the variable -e <strong>MAXMINDDB_LICENSE_KEY</strong> = <lisencekey> to have the container download the database and update it weekly!"</p>
 </div>
 <p><strong>As of 12/30/19 you have to sign up to Maxmind to be able to download the database.</strong> <a href="https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/">https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/</a></p>
 <p>Create an account and go to your account page to download the database.</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/07/chrome_HGOgG8aZM9.png"><img alt="" src="images/chrome_HGOgG8aZM9-1024x872.png" /></a></p>
+<p><a href="images/chrome_HGOgG8aZM9.png"><img alt="" src="images/chrome_HGOgG8aZM9.png" /></a></p>
 <p>Download the database and extract the .mmdb file to the folder of you choice. I'll be using <code>/config/geoip2db/</code> for my setup.</p>
 <h3 id="nginx">NGINX<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h3>
 <p>In the latest version of <strong>nginx.conf</strong> there is now a line that says <code>#include /config/nginx/geoip2.conf;</code> Uncomment that line. If you dont have that line, you can just add it.</p>
 <p>Open the <code>geoip2.conf</code> file and find the line that says <code>map $geoip2_data_country_iso_code $allowed_country {</code> As it says <code>default</code> must be either yes or no. To block everything set it <strong>no</strong>. Add the country codes you want to allow accessfrom <strong><a href="http://dev.maxmind.com/geoip/legacy/codes/iso3166/">this</a></strong> list. e.g. <strong><code>US yes;</code></strong> This will block all other countries than the one you choose. You can also add more than one country if you want. Like this:</p>
-<div class="highlight"><pre><span></span><code># GEOIP2 COUNTRY CONFIG
-map $geoip2_data_country_iso_code $allowed_country {
-    default no;
-    US yes;
-}
+<div class="highlight"><pre><span></span><code><span class="c1"># GEOIP2 COUNTRY CONFIG</span>
+<span class="k">map</span> <span class="nv">$geoip2_data_country_iso_code</span> <span class="nv">$allowed_country</span> <span class="p">{</span>
+    <span class="kn">default</span> <span class="s">no</span><span class="p">;</span>
+    <span class="kn">US</span> <span class="s">yes</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>Now since we have set default to no, you will need to add the local ip ranges that you want to allow access in the <code>$allow_list</code> variable below. Like this:</p>
-<div class="highlight"><pre><span></span><code># ALLOW LOCAL ACCESS
-geo $allow_list {
-    default no;
-    192.168.1.0/24 yes;
-}
+<p>Now since we have set default to no, you will need to add the local ip ranges that you want to allow access in the <strong><code>$allow_list</code></strong> variable below. Like this:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ALLOW LOCAL ACCESS</span>
+<span class="k">geo</span> <span class="nv">$allow_list</span> <span class="p">{</span>
+    <span class="kn">default</span> <span class="s">no</span><span class="p">;</span>
+    <span class="kn">192.168.1.0/24</span> <span class="s">yes</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>Remember to also set default to <code>**no**</code> in in the <code>$allow_list</code></p>
-<p>Check out <a href="https://www.aelius.com/njh/subnet_sheet.html">https://www.aelius.com/njh/subnet_sheet.html</a>if you are wondering what your <strong><a href="https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking">CIDRnotation</a></strong> is. Most often it will be <strong>/24</strong> (netmask 255.255.255.0) To find your netmask run <code>**ipconfig /all**</code> on windows or**<code>ifconfig | grep netmask</code>** on linux.</p>
-<blockquote>
-<p>Note: The <code>ALLOW LOCAL ACCESS</code> part is only needed if you set default to no in the <code>map $geoip2_data_country_iso_code</code>config.</p>
-</blockquote>
+<p>Remember to also set default to <strong><code>no</code></strong> in in the <strong><code>$allow_list</code></strong></p>
+<p>Check out <a href="https://www.aelius.com/njh/subnet_sheet.html">https://www.aelius.com/njh/subnet_sheet.html</a> if you are wondering what your <strong><a href="https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking">CIDRnotation</a></strong> is. Most often it will be <strong>/24</strong> (netmask 255.255.255.0) To find your netmask run <strong><code>ipconfig /all</code></strong> on windows or <strong><code>ifconfig | grep netmask</code></strong> on linux.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>ALLOW LOCAL ACCESS</code> part is only needed if you set default to no in the <code>map $geoip2_data_country_iso_code</code>config.</p>
+</div>
 <p>Setting default to <code>no</code> means that it will block any IP addresses from the database not set to <code>yes</code>, even local ones.</p>
 <p>For it to actually block you need to add this in your <strong><code>server blocks</code></strong> inside the <code>proxy-confs</code> and <code>site-confs</code> folder:</p>
-<div class="highlight"><pre><span></span><code>if ($allow_list = yes) {
-set $allowed_country yes;
-}
-if ($allowed_country = no) {
-return 444;
-}
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="s">(</span><span class="nv">$allow_list</span> <span class="p">=</span> <span class="s">yes)</span> <span class="p">{</span>
+<span class="kn">set</span> <span class="nv">$allowed_country</span> <span class="s">yes</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="s">(</span><span class="nv">$allowed_country</span> <span class="p">=</span> <span class="s">no)</span> <span class="p">{</span>
+<span class="kn">return</span> <span class="mi">444</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>Here is an example using the <code>unifi-controller.subdomain.conf</code> in <code>proxy-confs</code>:</p>
-<div class="highlight"><pre><span></span><code>server {
-    listen 443 ssl;
-    listen [::]:443 ssl;
+<div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
+    <span class="kn">listen</span> <span class="s">[::]:443</span> <span class="s">ssl</span><span class="p">;</span>
 
-    server_name unifi.*;
+    <span class="kn">server_name</span> <span class="s">unifi.*</span><span class="p">;</span>
 
-    include /config/nginx/ssl.conf;
+    <span class="kn">include</span> <span class="s">/config/nginx/ssl.conf</span><span class="p">;</span>
 
-#COUNTRY GEO BLOCK 
-    if ($allow_list = yes) { 
-    set $allowed_country yes; 
-    }    
-    if ($allowed_country = no) {
-    return 444;
-    }
+<span class="c1">#COUNTRY GEO BLOCK </span>
+    <span class="kn">if</span> <span class="s">(</span><span class="nv">$allow_list</span> <span class="p">=</span> <span class="s">yes)</span> <span class="p">{</span> 
+    <span class="kn">set</span> <span class="nv">$allowed_country</span> <span class="s">yes</span><span class="p">;</span> 
+    <span class="p">}</span>    
+    <span class="kn">if</span> <span class="s">(</span><span class="nv">$allowed_country</span> <span class="p">=</span> <span class="s">no)</span> <span class="p">{</span>
+    <span class="kn">return</span> <span class="mi">444</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    client_max_body_size 0;
+    <span class="kn">client_max_body_size</span> <span class="mi">0</span><span class="p">;</span>
 
-    # enable for ldap auth, fill in ldap details in ldap.conf
-    #include /config/nginx/ldap.conf;
+    <span class="c1"># enable for ldap auth, fill in ldap details in ldap.conf</span>
+    <span class="c1">#include /config/nginx/ldap.conf;</span>
 
-    # enable for Authelia
-    #include /config/nginx/authelia-server.conf;
+    <span class="c1"># enable for Authelia</span>
+    <span class="c1">#include /config/nginx/authelia-server.conf;</span>
 
-    location / {
-        # enable the next two lines for http auth
-        #auth_basic &quot;Restricted&quot;;
-        #auth_basic_user_file /config/nginx/.htpasswd;
+    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+        <span class="c1"># enable the next two lines for http auth</span>
+        <span class="c1">#auth_basic &quot;Restricted&quot;;</span>
+        <span class="c1">#auth_basic_user_file /config/nginx/.htpasswd;</span>
 
-        # enable the next two lines for ldap auth
-        #auth_request /auth;
-        #error_page 401 =200 /ldaplogin;
+        <span class="c1"># enable the next two lines for ldap auth</span>
+        <span class="c1">#auth_request /auth;</span>
+        <span class="c1">#error_page 401 =200 /ldaplogin;</span>
 
-        # enable for Authelia
-        #include /config/nginx/authelia-location.conf;
+        <span class="c1"># enable for Authelia</span>
+        <span class="c1">#include /config/nginx/authelia-location.conf;</span>
 
-        include /config/nginx/proxy.conf;
-        resolver 127.0.0.11 valid=30s;
-        set $upstream_app unifi-controller;
-        set $upstream_port 8443;
-        set $upstream_proto https;
-        proxy_pass $upstream_proto://$upstream_app:$upstream_port;
+        <span class="kn">include</span> <span class="s">/config/nginx/proxy.conf</span><span class="p">;</span>
+        <span class="kn">resolver</span> <span class="mi">127</span><span class="s">.0.0.11</span> <span class="s">valid=30s</span><span class="p">;</span>
+        <span class="kn">set</span> <span class="nv">$upstream_app</span> <span class="s">unifi-controller</span><span class="p">;</span>
+        <span class="kn">set</span> <span class="nv">$upstream_port</span> <span class="mi">8443</span><span class="p">;</span>
+        <span class="kn">set</span> <span class="nv">$upstream_proto</span> <span class="s">https</span><span class="p">;</span>
+        <span class="kn">proxy_pass</span> <span class="nv">$upstream_proto://$upstream_app:$upstream_port</span><span class="p">;</span>
 
-        proxy_buffering off;
-    }
-}
+        <span class="kn">proxy_buffering</span> <span class="no">off</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <h3 id="multiple-geo-blocks">Multiple geo blocks<a class="headerlink" href="#multiple-geo-blocks" title="Permanent link">&para;</a></h3>
 <p>If you host several websites and want a different country block just add another with a different variable name. e.g. <strong><code>$allowed_country2</code></strong>:</p>
-<div class="highlight"><pre><span></span><code> # GEO IP BLOCK DOMAIN 2
-  map $geoip2_data_country_iso_code $allowed_country2 {
-   default yes;
-    CN no; #China
-    RU no; #Russia
-    HK no; #Hong Kong
-    IN no; #India
-    IR no; #Iran
-    VN no; #Vietnam
-    TR no; #Turkey
-    EG no; #Egypt
-    MX no; #Mexico
-    JP no; #Japan
-    KR no; #South Korea
-    KP no; #North Korea :)
-    PE no; #Peru
-    BR no; #Brazil
-    UA no; #Ukraine
-    ID no; #Indonesia
-    TH no; #Thailand
- }
+<div class="highlight"><pre><span></span><code> <span class="c1"># GEO IP BLOCK DOMAIN 2</span>
+  <span class="k">map</span> <span class="nv">$geoip2_data_country_iso_code</span> <span class="nv">$allowed_country2</span> <span class="p">{</span>
+   <span class="kn">default</span> <span class="s">yes</span><span class="p">;</span>
+    <span class="kn">CN</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#China</span>
+    <span class="kn">RU</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Russia</span>
+    <span class="kn">HK</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Hong Kong</span>
+    <span class="kn">IN</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#India</span>
+    <span class="kn">IR</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Iran</span>
+    <span class="kn">VN</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Vietnam</span>
+    <span class="kn">TR</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Turkey</span>
+    <span class="kn">EG</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Egypt</span>
+    <span class="kn">MX</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Mexico</span>
+    <span class="kn">JP</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Japan</span>
+    <span class="kn">KR</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#South Korea</span>
+    <span class="kn">KP</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#North Korea :)</span>
+    <span class="kn">PE</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Peru</span>
+    <span class="kn">BR</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Brazil</span>
+    <span class="kn">UA</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Ukraine</span>
+    <span class="kn">ID</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Indonesia</span>
+    <span class="kn">TH</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Thailand</span>
+ <span class="p">}</span>
 </code></pre></div>
-<p>As <code>**default**</code>is set to <strong><code>yes</code>**it will allow every country except the country codes set to **<code>no</code></strong></p>
+<p>As <strong><code>default</code></strong> is set to <strong><code>yes</code></strong> it will allow every country except the country codes set to <strong><code>no</code></strong></p>
 <p>And in the server block add this</p>
-<div class="highlight"><pre><span></span><code># COUNTRY GEO BLOCK 2
-    if ($allowed_country2 = no) {
-    return 444;
-    }
+<div class="highlight"><pre><span></span><code><span class="c1"># COUNTRY GEO BLOCK 2</span>
+    <span class="k">if</span> <span class="s">(</span><span class="nv">$allowed_country2</span> <span class="p">=</span> <span class="s">no)</span> <span class="p">{</span>
+    <span class="kn">return</span> <span class="mi">444</span><span class="p">;</span>
+    <span class="p">}</span>
 </code></pre></div>
 <p>I made this list based on the <a href="https://www.spamhaus.org/statistics/botnet-cc/">Spamhaus</a> statistics and <a href="https://www.akamai.com/us/en/multimedia/documents/state-of-the-internet/q3-2017-state-of-the-internet-security-report.pdf">Aakamai's</a> state of the internet report.</p>
 <h2 id="blocked">Blocked<a class="headerlink" href="#blocked" title="Permanent link">&para;</a></h2>
 <p>You can test if it worked with a VPN or do a performance test from a location that is blocked here<a href="https://www.webpagetest.org/">https://www.webpagetest.org/</a></p>
-<h4 id="tip-this-database-gets-updated"><strong>TIP! This database gets updated!</strong><a class="headerlink" href="#tip-this-database-gets-updated" title="Permanent link">&para;</a></h4>
-<div class="arithmatex">
-<div class="MathJax_Preview">eckosc\_status\_message title="Update" icon="fa-exclamation-triangle" type="info" message="As of 15.05.20 you can add the variable -e MAXMINDDB\_LICENSE\_KEY = &lt;lisencekey&gt; to have the container download the database and update it weekly!"</div>
-<script type="math/tex; mode=display">eckosc\_status\_message title="Update" icon="fa-exclamation-triangle" type="info" message="As of 15.05.20 you can add the variable -e MAXMINDDB\_LICENSE\_KEY = <lisencekey> to have the container download the database and update it weekly!"</script>
+<h3 id="tip-this-database-gets-updated">TIP! This database gets updated<a class="headerlink" href="#tip-this-database-gets-updated" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Update</p>
+<p>As of 15.05.20 you can add the variable -e MAXMINDDB_LICENSE_KEY = <lisencekey> to have the container download the database and update it weekly!"</p>
 </div>
-<p>By setting up a cronjob you can easily automate the update process. I use the Unraid User Scripts plugin and set a cronjob to run every day but the GeoLite2 Country and City databases are updated on the first Tuesday of each month, so choose whatever suits your needs. Click on <strong><code>Add New Script</code></strong>→ Enter the name→ Click on the name of the script and then <code>**Edit** **Script**</code></p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2017/12/update-geoip.png"><img alt="" src="images/update-geoip.png" /></a></p>
-<div class="arithmatex">
-<div class="MathJax_Preview">eckosc\_status\_message title="Warning" icon="fa-exclamation-triangle" type="error" message="Since you need to sign up to Maxmind.com to download you need to create a licence key to be able to directly download the database"</div>
-<script type="math/tex; mode=display">eckosc\_status\_message title="Warning" icon="fa-exclamation-triangle" type="error" message="Since you need to sign up to Maxmind.com to download you need to create a licence key to be able to directly download the database"</script>
+<p>By setting up a cronjob you can easily automate the update process. I use the Unraid User Scripts plugin and set a cronjob to run every day but the GeoLite2 Country and City databases are updated on the first Tuesday of each month, so choose whatever suits your needs. Click on <strong><code>Add New Script</code></strong> → Enter the name → Click on the name of the script and then <strong><code>Edit</code></strong> <strong><code>Script</code></strong></p>
+<p><a href="images/update-geoip.png"><img alt="" src="images/update-geoip.png" /></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Since you need to sign up to Maxmind.com to download you need to create a licence key to be able to directly download the database</p>
 </div>
 <p>Go to the licence keys page and create a license key. Select <strong><code>no</code></strong> when asked if you want to use the key with geoupdate.</p>
 <p>Replace XXXXXXXXXX with your license key.</p>
-<div class="highlight"><pre><span></span><code>#!/usr/bin/env bash
-licensekey=&quot;XXXXXXXXXXXXX&quot;
-wget -O /tmp/GeoLite2-City.tar.gz &quot;https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&amp;license_key=${licensekey}&amp;suffix=tar.gz&quot;
-tar -xvf /tmp/GeoLite2-City.tar.gz -C /tmp/ --wildcards &quot;*.mmdb&quot; --strip 1
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="nv">licensekey</span><span class="o">=</span><span class="s2">&quot;XXXXXXXXXXXXX&quot;</span>
+wget -O /tmp/GeoLite2-City.tar.gz <span class="s2">&quot;https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&amp;license_key=</span><span class="si">${</span><span class="nv">licensekey</span><span class="si">}</span><span class="s2">&amp;suffix=tar.gz&quot;</span>
+tar -xvf /tmp/GeoLite2-City.tar.gz -C /tmp/ --wildcards <span class="s2">&quot;*.mmdb&quot;</span> --strip <span class="m">1</span>
 mv /tmp/GeoLite2-City.mmdb /mnt/user/appdata/swag/geolite2/
-chown 911:911 /mnt/user/appdata/letsencrypt/geolite2/GeoLite2-City.mmdb
+chown <span class="m">911</span>:911 /mnt/user/appdata/letsencrypt/geolite2/GeoLite2-City.mmdb
 </code></pre></div>
-<p>Set the schedule to **Schedule Daily**or whenever you'd like.</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2017/12/geoip-1.png"><img alt="" src="images/geoip-1-1024x55.png" /></a></p>
-<p>Click <strong><code>Run In Background</code></strong> and then**<code>Apply</code>**</p>
+<p>Set the schedule to <strong>Schedule Daily</strong> or whenever you'd like.</p>
+<p><a href="images/geoip-1-1024x55.png"><img alt="" src="images/geoip-1-1024x55.png" /></a></p>
+<p>Click <strong><code>Run In Background</code></strong> and then <strong><code>Apply</code></strong></p>
 <h2 id="cloudflare">Cloudflare<a class="headerlink" href="#cloudflare" title="Permanent link">&para;</a></h2>
-<div class="arithmatex">
-<div class="MathJax_Preview">eckosc\_status\_message title="Update: cloudflare\_real-ip - Docker mod for SWAG" icon="fa-exclamation-triangle" type="info" message="Check out the docker mod https://github.com/linuxserver/docker-mods/tree/swag-cloudflare-real-ip This mod adds a startup scipt that gets the IP's from Cloudflares edge servers, and formats them in a format Nginx can use with set\_real\_ip\_from."</div>
-<script type="math/tex; mode=display">eckosc\_status\_message title="Update: cloudflare\_real-ip - Docker mod for SWAG" icon="fa-exclamation-triangle" type="info" message="Check out the docker mod https://github.com/linuxserver/docker-mods/tree/swag-cloudflare-real-ip This mod adds a startup scipt that gets the IP's from Cloudflares edge servers, and formats them in a format Nginx can use with set\_real\_ip\_from."</script>
+<div class="admonition info">
+<p class="admonition-title">Update: cloudflare_real-ip - Docker mod for SWAG</p>
+<p>Check out the docker mod <a href="https://github.com/linuxserver/docker-mods/tree/swag-cloudflare-real-ip">https://github.com/linuxserver/docker-mods/tree/swag-cloudflare-real-ip</a> This mod adds a startup scipt that gets the IP's from Cloudflares edge servers, and formats them in a format Nginx can use with <code>set_real_ip_from</code>.</p>
 </div>
 <p>If you use Cloudflare you will need to add the following in nginx so that it won't block the Cloudflare IP but the actual IP of the visitor. If you don't do this you will get false positives.</p>
-<p>Add the following section to your<code>nginx.conf</code> file found in<code>**appdata/swag/nginx/**</code></p>
-<div class="highlight"><pre><span></span><code>set_real_ip_from 103.21.244.0/22;
-set_real_ip_from 103.22.200.0/22;
-set_real_ip_from 103.31.4.0/22;
-set_real_ip_from 104.16.0.0/13;
-set_real_ip_from 104.24.0.0/14;
-set_real_ip_from 108.162.192.0/18;
-set_real_ip_from 131.0.72.0/22;
-set_real_ip_from 141.101.64.0/18;
-set_real_ip_from 162.158.0.0/15;
-set_real_ip_from 172.64.0.0/13;
-set_real_ip_from 173.245.48.0/20;
-set_real_ip_from 188.114.96.0/20;
-set_real_ip_from 190.93.240.0/20;
-set_real_ip_from 197.234.240.0/22;
-set_real_ip_from 198.41.128.0/17;
-set_real_ip_from 2400:cb00::/32;
-set_real_ip_from 2606:4700::/32;
-set_real_ip_from 2803:f800::/32;
-set_real_ip_from 2405:b500::/32;
-set_real_ip_from 2405:8100::/32;
-set_real_ip_from 2c0f:f248::/32;
-set_real_ip_from 2a06:98c0::/29;
+<p>Add the following section to your<code>nginx.conf</code> file found in <strong><code>appdata/swag/nginx/</code></strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">set_real_ip_from</span> <span class="mi">103</span><span class="s">.21.244.0/22</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">103</span><span class="s">.22.200.0/22</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">103</span><span class="s">.31.4.0/22</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">104</span><span class="s">.16.0.0/13</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">104</span><span class="s">.24.0.0/14</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">108</span><span class="s">.162.192.0/18</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">131</span><span class="s">.0.72.0/22</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">141</span><span class="s">.101.64.0/18</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">162</span><span class="s">.158.0.0/15</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">172</span><span class="s">.64.0.0/13</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">173</span><span class="s">.245.48.0/20</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">188</span><span class="s">.114.96.0/20</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">190</span><span class="s">.93.240.0/20</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">197</span><span class="s">.234.240.0/22</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">198</span><span class="s">.41.128.0/17</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">2400</span><span class="p">:</span><span class="s">cb00::/32</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="n">2606</span><span class="p">:</span><span class="mi">4700</span><span class="p">::</span><span class="s">/32</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">2803</span><span class="p">:</span><span class="s">f800::/32</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">2405</span><span class="p">:</span><span class="s">b500::/32</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="n">2405</span><span class="p">:</span><span class="mi">8100</span><span class="p">::</span><span class="s">/32</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="s">2c0f:f248::/32</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="n">2a06</span><span class="p">:</span><span class="mi">98</span><span class="s">c0::/29</span><span class="p">;</span>
 
-real_ip_header X-Forwarded-For;
+<span class="k">real_ip_header</span> <span class="s">X-Forwarded-For</span><span class="p">;</span>
 </code></pre></div>
 <p>You can set it up as an include like this too:</p>
-<div class="highlight"><pre><span></span><code>##
-# CF Real IP
-##
-include /config/nginx/cf_real-ip.conf;
-real_ip_header X-Forwarded-For;
+<div class="highlight"><pre><span></span><code><span class="c1">##</span>
+<span class="c1"># CF Real IP</span>
+<span class="c1">##</span>
+<span class="k">include</span> <span class="n">/config/nginx/cf_real-ip.conf</span>;
+<span class="k">real_ip_header</span> <span class="s">X-Forwarded-For</span><span class="p">;</span>
 </code></pre></div>
 <p>After that you need to restart the swag container for the changes to take effect.</p>
-<h2 id="automatically-updating-thecf_real-ipconf">Automatically updating thecf_real-ip.conf<a class="headerlink" href="#automatically-updating-thecf_real-ipconf" title="Permanent link">&para;</a></h2>
+<h2 id="automatically-updating-the-cf_real-ipconf">Automatically updating the cf_real-ip.conf<a class="headerlink" href="#automatically-updating-the-cf_real-ipconf" title="Permanent link">&para;</a></h2>
 <p>Tronyx over at the discord forums graciously shared his script for updating the Cloudflare ip list. This list is not static and Cloudflare updates it once in a while.</p>
 <p>The script below will update the list with any changes in the list of IPs from CF</p>
-<div class="highlight"><pre><span></span><code>#!/usr/bin/env bash
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 
-curl -s &#39;https://www.cloudflare.com/ips-v4&#39; &gt; /tmp/cf.txt
-curl -s &#39;https://www.cloudflare.com/ips-v6&#39; &gt;&gt; /tmp/cf.txt
+curl -s <span class="s1">&#39;https://www.cloudflare.com/ips-v4&#39;</span> &gt; /tmp/cf.txt
+curl -s <span class="s1">&#39;https://www.cloudflare.com/ips-v6&#39;</span> &gt;&gt; /tmp/cf.txt
 
-sed &#39;s/^/set_real_ip_from /&#39; /tmp/cf.txt &gt; /tmp/cf2.txt
+sed <span class="s1">&#39;s/^/set_real_ip_from /&#39;</span> /tmp/cf.txt &gt; /tmp/cf2.txt
 
-sed -e &#39;s/$/;/&#39; /tmp/cf2.txt &gt; /home/swag/config/nginx/cf_real-ip.conf
+sed -e <span class="s1">&#39;s/$/;/&#39;</span> /tmp/cf2.txt &gt; /home/swag/config/nginx/cf_real-ip.conf
 </code></pre></div>
 <p>I use unraid so I will use the User Scripts plugin to setup a cronjob that will run once a week.</p>
 <ol>
-<li>Go to Settings &gt; User Scripts and click <strong><code>Add New Script</code></strong> </li>
+<li>Go to Settings &gt; User Scripts and click <strong><code>Add New Script</code></strong></li>
 <li>Give it a name and a description if you want</li>
 <li>Click edit script and add it inside the box.</li>
 <li>You will need to update the path in the last line to you nginx appdata folder</li>
 <li>Set the schedule to weekly and click apply and done.</li>
 </ol>
-<div class="highlight"><pre><span></span><code>#!/bin/bash
-curl -s &#39;https://www.cloudflare.com/ips-v4&#39; &gt; /tmp/cf.txt
-curl -s &#39;https://www.cloudflare.com/ips-v6&#39; &gt;&gt; /tmp/cf.txt
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+curl -s <span class="s1">&#39;https://www.cloudflare.com/ips-v4&#39;</span> &gt; /tmp/cf.txt
+curl -s <span class="s1">&#39;https://www.cloudflare.com/ips-v6&#39;</span> &gt;&gt; /tmp/cf.txt
 
-sed &#39;s/^/set_real_ip_from /&#39; /tmp/cf.txt &gt; /tmp/cf2.txt
+sed <span class="s1">&#39;s/^/set_real_ip_from /&#39;</span> /tmp/cf.txt &gt; /tmp/cf2.txt
 
-sed -e &#39;s/$/;/&#39; /tmp/cf2.txt &gt; /mnt/user/appdata/swag/nginx/cf_real-ip.conf
+sed -e <span class="s1">&#39;s/$/;/&#39;</span> /tmp/cf2.txt &gt; /mnt/user/appdata/swag/nginx/cf_real-ip.conf
 </code></pre></div>
-<h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server!<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>
+<h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>
 <h4 id="_1"><a href="https://discord.gg/HM5uUKU"><img alt="" src="https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&amp;logo=discord" title="technicalramblings/theme.park!" /></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
-<p>Souce: <a href="https://github.com/leev/ngx">https://github.com/leev/ngx</a>_http_geoip2_module <a href="https://dev.maxmind.com/geoip/legacy/install/country/">https://dev.maxmind.com/geoip/legacy/install/country/</a> <a href="http://dev.maxmind.com/geoip/legacy/codes/iso3166/">http://dev.maxmind.com/geoip/legacy/codes/iso3166/</a> <a href="https://www.howtoforge.com/nginx-how-to-block-visitors-by-country-with-the-geoip-module-debian-ubuntu">https://www.howtoforge.com/nginx-how-to-block-visitors-by-country-with-the-geoip-module-debian-ubuntu</a> <a href="https://www.spamhaus.org/statistics/botnet-cc/">https://www.spamhaus.org/statistics/botnet-cc/</a> <a href="https://www.akamai.com/us/en/multimedia/documents/state-of-the-internet/q3-2017-state-of-the-internet-security-report.pdf">https://www.akamai.com/us/en/multimedia/documents/state-of-the-internet/q3-2017-state-of-the-internet-security-report.pdf</a></p>
+<p>Souce: <a href="https://github.com/leev/ngx_http_geoip2_module">https://github.com/leev/ngx_http_geoip2_module</a> <a href="https://dev.maxmind.com/geoip/legacy/install/country/">https://dev.maxmind.com/geoip/legacy/install/country/</a> <a href="http://dev.maxmind.com/geoip/legacy/codes/iso3166/">http://dev.maxmind.com/geoip/legacy/codes/iso3166/</a> <a href="https://www.howtoforge.com/nginx-how-to-block-visitors-by-country-with-the-geoip-module-debian-ubuntu">https://www.howtoforge.com/nginx-how-to-block-visitors-by-country-with-the-geoip-module-debian-ubuntu</a> <a href="https://www.spamhaus.org/statistics/botnet-cc/">https://www.spamhaus.org/statistics/botnet-cc/</a> <a href="https://www.akamai.com/us/en/multimedia/documents/state-of-the-internet/q3-2017-state-of-the-internet-security-report.pdf">https://www.akamai.com/us/en/multimedia/documents/state-of-the-internet/q3-2017-state-of-the-internet-security-report.pdf</a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

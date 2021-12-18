@@ -782,10 +782,10 @@
         
           <li class="md-nav__item">
   <a href="#if-you-need-any-extra-help-join-the-discord-server" class="md-nav__link">
-    If you need any extra help join the Discord server!
+    If you need any extra help join the Discord server
   </a>
   
-    <nav class="md-nav" aria-label="If you need any extra help join the Discord server!">
+    <nav class="md-nav" aria-label="If you need any extra help join the Discord server">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1006,10 +1006,10 @@
         
           <li class="md-nav__item">
   <a href="#if-you-need-any-extra-help-join-the-discord-server" class="md-nav__link">
-    If you need any extra help join the Discord server!
+    If you need any extra help join the Discord server
   </a>
   
-    <nav class="md-nav" aria-label="If you need any extra help join the Discord server!">
+    <nav class="md-nav" aria-label="If you need any extra help join the Discord server">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1047,34 +1047,57 @@
 
 
 <h1 id="how-to-add-email-notifications-to-fail2ban">How to add email notifications to Fail2ban<a class="headerlink" href="#how-to-add-email-notifications-to-fail2ban" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2019-09-08</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">fail2ban</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">letsencrypt</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">security</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">backend</a>
+</p>
+
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">security</a>
+</p>
+
 <p><img src="images/fail2ban-email.jpg"></img></p>
 <p>Following up an my other two post about Fail2ban notifications, that you can read here: <a href="https://technicalramblings.com/blog/adding-ban-unban-notifications-from-fail2ban-to-discord/">Adding ban/unban notifications from Fail2Ban to Discord!</a> and here<a href="https://technicalramblings.com/blog/adding-ban-unban-notifications-from-fail2ban-with-pushover/">Adding ban/unban notifications from Fail2Ban to Pushover!</a> I recently got email notifications working (Thank you <em>count_confucius</em>) and thought I'd share how to get that working!</p>
 <h2 id="adding-the-action">Adding the action<a class="headerlink" href="#adding-the-action" title="Permanent link">&para;</a></h2>
-<div class="arithmatex">
-<div class="MathJax_Preview">eckosc\_status\_message title="Note" icon="fa-exclamation-circle" type="info" message="I am using the linuxserver letsencrypt container in this guide. https://github.com/linuxserver/docker-letsencrypt"</div>
-<script type="math/tex; mode=display">eckosc\_status\_message title="Note" icon="fa-exclamation-circle" type="info" message="I am using the linuxserver letsencrypt container in this guide. https://github.com/linuxserver/docker-letsencrypt"</script>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I am using the linuxserver swag container in this guide. <a href="https://github.com/linuxserver/docker-swag">https://github.com/linuxserver/docker-swag</a></p>
 </div>
 <p>Go into your <code>/action.d</code> folder and copy and rename <code>sendmail-whois.conf</code> to <code>sendmail-whois.local</code>. Edit the file and replace the <code>actionban</code> and add the <code>actionunban</code> with the code below:</p>
-<div class="highlight"><pre><span></span><code>actionban =   printf %%b &quot;Subject:🕵️ [Fail2Ban] &lt;name&gt;: BANNED IP &lt;ip&gt;! 🔨
-              Date: `LC_ALL=C date +&quot;%%a, %%d %%h %%Y %%T %%z&quot;`
-              From: &lt;sendername&gt; &lt;&lt;sender&gt;&gt;
-              To: &lt;destination&gt;\n
-              Hi,\n
-              The jail &lt;name&gt; has banned ip &lt;ip&gt; after &lt;failures&gt; attempts against &lt;name&gt;.\n
-              Here is some info about the IP: https://db-ip.com/&lt;ip&gt; \n
-              Lines containing IP &lt;ip&gt;: \n
-              `grep &#39;&lt;ip&gt;&#39; &lt;logpath&gt;` \n
-              Regards,\n
-              Fail2Ban&quot; | /usr/sbin/sendmail -t -v -H &#39;exec openssl s_client -quiet -tls1 -connect smtp.gmail.com:465&#39; -au&lt;from&gt; -ap&lt;password&gt; &lt;destination&gt;
+<div class="highlight"><pre><span></span><code><span class="nv">actionban</span> <span class="o">=</span>   <span class="nb">printf</span> %%b <span class="s2">&quot;Subject:🕵️ [Fail2Ban] &lt;name&gt;: BANNED IP &lt;ip&gt;! 🔨</span>
+<span class="s2">              Date: `LC_ALL=C date +&quot;</span>%%a, %%d %%h %%Y %%T %%z<span class="s2">&quot;`</span>
+<span class="s2">              From: &lt;sendername&gt; &lt;&lt;sender&gt;&gt;</span>
+<span class="s2">              To: &lt;destination&gt;\n</span>
+<span class="s2">              Hi,\n</span>
+<span class="s2">              The jail &lt;name&gt; has banned ip &lt;ip&gt; after &lt;failures&gt; attempts against &lt;name&gt;.\n</span>
+<span class="s2">              Here is some info about the IP: https://db-ip.com/&lt;ip&gt; \n</span>
+<span class="s2">              Lines containing IP &lt;ip&gt;: \n</span>
+<span class="s2">              `grep &#39;&lt;ip&gt;&#39; &lt;logpath&gt;` \n</span>
+<span class="s2">              Regards,\n</span>
+<span class="s2">              Fail2Ban&quot;</span> <span class="p">|</span> /usr/sbin/sendmail -t -v -H <span class="s1">&#39;exec openssl s_client -quiet -tls1 -connect smtp.gmail.com:465&#39;</span> -au&lt;from&gt; -ap&lt;password&gt; &lt;destination&gt;
 
-actionunban = printf %%b &quot;Subject:🔔 [Fail2Ban] &lt;name&gt;: UNBANNED IP &lt;ip&gt; ✅
-              Date: `LC_ALL=C date +&quot;%%a, %%d %%h %%Y %%T %%z&quot;`
-              From: &lt;sendername&gt; &lt;&lt;sender&gt;&gt;
-              To: &lt;destination&gt;\n
-              Hi,\n
-              Fail2ban has unbanned ip https://db-ip.com/&lt;ip&gt; successfully. \n
-              Regards,\n
-              Fail2Ban&quot; | /usr/sbin/sendmail -t -v -H &#39;exec openssl s_client -quiet -tls1 -connect smtp.gmail.com:465&#39; -au&lt;from&gt; -ap&lt;password&gt; &lt;destination&gt;
+<span class="nv">actionunban</span> <span class="o">=</span> <span class="nb">printf</span> %%b <span class="s2">&quot;Subject:🔔 [Fail2Ban] &lt;name&gt;: UNBANNED IP &lt;ip&gt; ✅</span>
+<span class="s2">              Date: `LC_ALL=C date +&quot;</span>%%a, %%d %%h %%Y %%T %%z<span class="s2">&quot;`</span>
+<span class="s2">              From: &lt;sendername&gt; &lt;&lt;sender&gt;&gt;</span>
+<span class="s2">              To: &lt;destination&gt;\n</span>
+<span class="s2">              Hi,\n</span>
+<span class="s2">              Fail2ban has unbanned ip https://db-ip.com/&lt;ip&gt; successfully. \n</span>
+<span class="s2">              Regards,\n</span>
+<span class="s2">              Fail2Ban&quot;</span> <span class="p">|</span> /usr/sbin/sendmail -t -v -H <span class="s1">&#39;exec openssl s_client -quiet -tls1 -connect smtp.gmail.com:465&#39;</span> -au&lt;from&gt; -ap&lt;password&gt; &lt;destination&gt;
 </code></pre></div>
 <p>NOTE: If you don't use gmail you need to update the smtp address in the code!</p>
 <p>Next save the file and copy and rename the <code>sendmail-common.conf</code> file to <code>sendmail-common.local</code> We have to edit this file or else we'll get a lot of errors in the Fail2ban log about failing to send jail startup and shutdown emails.</p>
@@ -1082,8 +1105,8 @@ actionunban = printf %%b &quot;Subject:🔔 [Fail2Ban] &lt;name&gt;: UNBANNED IP
 <p>If you want emails on start and stop, add the code above and just change the subject and body of the email.</p>
 <h2 id="jaillocal">jail.local<a class="headerlink" href="#jaillocal" title="Permanent link">&para;</a></h2>
 <p>In your jail.local file add the following in the <code>[DEFAULT]</code> section:</p>
-<div class="highlight"><pre><span></span><code>action = iptables-allports
-          %(action_mw)s[from=example@gmail.com, password=secretpassword, destination=example@gmail.com, sendername=Fail2Ban]
+<div class="highlight"><pre><span></span><code><span class="nv">action</span> <span class="o">=</span> iptables-allports
+          %<span class="o">(</span>action_mw<span class="o">)</span>s<span class="o">[</span><span class="nv">from</span><span class="o">=</span>example@gmail.com, <span class="nv">password</span><span class="o">=</span>secretpassword, <span class="nv">destination</span><span class="o">=</span>example@gmail.com, <span class="nv">sendername</span><span class="o">=</span>Fail2Ban<span class="o">]</span>
 </code></pre></div>
 <p>Let's break down the mail action. <strong>from</strong> = The email account it sends from. <strong>password</strong> = The password to the sender account. <strong>destination</strong> = Where you want to send the notification. <strong>sendername</strong> = Name of the sender.</p>
 <p>The action <code>iptables-allports</code> is needed because if you only have the send mail action it will override the action that updates the iptables! So it won't ban the IP without it.</p>
@@ -1093,7 +1116,7 @@ actionunban = printf %%b &quot;Subject:🔔 [Fail2Ban] &lt;name&gt;: UNBANNED IP
 <p>The email will look like this:</p>
 <p><a href="https://technicalramblings.com/wp-content/uploads/2019/09/chrome_OCklWr02MT.png"><img alt="" src="images/chrome_OCklWr02MT.png" /></a></p>
 <p><a href="https://technicalramblings.com/wp-content/uploads/2019/09/chrome_WTM61hydPD.png"><img alt="" src="images/chrome_WTM61hydPD.png" /></a></p>
-<h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server!<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>
+<h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>
 <h4 id="_1"><a href="https://discord.gg/HM5uUKU"><img alt="" src="https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&amp;logo=discord" title="technicalramblings/theme.park!" /></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 
   <hr>
@@ -1101,7 +1124,7 @@ actionunban = printf %%b &quot;Subject:🔔 [Fail2Ban] &lt;name&gt;: UNBANNED IP
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

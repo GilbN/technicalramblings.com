@@ -967,12 +967,79 @@
 
 
 <h1 id="how-to-add-dark-mode-to-any-app-with-this-one-simple-trick">How to add dark mode to any app with this one simple trick!<a class="headerlink" href="#how-to-add-dark-mode-to-any-app-with-this-one-simple-trick" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2021-01-03</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">containers</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">dark-theme</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">docker</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">docker_mods</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">letsencrypt</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">linuxserver</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">nginx</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">proxy</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">reverse</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">skins</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">swag</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">theme-park</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">themes</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">unraid</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">backend</a>
+</p>
+
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">frontend</a>
+</p>
+
 <p><img src="images/raw-32-2.jpg"></img></p>
 <p>Developers hate me for sharing this one weird trick!</p>
 <p>Yes..the title is clickbait, and <strong>no</strong> this does not work on any app/container ;)</p>
 <p>I have for some time now been creating <strong><a href="https://github.com/gilbN/theme.park">css themes/skins</a></strong> for different applications that reside in the "media server/selfhosting" category. Normally you would add the themes using a "subfilter" module like <a href="http://nginx.org/en/docs/http/ngx_http_sub_module.html">http://nginx.org/en/docs/http/ngx_http_sub_module.html</a> or <a href="https://httpd.apache.org/docs/2.4/mod/mod_filter.html">https://httpd.apache.org/docs/2.4/mod/mod_filter.html</a>. This means that you would have to reverse proxy the application to be able to add the theme. Doing that would only apply the theme when accessing the application though the proxy and not locally.</p>
-<p>So, to fix that I've created a bunch of <a href="https://blog.linuxserver.io/2019/09/14/customizing-our-containers/">docker mods</a> for all the applications that have a <strong><a href="https://www.linuxserver.io/">linuxserver</a></strong> container. The docker mod, will run a script at startup to inject the stylesheet into the html file using <a href="https://www.gnu.org/software/sed/manual/sed.html">sed</a>. The script does the exact same thing as the subfiltering module except it does it on the backend instead of on the proxy side. You can find all the mods here: <a href="https://github.com/gilbN/theme.park/tree/docker-mods">https://github.com/gilbN/theme.park/tree/docker-mods</a></p>
-<p>The scripts are quite simple and only has a couple of variables. <code>TP_DOMAIN</code> and <code>TP_THEME</code> Both these variable have a default value if not set. <code>TP_DOMAIN</code> is set to <code>theme-park.dev</code> and <code>TP_THEME</code> is set to <code>organizr_dark</code></p>
+<p>So, to fix that I've created a bunch of <a href="https://blog.linuxserver.io/2019/09/14/customizing-our-containers/">docker mods</a> for all the applications that have a <strong><a href="https://www.linuxserver.io/">linuxserver</a></strong> container. The docker mod, will run a script at startup to inject the stylesheet into the html file using <a href="https://www.gnu.org/software/sed/manual/sed.html">sed</a>. The script does the exact same thing as the subfiltering module except it does it on the backend instead of on the proxy side. You can find all the mods here: <a href="https://github.com/GilbN/theme.park/tree/master/docker-mods">https://github.com/GilbN/theme.park/tree/master/docker-mods</a></p>
+<p>The scripts are quite simple and only has a couple of variables. <code>TP_DOMAIN</code> and <code>TP_THEME</code> Both these variable have a default value if not set. <code>TP_DOMAIN</code> is set to <code>theme-park.dev</code> and <code>TP_THEME</code> is set to <code>organizr</code></p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/with-contenv bash</span>
 
@@ -980,10 +1047,20 @@
 <span class="nb">echo</span> <span class="s1">&#39;|  Sonarr theme.park Mod  |&#39;</span>
 <span class="nb">echo</span> <span class="s1">&#39;---------------------------&#39;</span>
 
-<span class="c1"># Display variables for troubleshooting</span>
+<span class="c1"># Display variables for troubleshooting </span>
 <span class="nb">echo</span> -e <span class="s2">&quot;Variables set:\\n\</span>
 <span class="s2">&#39;TP_DOMAIN&#39;=</span><span class="si">${</span><span class="nv">TP_DOMAIN</span><span class="si">}</span><span class="s2">\\n\</span>
+<span class="s2">&#39;TP_COMMUNITY_THEME&#39;=</span><span class="si">${</span><span class="nv">TP_COMMUNITY_THEME</span><span class="si">}</span><span class="s2">\\n\</span>
+<span class="s2">&#39;TP_ADDON&#39;=</span><span class="si">${</span><span class="nv">TP_ADDON</span><span class="si">}</span><span class="s2">\\n\</span>
 <span class="s2">&#39;TP_THEME&#39;=</span><span class="si">${</span><span class="nv">TP_THEME</span><span class="si">}</span><span class="s2">\\n&quot;</span>
+
+<span class="nv">APP_FILEPATH</span><span class="o">=</span><span class="s1">&#39;/app/sonarr/bin/UI/index.html&#39;</span>
+<span class="nv">LOGIN_FILEPATH</span><span class="o">=</span><span class="s1">&#39;/app/sonarr/bin/UI/login.html&#39;</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">TP_HOTIO</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="nb">true</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s1">&#39;Changing to Hotio file path!&#39;</span>
+    <span class="nv">APP_FILEPATH</span><span class="o">=</span><span class="s1">&#39;/app/bin/UI/index.html&#39;</span>
+    <span class="nv">LOGIN_FILEPATH</span><span class="o">=</span><span class="s1">&#39;/app/bin/UI/login.html&#39;</span>
+<span class="k">fi</span>
 
 <span class="c1"># Set default</span>
 <span class="k">if</span> <span class="o">[[</span> -z <span class="si">${</span><span class="nv">TP_DOMAIN</span><span class="si">}</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
@@ -991,37 +1068,58 @@
     <span class="nv">TP_DOMAIN</span><span class="o">=</span><span class="s1">&#39;theme-park.dev&#39;</span>
 <span class="k">fi</span>
 
+<span class="nv">THEME_TYPE</span><span class="o">=</span><span class="s1">&#39;theme-options&#39;</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">TP_COMMUNITY_THEME</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="nb">true</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nv">THEME_TYPE</span><span class="o">=</span><span class="s1">&#39;community-theme-options&#39;</span>
+<span class="k">fi</span>
+
+<span class="k">case</span> <span class="si">${</span><span class="nv">TP_DOMAIN</span><span class="si">}</span> <span class="k">in</span>
+  *<span class="s2">&quot;github.io&quot;</span>*<span class="o">)</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Switching to github.io URL style&quot;</span>
+    <span class="nv">TP_DOMAIN</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">TP_DOMAIN</span><span class="si">}</span><span class="s2">\/theme.park&quot;</span>
+    <span class="p">;;</span>
+<span class="k">esac</span>
+
 <span class="k">if</span> <span class="o">[[</span> -z <span class="si">${</span><span class="nv">TP_THEME</span><span class="si">}</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s1">&#39;No theme set, defaulting to organizr-dark&#39;</span>
-    <span class="nv">TP_THEME</span><span class="o">=</span><span class="s1">&#39;organizr-dark&#39;</span>
+    <span class="nb">echo</span> <span class="s1">&#39;No theme set, defaulting to organizr&#39;</span>
+    <span class="nv">TP_THEME</span><span class="o">=</span><span class="s1">&#39;organizr&#39;</span>
 <span class="k">fi</span>
 
 <span class="c1"># Adding stylesheets</span>
-<span class="k">if</span> ! grep -q <span class="s2">&quot;</span><span class="si">${</span><span class="nv">TP_DOMAIN</span><span class="si">}</span><span class="s2">&quot;</span> /app/sonarr/bin/UI/index.html<span class="p">;</span> <span class="k">then</span>
+<span class="k">if</span> ! grep -q <span class="s2">&quot;</span><span class="si">${</span><span class="nv">TP_DOMAIN</span><span class="si">}</span><span class="s2">/css/base&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">APP_FILEPATH</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">then</span>
     <span class="nb">echo</span> <span class="s1">&#39;---------------------------&#39;</span>
     <span class="nb">echo</span> <span class="s1">&#39;|  Adding the stylesheet  |&#39;</span>
     <span class="nb">echo</span> <span class="s1">&#39;---------------------------&#39;</span>
-    sed -i <span class="s2">&quot;s/&lt;\/head&gt;/&lt;link rel=&#39;stylesheet&#39; href=&#39;https:\/\/</span><span class="si">${</span><span class="nv">TP_DOMAIN</span><span class="si">}</span><span class="s2">\/theme.park\/CSS\/themes\/sonarr\/</span><span class="si">${</span><span class="nv">TP_THEME</span><span class="si">}</span><span class="s2">.css&#39;&gt;&lt;\/head&gt; /g&quot;</span> /app/sonarr/bin/UI/index.html
-    <span class="nb">printf</span> <span class="s1">&#39;Stylesheet set to %s\n&#39;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">TP_THEME</span><span class="si">}</span><span class="s2"></span>
-<span class="s2">    &quot;</span>
+    sed -i <span class="s2">&quot;s/&lt;\/head&gt;/&lt;link rel=&#39;stylesheet&#39; href=&#39;https:\/\/</span><span class="si">${</span><span class="nv">TP_DOMAIN</span><span class="si">}</span><span class="s2">\/css\/base\/sonarr\/sonarr-base.css&#39;&gt;&lt;\/head&gt; /g&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">APP_FILEPATH</span><span class="si">}</span><span class="s2">&quot;</span>
+    sed -i <span class="s2">&quot;s/&lt;\/head&gt;/&lt;link rel=&#39;stylesheet&#39; href=&#39;https:\/\/</span><span class="si">${</span><span class="nv">TP_DOMAIN</span><span class="si">}</span><span class="s2">\/css\/</span><span class="si">${</span><span class="nv">THEME_TYPE</span><span class="si">}</span><span class="s2">\/</span><span class="si">${</span><span class="nv">TP_THEME</span><span class="si">}</span><span class="s2">.css&#39;&gt;&lt;\/head&gt; /g&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">APP_FILEPATH</span><span class="si">}</span><span class="s2">&quot;</span>
+    sed -i <span class="s2">&quot;s/&lt;\/head&gt;/&lt;link rel=&#39;stylesheet&#39; href=&#39;https:\/\/</span><span class="si">${</span><span class="nv">TP_DOMAIN</span><span class="si">}</span><span class="s2">\/css\/base\/sonarr\/sonarr-base.css&#39;&gt;&lt;\/head&gt; /g&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">LOGIN_FILEPATH</span><span class="si">}</span><span class="s2">&quot;</span>
+    sed -i <span class="s2">&quot;s/&lt;\/head&gt;/&lt;link rel=&#39;stylesheet&#39; href=&#39;https:\/\/</span><span class="si">${</span><span class="nv">TP_DOMAIN</span><span class="si">}</span><span class="s2">\/css\/</span><span class="si">${</span><span class="nv">THEME_TYPE</span><span class="si">}</span><span class="s2">\/</span><span class="si">${</span><span class="nv">TP_THEME</span><span class="si">}</span><span class="s2">.css&#39;&gt;&lt;\/head&gt; /g&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">LOGIN_FILEPATH</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">printf</span> <span class="s1">&#39;Stylesheet set to %s\n&#39;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">TP_THEME</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">if</span> <span class="o">[[</span> -n <span class="si">${</span><span class="nv">TP_ADDON</span><span class="si">}</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="k">for</span> addon <span class="k">in</span> <span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$TP_ADDON</span><span class="s2">&quot;</span> <span class="p">|</span> tr <span class="s2">&quot;|&quot;</span> <span class="s2">&quot; &quot;</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span>
+        sed -i <span class="s2">&quot;s/&lt;\/head&gt;/&lt;link rel=&#39;stylesheet&#39; href=&#39;https:\/\/</span><span class="si">${</span><span class="nv">TP_DOMAIN</span><span class="si">}</span><span class="s2">\/css\/addons\/sonarr\/</span><span class="si">${</span><span class="nv">addon</span><span class="si">}</span><span class="s2">\/</span><span class="si">${</span><span class="nv">addon</span><span class="si">}</span><span class="s2">.css&#39;&gt;&lt;\/head&gt; /g&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">APP_FILEPATH</span><span class="si">}</span><span class="s2">&quot;</span>
+        sed -i <span class="s2">&quot;s/&lt;\/head&gt;/&lt;link rel=&#39;stylesheet&#39; href=&#39;https:\/\/</span><span class="si">${</span><span class="nv">TP_DOMAIN</span><span class="si">}</span><span class="s2">\/css\/addons\/sonarr\/</span><span class="si">${</span><span class="nv">addon</span><span class="si">}</span><span class="s2">\/</span><span class="si">${</span><span class="nv">addon</span><span class="si">}</span><span class="s2">.css&#39;&gt;&lt;\/head&gt; /g&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">LOGIN_FILEPATH</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="nb">printf</span> <span class="s1">&#39;Added custom addon: %s\n\n&#39;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">addon</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">done</span>
+    <span class="k">fi</span>
 <span class="k">fi</span>
 </code></pre></div>
 <h2 id="adding-the-theme">Adding the theme<a class="headerlink" href="#adding-the-theme" title="Permanent link">&para;</a></h2>
 <p>Adding the mod, is quite simple. Add the variable <code>DOCKER_MODS=ghcr.io/gilbn/theme.park:&lt;app&gt;</code> e.g. <code>ghcr.io/gilbn/theme.park:sonarr</code> to your docker run command or compose file.</p>
 <p>On Unraid simply click on <code>+ Add another Path, Port, Variable, label or Device</code></p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2021/01/chrome_FjpV8pDRDU.png"><img alt="" src="images/chrome_FjpV8pDRDU.png" /></a> </p>
+<p><a href="images/chrome_FjpV8pDRDU.png"><img alt="" src="images/chrome_FjpV8pDRDU.png" /></a></p>
 <p>And fill out the fields.</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2021/01/chrome_bcil72yAkv.png"><img alt="" src="images/chrome_bcil72yAkv.png" /></a></p>
-<p>As noted earlier it will default to the <strong><a href="https://github.com/gilbN/theme.park/wiki/Organizr-Dark">organizr_dark</a></strong> theme and the <code>theme-park.dev</code> domain. So if you want a different theme, you must add the <code>TP_THEME</code> variable with the value you want. The available themes are: <code>aquamarine</code>, <code>hotline</code>, <code>space-gray</code>,<code>dark</code>, <code>plex</code> and <code>organizr</code></p>
+<p><a href="images/chrome_bcil72yAkv.png"><img alt="" src="images/chrome_bcil72yAkv.png" /></a></p>
+<p>As noted earlier it will default to the <strong><a href="https://docs.theme-park.dev/theme-options/organizr/">organizr</a></strong> theme and the <code>theme-park.dev</code> domain. So if you want a different theme, you must add the <code>TP_THEME</code> variable with the value you want. The available themes are: <code>aquamarine</code>, <code>hotline</code>, <code>space-gray</code>,<code>dark</code>, <code>plex</code> and <code>organizr</code></p>
 <p>Click the banners here for screenshots of the different themes: <a href="https://docs.theme-park.dev/#themes">https://docs.theme-park.dev/#themes</a></p>
-<p>You can find applications that support Docker Mods installation here: <a href="https://github.com/gilbN/theme.park/tree/docker-mods">https://github.com/gilbN/theme.park/tree/docker-mods</a> For other installation methods check the wiki <a href="https://docs.theme-park.dev/setup/">https://docs.theme-park.dev/setup/</a></p>
+<p>You can find applications that support Docker Mods installation here: <a href="https://github.com/GilbN/theme.park/tree/master/docker-mods">https://github.com/GilbN/theme.park/tree/master/docker-mods</a> For other installation methods check the wiki <a href="https://docs.theme-park.dev/setup/">https://docs.theme-park.dev/setup/</a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

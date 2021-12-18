@@ -850,13 +850,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#updating-jaillocal" class="md-nav__link">
     Updating jail.local
   </a>
@@ -867,13 +860,6 @@
           <li class="md-nav__item">
   <a href="#optional-specifying-which-site-the-ban-works-on" class="md-nav__link">
     Optional: Specifying which site the ban works on
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    
   </a>
   
 </li>
@@ -891,24 +877,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatically-updating-thecf_real-ipconf" class="md-nav__link">
-    Automatically updating thecf_real-ip.conf
+  <a href="#automatically-updating-the-cf_real-ipconf" class="md-nav__link">
+    Automatically updating the cf_real-ip.conf
   </a>
   
-    <nav class="md-nav" aria-label="Automatically updating thecf_real-ip.conf">
+    <nav class="md-nav" aria-label="Automatically updating the cf_real-ip.conf">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#for-any-questions-you-can-find-me-here" class="md-nav__link">
-    For any questions you can find me here:
+    For any questions you can find me here
+  </a>
+  
+    <nav class="md-nav" aria-label="For any questions you can find me here">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -1018,13 +1010,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#updating-jaillocal" class="md-nav__link">
     Updating jail.local
   </a>
@@ -1035,13 +1020,6 @@
           <li class="md-nav__item">
   <a href="#optional-specifying-which-site-the-ban-works-on" class="md-nav__link">
     Optional: Specifying which site the ban works on
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    
   </a>
   
 </li>
@@ -1059,24 +1037,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatically-updating-thecf_real-ipconf" class="md-nav__link">
-    Automatically updating thecf_real-ip.conf
+  <a href="#automatically-updating-the-cf_real-ipconf" class="md-nav__link">
+    Automatically updating the cf_real-ip.conf
   </a>
   
-    <nav class="md-nav" aria-label="Automatically updating thecf_real-ip.conf">
+    <nav class="md-nav" aria-label="Automatically updating the cf_real-ip.conf">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#for-any-questions-you-can-find-me-here" class="md-nav__link">
-    For any questions you can find me here:
+    For any questions you can find me here
+  </a>
+  
+    <nav class="md-nav" aria-label="For any questions you can find me here">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -1103,191 +1087,247 @@
 
 
 <h1 id="how-to-setup-cloudflare-and-fail2ban-with-automated-set_real_ip_from-in-nginx">How to setup Cloudflare and fail2ban with automated "set_real_ip_from" in nginx<a class="headerlink" href="#how-to-setup-cloudflare-and-fail2ban-with-automated-set_real_ip_from-in-nginx" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2018-10-01</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">access</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">ban</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">cloudflare</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">fail2ban</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">letsencrypt</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">nginx</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">security</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">swag</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">unraid</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">backend</a>
+</p>
+
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">security</a>
+</p>
+
 <p><img src="images/Cloudflare-fail2ban-integration.jpg"></img></p>
 <p>If you've decided to use cloudflare as a CDN you've might have noticed that fail2ban isn't working as expected. The fail2ban.log file will say that it has banned an IP, but since the connection is going through Cloudflare it will still let the banned IP browse your website. But luckily Cloudflare has an API we can use to update the Cloudflare firewall on the fly.</p>
 <h2 id="adding-the-action">Adding the action<a class="headerlink" href="#adding-the-action" title="Permanent link">&para;</a></h2>
 <p>If you've read my other <strong><a href="https://technicalramblings.com/?s=fail2ban">fail2ban</a></strong> guides you already know I'm using linuxservers swag container. So there won't be any walkthrough of installing fail2ban. I will only go through the cloudflare configuration.</p>
-<p>Go to your appdata location and find the <strong><code>action.d</code></strong> folder <code>**appdata/swag/fail2ban/action.d**</code></p>
+<p>Go to your appdata location and find the <strong><code>action.d</code></strong> folder <strong><code>appdata/swag/fail2ban/action.d</code></strong></p>
 <p>In that folder there already is an action for cloudflare (<strong>cloudflare.conf</strong>) but that is using the deprecated API. Create a new file called <strong><code>cloudflare-apiv4.conf</code></strong> and add the following:</p>
-<div class="highlight"><pre><span></span><code>#
-# Author: Gilbn from https://technicalramblings.com
-# Adapted Source: https://github.com/fail2ban/fail2ban/blob/master/config/action.d/cloudflare.conf and https://guides.wp-bullet.com/integrate-fail2ban-cloudflare-api-v4-guide/
-#
-# To get your Cloudflare API key: https://dash.cloudflare.com/profile use the Global API Key
-#
+<div class="highlight"><pre><span></span><code><span class="c1">#</span>
+<span class="c1"># Author: Gilbn from https://technicalramblings.com</span>
+<span class="c1"># Adapted Source: https://github.com/fail2ban/fail2ban/blob/master/config/action.d/cloudflare.conf and https://guides.wp-bullet.com/integrate-fail2ban-cloudflare-api-v4-guide/</span>
+<span class="c1">#</span>
+<span class="c1"># To get your Cloudflare API key: https://dash.cloudflare.com/profile use the Global API Key</span>
+<span class="c1">#</span>
 
-[Definition]
+<span class="o">[</span>Definition<span class="o">]</span>
 
-# Option:  actionstart
-# Notes.:  command executed once at the start of Fail2Ban.
-# Values:  CMD
-#
-actionstart =
+<span class="c1"># Option:  actionstart</span>
+<span class="c1"># Notes.:  command executed once at the start of Fail2Ban.</span>
+<span class="c1"># Values:  CMD</span>
+<span class="c1">#</span>
+<span class="nv">actionstart</span> <span class="o">=</span>
 
-# Option:  actionstop
-# Notes.:  command executed once at the end of Fail2Ban
-# Values:  CMD
-#
-actionstop =
+<span class="c1"># Option:  actionstop</span>
+<span class="c1"># Notes.:  command executed once at the end of Fail2Ban</span>
+<span class="c1"># Values:  CMD</span>
+<span class="c1">#</span>
+<span class="nv">actionstop</span> <span class="o">=</span>
 
-# Option:  actioncheck
-# Notes.:  command executed once before each actionban command
-# Values:  CMD
-#
-actioncheck =
+<span class="c1"># Option:  actioncheck</span>
+<span class="c1"># Notes.:  command executed once before each actionban command</span>
+<span class="c1"># Values:  CMD</span>
+<span class="c1">#</span>
+<span class="nv">actioncheck</span> <span class="o">=</span>
 
-# Option:  actionban
-# Notes.:  command executed when banning an IP. Take care that the
-#          command is executed with Fail2Ban user rights.
-# Tags:      IP address
-#            number of failures
-#            unix timestamp of the ban time
-# Values:  CMD
+<span class="c1"># Option:  actionban</span>
+<span class="c1"># Notes.:  command executed when banning an IP. Take care that the</span>
+<span class="c1">#          command is executed with Fail2Ban user rights.</span>
+<span class="c1"># Tags:      IP address</span>
+<span class="c1">#            number of failures</span>
+<span class="c1">#            unix timestamp of the ban time</span>
+<span class="c1"># Values:  CMD</span>
 
-actionban = curl -s -X POST &quot;https://api.cloudflare.com/client/v4/user/firewall/access_rules/rules&quot; \
-            -H &quot;X-Auth-Email: &lt;cfuser&gt;&quot; \
-            -H &quot;X-Auth-Key: &lt;cftoken&gt;&quot; \
-            -H &quot;Content-Type: application/json&quot; \
-            --data &#39;{&quot;mode&quot;:&quot;block&quot;,&quot;configuration&quot;:{&quot;target&quot;:&quot;ip&quot;,&quot;value&quot;:&quot;&lt;ip&gt;&quot;},&quot;notes&quot;:&quot;Fail2ban &lt;name&gt;&quot;}&#39;
+<span class="nv">actionban</span> <span class="o">=</span> curl -s -X POST <span class="s2">&quot;https://api.cloudflare.com/client/v4/user/firewall/access_rules/rules&quot;</span> <span class="se">\</span>
+            -H <span class="s2">&quot;X-Auth-Email: &lt;cfuser&gt;&quot;</span> <span class="se">\</span>
+            -H <span class="s2">&quot;X-Auth-Key: &lt;cftoken&gt;&quot;</span> <span class="se">\</span>
+            -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="se">\</span>
+            --data <span class="s1">&#39;{&quot;mode&quot;:&quot;block&quot;,&quot;configuration&quot;:{&quot;target&quot;:&quot;ip&quot;,&quot;value&quot;:&quot;&lt;ip&gt;&quot;},&quot;notes&quot;:&quot;Fail2ban &lt;name&gt;&quot;}&#39;</span>
 
-# Option:  actionunban
-# Notes.:  command executed when unbanning an IP. Take care that the
-#          command is executed with Fail2Ban user rights.
-# Tags:      IP address
-#            number of failures
-#            unix timestamp of the ban time
-# Values:  CMD
-#
+<span class="c1"># Option:  actionunban</span>
+<span class="c1"># Notes.:  command executed when unbanning an IP. Take care that the</span>
+<span class="c1">#          command is executed with Fail2Ban user rights.</span>
+<span class="c1"># Tags:      IP address</span>
+<span class="c1">#            number of failures</span>
+<span class="c1">#            unix timestamp of the ban time</span>
+<span class="c1"># Values:  CMD</span>
+<span class="c1">#</span>
 
-actionunban = curl -s -X DELETE &quot;https://api.cloudflare.com/client/v4/user/firewall/access_rules/rules/$( \
-              curl -s -X GET &quot;https://api.cloudflare.com/client/v4/user/firewall/access_rules/rules?mode=block&amp;configuration_target=ip&amp;configuration_value=&lt;ip&gt;&amp;page=1&amp;per_page=1&amp;match=all&quot; \
-             -H &quot;X-Auth-Email: &lt;cfuser&gt;&quot; \
-             -H &quot;X-Auth-Key: &lt;cftoken&gt;&quot; \
-             -H &quot;Content-Type: application/json&quot; | awk -F&quot;[,:}]&quot; &#39;{for(i=1;i&lt;=NF;i++){if($i~/&#39;id&#39;\042/){print $(i+1);}}}&#39; | tr -d &#39;&quot;&#39; | sed -e &#39;s/^[ \t]*//&#39; | head -n 1)&quot; \
-             -H &quot;X-Auth-Email: &lt;cfuser&gt;&quot; \
-             -H &quot;X-Auth-Key: &lt;cftoken&gt;&quot; \
-             -H &quot;Content-Type: application/json&quot;
+<span class="nv">actionunban</span> <span class="o">=</span> curl -s -X DELETE <span class="s2">&quot;https://api.cloudflare.com/client/v4/user/firewall/access_rules/rules/</span><span class="k">$(</span> <span class="se">\</span>
+              curl -s -X GET <span class="s2">&quot;https://api.cloudflare.com/client/v4/user/firewall/access_rules/rules?mode=block&amp;configuration_target=ip&amp;configuration_value=&lt;ip&gt;&amp;page=1&amp;per_page=1&amp;match=all&quot;</span> <span class="se">\</span>
+             -H <span class="s2">&quot;X-Auth-Email: &lt;cfuser&gt;&quot;</span> <span class="se">\</span>
+             -H <span class="s2">&quot;X-Auth-Key: &lt;cftoken&gt;&quot;</span> <span class="se">\</span>
+             -H <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="p">|</span> awk -F<span class="s2">&quot;[,:}]&quot;</span> <span class="s1">&#39;{for(i=1;i&lt;=NF;i++){if($i~/&#39;</span>id<span class="s1">&#39;\042/){print $(i+1);}}}&#39;</span> <span class="p">|</span> tr -d <span class="s1">&#39;&quot;&#39;</span> <span class="p">|</span> sed -e <span class="s1">&#39;s/^[ \t]*//&#39;</span> <span class="p">|</span> head -n <span class="m">1</span><span class="k">)</span><span class="s2">&quot;</span> <span class="se">\</span>
+             -H <span class="s2">&quot;X-Auth-Email: &lt;cfuser&gt;&quot;</span> <span class="se">\</span>
+             -H <span class="s2">&quot;X-Auth-Key: &lt;cftoken&gt;&quot;</span> <span class="se">\</span>
+             -H <span class="s2">&quot;Content-Type: application/json&quot;</span>
 
-[Init]
+<span class="o">[</span>Init<span class="o">]</span>
 
-# Name of the jail in your jail.local file. default = [jail name]
-name = default
+<span class="c1"># Name of the jail in your jail.local file. default = [jail name]</span>
+<span class="nv">name</span> <span class="o">=</span> default
 
-# Option: cfuser
-# Notes.: Replaces &lt;cfuser&gt; in actionban and actionunban with cfuser value below
-# Values: Your CloudFlare user account
+<span class="c1"># Option: cfuser</span>
+<span class="c1"># Notes.: Replaces &lt;cfuser&gt; in actionban and actionunban with cfuser value below</span>
+<span class="c1"># Values: Your CloudFlare user account</span>
 
-cfuser = user@mail.com
+<span class="nv">cfuser</span> <span class="o">=</span> user@mail.com
 
-# Option: cftoken (Global API Key)
-# Notes.: Replaces &lt;cftoken&gt; in actionban and actionunban with cftoken value below
-# Values: Your CloudFlare API key 
-cftoken = YOUR-API-KEY
+<span class="c1"># Option: cftoken (Global API Key)</span>
+<span class="c1"># Notes.: Replaces &lt;cftoken&gt; in actionban and actionunban with cftoken value below</span>
+<span class="c1"># Values: Your CloudFlare API key </span>
+<span class="nv">cftoken</span> <span class="o">=</span> YOUR-API-KEY
 </code></pre></div>
 <p>The unban curl command from <a href="https://guides.wp-bullet.com/integrate-fail2ban-cloudflare-api-v4-guide/">https://guides.wp-bullet.com/integrate-fail2ban-cloudflare-api-v4-guide/</a> did not work for me but changing it to what this user on serverfault shared did<a href="https://serverfault.com/a/912547">https://serverfault.com/a/912547</a></p>
 <p>At the end of the config file add your cloudflare email on the "<strong>cfuser</strong>" line and add your Cloudflare token on the "<strong>cftoken</strong>" line.</p>
 <p>Your Cloudflare token can be found on your profile page. Use the "<strong>Global API Key</strong>"</p>
-<h2 id="_1"><a href="https://i.imgur.com/TqNz3ky.png"><img alt="" src="images/TqNz3ky.png" /></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><a href="images/TqNz3ky.png"><img alt="" src="images/TqNz3ky.png" /></a></p>
 <h2 id="updating-jaillocal">Updating jail.local<a class="headerlink" href="#updating-jaillocal" title="Permanent link">&para;</a></h2>
-<p>Next is updating or adding your jails in the jail.local file. Go to your appdata location<code>**appdata/swag/fail2ban/**</code>and edit the file called jail.local. The only thing you really need to add is the action fail2ban will run after it has banned an IP.</p>
-<p>Add<code>action = cloudflare-apiv4</code>in the jails you want to use it on. For me that would be all the jails.</p>
-<p><strong>Example:</strong> [eckosc_status_message title="Default action!" icon="" type="error" message="If you only have the **cloudflare**action in the jail it will not update the iptables as it replaces the default action. You can add the action **iptables-allports**and it will then run both actions when banning"]</p>
-<div class="highlight"><pre><span></span><code>[nginx-http-auth]
+<p>Next is updating or adding your jails in the jail.local file. Go to your appdata location **<code>appdata/swag/fail2ban/</code>**and edit the file called jail.local. The only thing you really need to add is the action fail2ban will run after it has banned an IP.</p>
+<p>Add <code>action = cloudflare-apiv4</code> in the jails you want to use it on. For me that would be all the jails.</p>
+<div class="admonition error">
+<p class="admonition-title">Default action!</p>
+<p>If you only have the <strong><code>cloudflare</code></strong> action in the jail it will not update the iptables as it replaces the default action. You can add the action <strong><code>iptables-allports</code></strong> and it will then run both actions when banning</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>nginx-http-auth<span class="o">]</span>
 
-enabled  = true
-filter   = nginx-http-auth
-action   = cloudflare-apiv4
+<span class="nv">enabled</span>  <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">filter</span>   <span class="o">=</span> nginx-http-auth
+<span class="nv">action</span>   <span class="o">=</span> cloudflare-apiv4
            iptables-allports
-port     = http,https
-logpath  = /config/log/nginx/error.log
-ignoreip = 192.168.1.0/24
+<span class="nv">port</span>     <span class="o">=</span> http,https
+<span class="nv">logpath</span>  <span class="o">=</span> /config/log/nginx/error.log
+<span class="nv">ignoreip</span> <span class="o">=</span> <span class="m">192</span>.168.1.0/24
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>[organizrv2-auth]
+<div class="highlight"><pre><span></span><code><span class="o">[</span>organizrv2-auth<span class="o">]</span>
 
-enabled  = true
-filter   = organizrv2-auth
-action   = cloudflare-apiv4
+<span class="nv">enabled</span>  <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">filter</span>   <span class="o">=</span> organizrv2-auth
+<span class="nv">action</span>   <span class="o">=</span> cloudflare-apiv4
            iptables-allports
-port     = http,https
-logpath  = /fail2ban/organizrLoginLog.json
-ignoreip = 192.168.1.0/24
+<span class="nv">port</span>     <span class="o">=</span> http,https
+<span class="nv">logpath</span>  <span class="o">=</span> /fail2ban/organizrLoginLog.json
+<span class="nv">ignoreip</span> <span class="o">=</span> <span class="m">192</span>.168.1.0/24
 </code></pre></div>
-<h4 id="optional-specifying-which-site-the-ban-works-on">Optional: Specifying which site the ban works on<a class="headerlink" href="#optional-specifying-which-site-the-ban-works-on" title="Permanent link">&para;</a></h4>
-<p>If you have several sites on your Cloudflare account and you want to specify which one the action should work on, you need to change the URL on the <strong>actionban</strong> line. Instead of <strong>user</strong> it needs to say /<strong>zones</strong>/ and then your <strong>zone ID</strong>. <strong><code>actionban = curl -s -X POST "https://api.cloudflare.com/client/v4/zones/YOUR-CLOUDFLARE-ZONE-ID/firewall/access_rules/rules" \</code></strong></p>
-<p>And the same on the <strong>actionunban</strong> line: <strong><code>actionunban = curl -s -X DELETE "https://api.cloudflare.com/client/v4/zones/YOUR-CLOUDFLARE-ZONE-ID/firewall/access_rules/rules/$( \ curl -s -X GET "https://api.cloudflare.com/client/v4/zones/YOUR-CLOUDFLARE-ZONE-ID/firewall/access_rules/rules?mode=block&amp;configuration_target=ip&amp;configuration_value=1.2.3.4&amp;page=1&amp;per_page=1&amp;match=all" \</code></strong></p>
+<h3 id="optional-specifying-which-site-the-ban-works-on">Optional: Specifying which site the ban works on<a class="headerlink" href="#optional-specifying-which-site-the-ban-works-on" title="Permanent link">&para;</a></h3>
+<p>If you have several sites on your Cloudflare account and you want to specify which one the action should work on, you need to change the URL on the <strong>actionban</strong> line. Instead of <strong>user</strong> it needs to say <strong>zones</strong> and then your <strong>zone ID</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">actionban</span> <span class="o">=</span> curl -s -X POST <span class="s2">&quot;https://api.cloudflare.com/client/v4/zones/YOUR-CLOUDFLARE-ZONE-ID/firewall/access_rules/rules&quot;</span> <span class="se">\</span>
+</code></pre></div>
+<p>And the same on the <strong>actionunban</strong> line:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">actionunban</span> <span class="o">=</span> curl -s -X DELETE <span class="s2">&quot;https://api.cloudflare.com/client/v4/zones/YOUR-CLOUDFLARE-ZONE-ID/firewall/access_rules/rules/</span><span class="k">$(</span> <span class="se">\ </span>curl -s -X GET <span class="s2">&quot;https://api.cloudflare.com/client/v4/zones/YOUR-CLOUDFLARE-ZONE-ID/firewall/access_rules/rules?mode=block&amp;configuration_target=ip&amp;configuration_value=1.2.3.4&amp;page=1&amp;per_page=1&amp;match=all&quot;</span> <span class="se">\</span>
+</code></pre></div>
 <p>Your zone ID can be found on the overview page on Cloudflare.</p>
-<h4 id="_2"><a href="https://i.imgur.com/AMj7LuX.png"><img alt="" src="images/AMj7LuX.png" /></a><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<p><strong>I recommend adding a whitelist on your WAN IP so you don't accidently ban yourself!</strong></p>
-<p>You can add the whitelist on Cloudflare by going to <strong>Firewall</strong> and then <strong>Tools.</strong> There you can add the access rule. <a href="https://technicalramblings.com/wp-content/uploads/2018/10/chrome_qckOhsyCxK.png"><img alt="" src="images/chrome_qckOhsyCxK-1024x639.png" /></a></p>
+<p><a href="https://i.imgur.com/AMj7LuX.png"><img alt="" src="images/AMj7LuX.png" /></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Whitelist</p>
+<p>I recommend adding a whitelist on your WAN IP so you don't accidently ban yourself!</p>
+</div>
+<p>You can add the whitelist on Cloudflare by going to <strong>Firewall</strong> and then <strong>Tools.</strong> There you can add the access rule.</p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2018/10/chrome_qckOhsyCxK.png"><img alt="" src="images/chrome_qckOhsyCxK-1024x639.png" /></a></p>
 <h2 id="nginx">Nginx<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h2>
 <p>Next up is configuring nginx so that it won't just ban the Cloudflare CDN IP but the actual IP of the visitor.</p>
-<p>Add the following section to your <strong>http block</strong> in the <code>nginx.conf</code> file found in<code>**appdata/swag/nginx/**</code></p>
-<div class="highlight"><pre><span></span><code>set_real_ip_from 103.21.244.0/22;
-set_real_ip_from 103.22.200.0/22;
-set_real_ip_from 103.31.4.0/22;
-set_real_ip_from 104.16.0.0/12;
-set_real_ip_from 108.162.192.0/18;
-set_real_ip_from 131.0.72.0/22;
-set_real_ip_from 141.101.64.0/18;
-set_real_ip_from 162.158.0.0/15;
-set_real_ip_from 172.64.0.0/13;
-set_real_ip_from 173.245.48.0/20;
-set_real_ip_from 188.114.96.0/20;
-set_real_ip_from 190.93.240.0/20;
-set_real_ip_from 197.234.240.0/22;
-set_real_ip_from 198.41.128.0/17;
-set_real_ip_from 2400:cb00::/32;
-set_real_ip_from 2606:4700::/32;
-set_real_ip_from 2803:f800::/32;
-set_real_ip_from 2405:b500::/32;
-set_real_ip_from 2405:8100::/32;
-set_real_ip_from 2c0f:f248::/32;
-set_real_ip_from 2a06:98c0::/29;
+<p>Add the following section to your <strong>http block</strong> in the <code>nginx.conf</code> file found in <strong><code>appdata/swag/nginx/</code></strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">set_real_ip_from</span> <span class="mi">103</span><span class="s">.21.244.0/22</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">103</span><span class="s">.22.200.0/22</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">103</span><span class="s">.31.4.0/22</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">104</span><span class="s">.16.0.0/12</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">108</span><span class="s">.162.192.0/18</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">131</span><span class="s">.0.72.0/22</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">141</span><span class="s">.101.64.0/18</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">162</span><span class="s">.158.0.0/15</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">172</span><span class="s">.64.0.0/13</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">173</span><span class="s">.245.48.0/20</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">188</span><span class="s">.114.96.0/20</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">190</span><span class="s">.93.240.0/20</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">197</span><span class="s">.234.240.0/22</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">198</span><span class="s">.41.128.0/17</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">2400</span><span class="p">:</span><span class="s">cb00::/32</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="n">2606</span><span class="p">:</span><span class="mi">4700</span><span class="p">::</span><span class="s">/32</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">2803</span><span class="p">:</span><span class="s">f800::/32</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="mi">2405</span><span class="p">:</span><span class="s">b500::/32</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="n">2405</span><span class="p">:</span><span class="mi">8100</span><span class="p">::</span><span class="s">/32</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="s">2c0f:f248::/32</span><span class="p">;</span>
+<span class="k">set_real_ip_from</span> <span class="n">2a06</span><span class="p">:</span><span class="mi">98</span><span class="s">c0::/29</span><span class="p">;</span>
 
-real_ip_header X-Forwarded-For;
+<span class="k">real_ip_header</span> <span class="s">X-Forwarded-For</span><span class="p">;</span>
 </code></pre></div>
 <p>The IP's are from these URLS: <a href="https://www.cloudflare.com/ips-v4">https://www.cloudflare.com/ips-v4</a></p>
 <p><a href="https://www.cloudflare.com/ips-v6">https://www.cloudflare.com/ips-v6</a></p>
 <p>You can set it up as an include like this too:</p>
-<div class="highlight"><pre><span></span><code>##
-# CF Real IP
-##
-include /config/nginx/cf_real-ip.conf;
-real_ip_header X-Forwarded-For;
+<div class="highlight"><pre><span></span><code><span class="c1">##</span>
+<span class="c1"># CF Real IP</span>
+<span class="c1">##</span>
+<span class="k">include</span> <span class="n">/config/nginx/cf_real-ip.conf</span>;
+<span class="k">real_ip_header</span> <span class="s">X-Forwarded-For</span><span class="p">;</span>
 </code></pre></div>
 <p>After that you need to restart the swag container for the changes to take effect.</p>
 <p>Next you can test that it actually works by using a vpn ect and ban yourself. Set bantime to 60 for it to only ban the IP for 1 minute. After the IP is banned you can see the new firewall rule on cloudflare dashboard.</p>
-<p><a href="https://i.imgur.com/CHewDQu.png"><img alt="" src="images/CHewDQu.png" /></a></p>
+<p><a href="images/CHewDQu.png"><img alt="" src="images/CHewDQu.png" /></a></p>
 <p>I've noticed that with the new API it is much faster in banning and unbanning IP's! When using the old API it could sometimes take up to 2 minutes for the rule to show in Cloudflare. Now it's there in a matter of seconds.</p>
-<h2 id="automatically-updating-thecf_real-ipconf">Automatically updating thecf_real-ip.conf<a class="headerlink" href="#automatically-updating-thecf_real-ipconf" title="Permanent link">&para;</a></h2>
+<h2 id="automatically-updating-the-cf_real-ipconf">Automatically updating the cf_real-ip.conf<a class="headerlink" href="#automatically-updating-the-cf_real-ipconf" title="Permanent link">&para;</a></h2>
 <p>Tronyx over at the discord forums graciously shared his script for updating the Cloudflare ip list. This list is not static and Cloudflare updates it once in a while.</p>
 <p>The script below will update the list with any changes in the list of IPs from CF</p>
-<div class="highlight"><pre><span></span><code>#!/bin/bash
-printf &quot;set_real_ip_from %b;\n&quot; $({
-  curl -s -w &#39;\n&#39; &quot;https://www.cloudflare.com/ips-v4&quot; &amp;
-  curl -s -w &#39;\n&#39; &quot;https://www.cloudflare.com/ips-v6&quot; &amp;
-  ip route | grep -v default | awk &#39;{print $1}&#39;
-}) &gt; /mnt/nvme/docker/swag/nginx/cf_real-ip.conf
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nb">printf</span> <span class="s2">&quot;set_real_ip_from %b;\n&quot;</span> <span class="k">$(</span><span class="o">{</span>
+  curl -s -w <span class="s1">&#39;\n&#39;</span> <span class="s2">&quot;https://www.cloudflare.com/ips-v4&quot;</span> <span class="p">&amp;</span>
+  curl -s -w <span class="s1">&#39;\n&#39;</span> <span class="s2">&quot;https://www.cloudflare.com/ips-v6&quot;</span> <span class="p">&amp;</span>
+  ip route <span class="p">|</span> grep -v default <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span>
+<span class="o">}</span><span class="k">)</span> &gt; /mnt/nvme/docker/swag/nginx/cf_real-ip.conf
 </code></pre></div>
 <p>I use unraid so I will use the User Scripts plugin to setup a cronjob that will run once a week.</p>
 <ol>
-<li>Go to Settings &gt; User Scripts and click <strong><code>Add New Script</code></strong> </li>
+<li>Go to Settings &gt; User Scripts and click <strong><code>Add New Script</code></strong></li>
 <li>Give it a name and a description if you want</li>
 <li>Click edit script and add it inside the box.</li>
 <li>You will need to update the path in the last line to you nginx appdata folder</li>
-<li>
-<p>Set the schedule to weekly and click apply and done.</p>
-<div class="highlight"><pre><span></span><code>#!/bin/bash
-printf &quot;set_real_ip_from %b;\n&quot; $({
-  curl -s -w &#39;\n&#39; &quot;https://www.cloudflare.com/ips-v4&quot; &amp;
-  curl -s -w &#39;\n&#39; &quot;https://www.cloudflare.com/ips-v6&quot; &amp;
-  ip route | grep -v default | awk &#39;{print $1}&#39;
-}) &gt; /mnt/user/docker/swag/nginx/cf_real-ip.conf
-</code></pre></div>
-</li>
+<li>Set the schedule to weekly and click apply and done.</li>
 </ol>
-<h4 id="for-any-questions-you-can-find-me-here">For any questions you can find me here:<a class="headerlink" href="#for-any-questions-you-can-find-me-here" title="Permanent link">&para;</a></h4>
-<h4 id="_3"><a href="https://discordapp.com/invite/TrNtY7N"><img alt="Discord" src="https://img.shields.io/discord/591352397830553601.svg?color=6f83cc&amp;label=Discord&amp;logo=sd&amp;style=for-the-badge" /></a><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nb">printf</span> <span class="s2">&quot;set_real_ip_from %b;\n&quot;</span> <span class="k">$(</span><span class="o">{</span>
+  curl -s -w <span class="s1">&#39;\n&#39;</span> <span class="s2">&quot;https://www.cloudflare.com/ips-v4&quot;</span> <span class="p">&amp;</span>
+  curl -s -w <span class="s1">&#39;\n&#39;</span> <span class="s2">&quot;https://www.cloudflare.com/ips-v6&quot;</span> <span class="p">&amp;</span>
+  ip route <span class="p">|</span> grep -v default <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span>
+<span class="o">}</span><span class="k">)</span> &gt; /mnt/user/docker/swag/nginx/cf_real-ip.conf
+</code></pre></div>
+<h3 id="for-any-questions-you-can-find-me-here">For any questions you can find me here<a class="headerlink" href="#for-any-questions-you-can-find-me-here" title="Permanent link">&para;</a></h3>
+<h4 id="_1"><a href="https://discordapp.com/invite/TrNtY7N"><img alt="Discord" src="https://img.shields.io/discord/591352397830553601.svg?color=6f83cc&amp;label=Discord&amp;logo=sd&amp;style=for-the-badge" /></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <p>Sources:</p>
 <p><strong>Tronyx</strong> 😘 Thank you Tronyx for creating the first draft of the guide.</p>
 <p><strong><a href="https://guides.wp-bullet.com/integrate-fail2ban-cloudflare-api-v4-guide">https://guides.wp-bullet.com/integrate-fail2ban-cloudflare-api-v4-guide</a></strong></p>
@@ -1298,7 +1338,7 @@ printf &quot;set_real_ip_from %b;\n&quot; $({
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

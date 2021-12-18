@@ -613,14 +613,16 @@
     pm
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="pm">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#pmmax_children" class="md-nav__link">
     pm.max_children
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="pm.max_children">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#pmmin_spare_servers" class="md-nav__link">
@@ -654,6 +656,16 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#concluding-remarks" class="md-nav__link">
@@ -665,14 +677,7 @@
         
           <li class="md-nav__item">
   <a href="#for-any-questions-you-can-find-me-here" class="md-nav__link">
-    For any questions you can find me here:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
+    For any questions you can find me here
   </a>
   
 </li>
@@ -1070,14 +1075,16 @@
     pm
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="pm">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#pmmax_children" class="md-nav__link">
     pm.max_children
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="pm.max_children">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#pmmin_spare_servers" class="md-nav__link">
@@ -1111,6 +1118,16 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#concluding-remarks" class="md-nav__link">
@@ -1122,14 +1139,7 @@
         
           <li class="md-nav__item">
   <a href="#for-any-questions-you-can-find-me-here" class="md-nav__link">
-    For any questions you can find me here:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
+    For any questions you can find me here
   </a>
   
 </li>
@@ -1157,37 +1167,61 @@
 
 
 <h1 id="optimizing-php-fpm-to-get-faster-load-times-of-tabs-in-organizr">Optimizing PHP-FPM to get faster load times of tabs in Organizr<a class="headerlink" href="#optimizing-php-fpm-to-get-faster-load-times-of-tabs-in-organizr" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2018-07-15</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">organizr</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">php</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">php-fpm</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">unraid</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">backend</a>
+</p>
+
 <p><img src="images/php-tuning4.jpg"></img></p>
-<p>For me this all started when I was setting up <a href="https://github.com/Monitorr/logarr">Logarr</a>and opened the Organizr(v1) container php error log <code>**/log/php/error.log**</code> and saw that this error was repeating on an hourly basis:</p>
+<p>For me this all started when I was setting up <a href="https://github.com/Monitorr/logarr">Logarr</a> and opened the Organizr(v1) container php error log <strong><code>/log/php/error.log</code></strong> and saw that this error was repeating on an hourly basis:</p>
 <p><strong><code>WARNING: [pool www] server reached pm.max_children setting (5), consider raising it[_timestamp_]</code></strong></p>
 <p>This means that there are not enough PHP-FPM processes. In Organizr v2 I did not get this error in the php error log, but optimizing the child processes still got me faster load times of tabs in Organizr.</p>
 <p><em>Note that for this guide, it does not matter if you use Organizr V1 or V2.</em></p>
-<p>We need write-access to**<code>/etc/php7/php-fpm.d/www.conf</code>** in order to optimize the following settings:</p>
+<p>We need write-access to <strong><code>/etc/php7/php-fpm.d/www.conf</code></strong> in order to optimize the following settings:</p>
 <p><strong><code>pm pm.max_children pm.start_servers pm.min_spare_servers pm.max_spare_servers pm.max_requests</code></strong></p>
 <h2 id="copying-the-wwwconf-file-to-configphp">Copying the <a href="http://www.conf">www.conf</a> file to /config/php<a class="headerlink" href="#copying-the-wwwconf-file-to-configphp" title="Permanent link">&para;</a></h2>
 <p>We need to perform this step because the file must 'exist' before it can be mapped.</p>
 <p>First docker exec into your Organizr docker container. Assuming you are using a fairly new version of UnRaid, click your Organizr container icon and then click "Console".</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2018/07/chrome_2018-07-15_12-26-18.png"><img alt="" src="images/chrome_2018-07-15_12-26-18-216x300.png" /></a> If not <em>run</em> <strong><code>docker exec -it [contrainername] bash</code></strong> in the console</p>
+<p><a href="images/chrome_2018-07-15_12-26-18.png"><img alt="" src="images/chrome_2018-07-15_12-26-18.png" /></a></p>
+<p>If not <em>run</em> <strong><code>docker exec -it [contrainername] bash</code></strong> in the console</p>
 <p>In the console window, <em>run</em> the command: <strong><code>cp /etc/php7/php-fpm.d/www.conf /config/php</code></strong> A copy of <a href="http://www.conf">www.conf</a> is now present in Organizr's php-folder.</p>
 <h3 id="linking-the-newly-copied-wwwconf-file-to-the-original">Linking the newly copied <a href="http://www.conf">www.conf</a> file to the original<a class="headerlink" href="#linking-the-newly-copied-wwwconf-file-to-the-original" title="Permanent link">&para;</a></h3>
 <p>Create the following new path for your Organizr docker container in UnRaid:</p>
-<div class="highlight"><pre><span></span><code>* Config Type: Path
-* Name: phpchildren
-* Container Path: /etc/php7/php-fpm.d/www.conf
-* Host Path: /mnt/cache/appdata/organizr-v2/php/www.conf
-* Access Mode: Read/Write
-* Description: Container Path: /etc/php7/php-fpm.d/www.conf
+<div class="highlight"><pre><span></span><code><span class="x">* Config Type: Path</span>
+<span class="x">* Name: phpchildren</span>
+<span class="x">* Container Path: /etc/php7/php-fpm.d/www.conf</span>
+<span class="x">* Host Path: /mnt/cache/appdata/organizr-v2/php/www.conf</span>
+<span class="x">* Access Mode: Read/Write</span>
+<span class="x">* Description: Container Path: /etc/php7/php-fpm.d/www.conf</span>
 </code></pre></div>
 <p>The same is shown here:</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2018/07/chrome_2018-07-15_12-37-31.png"><img alt="" src="images/chrome_2018-07-15_12-37-31-300x223.png" /></a></p>
+<p><a href="images/chrome_2018-07-15_12-37-31.png"><img alt="" src="images/chrome_2018-07-15_12-37-31.png" /></a></p>
 <h2 id="calculate-and-change-settings-in-wwwconf">Calculate and change settings in <a href="http://www.conf">www.conf</a><a class="headerlink" href="#calculate-and-change-settings-in-wwwconf" title="Permanent link">&para;</a></h2>
 <p>Open the <strong><a href="http://www.conf">www.conf</a></strong> file with notepad++ or similar to edit the following values:</p>
-<h5 id="pm">pm<a class="headerlink" href="#pm" title="Permanent link">&para;</a></h5>
+<h3 id="pm">pm<a class="headerlink" href="#pm" title="Permanent link">&para;</a></h3>
 <p><code>**pm = dynamic**</code> means that the number of servers specified in <strong><code>pm.start_servers</code></strong> will always be running in the PHP-FPM process, and more will be created if needed. <strong><code>pm = ondemand</code></strong> means that <code>**pm.start_servers**</code> is ignored and servers will be created if they are needed.</p>
 <p>Personally, I have decided to use the default**<code>pm = dynamic</code>** because I have very much RAM compared how loaded my webserver is. If I always needed resources to be freed up, I would have chosen the ondemand setting.</p>
-<h5 id="pmmax_children">pm.max_children<a class="headerlink" href="#pmmax_children" title="Permanent link">&para;</a></h5>
+<h4 id="pmmax_children">pm.max_children<a class="headerlink" href="#pmmax_children" title="Permanent link">&para;</a></h4>
 <p>Open the terminal in UnRaid. Run the command <strong><code>ps -ylC php-fpm --sort:rss</code></strong> You will likely get a bunch of php-fpm processes like I do:</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2018/07/chrome_2018-07-15_12-51-17.png"><img alt="" src="images/chrome_2018-07-15_12-51-17.png" /></a></p>
+<p><a href="images/chrome_2018-07-15_12-51-17.png"><img alt="" src="images/chrome_2018-07-15_12-51-17.png" /></a></p>
 <p>The RSS column shows non-swapped physical memory usage by PHP-FPM processes in kilobytes.</p>
 <p>An appropriate value for pm.max_children can be calculated as: <strong><code>pm.max_children =</code></strong> Total RAM dedicated to the web server / Max child process size</p>
 <p>The max child process size for me is <strong>19MB</strong> and my server-rig has 32GB of RAM. I decide that I want to use a maximum of, say, 20GB on PHP-FPM processes. Evaluating the formula with these values yields pm.max_children = 20000 / 19 = 1053 ~ 1000. Thus, Iset <strong><code>pm.max_children = 1000</code></strong>. This is ridiculously high. But I have the RAM for it. For reference, in myshell's guide linked below, he concludes an appropriate pm.max_children = 72 with 8 GB ram installed, so the less RAM and more load you have on your server, the more important this calculation and setting becomes.</p>
@@ -1203,15 +1237,15 @@
 <h2 id="concluding-remarks">Concluding remarks<a class="headerlink" href="#concluding-remarks" title="Permanent link">&para;</a></h2>
 <p>Restart your Organizr docker container and enjoy an even faster Organizr experience. Of course <strong>YMMV</strong>, tweak the settings above to further optimize, as they depend very much on your server hardware, the PHP-FPM processes you are hosting, and the load on your webserver, i.e. the number of simultaneous users.</p>
 <p>Sources: <a href="https://myshell.co.uk/blog/2012/07/adjusting-child-processes-for-php-fpm-nginx/">https://myshell.co.uk/blog/2012/07/adjusting-child-processes-for-php-fpm-nginx/</a> <a href="https://ma.ttias.be/a-better-way-to-run-php-fpm/">https://ma.ttias.be/a-better-way-to-run-php-fpm/</a> <a href="https://stackoverflow.com/questions/25097179/warning-pool-www-seems-busy-you-may-need-to-increase-pm-start-servers-or-pm">https://stackoverflow.com/questions/25097179/warning-pool-www-seems-busy-you-may-need-to-increase-pm-start-servers-or-pm</a></p>
-<h4 id="for-any-questions-you-can-find-me-here">For any questions you can find me here:<a class="headerlink" href="#for-any-questions-you-can-find-me-here" title="Permanent link">&para;</a></h4>
-<h4 id="_1"><a href="https://discordapp.com/invite/TrNtY7N"><img alt="Discord" src="https://img.shields.io/discord/591352397830553601.svg?color=6f83cc&amp;label=Discord&amp;logo=sd&amp;style=for-the-badge" /></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<h4 id="for-any-questions-you-can-find-me-here">For any questions you can find me here<a class="headerlink" href="#for-any-questions-you-can-find-me-here" title="Permanent link">&para;</a></h4>
+<p><a href="https://discordapp.com/invite/TrNtY7N"><img alt="Discord" src="https://img.shields.io/discord/591352397830553601.svg?color=6f83cc&amp;label=Discord&amp;logo=sd&amp;style=for-the-badge" /></a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

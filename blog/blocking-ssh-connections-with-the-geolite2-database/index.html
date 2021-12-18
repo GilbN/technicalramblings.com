@@ -9,7 +9,7 @@
         <meta name="description" content="A blog about selfhosting, unRAID and Linux ISOs">
       
       
-        <meta name="author" content="GilbN">
+        <meta name="author" content="Tronyx">
       
       
         <link rel="canonical" href="https://docs.theme-park.dev/blog/blocking-ssh-connections-with-the-geolite2-database/">
@@ -1009,12 +1009,43 @@
 
 
 <h1 id="blocking-ssh-connections-with-the-geolite2-database">Blocking SSH Connections with the GeoLite2 Database<a class="headerlink" href="#blocking-ssh-connections-with-the-geolite2-database" title="Permanent link">&para;</a></h1>
+<p><small>Written by Tronyx 2020-04-28</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">geoblock</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">geolite2</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">remote</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">security</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">ssh</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">security</a>
+</p>
+
 <p><img src="images/arget-zvHhKiVuR9M-unsplash-scaled.jpg"></img></p>
 <p>This guide will make it possible to block SSH access to your server based on the origin of the IP trying to access it!</p>
 <p>First and foremost, I need to give credit where it is due. This method is a modified and combined version of these two approaches to achieving this, so most of the credit goes to them:</p>
 <ul>
-<li><a href="https://www.claudiokuenzler.com/blog/676/ssh-access-filter-based-on-geoip-database-allow-deny">https://www.claudiokuenzler.com/blog/676/ssh-access-filter-based-on-geoip-database-allow-deny</a></li>
-<li><a href="https://www.axllent.org/docs/view/ssh-geoip/">https://www.axllent.org/docs/view/ssh-geoip/</a></li>
+<li>
+<p><a href="https://www.claudiokuenzler.com/blog/676/ssh-access-filter-based-on-geoip-database-allow-deny">https://www.claudiokuenzler.com/blog/676/ssh-access-filter-based-on-geoip-database-allow-deny</a></p>
+</li>
+<li>
+<p><a href="https://www.axllent.org/docs/view/ssh-geoip/">https://www.axllent.org/docs/view/ssh-geoip/</a></p>
+</li>
 </ul>
 <h2 id="setting-up-the-maxmind-geolite2-database">Setting up the MaxMind GeoLite2 Database<a class="headerlink" href="#setting-up-the-maxmind-geolite2-database" title="Permanent link">&para;</a></h2>
 <p>The first thing we need to do is get yourself a copy of the MaxMind GeoLite2 Database. This will allow the detection of the Country of origin of IP addresses that try to access your Server. You can follow the first bit of instructions from the post “Blocking countries with GeoLite2 in Nginx using the LetsEncrypt Docker container” found <a href="https://technicalramblings.com/blog/blocking-countries-with-geolite2-using-the-letsencrypt-docker-container/">here</a>.</p>
@@ -1085,7 +1116,7 @@ Apr 26 12:07:11 1and1-vps tronyx: DENY sshd connection from 95.217.185.78 (DE)
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

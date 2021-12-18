@@ -757,7 +757,8 @@
     bootstrap-slate-flat-3.3.7.css
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="bootstrap-slate-flat-3.3.7.css">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#dashboardslatecss" class="md-nav__link">
@@ -777,6 +778,11 @@
   <a href="#dashboardjs" class="md-nav__link">
     dashboard.js
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1192,7 +1198,8 @@
     bootstrap-slate-flat-3.3.7.css
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="bootstrap-slate-flat-3.3.7.css">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#dashboardslatecss" class="md-nav__link">
@@ -1212,6 +1219,11 @@
   <a href="#dashboardjs" class="md-nav__link">
     dashboard.js
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1291,6 +1303,49 @@
 
 
 <h1 id="spice-up-your-homepage">Spice up your homepage!<a class="headerlink" href="#spice-up-your-homepage" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2017-10-31</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">chat</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">customization</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">discord</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">homepage</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">letsencrypt</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">netdata</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">nginx</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">organizr</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">tawk</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">frontend</a>
+</p>
+
 <p><img src="images/blurweb.jpg"></img></p>
 <p>Spice up your homepage! A HowTo on custom Netdata pages, embedding Discord and adding customer support chat!</p>
 <p>I'm going to integrate these applications into my Organizr homepage but this will pretty much work on any site of your choosing.</p>
@@ -1303,9 +1358,9 @@
 </blockquote>
 <p>Before we can start we need some files from the Netdata /web folder. And since I'm using the docker I will have to get them using cli.</p>
 <p>The files we need are:</p>
-<div class="highlight"><pre><span></span><code>dashboard.js
-bootstrap-slate-flat-3.3.7.css or bootstrap-3.3.7.css
-dashboard.slate.css or dashboard.css
+<div class="highlight"><pre><span></span><code><span class="nx">dashboard</span><span class="p">.</span><span class="nx">js</span>
+<span class="nx">bootstrap</span><span class="o">-</span><span class="nx">slate</span><span class="o">-</span><span class="nx">flat</span><span class="o">-</span><span class="mf">3.3.7</span><span class="p">.</span><span class="nx">css</span> <span class="nx">or</span> <span class="nx">bootstrap</span><span class="o">-</span><span class="mf">3.3.7</span><span class="p">.</span><span class="nx">css</span>
+<span class="nx">dashboard</span><span class="p">.</span><span class="nx">slate</span><span class="p">.</span><span class="nx">css</span> <span class="nx">or</span> <span class="nx">dashboard</span><span class="p">.</span><span class="nx">css</span>
 </code></pre></div>
 <p>I will be using using the slate (dark) theme for this guide.</p>
 <blockquote>
@@ -1313,11 +1368,11 @@ dashboard.slate.css or dashboard.css
 </blockquote>
 <p>The CSS files are located in the <strong>/css</strong> folder and the JS file is in the /web folder.</p>
 <ol>
-<li>Open a terminal and exec into the docker container with this command:<strong><code>docker exec -it Netdata bash</code></strong> Goto this location:<strong><code>cd usr/share/netdata/web/</code></strong></li>
+<li>Open a terminal and exec into the docker container with this command: <strong><code>docker exec -it Netdata bash</code></strong> Goto this location:<strong><code>cd usr/share/netdata/web/</code></strong></li>
 <li>Copy the files to your appdata config path: (Host path 1) <strong><code>cp dashboard.js dashboard.slate.css /etc/netdata/override</code></strong></li>
-<li>Change directory with the cd command<code>cd css/</code>Copy the bootstrap.css file. <strong><code>cp bootstrap-slate-flat-3.3.7.css /etc/netdata/override</code></strong></li>
+<li>Change directory with the cd command <code>cd css/</code> Copy the bootstrap.css file. <strong><code>cp bootstrap-slate-flat-3.3.7.css /etc/netdata/override</code></strong></li>
 </ol>
-<p>Tip: Use the**<code>ls</code>**command to list all files in a specific directory.</p>
+<p>Tip: Use the <strong><code>ls</code></strong> command to list all files in a specific directory.</p>
 <h4 id="editing-the-files">Editing the files<a class="headerlink" href="#editing-the-files" title="Permanent link">&para;</a></h4>
 <ol>
 <li>Copy the files to a new <strong>subdirectory</strong> in your <strong>nginx root folder</strong> (e.g appdata/letsencrypt/www/customnetdata)</li>
@@ -1328,313 +1383,315 @@ dashboard.slate.css or dashboard.css
 <li>In the dashboard.js file, scroll down to**<code>NETDATA.themes</code>**and change it so it points to the files you have added in the css folder. Add css/</li>
 </ol>
 <p>Before</p>
-<div class="highlight"><pre><span></span><code>slate: {
-bootstrap_css: NETDATA.serverDefault + &#39;css/bootstrap-slate-flat-3.3.7.css?v20161229-1&#39;,
-dashboard_css: NETDATA.serverDefault + &#39;dashboard.slate.css?v20170725-1&#39;,
+<div class="highlight"><pre><span></span><code><span class="nx">slate</span><span class="o">:</span> <span class="p">{</span>
+<span class="nx">bootstrap_css</span><span class="o">:</span> <span class="nx">NETDATA</span><span class="p">.</span><span class="nx">serverDefault</span> <span class="o">+</span> <span class="s1">&#39;css/bootstrap-slate-flat-3.3.7.css?v20161229-1&#39;</span><span class="p">,</span>
+<span class="nx">dashboard_css</span><span class="o">:</span> <span class="nx">NETDATA</span><span class="p">.</span><span class="nx">serverDefault</span> <span class="o">+</span> <span class="s1">&#39;dashboard.slate.css?v20170725-1&#39;</span><span class="p">,</span>
 </code></pre></div>
 <p>After</p>
-<div class="highlight"><pre><span></span><code>slate: {
-bootstrap_css: &#39;css/bootstrap-slate-flat-3.3.7.css?v20161229-1&#39;,
-dashboard_css: &#39;css/dashboard.slate.css?v20170725-1&#39;,
+<div class="highlight"><pre><span></span><code><span class="nx">slate</span><span class="o">:</span> <span class="p">{</span>
+<span class="nx">bootstrap_css</span><span class="o">:</span> <span class="s1">&#39;css/bootstrap-slate-flat-3.3.7.css?v20161229-1&#39;</span><span class="p">,</span>
+<span class="nx">dashboard_css</span><span class="o">:</span> <span class="s1">&#39;css/dashboard.slate.css?v20170725-1&#39;</span><span class="p">,</span>
 </code></pre></div>
 <h3 id="using-the-themepark-theme">Using the <strong><a href="https://github.com/gilbN/theme.park">theme.park</a></strong> theme<a class="headerlink" href="#using-the-themepark-theme" title="Permanent link">&para;</a></h3>
 <p>If you don't want to edit css or js files you can instead only copy the <strong>html</strong> code at the bottom and the make the necessary modifications to that file. In the html code, scroll down to this line:</p>
-<div class="highlight"><pre><span></span><code>&lt;script type=&quot;text/javascript&quot; src=&quot;dashboard.js&quot;&gt;&lt;/script&gt;
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;dashboard.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>And add your Netdata domain, like so:</p>
-<div class="highlight"><pre><span></span><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://YOUR-DOMAIN.COM/netdata/dashboard.js&quot;&gt;&lt;/script&gt;
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://YOUR-DOMAIN.COM/netdata/dashboard.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>By doing this you can instead <a href="http://nginx.org/en/docs/http/ngx_http_sub_module.html">subfilter</a> the CSS changes using nginx and my <a href="https://github.com/gilbN/theme.park">theme repository on github!</a> (read more at the <strong>nginx part</strong>) After that follow along the rest of the HTML instructions below.</p>
-<p><strong>NOTE:</strong> If you get an error thatlib/jquery-2.2.4.min.js cant be found you can try and edit line [136] in dashboard.js that says<code>**NETDATA.serverStatic =** **NETDATA.serverDefault;**</code>to**<code>NETDATA.serverStatic = "https://yourdomain.com/netdata/";</code>**</p>
+<p><strong>NOTE:</strong> If you get an error thatlib/jquery-2.2.4.min.js cant be found you can try and edit line [136] in dashboard.js that says <strong><code>NETDATA.serverStatic = NETDATA.serverDefault;</code></strong> to <strong><code>NETDATA.serverStatic = "https://yourdomain.com/netdata/";</code></strong></p>
 <h4 id="creating-the-html">Creating the HTML<a class="headerlink" href="#creating-the-html" title="Permanent link">&para;</a></h4>
-<p>Create your custom HTML. You can use the one I have added below and work off that. In this guide I have named it**<code>custom.html</code>**</p>
-<p>In my example I have added a total CPU utilization dygraph and a disk I/O read-write dygraph. If you want a diffrent graph type change the**<code>data-chart-library</code>**See the<a href="https://github.com/firehol/netdata/wiki/Custom-Dashboards">Netdata wiki</a></p>
+<p>Create your custom HTML. You can use the one I have added below and work off that. In this guide I have named it <strong><code>custom.html</code></strong></p>
+<p>In my example I have added a total CPU utilization dygraph and a disk I/O read-write dygraph. If you want a diffrent graph type change the <strong><code>data-chart-library</code></strong> See the<a href="https://github.com/firehol/netdata/wiki/Custom-Dashboards">Netdata wiki</a></p>
 <p>To make it work externally you need to add your external Netdata address in the html! <strong>(Netdata needs to be reverse proxied)</strong> If you add your local ip address you will get an error when trying to load it through HTTPS.</p>
-<div class="highlight"><pre><span></span><code>// Set the default netdata server.
-// on charts without a &#39;data-host&#39;, this one will be used.
-// the default is the server that dashboard.js is downloaded from.
+<div class="highlight"><pre><span></span><code><span class="c1">// Set the default netdata server.</span>
+<span class="c1">// on charts without a &#39;data-host&#39;, this one will be used.</span>
+<span class="c1">// the default is the server that dashboard.js is downloaded from.</span>
 
-var netdataServer = &#39;https://YOURNETDATADOMAIN.COM/&#39;;
+<span class="kd">var</span> <span class="nx">netdataServer</span> <span class="o">=</span> <span class="s1">&#39;https://YOURNETDATADOMAIN.COM/&#39;</span><span class="p">;</span>
 </code></pre></div>
-<p>e.g**<code>https://yourdomain.com/netdata/</code>**</p>
+<p>e.g <strong><code>https://yourdomain.com/netdata/</code></strong></p>
 <blockquote>
-<p>Note: The trailing slash onhttps://domain.com/netdata**/** is very important. If you dont add it you will get Strict MIME errors in your browser console, and it won't load properly.</p>
+<p>Note: The trailing slash on <a href="https://domain.com/netdata/">https://domain.com/netdata/</a> is very important. If you dont add it you will get Strict MIME errors in your browser console, and it won't load properly.</p>
 </blockquote>
 <h5 id="custom-html-for-total-cpu-utilization-and-disk-io">Custom HTML for total CPU utilization and Disk I/O<a class="headerlink" href="#custom-html-for-total-cpu-utilization-and-disk-io" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
-&lt;meta charset=&quot;utf-8&quot;&gt;
-&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
-&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
-&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black-translucent&quot;&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;center&gt;
-&lt;ul&gt;
-&lt;/ul&gt;
-&lt;div style=&quot;width: 100%; display: inline-block;&quot;&gt;
-&lt;div data-netdata=&quot;system.cpu&quot;
-data-chart-library=&quot;dygraph&quot;
-data-width=&quot;100%&quot;
-data-height=&quot;140&quot;
-data-after=&quot;-300&quot;
-data-dt-element-name=&quot;time203&quot;
-&gt;&lt;/div&gt; 
-&lt;div style=&quot;width: 100%; display: inline-block;&quot;&gt;
-&lt;div data-netdata=&quot;system.io&quot;
-data-chart-library=&quot;dygraph&quot;
-data-width=&quot;100%&quot;
-data-height=&quot;120&quot;
-data-after=&quot;-300&quot;
-data-dt-element-name=&quot;time203&quot;
-data-colors=&quot;#FF5555 #44c442&quot;
-&gt;&lt;/div&gt; 
-&lt;/center&gt; 
-&lt;/body&gt;
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge,chrome=1&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;apple-mobile-web-app-capable&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;yes&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;apple-mobile-web-app-status-bar-style&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;black-translucent&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 100%; display: inline-block;&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-netdata</span><span class="o">=</span><span class="s">&quot;system.cpu&quot;</span>
+<span class="na">data-chart-library</span><span class="o">=</span><span class="s">&quot;dygraph&quot;</span>
+<span class="na">data-width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span>
+<span class="na">data-height</span><span class="o">=</span><span class="s">&quot;140&quot;</span>
+<span class="na">data-after</span><span class="o">=</span><span class="s">&quot;-300&quot;</span>
+<span class="na">data-dt-element-name</span><span class="o">=</span><span class="s">&quot;time203&quot;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> 
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 100%; display: inline-block;&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-netdata</span><span class="o">=</span><span class="s">&quot;system.io&quot;</span>
+<span class="na">data-chart-library</span><span class="o">=</span><span class="s">&quot;dygraph&quot;</span>
+<span class="na">data-width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span>
+<span class="na">data-height</span><span class="o">=</span><span class="s">&quot;120&quot;</span>
+<span class="na">data-after</span><span class="o">=</span><span class="s">&quot;-300&quot;</span>
+<span class="na">data-dt-element-name</span><span class="o">=</span><span class="s">&quot;time203&quot;</span>
+<span class="na">data-colors</span><span class="o">=</span><span class="s">&quot;#FF5555 #44c442&quot;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> 
+<span class="p">&lt;/</span><span class="nt">center</span><span class="p">&gt;</span> 
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 
-&lt;script&gt;
-// this section has to appear before loading dashboard.js
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c1">// this section has to appear before loading dashboard.js</span>
 
-// Select a theme.
-// uncomment on of the two themes:
+<span class="c1">// Select a theme.</span>
+<span class="c1">// uncomment on of the two themes:</span>
 
-// var netdataTheme = &#39;default&#39;; // this is white
-var netdataTheme = &#39;slate&#39;; // this is dark
+<span class="c1">// var netdataTheme = &#39;default&#39;; // this is white</span>
+<span class="kd">var</span> <span class="nx">netdataTheme</span> <span class="o">=</span> <span class="s1">&#39;slate&#39;</span><span class="p">;</span> <span class="c1">// this is dark</span>
 
-// Set the default netdata server.
-// on charts without a &#39;data-host&#39;, this one will be used.
-// the default is the server that dashboard.js is downloaded from.
+<span class="c1">// Set the default netdata server.</span>
+<span class="c1">// on charts without a &#39;data-host&#39;, this one will be used.</span>
+<span class="c1">// the default is the server that dashboard.js is downloaded from.</span>
 
-var netdataServer = &#39;https://YOURNETDATADOMAIN.COM/&#39;;
-&lt;/script&gt;
+<span class="kd">var</span> <span class="nx">netdataServer</span> <span class="o">=</span> <span class="s1">&#39;https://YOURNETDATADOMAIN.COM/&#39;</span><span class="p">;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
-&lt;!-- &lt;script type=&quot;text/javascript&quot; src=&quot;/dashboard.js&quot;&gt;&lt;/script&gt; --&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;dashboard.js?v20170724-7&quot;&gt;&lt;/script&gt;
+<span class="c">&lt;!-- &lt;script type=&quot;text/javascript&quot; src=&quot;/dashboard.js&quot;&gt;&lt;/script&gt; --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;dashboard.js?v20170724-7&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
-&lt;script&gt;
-// Set options for TV operation
-// This has to be done, after dashboard.js is loaded
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c1">// Set options for TV operation</span>
+<span class="c1">// This has to be done, after dashboard.js is loaded</span>
 
-// destroy charts not shown (lowers memory on the browser)
-// NETDATA.options.current.destroy_on_hide = false;
+<span class="c1">// destroy charts not shown (lowers memory on the browser)</span>
+<span class="c1">// NETDATA.options.current.destroy_on_hide = false;</span>
 
-// set this to false, to always show all dimensions
-//NETDATA.options.current.eliminate_zero_dimensions = true;
+<span class="c1">// set this to false, to always show all dimensions</span>
+<span class="c1">//NETDATA.options.current.eliminate_zero_dimensions = true;</span>
 
-// lower the pressure on this browser
-NETDATA.options.current.concurrent_refreshes = false;
+<span class="c1">// lower the pressure on this browser</span>
+<span class="nx">NETDATA</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">concurrent_refreshes</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 
-// if the tv browser is too slow (a pi?)
-// set this to false
-//NETDATA.options.current.parallel_refresher = true;
+<span class="c1">// if the tv browser is too slow (a pi?)</span>
+<span class="c1">// set this to false</span>
+<span class="c1">//NETDATA.options.current.parallel_refresher = true;</span>
 
-// always update the charts, even if focus is lost
+<span class="c1">// always update the charts, even if focus is lost</span>
 
-NETDATA.options.current.stop_updates_when_focus_is_lost = false;
+<span class="nx">NETDATA</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">stop_updates_when_focus_is_lost</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 
-// Since you may render charts from many servers and any of them may
-// become offline for some time, the charts will break.
-// This will reload the page every RELOAD_EVERY minutes
+<span class="c1">// Since you may render charts from many servers and any of them may</span>
+<span class="c1">// become offline for some time, the charts will break.</span>
+<span class="c1">// This will reload the page every RELOAD_EVERY minutes</span>
 
-var RELOAD_EVERY = 1;
-setTimeout(function(){
-location.reload();
-}, RELOAD_EVERY * 60 * 1000);
+<span class="kd">var</span> <span class="nx">RELOAD_EVERY</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span>
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span>
+<span class="p">},</span> <span class="nx">RELOAD_EVERY</span> <span class="o">*</span> <span class="mf">60</span> <span class="o">*</span> <span class="mf">1000</span><span class="p">);</span>
 
-&lt;/script&gt;
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
-&lt;/html&gt;
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
 <h3 id="nginx">Nginx<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h3>
 <p>In your nginx config you can add this in your main server block to create a sub-directory.</p>
-<div class="highlight"><pre><span></span><code># CUSTOM NETDATA
-location /customnetdata {
-#auth_request /auth-user;
-root /config/www/;
-index custom.html;
-}
+<div class="highlight"><pre><span></span><code><span class="c1"># CUSTOM NETDATA</span>
+<span class="k">location</span> <span class="s">/customnetdata</span> <span class="p">{</span>
+<span class="c1">#auth_request /auth-user;</span>
+<span class="kn">root</span> <span class="s">/config/www/</span><span class="p">;</span>
+<span class="kn">index</span> <span class="s">custom.html</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>Below is the location block you need to use for the <strong><a href="https://github.com/gilbN/theme.park">theme.park</a></strong> theme.</p>
-<div class="highlight"><pre><span></span><code># CUSTOM NETDATA USING THEME.PARK CSS
-location /customnetdata {
-#auth_request /auth-user;
-root /config/www/;
-index custom.html;
-proxy_set_header Accept-Encoding &quot;&quot;;
-sub_filter
-&#39;&lt;/head&gt;&#39;
-&#39;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://gilbn.github.io/theme.park/CSS/themes/netdata/organizr-dashboard.css&quot;&gt;  
-&lt;/head&gt;&#39;;
-sub_filter_once on; 
-}
+<div class="highlight"><pre><span></span><code><span class="c1"># CUSTOM NETDATA USING THEME.PARK CSS</span>
+<span class="k">location</span> <span class="s">/customnetdata</span> <span class="p">{</span>
+<span class="c1">#auth_request /auth-user;</span>
+<span class="kn">root</span> <span class="s">/config/www/</span><span class="p">;</span>
+<span class="kn">index</span> <span class="s">custom.html</span><span class="p">;</span>
+<span class="kn">proxy_set_header</span> <span class="s">Accept-Encoding</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="kn">sub_filter</span>
+<span class="s">&#39;&lt;/head&gt;&#39;</span>
+<span class="s">&#39;&lt;link</span> <span class="s">rel=&quot;stylesheet&quot;</span> <span class="s">type=&quot;text/css&quot;</span> <span class="s">href=&quot;https://gilbn.github.io/theme.park/CSS/themes/netdata/organizr-dashboard.css&quot;&gt;</span>  
+<span class="s">&lt;/head&gt;&#39;</span><span class="p">;</span>
+<span class="kn">sub_filter_once</span> <span class="no">on</span><span class="p">;</span> 
+<span class="p">}</span>
 </code></pre></div>
-<p>By using **<code>https://gilbn.github.io/theme.park/CSS/themes/netdata/organizr-dashboard.css</code>**it will match any theme Organizr is using as the background is transparent.</p>
+<p>By using <strong><code>https://gilbn.github.io/theme.park/CSS/themes/netdata/organizr-dashboard.css</code></strong> it will match any theme Organizr is using as the background is transparent.</p>
 <h3 id="adding-it-to-your-organizr-homepage">Adding it to your Organizr homepage<a class="headerlink" href="#adding-it-to-your-organizr-homepage" title="Permanent link">&para;</a></h3>
 <p>Adding it to your Org homepage is quite simple. Just add the code below and edit it to match your domain.</p>
 <p>Go to Settings &rarr; Edit Homepage &rarr; Custom HTML</p>
 <p>If you have added more graphs you'll need to change the height.</p>
-<div class="highlight"><pre><span></span><code>&lt;div style=&quot;overflow:hidden;height:282px;width:100%;position: relative;&quot;&gt; 
-&lt;embed style=&quot;height:calc(100%);width:calc(100%)&quot; src=&#39;https://yourdomain.com/customnetdata/custom.html&#39; /&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;/ul&gt;
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;overflow:hidden;height:282px;width:100%;position: relative;&quot;</span><span class="p">&gt;</span> 
+<span class="p">&lt;</span><span class="nt">embed</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height:calc(100%);width:calc(100%)&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;https://yourdomain.com/customnetdata/custom.html&#39;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 </code></pre></div>
 <h3 id="customizing-colors">Customizing colors<a class="headerlink" href="#customizing-colors" title="Permanent link">&para;</a></h3>
-<p><em>- For the blur theme, scroll down</em></p>
-<h5 id="bootstrap-slate-flat-337css">bootstrap-slate-flat-3.3.7.css<a class="headerlink" href="#bootstrap-slate-flat-337css" title="Permanent link">&para;</a></h5>
+<ul>
+<li>For the blur theme, scroll down</li>
+</ul>
+<h4 id="bootstrap-slate-flat-337css">bootstrap-slate-flat-3.3.7.css<a class="headerlink" href="#bootstrap-slate-flat-337css" title="Permanent link">&para;</a></h4>
 <p>Set the background-color to what you want. I set it to transparent so if I change my Org theme it will follow that.</p>
-<div class="highlight"><pre><span></span><code>body {
-font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
-font-size: 14px;
-line-height: 1.42857143;
-color: #c8c8c8;
-background-color: transparent;
-}
+<div class="highlight"><pre><span></span><code><span class="nt">body</span> <span class="p">{</span>
+<span class="k">font-family</span><span class="p">:</span> <span class="s2">&quot;Helvetica Neue&quot;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+<span class="k">font-size</span><span class="p">:</span> <span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">line-height</span><span class="p">:</span> <span class="mf">1.42857143</span><span class="p">;</span>
+<span class="k">color</span><span class="p">:</span> <span class="mh">#c8c8c8</span><span class="p">;</span>
+<span class="k">background-color</span><span class="p">:</span> <span class="kc">transparent</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 <h5 id="dashboardslatecss">dashboard.slate.css<a class="headerlink" href="#dashboardslatecss" title="Permanent link">&para;</a></h5>
-<p>Next is changing the**<code>.netdata-legend-value</code>**The background-color is the legend percent bacground color.</p>
-<div class="highlight"><pre><span></span><code>.netdata-legend-value {
-/*margin-left: 14px;*/
-position: absolute;
-right: 10px;
-float: right;
-text-align: right;
-font-size: 11px; /* legend: dimension value size */
-font-weight: bold;
-vertical-align: bottom;
-background-color: transparent;
-margin-top: 0px;
-z-index: 10;
-padding: 0px;
-padding-left: 15px;
-cursor: pointer;
-/* -webkit-font-smoothing: none; */
-}
+<p>Next is changing the <strong><code>.netdata-legend-value</code></strong> The background-color is the legend percent bacground color.</p>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">netdata-legend-value</span> <span class="p">{</span>
+<span class="c">/*margin-left: 14px;*/</span>
+<span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+<span class="k">right</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">float</span><span class="p">:</span> <span class="kc">right</span><span class="p">;</span>
+<span class="k">text-align</span><span class="p">:</span> <span class="kc">right</span><span class="p">;</span>
+<span class="k">font-size</span><span class="p">:</span> <span class="mi">11</span><span class="kt">px</span><span class="p">;</span> <span class="c">/* legend: dimension value size */</span>
+<span class="k">font-weight</span><span class="p">:</span> <span class="kc">bold</span><span class="p">;</span>
+<span class="k">vertical-align</span><span class="p">:</span> <span class="kc">bottom</span><span class="p">;</span>
+<span class="k">background-color</span><span class="p">:</span> <span class="kc">transparent</span><span class="p">;</span>
+<span class="k">margin-top</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">z-index</span><span class="p">:</span> <span class="mi">10</span><span class="p">;</span>
+<span class="k">padding</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">padding-left</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">cursor</span><span class="p">:</span> <span class="kc">pointer</span><span class="p">;</span>
+<span class="c">/* -webkit-font-smoothing: none; */</span>
+<span class="p">}</span>
 </code></pre></div>
 <p><strong><code>background-color: transparent;</code></strong></p>
 <p>**<code>color: #E5A00D;</code>**I chose orange to match my Organizr theme.</p>
-<div class="highlight"><pre><span></span><code>.netdata-legend-resize-handler {
-display: block;
-position: absolute;
-bottom: 0px;
-right: 0px;
-height: 15px;
-width: 30px;
-background-color: transparent;
-font-size: 12px;
-vertical-align: middle;
-line-height: 15px;
-cursor: ns-resize;
-color: #E5A00D;
-text-align: center;
-overflow: hidden;
-z-index: 20;
-padding: 0px;
-margin: 0px;
-}
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">netdata-legend-resize-handler</span> <span class="p">{</span>
+<span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
+<span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+<span class="k">bottom</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">right</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">height</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">width</span><span class="p">:</span> <span class="mi">30</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">background-color</span><span class="p">:</span> <span class="kc">transparent</span><span class="p">;</span>
+<span class="k">font-size</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
+<span class="k">line-height</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">cursor</span><span class="p">:</span> <span class="kc">ns-resize</span><span class="p">;</span>
+<span class="k">color</span><span class="p">:</span> <span class="mh">#E5A00D</span><span class="p">;</span>
+<span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+<span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+<span class="k">z-index</span><span class="p">:</span> <span class="mi">20</span><span class="p">;</span>
+<span class="k">padding</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>It's the same for the legend tool box, set it to transparent or what ever you like.</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2017/10/chart-tool-box-buttons.png"><img alt="" src="images/chart-tool-box-buttons.png" title="Netdata toolbox" /></a></p>
-<div class="highlight"><pre><span></span><code>.netdata-legend-toolbox {
-display: block;
-position: absolute;
-bottom: 0px;
-right: 30px;
-height: 15px;
-width: 110px;
-background-color: transparent;
-font-size: 12px;
-vertical-align: middle;
-line-height: 15px;
-color: #E5A00D;
-text-align: center;
-overflow: hidden;
-z-index: 20;
-padding: 0px;
-margin: 0px;
-}
+<p><a href="images/chart-tool-box-buttons.png"><img alt="" src="images/chart-tool-box-buttons.png" /></a></p>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">netdata-legend-toolbox</span> <span class="p">{</span>
+<span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
+<span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+<span class="k">bottom</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">right</span><span class="p">:</span> <span class="mi">30</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">height</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">width</span><span class="p">:</span> <span class="mi">110</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">background-color</span><span class="p">:</span> <span class="kc">transparent</span><span class="p">;</span>
+<span class="k">font-size</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
+<span class="k">line-height</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">color</span><span class="p">:</span> <span class="mh">#E5A00D</span><span class="p">;</span>
+<span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+<span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+<span class="k">z-index</span><span class="p">:</span> <span class="mi">20</span><span class="p">;</span>
+<span class="k">padding</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>Repeat the steps. Set the background to transparent or what ever you like. Set<code>color</code>to the color you want the buttons to be.</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2017/10/chart-resize-buttons.png"><img alt="" src="images/chart-resize-buttons.png" title="Netdata toolbox" /></a></p>
-<div class="highlight"><pre><span></span><code>.netdata-legend-toolbox-button {
-display: inline-block;
-position: relative;
-height: 15px;
-width: 18px;
-background-color: transparent;
-font-size: 12px;
-vertical-align: middle;
-line-height: 15px;
-color: #E5A00D;
-text-align: center;
-overflow: hidden;
-z-index: 21;
-padding: 0px;
-margin: 0px;
-cursor: pointer;
-}
+<p><a href="images/chart-resize-buttons.png"><img alt="" src="images/chart-resize-buttons.png" /></a></p>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">netdata-legend-toolbox-button</span> <span class="p">{</span>
+<span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+<span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+<span class="k">height</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">width</span><span class="p">:</span> <span class="mi">18</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">background-color</span><span class="p">:</span> <span class="kc">transparent</span><span class="p">;</span>
+<span class="k">font-size</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
+<span class="k">line-height</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">color</span><span class="p">:</span> <span class="mh">#E5A00D</span><span class="p">;</span>
+<span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+<span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+<span class="k">z-index</span><span class="p">:</span> <span class="mi">21</span><span class="p">;</span>
+<span class="k">padding</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">cursor</span><span class="p">:</span> <span class="kc">pointer</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>To edit the text color change the html,body</p>
-<p>This will**not**change the graph text color</p>
-<div class="highlight"><pre><span></span><code>html,
-body {
-/*font-family: Calibri,&quot;Segoe UI&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;*/
-font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
-font-style: normal;
-font-variant: normal;
-color: #E5A00D;
-}
+<p>This will <strong>not</strong> change the graph text color</p>
+<div class="highlight"><pre><span></span><code><span class="nt">html</span><span class="o">,</span>
+<span class="nt">body</span> <span class="p">{</span>
+<span class="c">/*font-family: Calibri,&quot;Segoe UI&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;*/</span>
+<span class="k">font-family</span><span class="p">:</span> <span class="s2">&quot;Helvetica Neue&quot;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+<span class="k">font-style</span><span class="p">:</span> <span class="kc">normal</span><span class="p">;</span>
+<span class="k">font-variant</span><span class="p">:</span> <span class="kc">normal</span><span class="p">;</span>
+<span class="k">color</span><span class="p">:</span> <span class="mh">#E5A00D</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>The graph text color is changed with</p>
-<div class="highlight"><pre><span></span><code>.dygraph-axis-label {
-color: #6c7075;
-}
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">dygraph-axis-label</span> <span class="p">{</span>
+<span class="k">color</span><span class="p">:</span> <span class="mh">#6c7075</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 <h5 id="customhtml">custom.html<a class="headerlink" href="#customhtml" title="Permanent link">&para;</a></h5>
 <p>Changing the data chart colors is done in the custom HTML.</p>
-<div class="highlight"><pre><span></span><code>&lt;div data-netdata=&quot;unique.id&quot;
-data-colors=&quot;#AABBCC #DDEEFF ...&quot;
-&gt;&lt;/div&gt;
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-netdata</span><span class="o">=</span><span class="s">&quot;unique.id&quot;</span>
+<span class="na">data-colors</span><span class="o">=</span><span class="s">&quot;#AABBCC #DDEEFF ...&quot;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h5 id="dashboardjs">dashboard.js<a class="headerlink" href="#dashboardjs" title="Permanent link">&para;</a></h5>
 <p>If you want to change the grid and axis color you can do that in the NETDATA.themes section in the dashboard.js file.</p>
-<div class="highlight"><pre><span></span><code>grid: &#39;#283236&#39;,
-axis: &#39;#283236&#39;,
+<div class="highlight"><pre><span></span><code><span class="nx">grid</span><span class="o">:</span> <span class="s1">&#39;#283236&#39;</span><span class="p">,</span>
+<span class="nx">axis</span><span class="o">:</span> <span class="s1">&#39;#283236&#39;</span><span class="p">,</span>
 </code></pre></div>
 <h3 id="blur-theme">Blur theme<a class="headerlink" href="#blur-theme" title="Permanent link">&para;</a></h3>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2017/10/blurweb-1.jpg"><img alt="" src="images/blurweb-1-1024x521.jpg" title="Netdata Blur theme" /></a></p>
+<p><a href="images/blurweb-1.jpg"><img alt="" src="images/blurweb-1-1024x521.jpg" /></a></p>
 <p>If you want to make your custom Netdata html match the<a href="https://github.com/leram84/layer.Cake/">layer#Cake blur-theme</a>you can do this:</p>
-<p>In**<code>dashboard.slate.css</code>**change this:</p>
+<p>In <strong><code>dashboard.slate.css</code></strong> change this:</p>
 <p>Change the body text color to #FFFFFF</p>
-<div class="highlight"><pre><span></span><code>html,
-body {
-/*font-family: Calibri,&quot;Segoe UI&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;*/
-font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
-font-style: normal;
-font-variant: normal;
-color: #FFFFFF;
-}
+<div class="highlight"><pre><span></span><code><span class="nt">html</span><span class="o">,</span>
+<span class="nt">body</span> <span class="p">{</span>
+<span class="c">/*font-family: Calibri,&quot;Segoe UI&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;*/</span>
+<span class="k">font-family</span><span class="p">:</span> <span class="s2">&quot;Helvetica Neue&quot;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+<span class="k">font-style</span><span class="p">:</span> <span class="kc">normal</span><span class="p">;</span>
+<span class="k">font-variant</span><span class="p">:</span> <span class="kc">normal</span><span class="p">;</span>
+<span class="k">color</span><span class="p">:</span> <span class="mh">#FFFFFF</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>And set the other color options in the examples above to**<code>(0, 0%, 100%, .45)</code>**</p>
-<p>For the grid and axis color set it to transparent in**<code>dashboard.js</code>**</p>
-<div class="highlight"><pre><span></span><code>grid: &#39;transparent&#39;,
-axis: &#39;transparent&#39;,
+<p>And set the other color options in the examples above to <strong><code>(0, 0%, 100%, .45)</code></strong></p>
+<p>For the grid and axis color set it to transparent in <strong><code>dashboard.js</code></strong></p>
+<div class="highlight"><pre><span></span><code><span class="nx">grid</span><span class="o">:</span> <span class="s1">&#39;transparent&#39;</span><span class="p">,</span>
+<span class="nx">axis</span><span class="o">:</span> <span class="s1">&#39;transparent&#39;</span><span class="p">,</span>
 </code></pre></div>
-<p>In the**<code>bootstrap-slate-flat-3.3.7.css</code>** Set the background color of the graph body to**<code>rgba(0, 0, 0, .15);</code>**</p>
-<div class="highlight"><pre><span></span><code>body {
-font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
-font-size: 14px;
-line-height: 1.42857143;
-color: #c8c8c8;
-background-color: rgba(0, 0, 0, .15);
-}
+<p>In the <strong><code>bootstrap-slate-flat-3.3.7.css</code></strong> Set the background color of the graph body to <strong><code>rgba(0, 0, 0, .15);</code></strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">body</span> <span class="p">{</span>
+<span class="k">font-family</span><span class="p">:</span> <span class="s2">&quot;Helvetica Neue&quot;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+<span class="k">font-size</span><span class="p">:</span> <span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">line-height</span><span class="p">:</span> <span class="mf">1.42857143</span><span class="p">;</span>
+<span class="k">color</span><span class="p">:</span> <span class="mh">#c8c8c8</span><span class="p">;</span>
+<span class="k">background-color</span><span class="p">:</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">.15</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 <hr />
 <h2 id="discord-widgetbot">Discord Widgetbot<a class="headerlink" href="#discord-widgetbot" title="Permanent link">&para;</a></h2>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2017/10/chrome_2017-10-19_22-09-55.png"><img alt="" src="images/chrome_2017-10-19_22-09-55-1024x301.png" title="Discord WidgetBot" /></a></p>
+<p><a href="images/chrome_2017-10-19_22-09-55.png"><img alt="" src="images/chrome_2017-10-19_22-09-55-1024x301.png" /></a></p>
 <p>First you'll need to create your own Discord Server. After you've done that head over to<a href="https://widgetbot.voakie.com/">https://widgetbot.voakie.com/</a>an sign in with your Discord credentials.</p>
 <h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
 <ol>
@@ -1644,168 +1701,168 @@ background-color: rgba(0, 0, 0, .15);
 </ol>
 <h3 id="organizr-html-config">Organizr html config<a class="headerlink" href="#organizr-html-config" title="Permanent link">&para;</a></h3>
 <p>Add this in the homepage HTML and edit the values to your liking.</p>
-<div class="highlight"><pre><span></span><code>&lt;div style=&quot;overflow:hidden;height:300px&quot;&gt; 
-&lt;embed style=&quot;height:calc(100% + 115px)&quot; width=&#39;100%&#39; src=&#39;URL TO YOUR WIDGET&#39; /&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;/ul&gt;
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;overflow:hidden;height:300px&quot;</span><span class="p">&gt;</span> 
+<span class="p">&lt;</span><span class="nt">embed</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height:calc(100% + 115px)&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#39;100%&#39;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;URL TO YOUR WIDGET&#39;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="custom-chat-with-tawkto">Custom chat with Tawk.to<a class="headerlink" href="#custom-chat-with-tawkto" title="Permanent link">&para;</a></h2>
 <p>Go to<a href="https://www.tawk.to/">https://www.tawk.to/</a></p>
 <p>Create an account and add the widget code to the custom HTML. If you want the chat box to be on every page add the code to the custom CSS.</p>
 <p>You can also change the colors in the Widget Appearance settings!</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2017/10/tawk.gif"><img alt="" src="images/tawk-293x300.gif" title="Tawk Gif" /></a></p>
+<p><a href="images/tawk.gif"><img alt="" src="images/tawk-293x300.gif" /></a></p>
 <h2 id="bonus-html-for-system-overview">Bonus HTML for system overview<a class="headerlink" href="#bonus-html-for-system-overview" title="Permanent link">&para;</a></h2>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2017/10/chrome_2017-10-19_22-27-38.png"><img alt="" src="images/chrome_2017-10-19_22-27-38-1024x181.png" title="Netdata overview" /></a></p>
-<div class="highlight"><pre><span></span><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
-&lt;meta charset=&quot;utf-8&quot;&gt;
-&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
-&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
-&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black-translucent&quot;&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;center&gt;
-&lt;ul&gt;
-&lt;/ul&gt;
-&lt;div style=&quot;display: inline-block; position: relative;&quot;&gt;
-&lt;div data-netdata=&quot;system.io&quot;
-data-dimensions=&quot;in&quot;&#39;
-data-chart-library=&quot;easypiechart&quot;
-data-title=&quot;Disk Read&quot;&#39;
-data-width=&quot;200&quot;
-data-height=&quot;200&quot;
-data-after=&quot;-300&quot;
-data-points=&quot;300&quot;
-data-dt-element-name=&quot;time701&quot;
-&gt;&lt;/div&gt;
-&lt;/div&gt; 
+<p><a href="images/chrome_2017-10-19_22-27-38.png"><img alt="" src="images/chrome_2017-10-19_22-27-38-1024x181.png" /></a></p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge,chrome=1&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;apple-mobile-web-app-capable&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;yes&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;apple-mobile-web-app-status-bar-style&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;black-translucent&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display: inline-block; position: relative;&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-netdata</span><span class="o">=</span><span class="s">&quot;system.io&quot;</span>
+<span class="na">data-dimensions</span><span class="o">=</span><span class="s">&quot;in&quot;</span><span class="err">&#39;</span>
+<span class="na">data-chart-library</span><span class="o">=</span><span class="s">&quot;easypiechart&quot;</span>
+<span class="na">data-title</span><span class="o">=</span><span class="s">&quot;Disk Read&quot;</span><span class="err">&#39;</span>
+<span class="na">data-width</span><span class="o">=</span><span class="s">&quot;200&quot;</span>
+<span class="na">data-height</span><span class="o">=</span><span class="s">&quot;200&quot;</span>
+<span class="na">data-after</span><span class="o">=</span><span class="s">&quot;-300&quot;</span>
+<span class="na">data-points</span><span class="o">=</span><span class="s">&quot;300&quot;</span>
+<span class="na">data-dt-element-name</span><span class="o">=</span><span class="s">&quot;time701&quot;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> 
 
-&lt;div style=&quot;display: inline-block; position: relative;&quot;&gt;
-&lt;div data-netdata=&quot;system.io&quot;
-data-dimensions=&quot;out&quot;&#39;
-data-chart-library=&quot;easypiechart&quot;
-data-title=&quot;Disk Write&quot;&#39;
-data-width=&quot;200&quot;
-data-height=&quot;200&quot;
-data-after=&quot;-300&quot;
-data-points=&quot;300&quot;
-data-dt-element-name=&quot;time701&quot;
-&gt;&lt;/div&gt;
-&lt;/div&gt; 
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display: inline-block; position: relative;&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-netdata</span><span class="o">=</span><span class="s">&quot;system.io&quot;</span>
+<span class="na">data-dimensions</span><span class="o">=</span><span class="s">&quot;out&quot;</span><span class="err">&#39;</span>
+<span class="na">data-chart-library</span><span class="o">=</span><span class="s">&quot;easypiechart&quot;</span>
+<span class="na">data-title</span><span class="o">=</span><span class="s">&quot;Disk Write&quot;</span><span class="err">&#39;</span>
+<span class="na">data-width</span><span class="o">=</span><span class="s">&quot;200&quot;</span>
+<span class="na">data-height</span><span class="o">=</span><span class="s">&quot;200&quot;</span>
+<span class="na">data-after</span><span class="o">=</span><span class="s">&quot;-300&quot;</span>
+<span class="na">data-points</span><span class="o">=</span><span class="s">&quot;300&quot;</span>
+<span class="na">data-dt-element-name</span><span class="o">=</span><span class="s">&quot;time701&quot;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> 
 
-&lt;div style=&quot;display: inline-block; position: relative;&quot;&gt;
-&lt;div data-netdata=&quot;system.cpu&quot;
-data-chart-library=&quot;gauge&quot;
-data-title=&quot;CPU&quot;
-data-units=&quot;%&quot;
-data-gauge-max-value=&quot;100&quot;
-data-width=&quot;400&quot;
-data-height=&quot;200&quot;
-data-after=&quot;-300&quot;
-data-points=&quot;300&quot;
-data-colors=&quot;#22AA99&quot;
-data-dt-element-name=&quot;time701&quot;
-&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div style=&quot;display: inline-block; position: relative;&quot;&gt;
-&lt;div data-netdata=&quot;system.net&quot;
-data-dimensions=&quot;received&quot;
-data-chart-library=&quot;easypiechart&quot;
-data-title=&quot;IPv4 Inbound&quot;
-data-width=&quot;200&quot;
-data-height=&quot;200&quot;
-data-after=&quot;-300&quot;
-data-points=&quot;300&quot;
-data-dt-element-name=&quot;time701&quot;
-&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div style=&quot;display: inline-block; position: relative;&quot;&gt;
-&lt;div data-netdata=&quot;system.net&quot;
-data-dimensions=&quot;sent&quot;
-data-chart-library=&quot;easypiechart&quot;
-data-title=&quot;IPv4 Outbound&quot;
-data-width=&quot;200&quot;
-data-height=&quot;200&quot;
-data-after=&quot;-300&quot;
-data-points=&quot;300&quot;
-data-dt-element-name=&quot;time701&quot;
-&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div style=&quot;display: inline-block; position: relative;&quot;&gt;
-&lt;div data-netdata=&quot;system.ram&quot;
-data-dimensions=&quot;used|buffers|active|wired&quot;
-data-append-options=&quot;percentage&quot;
-data-chart-library=&quot;easypiechart&quot;
-data-title=&quot;Used RAM&quot;
-data-units=&quot;%&quot;
-data-easypiechart-max-value=&quot;100&quot;
-data-colors=&quot;#EE9911&quot;
-data-width=&quot;170&quot;
-data-height=&quot;170&quot;
-data-after=&quot;-300&quot;
-data-points=&quot;300&quot;
-data-dt-element-name=&quot;time701&quot;
-&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/center&gt; 
-&lt;/body&gt;
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display: inline-block; position: relative;&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-netdata</span><span class="o">=</span><span class="s">&quot;system.cpu&quot;</span>
+<span class="na">data-chart-library</span><span class="o">=</span><span class="s">&quot;gauge&quot;</span>
+<span class="na">data-title</span><span class="o">=</span><span class="s">&quot;CPU&quot;</span>
+<span class="na">data-units</span><span class="o">=</span><span class="s">&quot;%&quot;</span>
+<span class="na">data-gauge-max-value</span><span class="o">=</span><span class="s">&quot;100&quot;</span>
+<span class="na">data-width</span><span class="o">=</span><span class="s">&quot;400&quot;</span>
+<span class="na">data-height</span><span class="o">=</span><span class="s">&quot;200&quot;</span>
+<span class="na">data-after</span><span class="o">=</span><span class="s">&quot;-300&quot;</span>
+<span class="na">data-points</span><span class="o">=</span><span class="s">&quot;300&quot;</span>
+<span class="na">data-colors</span><span class="o">=</span><span class="s">&quot;#22AA99&quot;</span>
+<span class="na">data-dt-element-name</span><span class="o">=</span><span class="s">&quot;time701&quot;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display: inline-block; position: relative;&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-netdata</span><span class="o">=</span><span class="s">&quot;system.net&quot;</span>
+<span class="na">data-dimensions</span><span class="o">=</span><span class="s">&quot;received&quot;</span>
+<span class="na">data-chart-library</span><span class="o">=</span><span class="s">&quot;easypiechart&quot;</span>
+<span class="na">data-title</span><span class="o">=</span><span class="s">&quot;IPv4 Inbound&quot;</span>
+<span class="na">data-width</span><span class="o">=</span><span class="s">&quot;200&quot;</span>
+<span class="na">data-height</span><span class="o">=</span><span class="s">&quot;200&quot;</span>
+<span class="na">data-after</span><span class="o">=</span><span class="s">&quot;-300&quot;</span>
+<span class="na">data-points</span><span class="o">=</span><span class="s">&quot;300&quot;</span>
+<span class="na">data-dt-element-name</span><span class="o">=</span><span class="s">&quot;time701&quot;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display: inline-block; position: relative;&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-netdata</span><span class="o">=</span><span class="s">&quot;system.net&quot;</span>
+<span class="na">data-dimensions</span><span class="o">=</span><span class="s">&quot;sent&quot;</span>
+<span class="na">data-chart-library</span><span class="o">=</span><span class="s">&quot;easypiechart&quot;</span>
+<span class="na">data-title</span><span class="o">=</span><span class="s">&quot;IPv4 Outbound&quot;</span>
+<span class="na">data-width</span><span class="o">=</span><span class="s">&quot;200&quot;</span>
+<span class="na">data-height</span><span class="o">=</span><span class="s">&quot;200&quot;</span>
+<span class="na">data-after</span><span class="o">=</span><span class="s">&quot;-300&quot;</span>
+<span class="na">data-points</span><span class="o">=</span><span class="s">&quot;300&quot;</span>
+<span class="na">data-dt-element-name</span><span class="o">=</span><span class="s">&quot;time701&quot;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display: inline-block; position: relative;&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-netdata</span><span class="o">=</span><span class="s">&quot;system.ram&quot;</span>
+<span class="na">data-dimensions</span><span class="o">=</span><span class="s">&quot;used|buffers|active|wired&quot;</span>
+<span class="na">data-append-options</span><span class="o">=</span><span class="s">&quot;percentage&quot;</span>
+<span class="na">data-chart-library</span><span class="o">=</span><span class="s">&quot;easypiechart&quot;</span>
+<span class="na">data-title</span><span class="o">=</span><span class="s">&quot;Used RAM&quot;</span>
+<span class="na">data-units</span><span class="o">=</span><span class="s">&quot;%&quot;</span>
+<span class="na">data-easypiechart-max-value</span><span class="o">=</span><span class="s">&quot;100&quot;</span>
+<span class="na">data-colors</span><span class="o">=</span><span class="s">&quot;#EE9911&quot;</span>
+<span class="na">data-width</span><span class="o">=</span><span class="s">&quot;170&quot;</span>
+<span class="na">data-height</span><span class="o">=</span><span class="s">&quot;170&quot;</span>
+<span class="na">data-after</span><span class="o">=</span><span class="s">&quot;-300&quot;</span>
+<span class="na">data-points</span><span class="o">=</span><span class="s">&quot;300&quot;</span>
+<span class="na">data-dt-element-name</span><span class="o">=</span><span class="s">&quot;time701&quot;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">center</span><span class="p">&gt;</span> 
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 
-&lt;script&gt;
-// this section has to appear before loading dashboard.js
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c1">// this section has to appear before loading dashboard.js</span>
 
-// Select a theme.
-// uncomment on of the two themes:
+<span class="c1">// Select a theme.</span>
+<span class="c1">// uncomment on of the two themes:</span>
 
-// var netdataTheme = &#39;default&#39;; // this is white
-var netdataTheme = &#39;slate&#39;; // this is dark
+<span class="c1">// var netdataTheme = &#39;default&#39;; // this is white</span>
+<span class="kd">var</span> <span class="nx">netdataTheme</span> <span class="o">=</span> <span class="s1">&#39;slate&#39;</span><span class="p">;</span> <span class="c1">// this is dark</span>
 
-// Set the default netdata server.
-// on charts without a &#39;data-host&#39;, this one will be used.
-// the default is the server that dashboard.js is downloaded from.
+<span class="c1">// Set the default netdata server.</span>
+<span class="c1">// on charts without a &#39;data-host&#39;, this one will be used.</span>
+<span class="c1">// the default is the server that dashboard.js is downloaded from.</span>
 
-var netdataServer = &#39;https://YOURNETDATADOMAIN.COM/&#39;;
-&lt;/script&gt;
+<span class="kd">var</span> <span class="nx">netdataServer</span> <span class="o">=</span> <span class="s1">&#39;https://YOURNETDATADOMAIN.COM/&#39;</span><span class="p">;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
-&lt;!-- &lt;script type=&quot;text/javascript&quot; src=&quot;http://my.server:19999/dashboard.js&quot;&gt;&lt;/script&gt; --&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;dashboard.js?v20170105-7&quot;&gt;&lt;/script&gt;
+<span class="c">&lt;!-- &lt;script type=&quot;text/javascript&quot; src=&quot;http://my.server:19999/dashboard.js&quot;&gt;&lt;/script&gt; --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;dashboard.js?v20170105-7&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
-&lt;script&gt;
-// Set options for TV operation
-// This has to be done, after dashboard.js is loaded
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c1">// Set options for TV operation</span>
+<span class="c1">// This has to be done, after dashboard.js is loaded</span>
 
-// destroy charts not shown (lowers memory on the browser)
-NETDATA.options.current.destroy_on_hide = true;
+<span class="c1">// destroy charts not shown (lowers memory on the browser)</span>
+<span class="nx">NETDATA</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">destroy_on_hide</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 
-// set this to false, to always show all dimensions
-//NETDATA.options.current.eliminate_zero_dimensions = true;
+<span class="c1">// set this to false, to always show all dimensions</span>
+<span class="c1">//NETDATA.options.current.eliminate_zero_dimensions = true;</span>
 
-// lower the pressure on this browser
-//NETDATA.options.current.concurrent_refreshes = false;
+<span class="c1">// lower the pressure on this browser</span>
+<span class="c1">//NETDATA.options.current.concurrent_refreshes = false;</span>
 
-// if the tv browser is too slow (a pi?)
-// set this to false
-//NETDATA.options.current.parallel_refresher = true;
+<span class="c1">// if the tv browser is too slow (a pi?)</span>
+<span class="c1">// set this to false</span>
+<span class="c1">//NETDATA.options.current.parallel_refresher = true;</span>
 
-// always update the charts, even if focus is lost
+<span class="c1">// always update the charts, even if focus is lost</span>
 
-NETDATA.options.current.stop_updates_when_focus_is_lost = false;
+<span class="nx">NETDATA</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">stop_updates_when_focus_is_lost</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 
-// Since you may render charts from many servers and any of them may
-// become offline for some time, the charts will break.
-// This will reload the page every RELOAD_EVERY minutes
+<span class="c1">// Since you may render charts from many servers and any of them may</span>
+<span class="c1">// become offline for some time, the charts will break.</span>
+<span class="c1">// This will reload the page every RELOAD_EVERY minutes</span>
 
-var RELOAD_EVERY = 1;
-setTimeout(function(){
-location.reload();
-}, RELOAD_EVERY * 60 * 1000);
+<span class="kd">var</span> <span class="nx">RELOAD_EVERY</span> <span class="o">=</span> <span class="mf">1</span><span class="p">;</span>
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span>
+<span class="p">},</span> <span class="nx">RELOAD_EVERY</span> <span class="o">*</span> <span class="mf">60</span> <span class="o">*</span> <span class="mf">1000</span><span class="p">);</span>
 
-&lt;/script&gt;
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
-&lt;/html&gt;
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
 
   <hr>
@@ -1813,7 +1870,7 @@ location.reload();
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

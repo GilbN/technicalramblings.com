@@ -547,10 +547,10 @@
         
           <li class="md-nav__item">
   <a href="#if-you-need-any-extra-help-join-the-discord-server" class="md-nav__link">
-    If you need any extra help join the Discord server!
+    If you need any extra help join the Discord server
   </a>
   
-    <nav class="md-nav" aria-label="If you need any extra help join the Discord server!">
+    <nav class="md-nav" aria-label="If you need any extra help join the Discord server">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1032,10 +1032,10 @@
         
           <li class="md-nav__item">
   <a href="#if-you-need-any-extra-help-join-the-discord-server" class="md-nav__link">
-    If you need any extra help join the Discord server!
+    If you need any extra help join the Discord server
   </a>
   
-    <nav class="md-nav" aria-label="If you need any extra help join the Discord server!">
+    <nav class="md-nav" aria-label="If you need any extra help join the Discord server">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1073,6 +1073,49 @@
 
 
 <h1 id="monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-nut-edition">Monitoring your UPS stats and cost with InfluxDB and Grafana on Unraid – NUT Edition<a class="headerlink" href="#monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-nut-edition" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2019-09-25</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">docker</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">grafana</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">influxdb</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">kwh</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">monitoring</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">power</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">unraid</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">ups</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">backend</a>
+</p>
+
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">frontend</a>
+</p>
+
 <p><img src="images/Unraid-UPS-Dashboard-NUT-Edition.jpg"></img></p>
 <p>This quick guide will explain how to setup Grafana and InfluxDB to monitor your UPS power usage using the NUT plugin and <a href="https://hub.docker.com/r/maihai/nut-influxdb-exporter">maihai/nut-influxdb-exporter</a> docker container on Unraid. This pretty much just a rewrite of <a href="https://technicalramblings.com/blog/monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-2019-edition/">this</a> article but for the NUT plugin.</p>
 <h2 id="grafana">Grafana<a class="headerlink" href="#grafana" title="Permanent link">&para;</a></h2>
@@ -1080,36 +1123,26 @@
 <h3 id="influxdb">InfluxDB<a class="headerlink" href="#influxdb" title="Permanent link">&para;</a></h3>
 <div class="admonition error">
 <p class="admonition-title">Dont' use the latest tag</p>
-<p>The <code>:latest</code> tag will run InfluxDB V2! This guide was written for v1.8. Change the tag to <code>:1.8.4</code> for it to work!</p>
+<p>The <code>:latest</code> tag will run InfluxDB V2! This guide was written for v1.8. Change the tag to <code>:1.8.x</code> for it to work!</p>
 </div>
 <p><a href="https://technicalramblings.com/wp-content/uploads/2019/07/chrome_EZLftLwtMU.png"><img alt="" src="images/chrome_EZLftLwtMU-1024x140.png" /></a></p>
 <h2 id="installing-the-container">Installing the container<a class="headerlink" href="#installing-the-container" title="Permanent link">&para;</a></h2>
 <p>Search for <code>nut influx exporter</code>in CA and click install. Fill out the different container variables to match your setup. Remember to click on <code>Show more settings...</code> to see the rest of the variables. If your UPS reports the <code>WATTS/Nominal Power</code>metric you can remove this variable. You can see if it reports it by going to the dashboard and look at the stats or run the <code>upsc ups</code> command.</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/08/chrome_YuxgsyuWXx.png"><img alt="" src="images/chrome_YuxgsyuWXx.png" /></a> <a href="https://technicalramblings.com/wp-content/uploads/2019/08/chrome_aQWh2c1xi8.png"><img alt="" src="images/chrome_aQWh2c1xi8.png" /></a></p>
+<p><a href="images/chrome_YuxgsyuWXx.png"><img alt="" src="images/chrome_YuxgsyuWXx.png" /></a></p>
+<p><a href="images/chrome_aQWh2c1xi8.png"><img alt="" src="images/chrome_aQWh2c1xi8.png" /></a></p>
 <p>The <code>INFLUXDB_HOST</code> and <code>NUT_HOST</code> will most likely be your Unraid IP and <code>INFLUXDB_PORT</code> is the port for your InfluxDB http service. Default it will be <code>8086</code>. You can leave user and password blank if you don't have a specific user you want to use in your InfluxDB instance. And the same for the NUT port, username and password.</p>
 <p>The database will be created at the launch of the container, so you don't need to create it manually.</p>
 <p>The default interval is set to 20 seconds, and if I recall correctly that is the max for NUT. I tried setting it to 10 seconds using the INTERVAL variable but when I did that it reported the same metric twice all the time.</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">eckosc\_full\_width\_block</div>
-<script type="math/tex; mode=display">eckosc\_full\_width\_block</script>
-</div>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/08/chrome_wYtf3KrmV1.png"><img alt="" src="images/chrome_wYtf3KrmV1.png" /></a></p>
-<div class="arithmatex">
-<div class="MathJax_Preview">/eckosc\_full\_width\_block</div>
-<script type="math/tex; mode=display">/eckosc\_full\_width\_block</script>
-</div>
+<p><a href="images/chrome_wYtf3KrmV1.png"><img alt="" src="images/chrome_wYtf3KrmV1.png" /></a></p>
 <h2 id="ups-dashboard">UPS Dashboard<a class="headerlink" href="#ups-dashboard" title="Permanent link">&para;</a></h2>
 <p>After you have installed the apcupsd container add the datasource in Grafana and use the database name you chose above.</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/08/chrome_nl4x2mytiq.png"><img alt="" src="images/chrome_nl4x2mytiq-656x1024.png" /></a></p>
-<p>Next import my new UPS dashboard and select the correct datasource in the drop down menu at the top. <strong>Link to dashboard: <a href="https://grafana.com/grafana/dashboards/10914">https://grafana.com/grafana/dashboards/10914</a></strong> <a href="https://technicalramblings.com/wp-content/uploads/2019/07/chrome_SVgr21l7aF.png"><img alt="" src="images/chrome_SVgr21l7aF.png" /></a></p>
+<p><a href="images/chrome_nl4x2mytiq.png"><img alt="" src="images/chrome_nl4x2mytiq.png" /></a></p>
+<p>Next import my new UPS dashboard and select the correct datasource in the drop down menu at the top. <strong>Link to dashboard: <a href="https://grafana.com/grafana/dashboards/10914">https://grafana.com/grafana/dashboards/10914</a></strong></p>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2019/07/chrome_SVgr21l7aF.png"><img alt="" src="images/chrome_SVgr21l7aF.png" /></a></p>
 <p>And that's it! Enjoy your new and improved UPS stats!</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/07/chrome_Z69ocJp2IO.png">[eckosc_full_width_block]<img alt="" src="images/chrome_Z69ocJp2IO-1024x660.png" /></a></p>
-<div class="arithmatex">
-<div class="MathJax_Preview">/eckosc\_full\_width\_block</div>
-<script type="math/tex; mode=display">/eckosc\_full\_width\_block</script>
-</div>
+<p><a href="https://technicalramblings.com/wp-content/uploads/2019/07/chrome_Z69ocJp2IO.png"><img alt="" src="images/chrome_Z69ocJp2IO-1024x660.png" /></a></p>
 <p>The custom theme for Grafana can be found here: <a href="https://github.com/gilbN/theme.park">https://github.com/gilbN/theme.park</a></p>
-<h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server!<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>
+<h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>
 <h4 id="_1"><a href="https://discord.gg/HM5uUKU"><img alt="" src="https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&amp;logo=discord" title="technicalramblings/theme.park!" /></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 
   <hr>
@@ -1117,7 +1150,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

@@ -981,36 +981,56 @@
 
 
 <h1 id="migratingmerging-view-history-between-two-plex-servers-avoiding-negative-unwatched-count">Migrating/Merging View History between two Plex Servers - Avoiding Negative Unwatched Count<a class="headerlink" href="#migratingmerging-view-history-between-two-plex-servers-avoiding-negative-unwatched-count" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2019-04-07</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">database</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">plex</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">backend</a>
+</p>
+
 <p><img src="images/Migrating-plex-watch-history1.jpg"></img></p>
 <p>Every so often you may put yourself in a situation where you're forced to reinstall Plex. Regrettably, Plex has no built-in functionality for database back-up and migration. This may seem logical, as it is typically unimportant to backup and restore posters and folder matches. However, there is one piece of database information that is worth restoring from previous servers: the <strong>view history</strong>. This information tells the Plex Media Server instance what has been marked as Played/Unplayed. It also contains some extra information such as user ratings.</p>
-<p>But the issue arises when merging into a server that isn't a clean install (absolutely no watch history). In this scenario, you may be faced with errors such as <strong><em><code>Error: near line 2319: UNIQUE constraint failed:metadata_item_settings.id</code></em></strong>, and you may see negative unplayed counts within Plex.</p>
-<p><img alt="673a3fb5910abb54f59c3cca3d5719e53b5be9f72" src="images/673a3fb5910abb54f59c3cca3d5719e53b5be9f72.jpg" /></p>
+<p>But the issue arises when merging into a server that isn't a clean install (absolutely no watch history). In this scenario, you may be faced with errors such as <strong><code>Error: near line 2319: UNIQUE constraint failed:metadata_item_settings.id</code></strong>, and you may see negative unplayed counts within Plex.</p>
+<p><img alt="images/673a3fb5910abb54f59c3cca3d5719e53b5be9f72" src="images/673a3fb5910abb54f59c3cca3d5719e53b5be9f72.jpg" /></p>
 <p>Migrating watch history while avoiding these issues can be done in six easy steps.</p>
 <h2 id="part-one-merging-databases">Part One: Merging Databases<a class="headerlink" href="#part-one-merging-databases" title="Permanent link">&para;</a></h2>
-<p><strong>1) Locate the databases directory</strong> for the Plex install that contains the view history you wish to save. This will be found in <em><code>**./Plex Media Server/Plug-in Support/Databases/**</code></em></p>
+<p><strong>1) Locate the databases directory</strong> for the Plex install that contains the view history you wish to save. This will be found in <strong><code>./Plex Media Server/Plug-in Support/Databases/</code></strong></p>
 <p>The default location of this Plex Media Server folder will vary depending on operating system. For more directories see <a href="https://support.plex.tv/articles/202915258-where-is-the-plex-media-server-data-directory-located/">Where is the Plex Media Server data directory located?</a> Here's the location for a few common operating systems.</p>
-<p>Windows: <strong><em><code>%LOCALAPPDATA%</code></em></strong> OSX:<strong><em><code>~/Library/ApplicationSupport/</code></em></strong> Linux: <strong><em><code>$PLEX_HOME/Library/ApplicationSupport/</code></em></strong> Debian: <strong><em><code>/var/lib/plexmediaserver/Library/Application Support/</code></em></strong> FreeBSD: <strong><em><code>/usr/local/plexdata/</code></em></strong> FreeNAS: <strong><em><code>/var/db/plexdata/</code></em></strong> Unraid Docker (Binhex):<strong><em><code>/mnt/cache/appdata/binhex-plex/</code></em></strong></p>
+<p>Windows: <strong><code>%LOCALAPPDATA%</code></strong> OSX:<strong><code>~/Library/ApplicationSupport/</code></strong> Linux: <strong><code>$PLEX_HOME/Library/ApplicationSupport/</code></strong> Debian: <strong><code>/var/lib/plexmediaserver/Library/Application Support/</code></strong> FreeBSD: <strong><code>/usr/local/plexdata/</code></strong> FreeNAS: <strong><code>/var/db/plexdata/</code></strong> Unraid Docker (Binhex): <strong><code>/mnt/cache/appdata/binhex-plex/</code></strong></p>
 <p>When you locate this directory, navigate to it via a terminal. This can be done with <em>cd</em> on Linux and <em>dir</em> on Windows.</p>
-<p><strong>2) Ensure that sqlite3 is installed</strong> on the host operating system by typing <em><strong><code>sqlite3 -version</code></strong></em> into your terminal. If an error shows indicating that it is not installed, install SQLite3 through your package manager or through<a href="https://www.sqlite.org/download.html">this link</a>.</p>
+<p><strong>2) Ensure that sqlite3 is installed</strong> on the host operating system by typing <strong><code>sqlite3 -version</code></strong> into your terminal. If an error shows indicating that it is not installed, install SQLite3 through your package manager or through <a href="https://www.sqlite.org/download.html">this link</a>.</p>
 <p><strong>3)</strong> <strong>Put the view history into a file called viewhistory.sql.</strong> This can be done via typing the following command while in the Databases directory:</p>
-<div class="highlight"><pre><span></span><code>echo &quot;.dump metadata_item_settings&quot; | sqlite3 com.plexapp.plugins.library.db | grep -v TABLE | grep -v INDEX &gt; viewhistory.sql
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;.dump metadata_item_settings&quot;</span> <span class="p">|</span> sqlite3 com.plexapp.plugins.library.db <span class="p">|</span> grep -v TABLE <span class="p">|</span> grep -v INDEX &gt; viewhistory.sql
 </code></pre></div>
 <p><strong>4) Move viewhistory.sql to the databases directory</strong> for the Plex install that you're migrating data into.</p>
 <p><strong>5) Merge view history data from the old server into the new server.</strong> This can by done by running the following:</p>
-<div class="highlight"><pre><span></span><code>cat viewhistory.sql | sqlite3 com.plexapp.plugins.library.db
+<div class="highlight"><pre><span></span><code>cat viewhistory.sql <span class="p">|</span> sqlite3 com.plexapp.plugins.library.db
 </code></pre></div>
 <p>Do not be alarmed if you see a _<code>UNIQUE constraint failed</code>_error. This will be fixed in the next step.</p>
 <h2 id="part-two-removing-the-duplicates">Part Two: Removing the Duplicates<a class="headerlink" href="#part-two-removing-the-duplicates" title="Permanent link">&para;</a></h2>
-<p><strong>6) Remove duplicate database entries</strong> that cause negative a view count. Please note, it is highly recommended to create a backup of **<em><code>com.plexapp.plugins.library.db</code></em>**before attempting to modify it.</p>
-<p>If the server you're merging view states to is not perfectly clean (a server with no watch history), or if you received **<em><code>UNIQUE constraint failed</code></em>**in the previous steps then you must run the following command in the current directory:</p>
-<p><code>sqlite3 com.plexapp.plugins.library.db "DELETE FROM metadata_item_settings WHERE id in (SELECT MIN(id) FROM metadata_item_settings GROUP BY guid HAVING COUNT(guid) &gt; 1);"</code></p>
+<p><strong>6) Remove duplicate database entries</strong> that cause negative a view count. Please note, it is highly recommended to create a backup of <strong><code>com.plexapp.plugins.library.db</code></strong> before attempting to modify it.</p>
+<p>If the server you're merging view states to is not perfectly clean (a server with no watch history), or if you received <strong><code>UNIQUE constraint failed</code></strong> in the previous steps then you must run the following command in the current directory:</p>
+<div class="highlight"><pre><span></span><code><span class="n">sqlite3</span> <span class="n">com</span><span class="p">.</span><span class="n">plexapp</span><span class="p">.</span><span class="n">plugins</span><span class="p">.</span><span class="n">library</span><span class="p">.</span><span class="n">db</span>
+<span class="ss">&quot;DELETE FROM metadata_item_settings</span>
+<span class="ss">WHERE id in (SELECT MIN(id) </span>
+<span class="ss">FROM metadata_item_settings </span>
+<span class="ss">GROUP BY guid HAVING COUNT(guid) &gt; 1);&quot;</span>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

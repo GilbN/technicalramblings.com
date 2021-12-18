@@ -488,6 +488,19 @@
     Multiple log files
   </a>
   
+    <nav class="md-nav" aria-label="Multiple log files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -506,21 +519,8 @@
         
           <li class="md-nav__item">
   <a href="#if-you-need-any-extra-help-join-the-discord-server" class="md-nav__link">
-    If you need any extra help join the Discord server!
+    If you need any extra help join the Discord server
   </a>
-  
-    <nav class="md-nav" aria-label="If you need any extra help join the Discord server!">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1016,6 +1016,19 @@
     Multiple log files
   </a>
   
+    <nav class="md-nav" aria-label="Multiple log files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1034,21 +1047,8 @@
         
           <li class="md-nav__item">
   <a href="#if-you-need-any-extra-help-join-the-discord-server" class="md-nav__link">
-    If you need any extra help join the Discord server!
+    If you need any extra help join the Discord server
   </a>
-  
-    <nav class="md-nav" aria-label="If you need any extra help join the Discord server!">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1075,11 +1075,46 @@
 
 
 <h1 id="visualizing-nginx-geo-data-metrics-with-python-influxdb-and-grafana">Visualizing Nginx geo data metrics  with Python, InfluxDB and Grafana<a class="headerlink" href="#visualizing-nginx-geo-data-metrics-with-python-influxdb-and-grafana" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2020-05-13</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">geoip2</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">geolite2</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">grafana</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">influx</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">influxdb</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">nginx</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">python</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">backend</a>
+</p>
+
 <p><img src="images/68747470733a2f2f692e696d6775722e636f6d2f6d6830496859412e6a7067.jpg"></img></p>
 <p>A couple of weeks ago I saw someone posted an <a href="https://medium.com/faun/total-nginx-monitoring-with-application-performance-and-a-bit-more-using-8fc6d731051b">article</a> on on the LinuxServer discord describing how to send geo data statistics from Nginx to InfluxDB. I have seen similar articles in the past and I always wanted to try it out, and because adding new dashboards to Grafana is always fun :)</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For people not using the letsencrypt/swag container, I've added a standalone container you can use here: <strong><a href="https://github.com/gilbN/geoip2influx">https://github.com/gilbN/geoip2influx</a></strong></p>
+<p>For people not using the letsencrypt/swag container, I've added a standalone container you can use here: <strong><a href="https://github.com/gilbN/">https://github.com/gilbN/</a>    geoip2influx</strong></p>
 </div>
 <p>The article was a couple of years old so he was using the now deprecated maxmind geoip database. But the rest of the Nginx configs looked just fine. As for the sending of the geo data metrics to InfluxDB, he was using a python2 script.</p>
 <p>Having recently started using Roxedus's <a href="https://github.com/Roxedus/lsio-docker-mods">Fail2Ban docker mod</a> for the linuxserver swag container, I thought that would be an excellent way of running it. So I looked at how Roxedus set up his mod and used that as a template for building mine.</p>
@@ -1150,7 +1185,7 @@
 <h3 id="multiple-log-files">Multiple log files<a class="headerlink" href="#multiple-log-files" title="Permanent link">&para;</a></h3>
 <p>If you separate your nginx log files but want this mod to parse all of them you can do the following:</p>
 <p>As nginx can have multiple<code>access log</code>directives in a block, just add another one in the server block.</p>
-<p><strong>Example</strong></p>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">access_log</span> <span class="s">/config/log/nginx/technicalramblings/access.log</span> <span class="s">custom</span><span class="p">;</span>
 <span class="k">access_log</span> <span class="s">/config/log/nginx/access.log</span> <span class="s">custom</span><span class="p">;</span>
 </code></pre></div>
@@ -1170,15 +1205,15 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>Sources: <a href="https://medium.com/faun/total-nginx-monitoring-with-application-performance-and-a-bit-more-using-8fc6d731051b">https://medium.com/faun/total-nginx-monitoring-with-application-performance-and-a-bit-more-using-8fc6d731051b</a> <a href="https://geoip2.readthedocs.io/en/latest/">https://geoip2.readthedocs.io/en/latest/</a> <a href="https://www.influxdata.com/blog/getting-started-python-influxdb/">https://www.influxdata.com/blog/getting-started-python-influxdb/</a> <a href="https://grafana.com/grafana/dashboards/8522">https://grafana.com/grafana/dashboards/8522</a> <a href="https://www.geeksforgeeks.org/python-reading-last-n-lines-of-a-file/">https://www.geeksforgeeks.org/python-reading-last-n-lines-of-a-file/</a></p>
-<h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server!<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>
-<h4 id="_1"><a href="https://discord.gg/HSPa4cz"><img alt="" src="https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&amp;logo=discord" title="Geoip2Influx!" /></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>
+<p><a href="https://discord.gg/HSPa4cz"><img alt="" src="https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&amp;logo=discord" title="Geoip2Influx!" /></a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

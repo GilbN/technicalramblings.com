@@ -824,7 +824,7 @@
         
           <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
-    Example:
+    Example
   </a>
   
 </li>
@@ -844,15 +844,21 @@
         
           <li class="md-nav__item">
   <a href="#for-any-questions-you-can-find-me-here" class="md-nav__link">
-    For any questions you can find me here:
+    For any questions you can find me here
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="For any questions you can find me here">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1020,7 +1026,7 @@
         
           <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
-    Example:
+    Example
   </a>
   
 </li>
@@ -1040,15 +1046,21 @@
         
           <li class="md-nav__item">
   <a href="#for-any-questions-you-can-find-me-here" class="md-nav__link">
-    For any questions you can find me here:
+    For any questions you can find me here
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="For any questions you can find me here">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1075,76 +1087,114 @@
 
 
 <h1 id="adding-banunban-notifications-from-fail2ban-to-pushover">Adding ban/unban notifications from Fail2Ban to Pushover!<a class="headerlink" href="#adding-banunban-notifications-from-fail2ban-to-pushover" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2019-03-03</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">cloudflare</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">fail2ban</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">letsencrypt</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">pushover</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">swag</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">backend</a>
+</p>
+
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">security</a>
+</p>
+
 <p><img src="images/fail2ban-pushover.jpg"></img></p>
 <p>If you're like me and think <a href="https://technicalramblings.com/?s=fail2ban">Fail2Ban</a> is an awesome tool for intrusion protection, getting a notification when someone has been banned is the bee's knees! And using <a href="https://pushover.net/">Pushover</a> makes it very simple!</p>
 <h2 id="setting-up-pushover">Setting up Pushover<a class="headerlink" href="#setting-up-pushover" title="Permanent link">&para;</a></h2>
 <p>Head over to <a href="https://pushover.net/">https://pushover.net/</a> and create a user account and add the devices you want to receive notifications. I'm using the iOS app, and that works great for me. The app has a 7 day trail period that lets you try it out without paying for it.</p>
-<p>On your user page you will see you <strong><code>user key</code></strong>. Save that as we will need that for later. At the bottom you can add your new Fail2Ban application. <a href="https://technicalramblings.com/wp-content/uploads/2019/03/brave_sfwU5K7mjL.png"><img alt="" src="images/brave_sfwU5K7mjL.png" /></a> After you've added the new application it will display it's API token. Save that as we will use that for later. You can also test Pushover by sending a notification manually on the user page. <a href="https://technicalramblings.com/wp-content/uploads/2019/03/brave_7dpeT7uVoh.png"><img alt="" src="images/brave_7dpeT7uVoh-300x231.png" /></a></p>
+<p>On your user page you will see you <strong><code>user key</code></strong>. Save that as we will need that for later. At the bottom you can add your new Fail2Ban application.</p>
+<p><a href="images/brave_sfwU5K7mjL.png"><img alt="" src="images/brave_sfwU5K7mjL.png" /></a></p>
+<p>After you've added the new application it will display it's API token. Save that as we will use that for later. You can also test Pushover by sending a notification manually on the user page.</p>
+<p><a href="images/brave_7dpeT7uVoh.png"><img alt="" src="images/brave_7dpeT7uVoh.png" /></a></p>
 <h2 id="adding-the-pushover-action">Adding the Pushover action<a class="headerlink" href="#adding-the-pushover-action" title="Permanent link">&para;</a></h2>
 <p>Head over to your Fail2Ban <strong><code>action.d</code></strong> folder and create a file called <strong><code>pushover.local</code></strong> and add the following</p>
-<div class="highlight"><pre><span></span><code># Fail2Ban Pushover configuration file
-# Adapted Source: https://gist.github.com/sander1/075736a42db2c66bc6ce0fab159ca683
+<div class="highlight"><pre><span></span><code><span class="c1"># Fail2Ban Pushover configuration file</span>
+<span class="c1"># Adapted Source: https://gist.github.com/sander1/075736a42db2c66bc6ce0fab159ca683</span>
 
-[Definition]
+<span class="o">[</span>Definition<span class="o">]</span>
 
-# Notify on Startup
-actionstart = /usr/bin/curl -s -F &quot;token=&lt;token&gt;&quot; -F &quot;user=&lt;user&gt;&quot; -F &quot;title=[Fail2Ban] &lt;name&gt;&quot; -F &quot;message=Jail &lt;name&gt; has been started successfully.&quot; https://api.pushover.net/1/messages
+<span class="c1"># Notify on Startup</span>
+<span class="nv">actionstart</span> <span class="o">=</span> /usr/bin/curl -s -F <span class="s2">&quot;token=&lt;token&gt;&quot;</span> -F <span class="s2">&quot;user=&lt;user&gt;&quot;</span> -F <span class="s2">&quot;title=[Fail2Ban] &lt;name&gt;&quot;</span> -F <span class="s2">&quot;message=Jail &lt;name&gt; has been started successfully.&quot;</span> https://api.pushover.net/1/messages
 
-# Notify on Shutdown
-actionstop = /usr/bin/curl -s -F &quot;token=&lt;token&gt;&quot; -F &quot;user=&lt;user&gt;&quot; -F &quot;title=[Fail2Ban] &lt;name&gt;&quot; -F &quot;message=Jail &lt;name&gt; has been stopped.&quot; https://api.pushover.net/1/messages
+<span class="c1"># Notify on Shutdown</span>
+<span class="nv">actionstop</span> <span class="o">=</span> /usr/bin/curl -s -F <span class="s2">&quot;token=&lt;token&gt;&quot;</span> -F <span class="s2">&quot;user=&lt;user&gt;&quot;</span> -F <span class="s2">&quot;title=[Fail2Ban] &lt;name&gt;&quot;</span> -F <span class="s2">&quot;message=Jail &lt;name&gt; has been stopped.&quot;</span> https://api.pushover.net/1/messages
 
-#
-actioncheck =
+<span class="c1">#</span>
+<span class="nv">actioncheck</span> <span class="o">=</span>
 
-# Notify on Banned
-actionban = /usr/bin/curl -s -F &quot;token=&lt;token&gt;&quot; -F &quot;user=&lt;user&gt;&quot; -F &quot;title=[Fail2Ban] &lt;name&gt;&quot; -F &quot;message=Banned IP: &lt;ip&gt; Lines containing IP: `grep &#39;&lt;ip&gt;&#39; &lt;logpath&gt;`&quot; https://api.pushover.net/1/messages
+<span class="c1"># Notify on Banned</span>
+<span class="nv">actionban</span> <span class="o">=</span> /usr/bin/curl -s -F <span class="s2">&quot;token=&lt;token&gt;&quot;</span> -F <span class="s2">&quot;user=&lt;user&gt;&quot;</span> -F <span class="s2">&quot;title=[Fail2Ban] &lt;name&gt;&quot;</span> -F <span class="s2">&quot;message=Banned IP: &lt;ip&gt; Lines containing IP: `grep &#39;&lt;ip&gt;&#39; &lt;logpath&gt;`&quot;</span> https://api.pushover.net/1/messages
 
-# Notify on Unbanned
-actionunban = /usr/bin/curl -s -F &quot;token=&lt;token&gt;&quot; -F &quot;user=&lt;user&gt;&quot; -F &quot;title=[Fail2Ban] &lt;name&gt;&quot; -F &quot;message=Unbanned IP: &lt;ip&gt; Lines containing IP: `grep &#39;&lt;ip&gt;&#39; &lt;logpath&gt;`&quot; https://api.pushover.net/1/messages
+<span class="c1"># Notify on Unbanned</span>
+<span class="nv">actionunban</span> <span class="o">=</span> /usr/bin/curl -s -F <span class="s2">&quot;token=&lt;token&gt;&quot;</span> -F <span class="s2">&quot;user=&lt;user&gt;&quot;</span> -F <span class="s2">&quot;title=[Fail2Ban] &lt;name&gt;&quot;</span> -F <span class="s2">&quot;message=Unbanned IP: &lt;ip&gt; Lines containing IP: `grep &#39;&lt;ip&gt;&#39; &lt;logpath&gt;`&quot;</span> https://api.pushover.net/1/messages
 
-[Init]
+<span class="o">[</span>Init<span class="o">]</span>
 
-# Name of the jail in your jail.local file. default = [your-jail-name]
-name = default
+<span class="c1"># Name of the jail in your jail.local file. default = [your-jail-name]</span>
+<span class="nv">name</span> <span class="o">=</span> default
 
-# Application token key
-token = YOUR-APPLICATION-TOKEN
-# User API key
-user = YOUR-USER-KEY
+<span class="c1"># Application token key</span>
+<span class="nv">token</span> <span class="o">=</span> YOUR-APPLICATION-TOKEN
+<span class="c1"># User API key</span>
+<span class="nv">user</span> <span class="o">=</span> YOUR-USER-KEY
 </code></pre></div>
-<p>[eckosc_quote quote="If you dont want it to notify you on startup/shutdown/unban you can just comment that line with a #." source="" url="" pull="false"] Like so:</p>
-<div class="highlight"><pre><span></span><code>#actionstart = /usr/bin/curl -s -F &quot;token=&lt;token&gt;&quot; -F &quot;user=&lt;user&gt;&quot; -F &quot;title=[Fail2Ban] &lt;name&gt;&quot; -F &quot;message=Jail &lt;name&gt; has been started successfully.&quot; https://api.pushover.net/1/messages
+<div class="admonition info">
+<p class="admonition-title">Note</p>
+<p>If you dont want it to notify you on startup/shutdown/unban you can just comment that line with a #.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="c1">#actionstart = /usr/bin/curl -s -F &quot;token=&lt;token&gt;&quot; -F &quot;user=&lt;user&gt;&quot; -F &quot;title=[Fail2Ban] &lt;name&gt;&quot; -F &quot;message=Jail &lt;name&gt; has been started successfully.&quot; https://api.pushover.net/1/messages</span>
 </code></pre></div>
 <h2 id="updating-jaillocal">Updating jail.local<a class="headerlink" href="#updating-jaillocal" title="Permanent link">&para;</a></h2>
 <p>Next edit you jail.local file and add the action. You will have to add to all the jails you want notifications on or you can add it below the <code>[DEFAULT]</code> line. Since I use <strong><a href="https://technicalramblings.com/blog/cloudflare-fail2ban-integration-with-automated-set_real_ip_from-in-nginx/">Cloudflare</a></strong> and already have an action in all my jails, I've added it on the line below. If you don't have another action there already you can just add the line <strong><code>action = pushover</code></strong></p>
-<div class="arithmatex">
-<div class="MathJax_Preview">eckosc\_status\_message title="Default action!" icon="" type="error" message="If you only have the **pushover** action in the jail it will not update the iptables as it replaces the default action. You can add the action **iptables-allports**and it will then run both actions when banning"</div>
-<script type="math/tex; mode=display">eckosc\_status\_message title="Default action!" icon="" type="error" message="If you only have the **pushover** action in the jail it will not update the iptables as it replaces the default action. You can add the action **iptables-allports**and it will then run both actions when banning"</script>
+<div class="admonition error">
+<p class="admonition-title">Default action!</p>
+<p>If you only have the <strong><code>pushover</code></strong> action in the jail it will not update the iptables as it replaces the default action. You can add the action <strong><code>iptables-allports</code></strong> and it will then run both actions when banning</p>
 </div>
-<h5 id="example">Example:<a class="headerlink" href="#example" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code>[nginx-http-auth]
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>nginx-http-auth<span class="o">]</span>
 
-enabled  = true
-filter   = nginx-http-auth
-action   = cloudflare-apiv4
+<span class="nv">enabled</span>  <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">filter</span>   <span class="o">=</span> nginx-http-auth
+<span class="nv">action</span>   <span class="o">=</span> cloudflare-apiv4
            pushover
            iptables-allports
-port     = http,https
-logpath  = /config/log/nginx/error.log
-ignoreip = 192.168.1.0/24
+<span class="nv">port</span>     <span class="o">=</span> http,https
+<span class="nv">logpath</span>  <span class="o">=</span> /config/log/nginx/error.log
+<span class="nv">ignoreip</span> <span class="o">=</span> <span class="m">192</span>.168.1.0/24
 </code></pre></div>
-<p><strong>Note:**The ignore IP is so that fail2ban won't ban your local IP. Check out<a href="https://www.aelius.com/njh/subnet_sheet.html">https://www.aelius.com/njh/subnet_sheet.html</a>if you are wondering what your **<a href="https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking">CIDRnotation</a></strong> is. Most often it will be <strong>/24</strong> (netmask 255.255.255.0) To find your netmask run <code>**ipconfig /all**</code> on windows or**<code>ifconfig | grep netmask</code>** on linux.</p>
+<p><strong>Note:</strong> The ignore IP is so that fail2ban won't ban your local IP. Check out <a href="https://www.aelius.com/njh/subnet_sheet.html">https://www.aelius.com/njh/subnet_sheet.html</a> if you are wondering what your <strong><a href="https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking">CIDRnotation</a></strong> is. Most often it will be <strong>/24</strong> (netmask 255.255.255.0) To find your netmask run <strong><code>ipconfig /all</code></strong> on windows or <strong><code>ifconfig | grep netmask</code></strong> on linux.</p>
 <p>After you have added the action to all your jails you need to restart fail2ban. For me that will be to restart the swag container as I'm using Docker.</p>
 <h2 id="banning">Banning<a class="headerlink" href="#banning" title="Permanent link">&para;</a></h2>
 <p>A successful ban will look like this:</p>
-<div class="highlight"><pre><span></span><code>2019-03-03 16:57:09,608 fail2ban.filter         [329]: INFO    [nginx-http-auth-technicalramblings] Found 23.92.127.82 - 2019-03-03 16:57:09
-2019-03-03 16:57:11,612 fail2ban.filter         [329]: INFO    [nginx-http-auth-technicalramblings] Found 23.92.127.82 - 2019-03-03 16:57:11
-2019-03-03 16:57:12,816 fail2ban.filter         [329]: INFO    [nginx-http-auth-technicalramblings] Found 23.92.127.82 - 2019-03-03 16:57:12
-2019-03-03 16:57:12,900 fail2ban.actions        [329]: NOTICE  [nginx-http-auth-technicalramblings] Ban 23.92.127.82
+<div class="highlight"><pre><span></span><code><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span> <span class="mi">16</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">09</span><span class="p">,</span><span class="mi">608</span> <span class="n">fail2ban</span><span class="o">.</span><span class="n">filter</span>         <span class="p">[</span><span class="mi">329</span><span class="p">]:</span> <span class="n">INFO</span>    <span class="p">[</span><span class="n">nginx</span><span class="o">-</span><span class="n">http</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">technicalramblings</span><span class="p">]</span> <span class="n">Found</span> <span class="mf">23.92.127.82</span> <span class="o">-</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span> <span class="mi">16</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">09</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span> <span class="mi">16</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="mi">612</span> <span class="n">fail2ban</span><span class="o">.</span><span class="n">filter</span>         <span class="p">[</span><span class="mi">329</span><span class="p">]:</span> <span class="n">INFO</span>    <span class="p">[</span><span class="n">nginx</span><span class="o">-</span><span class="n">http</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">technicalramblings</span><span class="p">]</span> <span class="n">Found</span> <span class="mf">23.92.127.82</span> <span class="o">-</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span> <span class="mi">16</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">11</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span> <span class="mi">16</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="mi">816</span> <span class="n">fail2ban</span><span class="o">.</span><span class="n">filter</span>         <span class="p">[</span><span class="mi">329</span><span class="p">]:</span> <span class="n">INFO</span>    <span class="p">[</span><span class="n">nginx</span><span class="o">-</span><span class="n">http</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">technicalramblings</span><span class="p">]</span> <span class="n">Found</span> <span class="mf">23.92.127.82</span> <span class="o">-</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span> <span class="mi">16</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">12</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span> <span class="mi">16</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="mi">900</span> <span class="n">fail2ban</span><span class="o">.</span><span class="n">actions</span>        <span class="p">[</span><span class="mi">329</span><span class="p">]:</span> <span class="n">NOTICE</span>  <span class="p">[</span><span class="n">nginx</span><span class="o">-</span><span class="n">http</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">technicalramblings</span><span class="p">]</span> <span class="n">Ban</span> <span class="mf">23.92.127.82</span>
 </code></pre></div>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/03/IMG_0900.png"><img alt="" src="images/IMG_0900-169x300.png" /></a> <a href="https://technicalramblings.com/wp-content/uploads/2019/03/brave_lBokWdHUuv.png"><img alt="" src="images/brave_lBokWdHUuv-1024x561.png" /></a></p>
+<p><a href="images/IMG_0900.png"><img alt="" src="images/IMG_0900.png" /></a></p>
+<p><a href="images/brave_lBokWdHUuv.png"><img alt="" src="images/brave_lBokWdHUuv.png" /></a></p>
 <p>Source: <a href="https://gist.github.com/sander1/075736a42db2c66bc6ce0fab159ca683">https://gist.github.com/sander1/075736a42db2c66bc6ce0fab159ca683</a></p>
-<h4 id="for-any-questions-you-can-find-me-here">For any questions you can find me here:<a class="headerlink" href="#for-any-questions-you-can-find-me-here" title="Permanent link">&para;</a></h4>
+<h3 id="for-any-questions-you-can-find-me-here">For any questions you can find me here<a class="headerlink" href="#for-any-questions-you-can-find-me-here" title="Permanent link">&para;</a></h3>
 <h4 id="_1"><a href="https://discordapp.com/invite/TrNtY7N"><img alt="Discord" src="https://img.shields.io/discord/591352397830553601.svg?color=6f83cc&amp;label=Discord&amp;logo=sd&amp;style=for-the-badge" /></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 
   <hr>
@@ -1152,7 +1202,7 @@ ignoreip = 192.168.1.0/24
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

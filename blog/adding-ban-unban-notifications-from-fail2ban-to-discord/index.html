@@ -810,7 +810,7 @@
         
           <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
-    Example:
+    Example
   </a>
   
 </li>
@@ -837,15 +837,21 @@
         
           <li class="md-nav__item">
   <a href="#for-any-questions-you-can-find-me-here" class="md-nav__link">
-    For any questions you can find me here:
+    For any questions you can find me here
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="For any questions you can find me here">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1027,7 +1033,7 @@
         
           <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
-    Example:
+    Example
   </a>
   
 </li>
@@ -1054,15 +1060,21 @@
         
           <li class="md-nav__item">
   <a href="#for-any-questions-you-can-find-me-here" class="md-nav__link">
-    For any questions you can find me here:
+    For any questions you can find me here
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="For any questions you can find me here">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1089,85 +1101,122 @@
 
 
 <h1 id="adding-banunban-notifications-from-fail2ban-to-discord">Adding ban/unban notifications from Fail2Ban to Discord!<a class="headerlink" href="#adding-banunban-notifications-from-fail2ban-to-discord" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2019-03-05</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">cloudflare</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">discord</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">fail2ban</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">letsencrypt</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">backend</a>
+</p>
+
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">security</a>
+</p>
+
 <p><img src="images/fail2ban-discord.jpg"></img></p>
 <p>I thought I would follow up on the <a href="https://technicalramblings.com/blog/adding-ban-unban-notifications-from-fail2ban-with-pushover/">Fail2Ban Pushover post</a> with a Fail2Ban Discord post!</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">eckosc\_status\_message title="Docker Mods" icon="" type="info" message="If you use the linuxserver/letsencrypt container, scroll down to the bottom for a short tutorial on how to use that instead. "</div>
-<script type="math/tex; mode=display">eckosc\_status\_message title="Docker Mods" icon="" type="info" message="If you use the linuxserver/letsencrypt container, scroll down to the bottom for a short tutorial on how to use that instead. "</script>
+<div class="admonition info">
+<p class="admonition-title">Docker Mods</p>
+<p>If you use the linuxserver/letsencrypt container, scroll down to the bottom for a short tutorial on how to use that instead.</p>
 </div>
 <h2 id="creating-the-webhook">Creating the Webhook<a class="headerlink" href="#creating-the-webhook" title="Permanent link">&para;</a></h2>
-<p>In this guide you will be using a Discord webhook to post Fail2Ban notifications to the server of your choice. If you don't have a discord server yet you need to create one. Head over to the <strong><code>Server Settings</code></strong> and select <strong><code>Webhooks</code></strong>. Click on <strong><code>Create Webhook</code></strong> and add the name and channel you want the webhook to post to. At the bottom you will find the webhook url, save that for later. <a href="https://technicalramblings.com/wp-content/uploads/2019/03/Discord_XQpGbcuY1u.png"><img alt="" src="images/Discord_XQpGbcuY1u-230x300.png" /></a></p>
+<p>In this guide you will be using a Discord webhook to post Fail2Ban notifications to the server of your choice. If you don't have a discord server yet you need to create one. Head over to the <strong><code>Server Settings</code></strong> and select <strong><code>Webhooks</code></strong>. Click on <strong><code>Create Webhook</code></strong> and add the name and channel you want the webhook to post to. At the bottom you will find the webhook url, save that for later.</p>
+<p><a href="images/Discord_XQpGbcuY1u.png"><img alt="" src="images/Discord_XQpGbcuY1u.png" /></a></p>
 <h2 id="adding-the-discord-action">Adding the Discord action<a class="headerlink" href="#adding-the-discord-action" title="Permanent link">&para;</a></h2>
 <p>Head over to your Fail2Ban <strong><code>action.d</code></strong> folder and create a file called <strong><code>discord_notifications.conf</code></strong> and add the following:</p>
-<div class="highlight"><pre><span></span><code># Author: Gilbn from https://technicalramblings.com
-# Adapted Source: https://gist.github.com/sander1/075736a42db2c66bc6ce0fab159ca683
-# Create the Discord Webhook in: Server settings -&gt; Webhooks -&gt; Create Webhooks
+<div class="highlight"><pre><span></span><code><span class="c1"># Author: Gilbn from https://technicalramblings.com</span>
+<span class="c1"># Adapted Source: https://gist.github.com/sander1/075736a42db2c66bc6ce0fab159ca683</span>
+<span class="c1"># Create the Discord Webhook in: Server settings -&gt; Webhooks -&gt; Create Webhooks</span>
 
-[Definition]
+<span class="p">[</span><span class="n">Definition</span><span class="p">]</span>
 
-# Notify on Startup
-actionstart = curl -X POST &quot;&lt;webhook&gt;&quot; \
-            -H &quot;Content-Type: application/json&quot; \
-            -d &#39;{&quot;username&quot;: &quot;Fail2Ban&quot;, &quot;content&quot;:&quot;:white_check_mark: The **[&lt;name&gt;]** jail has started&quot;}&#39;
+<span class="c1"># Notify on Startup</span>
+<span class="n">actionstart</span> <span class="o">=</span> <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;&lt;webhook&gt;&quot;</span> \
+            <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;Content-Type: application/json&quot;</span> \
+            <span class="o">-</span><span class="n">d</span> <span class="s1">&#39;{&quot;username&quot;: &quot;Fail2Ban&quot;, &quot;content&quot;:&quot;:white_check_mark: The **[&lt;name&gt;]** jail has started&quot;}&#39;</span>
 
-# Notify on Shutdown
-actionstop = curl -X POST &quot;&lt;webhook&gt;&quot; \
-            -H &quot;Content-Type: application/json&quot; \
-            -d &#39;{&quot;username&quot;: &quot;Fail2Ban&quot;, &quot;content&quot;:&quot;:no_entry: The **[&lt;name&gt;]** jail has been stopped&quot;}&#39;
+<span class="c1"># Notify on Shutdown</span>
+<span class="n">actionstop</span> <span class="o">=</span> <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;&lt;webhook&gt;&quot;</span> \
+            <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;Content-Type: application/json&quot;</span> \
+            <span class="o">-</span><span class="n">d</span> <span class="s1">&#39;{&quot;username&quot;: &quot;Fail2Ban&quot;, &quot;content&quot;:&quot;:no_entry: The **[&lt;name&gt;]** jail has been stopped&quot;}&#39;</span>
 
-#
-actioncheck =
+<span class="c1">#</span>
+<span class="n">actioncheck</span> <span class="o">=</span>
 
-# Notify on Banned 
-actionban = curl -X POST &quot;&lt;webhook&gt;&quot; \
-            -H &quot;Content-Type: application/json&quot; \
-            -d &#39;{&quot;username&quot;:&quot;Fail2Ban&quot;, &quot;content&quot;:&quot;:bell: Hey &lt;discord_userid&gt;! **[&lt;name&gt;]** :hammer:**BANNED**:hammer: IP: `&lt;ip&gt;` for &lt;bantime&gt; hours after **&lt;failures&gt;** failure(s). Here is some info about the IP: https://db-ip.com/&lt;ip&gt;&quot;}&#39; 
-            curl -X POST &quot;&lt;webhook&gt;&quot; \
-            -H &quot;Content-Type: application/json&quot; \
-            -d &#39;{&quot;username&quot;:&quot;Fail2Ban&quot;, &quot;content&quot;:&quot;If you want to unban the IP run: `fail2ban-client unban &lt;ip&gt;`&quot;}&#39;
+<span class="c1"># Notify on Banned </span>
+<span class="n">actionban</span> <span class="o">=</span> <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;&lt;webhook&gt;&quot;</span> \
+            <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;Content-Type: application/json&quot;</span> \
+            <span class="o">-</span><span class="n">d</span> <span class="s1">&#39;{&quot;username&quot;:&quot;Fail2Ban&quot;, &quot;content&quot;:&quot;:bell: Hey &lt;discord_userid&gt;! **[&lt;name&gt;]** :hammer:**BANNED**:hammer: IP: `&lt;ip&gt;` for &lt;bantime&gt; hours after **&lt;failures&gt;** failure(s). Here is some info about the IP: https://db-ip.com/&lt;ip&gt;&quot;}&#39;</span> 
+            <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;&lt;webhook&gt;&quot;</span> \
+            <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;Content-Type: application/json&quot;</span> \
+            <span class="o">-</span><span class="n">d</span> <span class="s1">&#39;{&quot;username&quot;:&quot;Fail2Ban&quot;, &quot;content&quot;:&quot;If you want to unban the IP run: `fail2ban-client unban &lt;ip&gt;`&quot;}&#39;</span>
 
-# Notify on Unbanned
-actionunban = curl -X POST &quot;&lt;webhook&gt;&quot; \
-            -H &quot;Content-Type: application/json&quot; \
-            -d &#39;{&quot;username&quot;:&quot;Fail2Ban&quot;, &quot;content&quot;:&quot;:bell: **[&lt;name&gt;]** **UNBANNED** IP: [&lt;ip&gt;](https://db-ip.com/&lt;ip&gt;)&quot;}&#39;
-[Init]
+<span class="c1"># Notify on Unbanned</span>
+<span class="n">actionunban</span> <span class="o">=</span> <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;&lt;webhook&gt;&quot;</span> \
+            <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;Content-Type: application/json&quot;</span> \
+            <span class="o">-</span><span class="n">d</span> <span class="s1">&#39;{&quot;username&quot;:&quot;Fail2Ban&quot;, &quot;content&quot;:&quot;:bell: **[&lt;name&gt;]** **UNBANNED** IP: [&lt;ip&gt;](https://db-ip.com/&lt;ip&gt;)&quot;}&#39;</span>
+<span class="p">[</span><span class="n">Init</span><span class="p">]</span>
 
-# Name of the jail in your jail.local file. default = [your-jail-name]
-name = default
+<span class="c1"># Name of the jail in your jail.local file. default = [your-jail-name]</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">default</span>
 
-# Discord Webhook URL
-webhook = https://discordapp.com/api/webhooks/XXXXXXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<span class="c1"># Discord Webhook URL</span>
+<span class="n">webhook</span> <span class="o">=</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">discordapp</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">webhooks</span><span class="o">/</span><span class="n">XXXXXXXXXXXXXXX</span><span class="o">/</span><span class="n">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
 </code></pre></div>
 <p>Replace the webhook URL with the one from your webhook</p>
-<p>[eckosc_quote quote="If you dont want it to notify you on startup/shutdown/unban you can just comment that line with a #." source="" url="" pull="false"] Like so:</p>
-<div class="highlight"><pre><span></span><code>#actionstart = curl -X POST &quot;&lt;webhook&gt;&quot; \
-#            -H &quot;Content-Type: application/json&quot; \
-#            -d &#39;{&quot;username&quot;: &quot;Fail2Ban&quot;, &quot;content&quot;:&quot;:white_check_mark: The **[&lt;name&gt;]** jail has started&quot;}&#39;
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you dont want it to notify you on startup/shutdown/unban you can just comment that line with a #.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="c1">#actionstart = curl -X POST &quot;&lt;webhook&gt;&quot; \</span>
+<span class="c1">#            -H &quot;Content-Type: application/json&quot; \</span>
+<span class="c1">#            -d &#39;{&quot;username&quot;: &quot;Fail2Ban&quot;, &quot;content&quot;:&quot;:white_check_mark: The **[&lt;name&gt;]** jail has started&quot;}&#39;</span>
 </code></pre></div>
 <h2 id="updating-jaillocal">Updating jail.local<a class="headerlink" href="#updating-jaillocal" title="Permanent link">&para;</a></h2>
 <p>Next edit you jail.local file and add the action. You will have to add to all the jails you want notifications on or you can add it below the <strong><code>[DEFAULT]</code></strong> line . Since I use <strong><a href="https://technicalramblings.com/blog/cloudflare-fail2ban-integration-with-automated-set_real_ip_from-in-nginx/">Cloudflare</a></strong> and already have an action in all my jails, I've added it on the line below. If you don't have another action there already you can just add the line <strong><code>action = discord_notifications</code></strong></p>
-<div class="arithmatex">
-<div class="MathJax_Preview">eckosc\_status\_message title="Default action!" icon="" type="error" message="If you only have the **discord** action in the jail it will not update the iptables as it replaces the default action. You can add the action **iptables-allports**and it will then run both actions when banning"</div>
-<script type="math/tex; mode=display">eckosc\_status\_message title="Default action!" icon="" type="error" message="If you only have the **discord** action in the jail it will not update the iptables as it replaces the default action. You can add the action **iptables-allports**and it will then run both actions when banning"</script>
+<div class="admonition error">
+<p class="admonition-title">Default action!</p>
+<p>If you only have the <strong>discord</strong> action in the jail it will not update the iptables as it replaces the default action. You can add the action **iptables-allports**and it will then run both actions when banning</p>
 </div>
-<h5 id="example">Example:<a class="headerlink" href="#example" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code>[nginx-http-auth]
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>nginx-http-auth<span class="o">]</span>
 
-enabled  = true
-filter   = nginx-http-auth
-action   = cloudflare-apiv4
-           discord_notifications[bantime=24, discord_userid=&lt;@!xxxxxxxxxxxxxxxxxxxx&gt;]
+<span class="nv">enabled</span>  <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">filter</span>   <span class="o">=</span> nginx-http-auth
+<span class="nv">action</span>   <span class="o">=</span> cloudflare-apiv4
+           discord_notifications<span class="o">[</span><span class="nv">bantime</span><span class="o">=</span><span class="m">24</span>, <span class="nv">discord_userid</span><span class="o">=</span>&lt;@!xxxxxxxxxxxxxxxxxxxx&gt;<span class="o">]</span>
            iptables-allports
-port     = http,https
-logpath  = /config/log/nginx/error.log
-ignoreip = 192.168.1.0/24
+<span class="nv">port</span>     <span class="o">=</span> http,https
+<span class="nv">logpath</span>  <span class="o">=</span> /config/log/nginx/error.log
+<span class="nv">ignoreip</span> <span class="o">=</span> <span class="m">192</span>.168.1.0/24
 </code></pre></div>
-<p><strong>Note:**The <code>**[bantime=24]**</code> is just a tag that the action uses. It does not control how long the ban lasts. I default all bans to 24 hours. **Note2:</strong> The <strong><code>discord_userid=&lt;@!USER-ID-NUMBER&gt;</code></strong> is for mentioning yourself in the server so you can get a ping. To find your user <strong>ID-number</strong> just type <code>**@&lt;username&gt;**</code> or <strong><code>@&lt;role&gt;</code></strong>, like so <strong><code>@GilbN#1337</code></strong>  Don't forget the <strong>!</strong> after <strong>@</strong> when adding it to the action tag in the jail. The result should look like this: <a href="https://technicalramblings.com/wp-content/uploads/2019/03/Discord_mrvq68FDwT.png"><img alt="" src="images/Discord_mrvq68FDwT.png" /></a> If you want to ping a role you need to edit the tag to say <strong><code>&lt;@&amp;ROLE-ID-NUMBER&gt;</code></strong> instead.</p>
-<p><strong>Note3:**The ignore IP is so that fail2ban won't ban your local IP. Check out<a href="https://www.aelius.com/njh/subnet_sheet.html">https://www.aelius.com/njh/subnet_sheet.html</a>if you are wondering what your **<a href="https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking">CIDRnotation</a></strong> is. Most often it will be <strong>/24</strong> (netmask 255.255.255.0) To find your netmask run <code>**ipconfig /all**</code> on windows or**<code>ifconfig | grep netmask</code>** on linux.</p>
+<p><strong>Note:</strong>  The <strong><code>[bantime=24]</code></strong> is just a tag that the action uses. It does not control how long the ban lasts. I default all bans to 24 hours.</p>
+<p><strong>Note2:</strong> The <strong><code>discord_userid=&lt;@!USER-ID-NUMBER&gt;</code></strong> is for mentioning yourself in the server so you can get a ping. To find your user <strong>ID-number</strong> just type <strong><code>@&lt;username&gt;</code></strong> or <strong><code>@&lt;role&gt;</code></strong>, like so <strong><code>@GilbN#1337</code></strong></p>
+<p>Don't forget the <strong>!</strong> after <strong>@</strong> when adding it to the action tag in the jail. The result should look like this:</p>
+<p><a href="images/Discord_mrvq68FDwT.png"><img alt="" src="images/Discord_mrvq68FDwT.png" /></a></p>
+<p>If you want to ping a role you need to edit the tag to say <strong><code>&lt;@&amp;ROLE-ID-NUMBER&gt;</code></strong> instead.</p>
+<p><strong>Note3:</strong> The ignore IP is so that fail2ban won't ban your local IP. Check out <a href="https://www.aelius.com/njh/subnet_sheet.html">https://www.aelius.com/njh/subnet_sheet.html</a> if you are wondering what your
+<strong><a href="https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking">CIDRnotation</a></strong>
+is. Most often it will be <strong>/24</strong> (netmask 255.255.255.0) To find your netmask run <strong><code>ipconfig /all</code></strong> on windows or <strong><code>ifconfig | grep netmask</code></strong> on linux.</p>
 <p>After you have added the action to all your jails you need to restart fail2ban. For me that will be to restart the letsencrypt container as I'm using Docker.</p>
 <h2 id="discord">Discord<a class="headerlink" href="#discord" title="Permanent link">&para;</a></h2>
 <p>The notifications will look like this: You can change the text by editing the <strong><code>discord_notifications.conf</code></strong> file</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/03/fail2discord.png"><img alt="" src="images/fail2discord.png" /></a></p>
+<p><a href="images/fail2discord.png"><img alt="" src="images/fail2discord.png" /></a></p>
 <h2 id="docker-mods">Docker Mods<a class="headerlink" href="#docker-mods" title="Permanent link">&para;</a></h2>
 <p>If you use the linuxserver/letsencrypt container, Roxedus has made a docker mod that will send pretty embedded notifications to discord on bans!</p>
 <p><a href="https://github.com/linuxserver/docker-mods/tree/swag-f2bdiscord">https://github.com/linuxserver/docker-mods/tree/swag-f2bdiscord</a></p>
@@ -1175,9 +1224,9 @@ ignoreip = 192.168.1.0/24
 <p><code>-e DOCKER_MODS=linuxserver/mods:swag-f2bdiscord</code></p>
 <p><code>-e DISC_HOOK=40832456738934/7DcEpWr5V24OIEIELjg-KkHky86SrOgTqA</code> This is the last two parts of the webhook url. Scroll up to see how to create a webhook.</p>
 <p><code>-e DISC_ME=120970603556503552</code> This is the userID that will get mentions on the server. Scroll up for how to find your userid.</p>
-<p>Add this in your action: <code>discordEmbed[bantime=24]</code>,bantime(hour) is optional, but defaults to 24 when not set. Just reflects in the message, does not change the ban time</p>
-<p><code>action =</code> <code>cloudflare-apiv4 **discordEmbed** iptables-allports</code></p>
-<h4 id="for-any-questions-you-can-find-me-here">For any questions you can find me here:<a class="headerlink" href="#for-any-questions-you-can-find-me-here" title="Permanent link">&para;</a></h4>
+<p>Add this in your action: <code>discordEmbed[bantime=24]</code>, bantime(hour) is optional, but defaults to 24 when not set. Just reflects in the message, does not change the ban time</p>
+<p><code>action = cloudflare-apiv4 discordEmbed iptables-allports</code></p>
+<h3 id="for-any-questions-you-can-find-me-here">For any questions you can find me here<a class="headerlink" href="#for-any-questions-you-can-find-me-here" title="Permanent link">&para;</a></h3>
 <h4 id="_1"><a href="https://discord.gg/HSPa4cz"><img alt="" src="https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&amp;logo=discord" title="Geoip2Influx!" /></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 
   <hr>
@@ -1185,7 +1234,7 @@ ignoreip = 192.168.1.0/24
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

@@ -824,10 +824,10 @@
         
           <li class="md-nav__item">
   <a href="#if-you-need-any-extra-help-join-the-discord-server" class="md-nav__link">
-    If you need any extra help join the Discord server!
+    If you need any extra help join the Discord server
   </a>
   
-    <nav class="md-nav" aria-label="If you need any extra help join the Discord server!">
+    <nav class="md-nav" aria-label="If you need any extra help join the Discord server">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -978,10 +978,10 @@
         
           <li class="md-nav__item">
   <a href="#if-you-need-any-extra-help-join-the-discord-server" class="md-nav__link">
-    If you need any extra help join the Discord server!
+    If you need any extra help join the Discord server
   </a>
   
-    <nav class="md-nav" aria-label="If you need any extra help join the Discord server!">
+    <nav class="md-nav" aria-label="If you need any extra help join the Discord server">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1019,125 +1019,148 @@
 
 
 <h1 id="redirecting-visitors-to-a-403-forbidden-page-when-accessing-the-wordpress-admin-page">Redirecting visitors to a 403 forbidden page when accessing the Wordpress admin page<a class="headerlink" href="#redirecting-visitors-to-a-403-forbidden-page-when-accessing-the-wordpress-admin-page" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2019-08-16</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">access</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">cloudflare</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">customization</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">security</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">wordpress</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">frontend</a>
+</p>
+
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">security</a>
+</p>
+
 <p><img src="images/DitjZRghqs.gif"></img></p>
 <p>So after my last <a href="https://technicalramblings.com/blog/how-to-setup-a-cloudflare-worker-to-show-a-maintenance-page-when-ca-backup-plugin-is-running/">post</a> I woke up to around 40+ and counting notifications on IP's that fail2ban had banned over the night. They were all failed attempts to get past the basic auth prompt I have on my Wordpress admin page. So with the last post fresh in my mind I knew it was possible to have a Cloudflare worker load a different page for visitors based on their IP.</p>
 <p>This was my fail2ban channel on discord. If you want these kind of notifications check out my <a href="https://technicalramblings.com/blog/adding-ban-unban-notifications-from-fail2ban-to-discord/">fail2ban post!</a></p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/08/Discord_ZyHOqXgmhb.png"><img alt="" src="images/Discord_ZyHOqXgmhb-1024x615.png" /></a></p>
+<p><a href="images/Discord_ZyHOqXgmhb.png"><img alt="" src="images/Discord_ZyHOqXgmhb.png" /></a></p>
 <p>So using the same <a href="https://www.resdevops.com/2018/03/20/cloudflare-workers-maintenance-mode-static-page/">resource</a> as in the first Cloudflare worker post we can easily route visitors to a custom 403 Forbidden page. Now they can't even try to get passed the basic auth! Have a look here: <a href="https://technicalramblings.com/wp-admin/">https://technicalramblings.com/wp-admin</a></p>
-<div class="arithmatex">
-<div class="MathJax_Preview">eckosc\_status\_message title="Note" icon="fa-exclamation-circle" type="info" message="If you have a dynamic ip that often changes, this might not be the best solution for you!"</div>
-<script type="math/tex; mode=display">eckosc\_status\_message title="Note" icon="fa-exclamation-circle" type="info" message="If you have a dynamic ip that often changes, this might not be the best solution for you!"</script>
+<div class="admonition warning">
+<p class="admonition-title">Note</p>
+<p>If you have a dynamic ip that often changes, this might not be the best solution for you!</p>
 </div>
 <h2 id="creating-a-worker">Creating a worker<a class="headerlink" href="#creating-a-worker" title="Permanent link">&para;</a></h2>
 <p>On your Cloudflare dashboard click on Workers and go through the first time setup if you haven't done that yet. Next click on <code>Manage Workers</code> and <code>Create a Worker</code></p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/08/chrome_fgJWpnVXDC.png"><img alt="" src="images/chrome_fgJWpnVXDC-1024x504.png" /></a></p>
+<p><a href="images/chrome_fgJWpnVXDC.png"><img alt="" src="images/chrome_fgJWpnVXDC.png" /></a></p>
 <p>Paste the script below.</p>
-<div class="highlight"><pre><span></span><code>addEventListener(&quot;fetch&quot;, event =&gt; {
-  event.respondWith(fetchAndReplace(event.request));
-});
+<div class="highlight"><pre><span></span><code><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;fetch&quot;</span><span class="p">,</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">respondWith</span><span class="p">(</span><span class="nx">fetchAndReplace</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">request</span><span class="p">));</span>
+<span class="p">});</span>
 
-async function fetchAndReplace(request) {
-  let modifiedHeaders = new Headers();
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">fetchAndReplace</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">modifiedHeaders</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Headers</span><span class="p">();</span>
 
-  modifiedHeaders.set(&#39;Content-Type&#39;, &#39;text/html&#39;);
-  modifiedHeaders.append(&#39;Pragma&#39;, &#39;no-cache&#39;);
+  <span class="nx">modifiedHeaders</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/html&#39;</span><span class="p">);</span>
+  <span class="nx">modifiedHeaders</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;Pragma&#39;</span><span class="p">,</span> <span class="s1">&#39;no-cache&#39;</span><span class="p">);</span>
 
-//Return 403 page if you&#39;re not calling from a trusted IP
-const white_list = [
-&#39;1.1.1.1&#39;,
-&#39;2.2.2.2&#39;
-];
-if (white_list.indexOf(request.headers.get(&quot;cf-connecting-ip&quot;)) &gt; -1)
-//Fire all other requests directly to your WebServer
-return fetch(request);
+<span class="c1">//Return 403 page if you&#39;re not calling from a trusted IP</span>
+<span class="kd">const</span> <span class="nx">white_list</span> <span class="o">=</span> <span class="p">[</span>
+<span class="s1">&#39;1.1.1.1&#39;</span><span class="p">,</span>
+<span class="s1">&#39;2.2.2.2&#39;</span>
+<span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">white_list</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;cf-connecting-ip&quot;</span><span class="p">))</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">1</span><span class="p">)</span>
+<span class="c1">//Fire all other requests directly to your WebServer</span>
+<span class="k">return</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">request</span><span class="p">);</span>
 
- else {
-// Return modified response.
-return new Response(forbiddenPage, {
-headers: modifiedHeaders
-});
-}
-}
+ <span class="k">else</span> <span class="p">{</span>
+<span class="c1">// Return modified response.</span>
+<span class="k">return</span> <span class="ow">new</span> <span class="nx">Response</span><span class="p">(</span><span class="nx">forbiddenPage</span><span class="p">,</span> <span class="p">{</span>
+<span class="nx">headers</span><span class="o">:</span> <span class="nx">modifiedHeaders</span>
+<span class="p">});</span>
+<span class="p">}</span>
+<span class="p">}</span>
 
-let forbiddenPage = `
+<span class="kd">let</span> <span class="nx">forbiddenPage</span> <span class="o">=</span> <span class="sb">`</span>
 
-&lt;!DOCTYPE html&gt;
-&lt;title&gt;nope...&lt;/title&gt;
-&lt;style&gt;
-@import url(&#39;https://fonts.googleapis.com/css?family=Press+Start+2P&#39;);
+<span class="sb">&lt;!DOCTYPE html&gt;</span>
+<span class="sb">&lt;title&gt;nope...&lt;/title&gt;</span>
+<span class="sb">&lt;style&gt;</span>
+<span class="sb">@import url(&#39;https://fonts.googleapis.com/css?family=Press+Start+2P&#39;);</span>
 
-html,body{
-   width: 100%;
-   height: 100%;
-   margin: 0;
-}
+<span class="sb">html,body{</span>
+<span class="sb">   width: 100%;</span>
+<span class="sb">   height: 100%;</span>
+<span class="sb">   margin: 0;</span>
+<span class="sb">}</span>
 
-*{
-   font-family: &#39;Press Start 2P&#39;, cursive;
-   box-sizing: border-box;
-}
-#app{
-   padding: 1rem;
-   background: black;
-   display: flex;
-   height: 100%;
-   justify-content: center; 
-   align-items: center;
-   color: #54FE55;
-   text-shadow: 0px 0px 10px ;
-   font-size: 6rem;
-   flex-direction: column;
-   .txt {
-      font-size: 1.8rem;
-   }
-}
-@keyframes blink {
-    0%   {opacity: 0}
-    49%  {opacity: 0}
-    50%  {opacity: 1}
-    100% {opacity: 1}
-}
+<span class="sb">*{</span>
+<span class="sb">   font-family: &#39;Press Start 2P&#39;, cursive;</span>
+<span class="sb">   box-sizing: border-box;</span>
+<span class="sb">}</span>
+<span class="sb">#app{</span>
+<span class="sb">   padding: 1rem;</span>
+<span class="sb">   background: black;</span>
+<span class="sb">   display: flex;</span>
+<span class="sb">   height: 100%;</span>
+<span class="sb">   justify-content: center; </span>
+<span class="sb">   align-items: center;</span>
+<span class="sb">   color: #54FE55;</span>
+<span class="sb">   text-shadow: 0px 0px 10px ;</span>
+<span class="sb">   font-size: 6rem;</span>
+<span class="sb">   flex-direction: column;</span>
+<span class="sb">   .txt {</span>
+<span class="sb">      font-size: 1.8rem;</span>
+<span class="sb">   }</span>
+<span class="sb">}</span>
+<span class="sb">@keyframes blink {</span>
+<span class="sb">    0%   {opacity: 0}</span>
+<span class="sb">    49%  {opacity: 0}</span>
+<span class="sb">    50%  {opacity: 1}</span>
+<span class="sb">    100% {opacity: 1}</span>
+<span class="sb">}</span>
 
-.blink {
-   animation-name: blink;
-    animation-duration: 1s;
-   animation-iteration-count: infinite;
-}
-&lt;/style&gt;
-&lt;body&gt;
-&lt;div id=&quot;app&quot;&gt;
-   &lt;div&gt;403&lt;/div&gt;
-   &lt;div class=&quot;txt&quot;&gt;
-      Forbidden&lt;span class=&quot;blink&quot;&gt;_&lt;/span&gt;
-   &lt;/div&gt;
-&lt;/div&gt;
-&lt;/body&gt;
+<span class="sb">.blink {</span>
+<span class="sb">   animation-name: blink;</span>
+<span class="sb">    animation-duration: 1s;</span>
+<span class="sb">   animation-iteration-count: infinite;</span>
+<span class="sb">}</span>
+<span class="sb">&lt;/style&gt;</span>
+<span class="sb">&lt;body&gt;</span>
+<span class="sb">&lt;div id=&quot;app&quot;&gt;</span>
+<span class="sb">   &lt;div&gt;403&lt;/div&gt;</span>
+<span class="sb">   &lt;div class=&quot;txt&quot;&gt;</span>
+<span class="sb">      Forbidden&lt;span class=&quot;blink&quot;&gt;_&lt;/span&gt;</span>
+<span class="sb">   &lt;/div&gt;</span>
+<span class="sb">&lt;/div&gt;</span>
+<span class="sb">&lt;/body&gt;</span>
 
-`;
+<span class="sb">`</span><span class="p">;</span>
 </code></pre></div>
 <p>Add your whitelisted IP's in this section:</p>
-<div class="highlight"><pre><span></span><code>//Return 403 page if you&#39;re not calling from a trusted IP
-const white_list = [
-&#39;1.2.3.4&#39;,
-&#39;5.6.7.8&#39;
-];
+<div class="highlight"><pre><span></span><code><span class="c1">//Return 403 page if you&#39;re not calling from a trusted IP</span>
+<span class="kd">const</span> <span class="nx">white_list</span> <span class="o">=</span> <span class="p">[</span>
+<span class="s1">&#39;1.2.3.4&#39;</span><span class="p">,</span>
+<span class="s1">&#39;5.6.7.8&#39;</span>
+<span class="p">];</span>
 </code></pre></div>
 <p>Save and deploy the worker.</p>
 <p>Go back to the main worker page and add your routes. The two routes I use are <code>domain.com/wp-login*</code> and <code>domain.com/wp-admin*</code></p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/08/chrome_bnPghaQ6NZ.png"><img alt="" src="images/chrome_bnPghaQ6NZ-1024x720.png" /></a></p>
+<p><a href="images/chrome_bnPghaQ6NZ.png"><img alt="" src="images/chrome_bnPghaQ6NZ-1024x720.png" /></a></p>
 <p>The page should now look like this when accessing from another IP than the white listed ones.</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">eckosc\_full\_width\_block</div>
-<script type="math/tex; mode=display">eckosc\_full\_width\_block</script>
-</div>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2019/08/DitjZRghqs.gif"><img alt="" src="images/DitjZRghqs.gif" /></a></p>
-<div class="arithmatex">
-<div class="MathJax_Preview">/eckosc\_full\_width\_block</div>
-<script type="math/tex; mode=display">/eckosc\_full\_width\_block</script>
-</div>
+<p><a href="images/DitjZRghqs.gif"><img alt="" src="images/DitjZRghqs.gif" /></a></p>
 <p>Neat right!</p>
 <p>If you want a different page showing it's as simple as replacing the html. I just googled <code>403 forbidden template</code> and found the one above on codepen.</p>
-<h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server!<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>
+<h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>
 <h4 id="_1"><a href="https://discord.gg/HM5uUKU"><img alt="" src="https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&amp;logo=discord" title="technicalramblings/theme.park!" /></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <p>Source:</p>
 <p><a href="https://codepen.io/lsgrrd/pen/BObbYY">https://codepen.io/lsgrrd/pen/BObbYY</a> <a href="https://www.resdevops.com/2018/03/20/cloudflare-workers-maintenance-mode-static-page/">https://www.resdevops.com/2018/03/20/cloudflare-workers-maintenance-mode-static-page/</a></p>
@@ -1147,7 +1170,7 @@ const white_list = [
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

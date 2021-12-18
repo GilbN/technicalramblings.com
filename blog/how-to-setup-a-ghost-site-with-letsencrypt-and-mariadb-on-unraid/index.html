@@ -19,7 +19,7 @@
     
     
       
-        <title>How to setup a Ghost blog with swag/letsencrypt and MariaDB on Unraid - technicalramblings.com</title>
+        <title>How to setup a Ghost blog with swag and MariaDB on Unraid - technicalramblings.com</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-setup-a-ghost-blog-with-swagletsencrypt-and-mariadb-on-unraid" class="md-skip">
+        <a href="#how-to-setup-a-ghost-blog-with-swag-and-mariadb-on-unraid" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to setup a Ghost blog with swag/letsencrypt and MariaDB on Unraid
+              How to setup a Ghost blog with swag and MariaDB on Unraid
             
           </span>
         </div>
@@ -1114,7 +1114,58 @@
 </a>
 
 
-<h1 id="how-to-setup-a-ghost-blog-with-swagletsencrypt-and-mariadb-on-unraid">How to setup a Ghost blog with swag/letsencrypt and MariaDB on Unraid<a class="headerlink" href="#how-to-setup-a-ghost-blog-with-swagletsencrypt-and-mariadb-on-unraid" title="Permanent link">&para;</a></h1>
+<h1 id="how-to-setup-a-ghost-blog-with-swag-and-mariadb-on-unraid">How to setup a Ghost blog with swag and MariaDB on Unraid<a class="headerlink" href="#how-to-setup-a-ghost-blog-with-swag-and-mariadb-on-unraid" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2020-02-03</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">blog</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">database</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">docker</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">geoblock</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">ghost</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">letsencrypt</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">mariadb</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">nginx</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">proxy</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">swag</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">unraid</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">frontend</a>
+</p>
+
 <p><img src="images/ghost-admin-home-header-0c20f780aac8e98af7a56076ae8228b8.png"></img></p>
 <p>Now, I don't really have any issues with Wordpress, I like it. But It's always fun to try something new to see if you're missing out. The setup process is fairly similar to Wordpress except I will be using the Ghost docker container this time. There is also some custom setup you might have to do with the Ghost template to make it work.</p>
 <h2 id="what-is-ghost">What is Ghost<a class="headerlink" href="#what-is-ghost" title="Permanent link">&para;</a></h2>
@@ -1130,8 +1181,8 @@
 <li>Add the database user variable. <code>MYSQL_USER</code></li>
 <li>Add the user password variable. <code>MYSQL_PASSWORD</code></li>
 </ol>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2020/02/chrome_28HMhdICdd.png"><img alt="" src="images/chrome_28HMhdICdd-300x144.png" /></a></p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2020/02/chrome_tTfSFWWBQF.png"><img alt="" src="images/chrome_tTfSFWWBQF-300x105.png" /></a></p>
+<p><a href="images/chrome_28HMhdICdd.png"><img alt="" src="images/chrome_28HMhdICdd.png" /></a></p>
+<p><a href="images/chrome_tTfSFWWBQF.png"><img alt="" src="images/chrome_tTfSFWWBQF.png" /></a></p>
 <h3 id="optional-create-the-ghost-database-manually">Optional: Create the ghost database manually<a class="headerlink" href="#optional-create-the-ghost-database-manually" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Open terminal and exec into the container with **<code>docker exec -it mariadb bash</code>**or use the console shortcut on the Dashboard page.</li>
@@ -1181,10 +1232,18 @@ Query OK, <span class="m">0</span> rows affected <span class="o">(</span><span c
 </div>
 <p>If you already have swag setup and working with a domain and want to use another domain for your ghost site you can do that by using the <strong><code>EXTRA_DOMAINS</code></strong> variable.</p>
 <ol>
-<li>Click on <strong>Add another Path, Port or Variable</strong></li>
-<li>Add these values. Config Type: <strong>Variable</strong> Name:<strong>Extra domain</strong> Key:<strong>EXTRA_DOMAINS</strong> Value:<strong>yourotherdomain.com, ghost.yourotherdomain.com</strong></li>
+<li>
+<p>Click on <strong>Add another Path, Port or Variable</strong></p>
+</li>
+<li>
+<p>Add these values:</p>
+</li>
 </ol>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2017/12/chrome_2017-12-25_17-57-18.png"><img alt="" src="images/chrome_2017-12-25_17-57-18-300x202.png" /></a></p>
+<p>Config Type: <strong>Variable</strong></p>
+<p>Name: <strong>Extra domain</strong></p>
+<p>Key: <strong>EXTRA_DOMAINS</strong></p>
+<p>Value: <strong>yourotherdomain.com, ghost.yourotherdomain.com</strong></p>
+<p><a href="images/chrome_2017-12-25_17-57-18.png"><img alt="" src="images/chrome_2017-12-25_17-57-18.png" /></a></p>
 <h2 id="nginx">Nginx<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h2>
 <p>Go to the swag appdata location. Find the nginx folder and either create a new <code>ghost.conf</code> file in the "site-conf" folder(domains and subdomains only) or use the proxy-confs folder and create a file with the correct naming scheme(<code>ghost.subdomain.conf</code> or <code>ghost.subfolder.conf</code>). I recommend using <a href="https://notepad-plus-plus.org/download/v7.5.1.html">notepad++</a> if you are editing the files on a windows machine.</p>
 <p>I've made a PR on the linuxserver/reverse-proxy-confs repo, so the files might already be there depending on when you read this. <a href="https://github.com/linuxserver/reverse-proxy-confs/pull/118">https://github.com/linuxserver/reverse-proxy-confs/pull/118</a></p>
@@ -1244,14 +1303,14 @@ Query OK, <span class="m">0</span> rows affected <span class="o">(</span><span c
 <p><strong>Mail Host:</strong> The template does not have the <code>mail__options__host</code> variable needed for Mailgun EU or custom mail setup i.e. Gmail. For example: <code>smtp.eu.mailgun.org</code> or <code>smtp.gmail.com</code></p>
 <p><strong>Mail Port:</strong> The template does not have the <code>mail__options__port</code> variable. This is needed if you are using Gmail for example. Set it to <code>465</code></p>
 <p>So for a Gmail setup you need only to set the Mail service to <code>Gmail</code> and add the necessary variables. Note: The <code>Username and Password for Mailgun</code> is just the mail username and password variables. Doesn't really have anything to do with Mailgun.</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2020/02/raw.png"><img alt="" src="images/raw-300x100.png" /></a></p>
+<p><a href="images/raw.png"><img alt="" src="images/raw-300x100.png" /></a></p>
 <p>For a Mailgun setup see the Ghost docs: <a href="https://ghost.org/docs/concepts/config/#configure-mail-with-mailgun">https://ghost.org/docs/concepts/config/#configure-mail-with-mailgun</a></p>
 <p>The rest is just filling out the different variables.</p>
 <p>Remember to a subdirectory in the URL field if you hare using that. For example: <code>https://technicalramblings.com/blog</code> or <code>https://ghost.technicalramblings.com/blog</code></p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2020/02/chrome_iZ4gDBn8f2.png"><img alt="" src="images/chrome_iZ4gDBn8f2-300x243.png" /></a></p>
+<p><a href="images/chrome_iZ4gDBn8f2.png"><img alt="" src="images/chrome_iZ4gDBn8f2-300x243.png" /></a></p>
 <h2 id="make-the-site-private">Make the site private<a class="headerlink" href="#make-the-site-private" title="Permanent link">&para;</a></h2>
 <p>A nice feature Ghost has is a setting which can make the site private with password protection. Just go into the general settings and enable it under advanced settings.</p>
-<p><a href="https://technicalramblings.com/wp-content/uploads/2020/02/chrome_aqMtfXUWj9.png"><img alt="" src="images/chrome_aqMtfXUWj9-300x66.png" /></a></p>
+<p><a href="images/chrome_aqMtfXUWj9.png"><img alt="" src="images/chrome_aqMtfXUWj9-300x66.png" /></a></p>
 <h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server!<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>
 <h4 id="_1"><a href="https://discord.gg/HM5uUKU"><img alt="" src="https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&amp;logo=discord" title="technicalramblings/theme.park!" /></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 
@@ -1260,7 +1319,7 @@ Query OK, <span class="m">0</span> rows affected <span class="o">(</span><span c
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

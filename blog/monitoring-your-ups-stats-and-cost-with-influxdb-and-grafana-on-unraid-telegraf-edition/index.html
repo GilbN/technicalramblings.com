@@ -1101,6 +1101,57 @@
 
 
 <h1 id="monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-telegraf-edition">Monitoring your UPS stats and cost with InfluxDB and Grafana on Unraid – Telegraf Edition<a class="headerlink" href="#monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-telegraf-edition" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2019-10-08</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">cost</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">database</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">docker</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">grafana</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">influxdb</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">kwh</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">monitoring</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">telegraf</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">unraid</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">ups</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">backend</a>
+</p>
+
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">frontend</a>
+</p>
+
 <p><img src="images/Unraid-UPS-Dashboard-Telegraf-Edition.jpg"></img></p>
 <p>So.. I just found out that Telegraf recently added Apcupsd as a <a href="https://github.com/influxdata/telegraf/tree/master/plugins/inputs/apcupsd">plugin</a>. So naturally I created a dashboard for it :) I promise, this is the last UPS stats blog post for a while!</p>
 <h2 id="installing-influxdb">Installing InfluxDB<a class="headerlink" href="#installing-influxdb" title="Permanent link">&para;</a></h2>
@@ -1108,7 +1159,7 @@
 <p>Search for <strong><code>influxdb</code></strong> in Community Apps and install it using the default template. Select your appdata path and host ports if the default ones are taken. There is no other setup than just installing the container.</p>
 <div class="admonition error">
 <p class="admonition-title">Note</p>
-<p>Dont' use the latest tag" icon="fa-exclamation-triangle" type="warn" message="The <code>:latest</code> tag will run InfluxDB V2! This guide was written for v1.8. Change the tag to <code>:1.8.4</code> for it to work!</p>
+<p>Dont' use the latest tag" icon="fa-exclamation-triangle" type="warn" message="The <code>:latest</code> tag will run InfluxDB V2! This guide was written for v1.8. Change the tag to <code>:1.8.x</code> for it to work!</p>
 </div>
 <p><a href="images/chrome_EZLftLwtMU-1024x140.png"><img alt="" src="images/chrome_EZLftLwtMU-1024x140.png" /></a></p>
 <h2 id="installing-telegraf">Installing Telegraf<a class="headerlink" href="#installing-telegraf" title="Permanent link">&para;</a></h2>
@@ -1179,7 +1230,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

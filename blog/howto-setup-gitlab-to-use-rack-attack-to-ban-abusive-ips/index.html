@@ -830,21 +830,8 @@
       
         <li class="md-nav__item">
   <a href="#if-you-need-any-extra-help-join-the-discord-server" class="md-nav__link">
-    If you need any extra help join the Discord server!
+    If you need any extra help join the Discord server
   </a>
-  
-    <nav class="md-nav" aria-label="If you need any extra help join the Discord server!">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -957,21 +944,8 @@
       
         <li class="md-nav__item">
   <a href="#if-you-need-any-extra-help-join-the-discord-server" class="md-nav__link">
-    If you need any extra help join the Discord server!
+    If you need any extra help join the Discord server
   </a>
-  
-    <nav class="md-nav" aria-label="If you need any extra help join the Discord server!">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -993,89 +967,124 @@
 
 
 <h1 id="how-to-setup-gitlab-to-use-rack-attack-and-ban-abusive-ips-and-rate-limit-requests">How to setup GitLab to use Rack Attack and ban abusive IPs and rate limit requests<a class="headerlink" href="#how-to-setup-gitlab-to-use-rack-attack-and-ban-abusive-ips-and-rate-limit-requests" title="Permanent link">&para;</a></h1>
+<p><small>Written: 2019-04-19</small></p>
+<p><small>Tags</small></p>
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">fail2ban</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">gitlab</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">rack-attack</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">rate-limit</a>
+</p>
+
+<p style="display:inline">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">security</a>
+</p>
+
+<p><small>Category</small></p>
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">backend</a>
+</p>
+
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">frontend</a>
+</p>
+
+<p style="display:inline;">
+<a style="padding: .125em 1em; border-radius: 25px; margin-top:5px;" class="md-button md-button--primary" href="#">security</a>
+</p>
+
 <p><img src="images/gitlab-cover.png"></img></p>
 <p>So, for anyone that's running the GitLab Docker container, I got real IPs to pass through to the logs and was then able to setup Rack Attack (similar to Fail2Ban), which is included by default, to ban abusive IPs and rate limit failed login attempts.</p>
-<p><em><strong>Note:</strong> Rack attack does not ban IPs that fail to login on you GitLab, it bans IPs that fail to authenticate after x attempts when using git http authentication!</em></p>
-<p>The first step is getting real IPs to pass through to the GitLab container logs. The first thing that you will need to do is edit the <strong><code>gitlab.rb</code></strong> file from inside the container itself. You can do this by first execing into the container: <strong><code>docker exec -it gitlab /bin/bash</code></strong> Where <code>**gitlab**</code> is the container name, and then open the file with a text editor (vim is installed): <code>**:/# vim /etc/gitlab/gitlab.rb**</code> Next, you will need to find the following lines:</p>
-<div class="highlight"><pre><span></span><code>#nginx[&#39;real_ip_trusted_addresses&#39;] = []
-#nginx[&#39;real_ip_header&#39;] = 
+<p><strong>Note:</strong> Rack attack does not ban IPs that fail to login on you GitLab, it bans IPs that fail to authenticate after x attempts when using git http authentication!_</p>
+<p>The first step is getting real IPs to pass through to the GitLab container logs. The first thing that you will need to do is edit the <strong><code>gitlab.rb</code></strong> file from inside the container itself. You can do this by first execing into the container: <strong><code>docker exec -it gitlab /bin/bash</code></strong> Where <strong><code>gitlab</code></strong> is the container name, and then open the file with a text editor (vim is installed): <strong><code>:/# vim /etc/gitlab/gitlab.rb</code></strong> Next, you will need to find the following lines:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#nginx[&#39;real_ip_trusted_addresses&#39;] = []</span>
+<span class="c1">#nginx[&#39;real_ip_header&#39;] = </span>
 </code></pre></div>
 <p>Uncomment the lines and then change them to something like this:</p>
-<div class="highlight"><pre><span></span><code>nginx[&#39;real_ip_trusted_addresses&#39;] = [&#39;172.17.0.0/16&#39;,&#39;172.18.0.0/16&#39;,&#39;172.19.0.0/16&#39;,&#39;172.20.0.0/16&#39;,&#39;192.168.1.0/24&#39;]
-nginx[&#39;real_ip_header&#39;] = &#39;X-Forwarded-For&#39;
+<div class="highlight"><pre><span></span><code><span class="k">nginx[&#39;real_ip_trusted_addresses&#39;]</span> <span class="p">=</span> <span class="s">[&#39;172.17.0.0/16&#39;,&#39;172.18.0.0/16&#39;,&#39;172.19.0.0/16&#39;,&#39;172.20.0.0/16&#39;,&#39;192.168.1.0/24&#39;]</span>
+<span class="s">nginx[&#39;real_ip_header&#39;]</span> <span class="p">=</span> <span class="s">&#39;X-Forwarded-For&#39;</span>
 </code></pre></div>
-<p>You will need to modify the IP address ranges to make your network(s). Once you're done, save the changes and exit the text editor. Now you need to reconfigure gitlab, while still inside the container, with the following command: <strong><code>gitlab-ctl reconfigure</code></strong> It should go through and reconfigure everything and add the changes you just made. You can verify that the changes were added with the following <strong><code>grep</code></strong> command: <code>**grep real_ip** **/var/opt/gitlab/nginx/conf/gitlab-http.conf**</code> The output should look similar to this:</p>
+<p>You will need to modify the IP address ranges to make your network(s). Once you're done, save the changes and exit the text editor. Now you need to reconfigure gitlab, while still inside the container, with the following command: <strong><code>gitlab-ctl reconfigure</code></strong> It should go through and reconfigure everything and add the changes you just made. You can verify that the changes were added with the following <strong><code>grep</code></strong> command: <strong><code>grep real_ip /var/opt/gitlab/nginx/conf/gitlab-http.conf</code></strong> The output should look similar to this:</p>
 <div class="highlight"><pre><span></span><code>:/# grep real_ip /var/opt/gitlab/nginx/conf/gitlab-http.conf
-real_ip_header X-Forwarded-For;
-set_real_ip_from 172.17.0.0/16;
-set_real_ip_from 172.18.0.0/16;
-set_real_ip_from 172.19.0.0/16;
-set_real_ip_from 172.20.0.0/16;
-set_real_ip_from 192.168.1.0/24;
+real_ip_header X-Forwarded-For<span class="p">;</span>
+set_real_ip_from <span class="m">172</span>.17.0.0/16<span class="p">;</span>
+set_real_ip_from <span class="m">172</span>.18.0.0/16<span class="p">;</span>
+set_real_ip_from <span class="m">172</span>.19.0.0/16<span class="p">;</span>
+set_real_ip_from <span class="m">172</span>.20.0.0/16<span class="p">;</span>
+set_real_ip_from <span class="m">192</span>.168.1.0/24<span class="p">;</span>
 </code></pre></div>
-<p>With these changes now in place you should be able to see real IP addresses in the <code>**/log/nginx/gitlab_access.log**</code> the <strong><code>/log/gitlab-rails/application.log</code></strong> and the <strong><code>/log/gitlab-rails/production.log</code></strong> . I have <code>**/mnt/user/Docker/gitlab-ce**</code> set as my application data directory for the GitLab container so the full path for me is <code>**/mnt/user/Docker/gitlab-ce/log/nginx/gitlab_access.log**</code>.</p>
+<p>With these changes now in place you should be able to see real IP addresses in the <strong><code>/log/nginx/gitlab_access.log</code></strong> the <strong><code>/log/gitlab-rails/application.log</code></strong> and the <strong><code>/log/gitlab-rails/production.log</code></strong> . I have <strong><code>/mnt/user/Docker/gitlab-ce</code></strong> set as my application data directory for the GitLab container so the full path for me is <strong><code>/mnt/user/Docker/gitlab-ce/log/nginx/gitlab_access.log</code></strong>.</p>
 <p>Now that real IPs are getting logged you can enable and configure the built-in Rack Attack utility to find and block abusive IPs and rate limit failed login attempts. You will need to exec back into the container if you logged out: <strong><code>docker exec -it gitlab /bin/bash</code></strong> And open the <strong><code>gitlab.rb</code></strong> file again: <strong><code>:/# vim /etc/gitlab/gitlab.rb</code></strong> Find the following section and uncomment it:</p>
-<div class="highlight"><pre><span></span><code># gitlab_rails[&#39;rack_attack_git_basic_auth&#39;] = {
-#   &#39;enabled&#39; =&gt; true,
-#   &#39;ip_whitelist&#39; =&gt; [&quot;127.0.0.1&quot;],
-#   &#39;maxretry&#39; =&gt; 5,
-#   &#39;findtime&#39; =&gt; 60,
-#   &#39;bantime&#39; =&gt; 3600
-# }
+<div class="highlight"><pre><span></span><code><span class="c1"># gitlab_rails[&#39;rack_attack_git_basic_auth&#39;] = {</span>
+<span class="c1">#   &#39;enabled&#39; =&gt; true,</span>
+<span class="c1">#   &#39;ip_whitelist&#39; =&gt; [&quot;127.0.0.1&quot;],</span>
+<span class="c1">#   &#39;maxretry&#39; =&gt; 5,</span>
+<span class="c1">#   &#39;findtime&#39; =&gt; 60,</span>
+<span class="c1">#   &#39;bantime&#39; =&gt; 3600</span>
+<span class="c1"># }</span>
 </code></pre></div>
 <p>You will need to add the IP ranges you wish to white-list, most likely the same list that you setup for the real_ip configuration, so you don't accidentally ban yourself. It will end up looking something like this:</p>
-<div class="highlight"><pre><span></span><code>gitlab_rails[&#39;rack_attack_git_basic_auth&#39;] = {
-  &#39;enabled&#39; =&gt; true,
-  &#39;ip_whitelist&#39; =&gt; [&quot;127.0.0.1&quot;, &quot;172.17.0.0/16&quot;, &quot;172.18.0.0/16&quot;, &quot;172.19.0.0/16&quot;, &quot;172.20.0.0/16&quot;, &quot;192.168.1.0/24&quot;],
-  &#39;maxretry&#39; =&gt; 5,
-  &#39;findtime&#39; =&gt; 60,
-  &#39;bantime&#39; =&gt; 3600
-}
+<div class="highlight"><pre><span></span><code>gitlab_rails<span class="o">[</span><span class="s1">&#39;rack_attack_git_basic_auth&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="s1">&#39;enabled&#39;</span> <span class="o">=</span>&gt; true,
+  <span class="s1">&#39;ip_whitelist&#39;</span> <span class="o">=</span>&gt; <span class="o">[</span><span class="s2">&quot;127.0.0.1&quot;</span>, <span class="s2">&quot;172.17.0.0/16&quot;</span>, <span class="s2">&quot;172.18.0.0/16&quot;</span>, <span class="s2">&quot;172.19.0.0/16&quot;</span>, <span class="s2">&quot;172.20.0.0/16&quot;</span>, <span class="s2">&quot;192.168.1.0/24&quot;</span><span class="o">]</span>,
+  <span class="s1">&#39;maxretry&#39;</span> <span class="o">=</span>&gt; <span class="m">5</span>,
+  <span class="s1">&#39;findtime&#39;</span> <span class="o">=</span>&gt; <span class="m">60</span>,
+  <span class="s1">&#39;bantime&#39;</span> <span class="o">=</span>&gt; <span class="m">3600</span>
+<span class="o">}</span>
 </code></pre></div>
-<p>Next you need to reconfigure GitLab again: <code>**gitlab-ctl reconfigure**</code> Once the reconfiguration is done you can have someone or yourself test the functionality and try to git clone with invalid credentials. Once they're blocked, they should see a "<strong>fatal: unable to access</strong>" message like below.</p>
+<p>Next you need to reconfigure GitLab again: <strong><code>gitlab-ctl reconfigure</code></strong> Once the reconfiguration is done you can have someone or yourself test the functionality and try to git clone with invalid credentials. Once they're blocked, they should see a "<strong>fatal: unable to access</strong>" message like below.</p>
 <div class="highlight"><pre><span></span><code>gilbn@DESKTOP-UP9572O MINGW64 /f/github
 $ git clone https://gitlab.domain.com/gilbn/testproject
-Cloning into &#39;testproject&#39;...
+Cloning into <span class="s1">&#39;testproject&#39;</span>...
 remote: HTTP Basic: Access denied
-fatal: Authentication failed for &#39;https://gitlab.domain.com/gilbn/testproject.git/&#39;
+fatal: Authentication failed <span class="k">for</span> <span class="s1">&#39;https://gitlab.domain.com/gilbn/testproject.git/&#39;</span>
 
 gilbn@DESKTOP-UP9572O MINGW64 /f/github
 $ git clone https://gitlab.domain.com/gilbn/testproject
-Cloning into &#39;testproject&#39;...
+Cloning into <span class="s1">&#39;testproject&#39;</span>...
 remote: HTTP Basic: Access denied
-fatal: Authentication failed for &#39;https://gitlab.domain.com/gilbn/testproject.git/&#39;
+fatal: Authentication failed <span class="k">for</span> <span class="s1">&#39;https://gitlab.domain.com/gilbn/testproject.git/&#39;</span>
 
 gilbn@DESKTOP-UP9572O MINGW64 /f/github
 $ git clone https://gitlab.domain.com/gilbn/testproject
-Cloning into &#39;testproject&#39;...
+Cloning into <span class="s1">&#39;testproject&#39;</span>...
 remote: Forbidden
-fatal: unable to access &#39;https://gitlab.domain.com/gilbn/testproject/&#39;: The requested URL returned error: 403
+fatal: unable to access <span class="s1">&#39;https://gitlab.domain.com/gilbn/testproject/&#39;</span>: The requested URL returned error: <span class="m">403</span>
 </code></pre></div>
 <p>In addition to them or you seeing that message , you can check the <strong><code>production.log</code></strong> file in the appdata directory for the container: <strong><code>grep -i blacklist /mnt/user/Docker/gitlab-ce/log/gitlab-rails/production.log</code></strong> If the IP was blocked, you should see something similar to the following:</p>
 <div class="highlight"><pre><span></span><code>root@Nostromo:# grep -i blacklist /mnt/user/Docker/gitlab-ce/log/gitlab-rails/production.log 
-Rack_Attack: blacklist 46.246.123.33 GET /gilbn/testproject/info/refs?service=git-upload-pack
+Rack_Attack: blacklist <span class="m">46</span>.246.123.33 GET /gilbn/testproject/info/refs?service<span class="o">=</span>git-upload-pack
 </code></pre></div>
 <p>For rate limit throttling on failed logins you will see:</p>
 <div class="highlight"><pre><span></span><code>:~# grep -i rack_attack /home/gitlab/logs/gitlab-rails/production.log
-Rack_Attack: throttle 82.37.176.202 POST /users/sign_in
+Rack_Attack: throttle <span class="m">82</span>.37.176.202 POST /users/sign_in
 </code></pre></div>
 <p>And the user will see a <strong><code>Retry Later</code></strong> message in their browser.</p>
-<p>Note: The rate limit does <strong>not</strong> follow the blacklist <code>**bantim**e</code>. The rate limit can be adjusted on the rate limit lines in the <strong><code>gitlab.rb</code></strong> file.</p>
-<div class="highlight"><pre><span></span><code>#gitlab_rails[&#39;rate_limit_requests_per_period&#39;] = 10
-#gitlab_rails[&#39;rate_limit_period&#39;] = 60
+<p>Note: The rate limit does <strong>not</strong> follow the blacklist <strong><code>bantime</code></strong>. The rate limit can be adjusted on the rate limit lines in the <strong><code>gitlab.rb</code></strong> file.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#gitlab_rails[&#39;rate_limit_requests_per_period&#39;] = 10</span>
+<span class="c1">#gitlab_rails[&#39;rate_limit_period&#39;] = 60</span>
 </code></pre></div>
 <p>Default is 10 requests in a 60 second period.</p>
 <p>If you want to add fail2ban on your login page you can use this filter: <strong><a href="https://gist.github.com/pawilon/238c278d3c6c4669771eb81b03264acd">https://gist.github.com/pawilon/238c278d3c6c4669771eb81b03264acd</a></strong></p>
 <p>Written by <strong>Tronyx</strong> - <strong><a href="https://github.com/christronyxyocum">https://github.com/christronyxyocum</a></strong> Edited by <strong>GilbN</strong></p>
-<h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server!<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>
-<h4 id="_1"><a href="https://discord.gg/HM5uUKU"><img alt="" src="https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&amp;logo=discord" title="technicalramblings/theme.park!" /></a><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<h2 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h2>
+<p><a href="https://discord.gg/HM5uUKU"><img alt="" src="https://img.shields.io/discord/591352397830553601.svg?style=for-the-badge&amp;logo=discord" title="technicalramblings/theme.park!" /></a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
       
     
   </small>

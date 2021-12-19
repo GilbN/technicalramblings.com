@@ -82,7 +82,7 @@ nav:
           - Spice up your homepage!: blog/spice-up-your-homepage/index.md
           - My unRAID Server: blog/my-unraid-server/index.md
 
-  - About: /about
+  - About: about/index.md
   - Support: /discord
   - Donate: https://github.com/sponsors/GilbN
 

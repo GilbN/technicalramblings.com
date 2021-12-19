@@ -103,17 +103,19 @@ theme:
   logo: logo.png
   favicon: logo.png
   palette:
-    - scheme: default
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-      primary: teal
     - scheme: slate
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
       primary: red
-      accent: light green
+      accent: red
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+      primary: teal
 
 extra:
   homepage: https://technicalramblings.com

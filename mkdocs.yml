@@ -52,37 +52,39 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Blog:
-      Blog:
-        - My unRAID Server: blog/my-unraid-server/index.md
-      Backend:
-        - Visualizing Nginx geo data metrics  with Python, InfluxDB and Grafana: blog/visualizing-nginx-geo-data-metrics-with-python-influxdb-and-grafana/index.md
-        - How to route metrics in Telegraf to different Influx databases: blog/how-to-route-different-metrics-in-telegraf-to-different-influx-databases/index.md
-        - Monitoring your UPS stats and cost with InfluxDB and Grafana on Unraid - Telegraf Edition: blog/monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-telegraf-edition/index.md
-        - Monitoring your UPS stats and cost with InfluxDB and Grafana on Unraid - NUT Edition: blog/monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-nut-edition/index.md
-        - Monitoring your UPS stats and cost with InfluxDB and Grafana on Unraid - Apcupsd Container Edition: blog/monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-2019-edition/index.md
-        - How to setup Grafana, InfluxDB and Telegraf to monitor your unRAID system: blog/how-to-setup-grafana-influxdb-and-telegraf-to-monitor-your-unraid-system/index.md
-        - Migrating/Merging View History between two Plex Servers - Avoiding Negative Unwatched Count: blog/migrating-view-history-between-two-plex-servers-avoiding-negative-unwatched-count/index.md
-        - How to setup a Cloudflare worker to show a maintenance page when the CA Backup plugin is running on Unraid: blog/how-to-setup-a-cloudflare-worker-to-show-a-maintenance-page-when-ca-backup-plugin-is-running/index.md
-        - Optimizing PHP-FPM to get faster load times of tabs in Organizr: blog/optimizing-php-fpm-to-get-faster-load-times-of-tabs-in-organizr/index.md
-        - Remotely accessing the Unraid GUI with Guacamole and VNC Web Browser: blog/remotely-accessing-the-unraid-gui-with-guacamole-and-vnc-web-browser/index.md
-      Frontend:
-        - How to add dark mode to any app with this one simple trick!: blog/how-to-add-dark-mode-to-any-app-with-this-one-simple-trick/index.md
-        - How to add a custom login page for Unraid!: blog/how-to-add-a-custom-login-page-for-unraid/index.md
-        - Spice up your homepage!: blog/spice-up-your-homepage/index.md
-        - Spice up your homepage Part II: blog/spice-up-your-homepage-part-ii/index.md
-        - How to setup a Ghost blog on Unraid: blog/how-to-setup-a-ghost-site-with-letsencrypt-and-mariadb-on-unraid/index.md
-      Security:
-        - Blocking countries with GeoLite2 in nginx using the swag docker container: blog/blocking-countries-with-geolite2-using-the-letsencrypt-docker-container/index.md
-        - How to add email notifications to Fail2ban: blog/how-to-add-email-notifications-to-fail2ban/index.md
-        - Blocking SSH Connections with the GeoLite2 Database: blog/blocking-ssh-connections-with-the-geolite2-database/index.md
-        - Adding ban/unban notifications from Fail2Ban to Discord!: blog/adding-ban-unban-notifications-from-fail2ban-to-discord/index.md
-        - Adding ban/unban notifications from Fail2Ban to Pushover!: blog/adding-ban-unban-notifications-from-fail2ban-with-pushover/index.md
-        - Redirecting visitors to a 403 forbidden page when accessing the WordPress admin page: blog/redirecting-visitors-to-a-403-forbidden-page-when-accessing-the-wordpress-admin-page/index.md
-        - How to setup GitLab to use Rack Attack and ban abusive IPs and rate limit requests: blog/howto-setup-gitlab-to-use-rack-attack-to-ban-abusive-ips/index.md
-        - How to setup Cloudflare and fail2ban with automated “set_real_ip_from” in nginx: blog/cloudflare-fail2ban-integration-with-automated-set_real_ip_from-in-nginx/index.md
+      - 2021:
+          - How to add a custom login page for Unraid!: blog/how-to-add-a-custom-login-page-for-unraid/index.md
+          - How to add dark mode to any app with this one simple trick!: blog/how-to-add-dark-mode-to-any-app-with-this-one-simple-trick/index.md
+      - 2020:
+          - Visualizing Nginx geo data metrics  with Python, InfluxDB and Grafana: blog/visualizing-nginx-geo-data-metrics-with-python-influxdb-and-grafana/index.md
+          - Blocking SSH Connections with the GeoLite2 Database: blog/blocking-ssh-connections-with-the-geolite2-database/index.md
+          - How to setup a Ghost blog on Unraid: blog/how-to-setup-a-ghost-site-with-letsencrypt-and-mariadb-on-unraid/index.md
+          - How to route metrics in Telegraf to different Influx databases: blog/how-to-route-different-metrics-in-telegraf-to-different-influx-databases/index.md
+      - 2019:
+          - Monitoring your UPS stats and cost with InfluxDB and Grafana on Unraid - Telegraf Edition: blog/monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-telegraf-edition/index.md
+          - Monitoring your UPS stats and cost with InfluxDB and Grafana on Unraid - NUT Edition: blog/monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-nut-edition/index.md
+          - How to add email notifications to Fail2ban: blog/how-to-add-email-notifications-to-fail2ban/index.md
+          - Redirecting visitors to a 403 forbidden page when accessing the WordPress admin page: blog/redirecting-visitors-to-a-403-forbidden-page-when-accessing-the-wordpress-admin-page/index.md
+          - How to setup a Cloudflare worker to show a maintenance page when the CA Backup plugin is running on Unraid: blog/how-to-setup-a-cloudflare-worker-to-show-a-maintenance-page-when-ca-backup-plugin-is-running/index.md
+          - Monitoring your UPS stats and cost with InfluxDB and Grafana on Unraid - Apcupsd Container Edition: blog/monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-2019-edition/index.md
+          - How to setup Grafana, InfluxDB and Telegraf to monitor your unRAID system: blog/how-to-setup-grafana-influxdb-and-telegraf-to-monitor-your-unraid-system/index.md
+          - Blocking countries with GeoLite2 in nginx using the swag docker container: blog/blocking-countries-with-geolite2-using-the-letsencrypt-docker-container/index.md
+          - How to setup GitLab to use Rack Attack and ban abusive IPs and rate limit requests: blog/howto-setup-gitlab-to-use-rack-attack-to-ban-abusive-ips/index.md
+          - Migrating/Merging View History between two Plex Servers - Avoiding Negative Unwatched Count: blog/migrating-view-history-between-two-plex-servers-avoiding-negative-unwatched-count/index.md
+          - Adding ban/unban notifications from Fail2Ban to Discord!: blog/adding-ban-unban-notifications-from-fail2ban-to-discord/index.md
+          - Adding ban/unban notifications from Fail2Ban to Pushover!: blog/adding-ban-unban-notifications-from-fail2ban-with-pushover/index.md
+          - Spice up your homepage Part II: blog/spice-up-your-homepage-part-ii/index.md
+      - 2018:
+          - How to setup Cloudflare and fail2ban with automated “set_real_ip_from” in nginx: blog/cloudflare-fail2ban-integration-with-automated-set_real_ip_from-in-nginx/index.md
+          - Optimizing PHP-FPM to get faster load times of tabs in Organizr: blog/optimizing-php-fpm-to-get-faster-load-times-of-tabs-in-organizr/index.md
+          - Remotely accessing the Unraid GUI with Guacamole and VNC Web Browser: blog/remotely-accessing-the-unraid-gui-with-guacamole-and-vnc-web-browser/index.md
+      - 2017:
+          - Spice up your homepage!: blog/spice-up-your-homepage/index.md
+          - My unRAID Server: blog/my-unraid-server/index.md
+
   - About: /about
   - Support: /discord
-  - Donate: /donate
+  - Donate: https://github.com/sponsors/GilbN
 
 theme:
   name: material
@@ -90,6 +92,7 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.expand
   language: en
   font:
@@ -97,7 +100,8 @@ theme:
     code: Roboto Mono
   icon:
     repo: fontawesome/brands/github
-  favicon: site_assets/favicon.ico
+  logo: logo.png
+  favicon: logo.png
   palette:
     - scheme: default
       toggle:
@@ -115,7 +119,7 @@ extra:
   homepage: https://technicalramblings.com
   social:
     - icon: fontawesome/solid/heart
-      link: 'https://docs.theme-park.dev/donate'
+      link: 'https://github.com/sponsors/GilbN'
       name: Donate
     - icon: fontawesome/brands/discord
       link: 'https://docs.theme-park.dev/discord'

@@ -204,7 +204,7 @@ Of course! Just clone the repo into your webserver. Remember to change the `DOMA
 
 With the current version of the bash script, that is not possible as it injects the stylesheet using the a URL and not a file path. However, nothing is stopping you from just doing some small changes to the script and replace the `href` urls to the path you stored the files. I will try and create a version of the script that is made for local hosting in the future.
 
-#### [](https://github.com/gilbN/theme.park/wiki/Retro-Terminal#rage4-i-hate-the-flickering-rage4)![:rage4:](https://camo.githubusercontent.com/6698d7486f7fc24e4aaae8de7e57b0b130cb4ab2f87bdefdeff1abf9d01f3a95/68747470733a2f2f6769746875622e6769746875626173736574732e636f6d2f696d616765732f69636f6e732f656d6f6a692f72616765342e706e67 ":rage4:")I hate the flickering!!![:rage4:](https://camo.githubusercontent.com/6698d7486f7fc24e4aaae8de7e57b0b130cb4ab2f87bdefdeff1abf9d01f3a95/68747470733a2f2f6769746875622e6769746875626173736574732e636f6d2f696d616765732f69636f6e732f656d6f6a692f72616765342e706e67 ":rage4:")
+#### I hate the flickering
 
 To remove the background flickering you need to edit the css file. Now since you don't have any control over those files, you'll need to fork it and setup Github pages or selfhost them. You can't use the raw link from Github, as they don't pass the mime types.
 
@@ -212,15 +212,15 @@ The background flickering can be disabled by setting the`--body-animation` root 
 
 The `<pre>` tag flicker can be disabled by setting `--custom-text-header-animation` to `none`.
 
-#### [](https://github.com/gilbN/theme.park/wiki/Retro-Terminal#rage4-i-hate-the-crt-lines-rage4)![:rage4:](https://camo.githubusercontent.com/6698d7486f7fc24e4aaae8de7e57b0b130cb4ab2f87bdefdeff1abf9d01f3a95/68747470733a2f2f6769746875622e6769746875626173736574732e636f6d2f696d616765732f69636f6e732f656d6f6a692f72616765342e706e67 ":rage4:")I hate the CRT lines!!![:rage4:](https://camo.githubusercontent.com/6698d7486f7fc24e4aaae8de7e57b0b130cb4ab2f87bdefdeff1abf9d01f3a95/68747470733a2f2f6769746875622e6769746875626173736574732e636f6d2f696d616765732f69636f6e732f656d6f6a692f72616765342e706e67 ":rage4:")
+#### I hate the CRT lines
 
 Set the `--body-before` and `--body-after` root variables to `none`
 
-#### [](https://github.com/gilbN/theme.park/wiki/Retro-Terminal#rage4-i-want-my-own-logo-rage4)![:rage4:](https://camo.githubusercontent.com/6698d7486f7fc24e4aaae8de7e57b0b130cb4ab2f87bdefdeff1abf9d01f3a95/68747470733a2f2f6769746875622e6769746875626173736574732e636f6d2f696d616765732f69636f6e732f656d6f6a692f72616765342e706e67 ":rage4:")I want my own logo!!![:rage4:](https://camo.githubusercontent.com/6698d7486f7fc24e4aaae8de7e57b0b130cb4ab2f87bdefdeff1abf9d01f3a95/68747470733a2f2f6769746875622e6769746875626173736574732e636f6d2f696d616765732f69636f6e732f656d6f6a692f72616765342e706e67 ":rage4:")
+#### I want my own logo
 
 Fork it and change the `--logo` variable or if you're using stylus ect, just add a new `--logo` root variable below the import line.
 
-#### ![:rage4:](https://camo.githubusercontent.com/6698d7486f7fc24e4aaae8de7e57b0b130cb4ab2f87bdefdeff1abf9d01f3a95/68747470733a2f2f6769746875622e6769746875626173736574732e636f6d2f696d616765732f69636f6e732f656d6f6a692f72616765342e706e67 ":rage4:")I don't like XYZ !!![:rage4:](https://camo.githubusercontent.com/6698d7486f7fc24e4aaae8de7e57b0b130cb4ab2f87bdefdeff1abf9d01f3a95/68747470733a2f2f6769746875622e6769746875626173736574732e636f6d2f696d616765732f69636f6e732f656d6f6a692f72616765342e706e67 ":rage4:")
+#### I don't like XYZ
 
 To change the colors,background, logo ect you need to edit the css file. Now since you don't have any control over those files, you'll need to fork it and setup Github pages or selfhost the files. You can't use the raw link from Github, as they don't pass the mime types. Each css file have a bunch of variables you can change to your linking.  
 All CSS and javascript files can be found here: **[https://github.com/gilbN/theme.park/tree/master/css/addons/unraid/login-page](https://github.com/gilbN/theme.park/tree/master/css/addons/unraid/login-page)**

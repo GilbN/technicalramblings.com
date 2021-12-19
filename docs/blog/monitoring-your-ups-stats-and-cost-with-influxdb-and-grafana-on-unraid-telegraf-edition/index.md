@@ -112,7 +112,7 @@ Next give the data source a name, add the URL to InfluxDB, enter the database to
 
 [![](images/chrome_CFYaSZRh2m-184x300.png)](images/chrome_CFYaSZRh2m.png)
 
-If all your settings are correct you should see this message. 
+If all your settings are correct you should see this message.
 
 [![](images/chrome_yi4pfKoSeY.png)](images/chrome_yi4pfKoSeY.png)
 

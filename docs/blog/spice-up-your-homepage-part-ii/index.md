@@ -335,8 +335,6 @@ You can do that by checking out my themes here.
 
 #### [https://github.com/gilbN/theme.park/blob/master/README.md#grafana-themes](https://github.com/gilbN/theme.park/blob/master/README.md#grafana-themes)
 
-![](images/grafana.gif)
-
 As Grafana doesn't support custom CSS you will need to use subfilter with nginx.
 
 Add this in you reverse proxy of Grafana:

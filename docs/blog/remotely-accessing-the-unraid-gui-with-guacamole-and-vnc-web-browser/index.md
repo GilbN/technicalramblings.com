@@ -96,7 +96,7 @@ TTL: (Time to Live) How often a copy of the record stored in cache must be updat
 
 Next is **port forwarding**. This is done on your router and you need to forward port **80** and **443** to the ports you chose in step 1 and 2. So if your servers IP is 192.168.1.2 and you have chosen that the container is on port 81, you need to forward all traffic on port 80 to port 81 on IP 192.168.1.2 And do the same for port 443 to 444. If you're unsure how to do this on your router check out: [Portforward.com](https://portforward.com/router.htm)
 
-[![](images/PW-1024x221.png)](images/PW.png)
+[![](images/PW.png)](images/PW.png)
 
 Next go to **https://yourserverip:444** or **http://yourserverip:81** If you now see the Nginx welcome page, it works. Also test if yourdomain.com redirects you to the nginx welcome page.
 

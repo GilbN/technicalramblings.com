@@ -1,3 +1,1 @@
 # Blog
-
-![](logo-wide.png)

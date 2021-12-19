@@ -1,2 +1,1 @@
-# technicalramblings.com
-blog
+# [technicalramblings.com](https://technicalramblings.com)

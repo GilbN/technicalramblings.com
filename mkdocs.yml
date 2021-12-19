@@ -110,12 +110,11 @@ theme:
       primary: red
       accent: red
     - scheme: default
-      primary: indigo
+      primary: teal
       accent: indigo
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
-      primary: teal
 
 extra:
   homepage: https://technicalramblings.com

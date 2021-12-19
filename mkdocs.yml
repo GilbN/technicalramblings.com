@@ -2,7 +2,7 @@ site_name: technicalramblings.com
 site_description: A blog about selfhosting, unRAID and Linux ISOs
 site_author: GilbN
 site_url: https://docs.theme-park.dev
-
+edit_uri: https://github.com/GilbN/technicalramblings.com/edit/main/docs/
 repo_url: https://github.com/GilbN/technicalramblings.com
 repo_name: technicalramblings.com
 

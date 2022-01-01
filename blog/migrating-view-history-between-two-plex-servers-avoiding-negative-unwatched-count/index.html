@@ -1051,11 +1051,11 @@
 <h2 id="part-two-removing-the-duplicates">Part Two: Removing the Duplicates<a class="headerlink" href="#part-two-removing-the-duplicates" title="Permanent link">&para;</a></h2>
 <p><strong>6) Remove duplicate database entries</strong> that cause negative a view count. Please note, it is highly recommended to create a backup of <strong><code>com.plexapp.plugins.library.db</code></strong> before attempting to modify it.</p>
 <p>If the server you're merging view states to is not perfectly clean (a server with no watch history), or if you received <strong><code>UNIQUE constraint failed</code></strong> in the previous steps then you must run the following command in the current directory:</p>
-<div class="highlight"><pre><span></span><code><span class="n">sqlite3</span> <span class="n">com</span><span class="p">.</span><span class="n">plexapp</span><span class="p">.</span><span class="n">plugins</span><span class="p">.</span><span class="n">library</span><span class="p">.</span><span class="n">db</span>
+<div class="highlight"><pre><span></span><code><span class="n">sqlite3</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="n">plexapp</span><span class="p">.</span><span class="n">plugins</span><span class="p">.</span><span class="n">library</span><span class="p">.</span><span class="n">db</span><span class="w"></span>
 <span class="ss">&quot;DELETE FROM metadata_item_settings</span>
 <span class="ss">WHERE id in (SELECT MIN(id) </span>
 <span class="ss">FROM metadata_item_settings </span>
-<span class="ss">GROUP BY guid HAVING COUNT(guid) &gt; 1);&quot;</span>
+<span class="ss">GROUP BY guid HAVING COUNT(guid) &gt; 1);&quot;</span><span class="w"></span>
 </code></pre></div>
 
   <hr>

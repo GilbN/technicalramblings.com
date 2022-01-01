@@ -1043,8 +1043,8 @@
 <span class="c1">#nginx[&#39;real_ip_header&#39;] = </span>
 </code></pre></div>
 <p>Uncomment the lines and then change them to something like this:</p>
-<div class="highlight"><pre><span></span><code><span class="k">nginx[&#39;real_ip_trusted_addresses&#39;]</span> <span class="p">=</span> <span class="s">[&#39;172.17.0.0/16&#39;,&#39;172.18.0.0/16&#39;,&#39;172.19.0.0/16&#39;,&#39;172.20.0.0/16&#39;,&#39;192.168.1.0/24&#39;]</span>
-<span class="s">nginx[&#39;real_ip_header&#39;]</span> <span class="p">=</span> <span class="s">&#39;X-Forwarded-For&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="k">nginx[&#39;real_ip_trusted_addresses&#39;]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">[&#39;172.17.0.0/16&#39;,&#39;172.18.0.0/16&#39;,&#39;172.19.0.0/16&#39;,&#39;172.20.0.0/16&#39;,&#39;192.168.1.0/24&#39;]</span><span class="w"></span>
+<span class="s">nginx[&#39;real_ip_header&#39;]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;X-Forwarded-For&#39;</span><span class="w"></span>
 </code></pre></div>
 <p>You will need to modify the IP address ranges to make your network(s). Once you're done, save the changes and exit the text editor. Now you need to reconfigure gitlab, while still inside the container, with the following command: <strong><code>gitlab-ctl reconfigure</code></strong> It should go through and reconfigure everything and add the changes you just made. You can verify that the changes were added with the following <strong><code>grep</code></strong> command: <strong><code>grep real_ip /var/opt/gitlab/nginx/conf/gitlab-http.conf</code></strong> The output should look similar to this:</p>
 <div class="highlight"><pre><span></span><code>:/# grep real_ip /var/opt/gitlab/nginx/conf/gitlab-http.conf

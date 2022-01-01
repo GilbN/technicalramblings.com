@@ -1198,6 +1198,10 @@
 <p><a href="images/chrome_EZLftLwtMU.png"><img alt="" src="images/chrome_EZLftLwtMU-1024x140.png" /></a></p>
 <h2 id="installing-telegraf">Installing Telegraf<a class="headerlink" href="#installing-telegraf" title="Permanent link">&para;</a></h2>
 <p>Do the same here, just search for the container in Community Apps and use the default template settings. Set the appdata location to where you want it, <strong>but don't click install just yet!</strong></p>
+<div class="admonition danger">
+<p class="admonition-title">Don't use the latest tag</p>
+<p>The <code>:latest</code> tag will run a version that you can't install extra packages into! Change the tag to <code>telegraf:1.20.2</code> for it to work!</p>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Network</p>
 <p>Make sure the container uses <strong>Host</strong> networking!</p>
@@ -1239,7 +1243,7 @@
 </ol>
 </li>
 <li>
-<p>Now go back to the install page of telegraf and add the following into the <code>Post Arguments</code> input field:<code>/bin/sh -c 'apt update &amp;&amp; apt install -y smartmontools &amp;&amp; apt install -y lm-sensors &amp;&amp; telegraf' --user 0</code> To be able to see this field we need to click on the <code>Advanced View</code> button. This will install <code>smartmontools</code> and without it you won't be able to get the S.M.A.R.T statistics. <strong>Note:</strong> If you also want to add IPMI and nvme stats you can add the following: <code>/bin/sh -c 'apt update &amp;&amp; apt install -y smartmontools &amp;&amp; apt install -y lm-sensors &amp;&amp; apt install -y nvme-cli &amp;&amp; apt install -y ipmitool &amp;&amp; telegraf' --user 0</code></p>
+<p>Now go back to the install page of telegraf and add the following into the <code>Post Arguments</code> input field:<code>/bin/sh -c 'apt update &amp;&amp; apt install -y smartmontools &amp;&amp; apt install -y lm-sensors &amp;&amp; telegraf' --user 0</code> To be able to see this field we need to click on the <code>Advanced View</code> button. This will install <code>smartmontools</code> and without it you won't be able to get the S.M.A.R.T statistics. <strong>Note:</strong> If you also want to add IPMI and nvme stats you can add the following: <code>/bin/sh -c 'apt update &amp;&amp; apt install -y smartmontools &amp;&amp; apt install -y lm-sensors &amp;&amp; apt install -y nvme-cli &amp;&amp; apt install -y ipmitool &amp;&amp; telegraf'</code></p>
 </li>
 </ol>
 <div class="admonition info">
@@ -1247,8 +1251,8 @@
 <p>If you use the alpine tag use these commands instead."</p>
 </div>
 <p><a href="images/chrome_5DgrBfXwwD.png"><img alt="" src="images/chrome_5DgrBfXwwD.png" /></a></p>
-<p><code>/bin/sh -c 'apk update &amp;&amp; apk add smartmontools &amp;&amp; apk add lm-sensors lm-sensors-detect perl &amp;&amp; telegraf' --user 0</code></p>
-<p>With IPMI and nvme: <code>/bin/sh -c 'apk update &amp;&amp; apk add smartmontools &amp;&amp; apk add lm-sensors lm-sensors-detect perl &amp;&amp; apk add nvme-cli &amp;&amp; apk add ipmitool &amp;&amp; telegraf' --user 0</code></p>
+<p><code>/bin/sh -c 'apk update &amp;&amp; apk add smartmontools &amp;&amp; apk add lm-sensors lm-sensors-detect perl &amp;&amp; telegraf'</code></p>
+<p>With IPMI and nvme: <code>/bin/sh -c 'apk update &amp;&amp; apk add smartmontools &amp;&amp; apk add lm-sensors lm-sensors-detect perl &amp;&amp; apk add nvme-cli &amp;&amp; apk add ipmitool &amp;&amp; telegraf'</code></p>
 <p><a href="images/chrome_EG2uIi89cA.png"><img alt="" src="images/chrome_EG2uIi89cA.png" /></a></p>
 <p><a href="images/chrome_dfweKP6rAl.png"><img alt="" src="images/chrome_dfweKP6rAl.png" /></a></p>
 <p>After editing the <strong>telegraf.conf</strong> and adding the post arguments you can start the Telegraf container. Telegraf will automatically create a database called <strong><code>telegraf</code></strong> when started for the first time with the influxdb plugin activated.</p>
@@ -1296,7 +1300,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 1, 2022</span>
       
     
   </small>

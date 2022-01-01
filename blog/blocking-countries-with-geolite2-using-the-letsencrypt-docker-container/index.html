@@ -1214,17 +1214,17 @@
 <p>In the latest version of <strong>nginx.conf</strong> there is now a line that says <code>#include /config/nginx/geoip2.conf;</code> Uncomment that line. If you dont have that line, you can just add it.</p>
 <p>Open the <code>geoip2.conf</code> file and find the line that says <code>map $geoip2_data_country_iso_code $allowed_country {</code> As it says <code>default</code> must be either yes or no. To block everything set it <strong>no</strong>. Add the country codes you want to allow accessfrom <strong><a href="http://dev.maxmind.com/geoip/legacy/codes/iso3166/">this</a></strong> list. e.g. <strong><code>US yes;</code></strong> This will block all other countries than the one you choose. You can also add more than one country if you want. Like this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># GEOIP2 COUNTRY CONFIG</span>
-<span class="k">map</span> <span class="nv">$geoip2_data_country_iso_code</span> <span class="nv">$allowed_country</span> <span class="p">{</span>
-    <span class="kn">default</span> <span class="s">no</span><span class="p">;</span>
-    <span class="kn">US</span> <span class="s">yes</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="k">map</span><span class="w"> </span><span class="nv">$geoip2_data_country_iso_code</span><span class="w"> </span><span class="nv">$allowed_country</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kn">default</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">US</span><span class="w"> </span><span class="s">yes</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Now since we have set default to no, you will need to add the local ip ranges that you want to allow access in the <strong><code>$allow_list</code></strong> variable below. Like this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># ALLOW LOCAL ACCESS</span>
-<span class="k">geo</span> <span class="nv">$allow_list</span> <span class="p">{</span>
-    <span class="kn">default</span> <span class="s">no</span><span class="p">;</span>
-    <span class="kn">192.168.1.0/24</span> <span class="s">yes</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="k">geo</span><span class="w"> </span><span class="nv">$allow_list</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kn">default</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">192.168.1.0/24</span><span class="w"> </span><span class="s">yes</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Remember to also set default to <strong><code>no</code></strong> in in the <strong><code>$allow_list</code></strong></p>
 <p>Check out <a href="https://www.aelius.com/njh/subnet_sheet.html">https://www.aelius.com/njh/subnet_sheet.html</a> if you are wondering what your <strong><a href="https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking">CIDRnotation</a></strong> is. Most often it will be <strong>/24</strong> (netmask 255.255.255.0) To find your netmask run <strong><code>ipconfig /all</code></strong> on windows or <strong><code>ifconfig | grep netmask</code></strong> on linux.</p>
@@ -1234,91 +1234,91 @@
 </div>
 <p>Setting default to <code>no</code> means that it will block any IP addresses from the database not set to <code>yes</code>, even local ones.</p>
 <p>For it to actually block you need to add this in your <strong><code>server blocks</code></strong> inside the <code>proxy-confs</code> and <code>site-confs</code> folder:</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="s">(</span><span class="nv">$allow_list</span> <span class="p">=</span> <span class="s">yes)</span> <span class="p">{</span>
-<span class="kn">set</span> <span class="nv">$allowed_country</span> <span class="s">yes</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="k">if</span> <span class="s">(</span><span class="nv">$allowed_country</span> <span class="p">=</span> <span class="s">no)</span> <span class="p">{</span>
-<span class="kn">return</span> <span class="mi">444</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="s">(</span><span class="nv">$allow_list</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">yes)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kn">set</span><span class="w"> </span><span class="nv">$allowed_country</span><span class="w"> </span><span class="s">yes</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="s">(</span><span class="nv">$allowed_country</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">no)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kn">return</span><span class="w"> </span><span class="mi">444</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Here is an example using the <code>unifi-controller.subdomain.conf</code> in <code>proxy-confs</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
-    <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
-    <span class="kn">listen</span> <span class="s">[::]:443</span> <span class="s">ssl</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="s">[::]:443</span><span class="w"> </span><span class="s">ssl</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kn">server_name</span> <span class="s">unifi.*</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">unifi.*</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kn">include</span> <span class="s">/config/nginx/ssl.conf</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">include</span><span class="w"> </span><span class="s">/config/nginx/ssl.conf</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">#COUNTRY GEO BLOCK </span>
-    <span class="kn">if</span> <span class="s">(</span><span class="nv">$allow_list</span> <span class="p">=</span> <span class="s">yes)</span> <span class="p">{</span> 
-    <span class="kn">set</span> <span class="nv">$allowed_country</span> <span class="s">yes</span><span class="p">;</span> 
-    <span class="p">}</span>    
-    <span class="kn">if</span> <span class="s">(</span><span class="nv">$allowed_country</span> <span class="p">=</span> <span class="s">no)</span> <span class="p">{</span>
-    <span class="kn">return</span> <span class="mi">444</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kn">if</span><span class="w"> </span><span class="s">(</span><span class="nv">$allow_list</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">yes)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="kn">set</span><span class="w"> </span><span class="nv">$allowed_country</span><span class="w"> </span><span class="s">yes</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span><span class="w">    </span>
+<span class="w">    </span><span class="kn">if</span><span class="w"> </span><span class="s">(</span><span class="nv">$allowed_country</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">no)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kn">return</span><span class="w"> </span><span class="mi">444</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kn">client_max_body_size</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">client_max_body_size</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-    <span class="c1"># enable for ldap auth, fill in ldap details in ldap.conf</span>
-    <span class="c1">#include /config/nginx/ldap.conf;</span>
+<span class="w">    </span><span class="c1"># enable for ldap auth, fill in ldap details in ldap.conf</span>
+<span class="w">    </span><span class="c1">#include /config/nginx/ldap.conf;</span>
 
-    <span class="c1"># enable for Authelia</span>
-    <span class="c1">#include /config/nginx/authelia-server.conf;</span>
+<span class="w">    </span><span class="c1"># enable for Authelia</span>
+<span class="w">    </span><span class="c1">#include /config/nginx/authelia-server.conf;</span>
 
-    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-        <span class="c1"># enable the next two lines for http auth</span>
-        <span class="c1">#auth_basic &quot;Restricted&quot;;</span>
-        <span class="c1">#auth_basic_user_file /config/nginx/.htpasswd;</span>
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1"># enable the next two lines for http auth</span>
+<span class="w">        </span><span class="c1">#auth_basic &quot;Restricted&quot;;</span>
+<span class="w">        </span><span class="c1">#auth_basic_user_file /config/nginx/.htpasswd;</span>
 
-        <span class="c1"># enable the next two lines for ldap auth</span>
-        <span class="c1">#auth_request /auth;</span>
-        <span class="c1">#error_page 401 =200 /ldaplogin;</span>
+<span class="w">        </span><span class="c1"># enable the next two lines for ldap auth</span>
+<span class="w">        </span><span class="c1">#auth_request /auth;</span>
+<span class="w">        </span><span class="c1">#error_page 401 =200 /ldaplogin;</span>
 
-        <span class="c1"># enable for Authelia</span>
-        <span class="c1">#include /config/nginx/authelia-location.conf;</span>
+<span class="w">        </span><span class="c1"># enable for Authelia</span>
+<span class="w">        </span><span class="c1">#include /config/nginx/authelia-location.conf;</span>
 
-        <span class="kn">include</span> <span class="s">/config/nginx/proxy.conf</span><span class="p">;</span>
-        <span class="kn">resolver</span> <span class="mi">127</span><span class="s">.0.0.11</span> <span class="s">valid=30s</span><span class="p">;</span>
-        <span class="kn">set</span> <span class="nv">$upstream_app</span> <span class="s">unifi-controller</span><span class="p">;</span>
-        <span class="kn">set</span> <span class="nv">$upstream_port</span> <span class="mi">8443</span><span class="p">;</span>
-        <span class="kn">set</span> <span class="nv">$upstream_proto</span> <span class="s">https</span><span class="p">;</span>
-        <span class="kn">proxy_pass</span> <span class="nv">$upstream_proto://$upstream_app:$upstream_port</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">include</span><span class="w"> </span><span class="s">/config/nginx/proxy.conf</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">resolver</span><span class="w"> </span><span class="mi">127</span><span class="s">.0.0.11</span><span class="w"> </span><span class="s">valid=30s</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">set</span><span class="w"> </span><span class="nv">$upstream_app</span><span class="w"> </span><span class="s">unifi-controller</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">set</span><span class="w"> </span><span class="nv">$upstream_port</span><span class="w"> </span><span class="mi">8443</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">set</span><span class="w"> </span><span class="nv">$upstream_proto</span><span class="w"> </span><span class="s">https</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="nv">$upstream_proto://$upstream_app:$upstream_port</span><span class="p">;</span><span class="w"></span>
 
-        <span class="kn">proxy_buffering</span> <span class="no">off</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="kn">proxy_buffering</span><span class="w"> </span><span class="no">off</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h3 id="multiple-geo-blocks">Multiple geo blocks<a class="headerlink" href="#multiple-geo-blocks" title="Permanent link">&para;</a></h3>
 <p>If you host several websites and want a different country block just add another with a different variable name. e.g. <strong><code>$allowed_country2</code></strong>:</p>
-<div class="highlight"><pre><span></span><code> <span class="c1"># GEO IP BLOCK DOMAIN 2</span>
-  <span class="k">map</span> <span class="nv">$geoip2_data_country_iso_code</span> <span class="nv">$allowed_country2</span> <span class="p">{</span>
-   <span class="kn">default</span> <span class="s">yes</span><span class="p">;</span>
-    <span class="kn">CN</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#China</span>
-    <span class="kn">RU</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Russia</span>
-    <span class="kn">HK</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Hong Kong</span>
-    <span class="kn">IN</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#India</span>
-    <span class="kn">IR</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Iran</span>
-    <span class="kn">VN</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Vietnam</span>
-    <span class="kn">TR</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Turkey</span>
-    <span class="kn">EG</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Egypt</span>
-    <span class="kn">MX</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Mexico</span>
-    <span class="kn">JP</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Japan</span>
-    <span class="kn">KR</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#South Korea</span>
-    <span class="kn">KP</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#North Korea :)</span>
-    <span class="kn">PE</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Peru</span>
-    <span class="kn">BR</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Brazil</span>
-    <span class="kn">UA</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Ukraine</span>
-    <span class="kn">ID</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Indonesia</span>
-    <span class="kn">TH</span> <span class="s">no</span><span class="p">;</span> <span class="c1">#Thailand</span>
- <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="c1"># GEO IP BLOCK DOMAIN 2</span>
+<span class="w">  </span><span class="k">map</span><span class="w"> </span><span class="nv">$geoip2_data_country_iso_code</span><span class="w"> </span><span class="nv">$allowed_country2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="kn">default</span><span class="w"> </span><span class="s">yes</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">CN</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#China</span>
+<span class="w">    </span><span class="kn">RU</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#Russia</span>
+<span class="w">    </span><span class="kn">HK</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#Hong Kong</span>
+<span class="w">    </span><span class="kn">IN</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#India</span>
+<span class="w">    </span><span class="kn">IR</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#Iran</span>
+<span class="w">    </span><span class="kn">VN</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#Vietnam</span>
+<span class="w">    </span><span class="kn">TR</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#Turkey</span>
+<span class="w">    </span><span class="kn">EG</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#Egypt</span>
+<span class="w">    </span><span class="kn">MX</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#Mexico</span>
+<span class="w">    </span><span class="kn">JP</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#Japan</span>
+<span class="w">    </span><span class="kn">KR</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#South Korea</span>
+<span class="w">    </span><span class="kn">KP</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#North Korea :)</span>
+<span class="w">    </span><span class="kn">PE</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#Peru</span>
+<span class="w">    </span><span class="kn">BR</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#Brazil</span>
+<span class="w">    </span><span class="kn">UA</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#Ukraine</span>
+<span class="w">    </span><span class="kn">ID</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#Indonesia</span>
+<span class="w">    </span><span class="kn">TH</span><span class="w"> </span><span class="s">no</span><span class="p">;</span><span class="w"> </span><span class="c1">#Thailand</span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>As <strong><code>default</code></strong> is set to <strong><code>yes</code></strong> it will allow every country except the country codes set to <strong><code>no</code></strong></p>
 <p>And in the server block add this</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># COUNTRY GEO BLOCK 2</span>
-    <span class="k">if</span> <span class="s">(</span><span class="nv">$allowed_country2</span> <span class="p">=</span> <span class="s">no)</span> <span class="p">{</span>
-    <span class="kn">return</span> <span class="mi">444</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="s">(</span><span class="nv">$allowed_country2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">no)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kn">return</span><span class="w"> </span><span class="mi">444</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>I made this list based on the <a href="https://www.spamhaus.org/statistics/botnet-cc/">Spamhaus</a> statistics and <a href="https://www.akamai.com/us/en/multimedia/documents/state-of-the-internet/q3-2017-state-of-the-internet-security-report.pdf">Aakamai's</a> state of the internet report.</p>
 <h2 id="blocked">Blocked<a class="headerlink" href="#blocked" title="Permanent link">&para;</a></h2>
@@ -1353,37 +1353,37 @@ chown <span class="m">911</span>:911 /mnt/user/appdata/letsencrypt/geolite2/GeoL
 </div>
 <p>If you use Cloudflare you will need to add the following in nginx so that it won't block the Cloudflare IP but the actual IP of the visitor. If you don't do this you will get false positives.</p>
 <p>Add the following section to your<code>nginx.conf</code> file found in <strong><code>appdata/swag/nginx/</code></strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">set_real_ip_from</span> <span class="mi">103</span><span class="s">.21.244.0/22</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">103</span><span class="s">.22.200.0/22</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">103</span><span class="s">.31.4.0/22</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">104</span><span class="s">.16.0.0/13</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">104</span><span class="s">.24.0.0/14</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">108</span><span class="s">.162.192.0/18</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">131</span><span class="s">.0.72.0/22</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">141</span><span class="s">.101.64.0/18</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">162</span><span class="s">.158.0.0/15</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">172</span><span class="s">.64.0.0/13</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">173</span><span class="s">.245.48.0/20</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">188</span><span class="s">.114.96.0/20</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">190</span><span class="s">.93.240.0/20</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">197</span><span class="s">.234.240.0/22</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">198</span><span class="s">.41.128.0/17</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">2400</span><span class="p">:</span><span class="s">cb00::/32</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="n">2606</span><span class="p">:</span><span class="mi">4700</span><span class="p">::</span><span class="s">/32</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">2803</span><span class="p">:</span><span class="s">f800::/32</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">2405</span><span class="p">:</span><span class="s">b500::/32</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="n">2405</span><span class="p">:</span><span class="mi">8100</span><span class="p">::</span><span class="s">/32</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="s">2c0f:f248::/32</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="n">2a06</span><span class="p">:</span><span class="mi">98</span><span class="s">c0::/29</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">103</span><span class="s">.21.244.0/22</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">103</span><span class="s">.22.200.0/22</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">103</span><span class="s">.31.4.0/22</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">104</span><span class="s">.16.0.0/13</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">104</span><span class="s">.24.0.0/14</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">108</span><span class="s">.162.192.0/18</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">131</span><span class="s">.0.72.0/22</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">141</span><span class="s">.101.64.0/18</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">162</span><span class="s">.158.0.0/15</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">172</span><span class="s">.64.0.0/13</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">173</span><span class="s">.245.48.0/20</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">188</span><span class="s">.114.96.0/20</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">190</span><span class="s">.93.240.0/20</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">197</span><span class="s">.234.240.0/22</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">198</span><span class="s">.41.128.0/17</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">2400</span><span class="p">:</span><span class="s">cb00::/32</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="n">2606</span><span class="p">:</span><span class="mi">4700</span><span class="p">::</span><span class="s">/32</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">2803</span><span class="p">:</span><span class="s">f800::/32</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">2405</span><span class="p">:</span><span class="s">b500::/32</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="n">2405</span><span class="p">:</span><span class="mi">8100</span><span class="p">::</span><span class="s">/32</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="s">2c0f:f248::/32</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="n">2a06</span><span class="p">:</span><span class="mi">98</span><span class="s">c0::/29</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">real_ip_header</span> <span class="s">X-Forwarded-For</span><span class="p">;</span>
+<span class="k">real_ip_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <p>You can set it up as an include like this too:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">##</span>
 <span class="c1"># CF Real IP</span>
 <span class="c1">##</span>
-<span class="k">include</span> <span class="n">/config/nginx/cf_real-ip.conf</span>;
-<span class="k">real_ip_header</span> <span class="s">X-Forwarded-For</span><span class="p">;</span>
+<span class="k">include</span><span class="w"> </span><span class="n">/config/nginx/cf_real-ip.conf</span>;<span class="w"></span>
+<span class="k">real_ip_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <p>After that you need to restart the swag container for the changes to take effect.</p>
 <h2 id="automatically-updating-the-cf_real-ipconf">Automatically updating the cf_real-ip.conf<a class="headerlink" href="#automatically-updating-the-cf_real-ipconf" title="Permanent link">&para;</a></h2>

@@ -1196,22 +1196,22 @@
 <ul>
 <li>Add the following in the http block in your <code>nginx.conf</code> file:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="k">geoip2</span> <span class="s">/config/geoip2db/GeoLite2-City.mmdb</span> <span class="p">{</span>
-<span class="kn">auto_reload</span> <span class="mi">5m</span><span class="p">;</span>
-<span class="kn">$geoip2_data_country_iso_code</span> <span class="s">country</span> <span class="s">iso_code</span><span class="p">;</span>
-<span class="kn">$geoip2_data_city_name</span> <span class="s">city</span> <span class="s">names</span> <span class="s">en</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">geoip2</span><span class="w"> </span><span class="s">/config/geoip2db/GeoLite2-City.mmdb</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kn">auto_reload</span><span class="w"> </span><span class="mi">5m</span><span class="p">;</span><span class="w"></span>
+<span class="kn">$geoip2_data_country_iso_code</span><span class="w"> </span><span class="s">country</span><span class="w"> </span><span class="s">iso_code</span><span class="p">;</span><span class="w"></span>
+<span class="kn">$geoip2_data_city_name</span><span class="w"> </span><span class="s">city</span><span class="w"> </span><span class="s">names</span><span class="w"> </span><span class="s">en</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="k">log_format</span> <span class="s">custom</span> <span class="s">&#39;</span><span class="nv">$remote_addr</span> <span class="s">-</span> <span class="nv">$remote_user</span> <span class="s">[</span><span class="nv">$time_local]&#39;</span>
-           <span class="s">&#39;&quot;</span><span class="nv">$request&quot;</span> <span class="nv">$status</span> <span class="nv">$body_bytes_sent&#39;</span>
-           <span class="s">&#39;&quot;</span><span class="nv">$http_referer&quot;</span> <span class="nv">$host</span> <span class="s">&quot;</span><span class="nv">$http_user_agent&quot;&#39;</span>
-           <span class="s">&#39;&quot;</span><span class="nv">$request_time&quot;</span> <span class="s">&quot;</span><span class="nv">$upstream_connect_time&quot;&#39;</span>
-           <span class="s">&#39;&quot;</span><span class="nv">$geoip2_data_city_name&quot;</span> <span class="s">&quot;</span><span class="nv">$geoip2_data_country_iso_code&quot;&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">log_format</span><span class="w"> </span><span class="s">custom</span><span class="w"> </span><span class="s">&#39;</span><span class="nv">$remote_addr</span><span class="w"> </span><span class="s">-</span><span class="w"> </span><span class="nv">$remote_user</span><span class="w"> </span><span class="s">[</span><span class="nv">$time_local]&#39;</span><span class="w"></span>
+<span class="w">           </span><span class="s">&#39;&quot;</span><span class="nv">$request&quot;</span><span class="w"> </span><span class="nv">$status</span><span class="w"> </span><span class="nv">$body_bytes_sent&#39;</span><span class="w"></span>
+<span class="w">           </span><span class="s">&#39;&quot;</span><span class="nv">$http_referer&quot;</span><span class="w"> </span><span class="nv">$host</span><span class="w"> </span><span class="s">&quot;</span><span class="nv">$http_user_agent&quot;&#39;</span><span class="w"></span>
+<span class="w">           </span><span class="s">&#39;&quot;</span><span class="nv">$request_time&quot;</span><span class="w"> </span><span class="s">&quot;</span><span class="nv">$upstream_connect_time&quot;&#39;</span><span class="w"></span>
+<span class="w">           </span><span class="s">&#39;&quot;</span><span class="nv">$geoip2_data_city_name&quot;</span><span class="w"> </span><span class="s">&quot;</span><span class="nv">$geoip2_data_country_iso_code&quot;&#39;</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li>Set the access log use the custom log format.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="k">access_log</span> <span class="s">/config/log/nginx/access.log</span> <span class="s">custom</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">access_log</span><span class="w"> </span><span class="s">/config/log/nginx/access.log</span><span class="w"> </span><span class="s">custom</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <p>The first time the scripts starts it will try and parse the log for 1 minute and if the regex doesn't match it will disable the log metrics. So be sure to refresh your site a couple of times after adding the mod.</p>
 <p>Next add a new datasource to Grafana with the name of the database you chose and import the dashboard and you should start seeing the map getting populated!</p>
@@ -1219,8 +1219,8 @@
 <p>If you separate your nginx log files but want this mod to parse all of them you can do the following:</p>
 <p>As nginx can have multiple<code>access log</code>directives in a block, just add another one in the server block.</p>
 <h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="k">access_log</span> <span class="s">/config/log/nginx/technicalramblings/access.log</span> <span class="s">custom</span><span class="p">;</span>
-<span class="k">access_log</span> <span class="s">/config/log/nginx/access.log</span> <span class="s">custom</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">access_log</span><span class="w"> </span><span class="s">/config/log/nginx/technicalramblings/access.log</span><span class="w"> </span><span class="s">custom</span><span class="p">;</span><span class="w"></span>
+<span class="k">access_log</span><span class="w"> </span><span class="s">/config/log/nginx/access.log</span><span class="w"> </span><span class="s">custom</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <p>This will log the same lines to both files.</p>
 <p>Then use the<code>/config/log/nginx/access.log</code>file in the<code>NGINX_LOG_PATH</code>variable.</p>
@@ -1230,12 +1230,12 @@
 <p>You can also add a Telegraf plugin for Nginx that gets some extra stats from the webserver.</p>
 <p><a href="https://github.com/influxdata/telegraf/tree/master/plugins/inputs/nginx">https://github.com/influxdata/telegraf/tree/master/plugins/inputs/nginx</a></p>
 <p>Location Block:</p>
-<div class="highlight"><pre><span></span><code><span class="k">location</span> <span class="s">/nginx_status</span> <span class="p">{</span>
-    <span class="kn">stub_status</span> <span class="no">on</span><span class="p">;</span>
-        <span class="kn">access_log</span>   <span class="no">off</span><span class="p">;</span>
-    <span class="kn">allow</span> <span class="mi">192</span><span class="s">.168.1.0/24</span><span class="p">;</span> <span class="c1"># Add the IP ranges you want to access. </span>
-        <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="k">location</span><span class="w"> </span><span class="s">/nginx_status</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kn">stub_status</span><span class="w"> </span><span class="no">on</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">access_log</span><span class="w">   </span><span class="no">off</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">allow</span><span class="w"> </span><span class="mi">192</span><span class="s">.168.1.0/24</span><span class="p">;</span><span class="w"> </span><span class="c1"># Add the IP ranges you want to access. </span>
+<span class="w">        </span><span class="kn">deny</span><span class="w"> </span><span class="s">all</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Sources: <a href="https://medium.com/faun/total-nginx-monitoring-with-application-performance-and-a-bit-more-using-8fc6d731051b">https://medium.com/faun/total-nginx-monitoring-with-application-performance-and-a-bit-more-using-8fc6d731051b</a> <a href="https://geoip2.readthedocs.io/en/latest/">https://geoip2.readthedocs.io/en/latest/</a> <a href="https://www.influxdata.com/blog/getting-started-python-influxdb/">https://www.influxdata.com/blog/getting-started-python-influxdb/</a> <a href="https://grafana.com/grafana/dashboards/8522">https://grafana.com/grafana/dashboards/8522</a> <a href="https://www.geeksforgeeks.org/python-reading-last-n-lines-of-a-file/">https://www.geeksforgeeks.org/python-reading-last-n-lines-of-a-file/</a></p>
 <h3 id="if-you-need-any-extra-help-join-the-discord-server">If you need any extra help join the Discord server<a class="headerlink" href="#if-you-need-any-extra-help-join-the-discord-server" title="Permanent link">&para;</a></h3>

@@ -1297,29 +1297,29 @@
 <h2 id="nginx">Nginx<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h2>
 <p>Next up is configuring nginx so that it won't just ban the Cloudflare CDN IP but the actual IP of the visitor.</p>
 <p>Add the following section to your <strong>http block</strong> in the <code>nginx.conf</code> file found in <strong><code>appdata/swag/nginx/</code></strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">set_real_ip_from</span> <span class="mi">103</span><span class="s">.21.244.0/22</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">103</span><span class="s">.22.200.0/22</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">103</span><span class="s">.31.4.0/22</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">104</span><span class="s">.16.0.0/12</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">108</span><span class="s">.162.192.0/18</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">131</span><span class="s">.0.72.0/22</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">141</span><span class="s">.101.64.0/18</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">162</span><span class="s">.158.0.0/15</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">172</span><span class="s">.64.0.0/13</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">173</span><span class="s">.245.48.0/20</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">188</span><span class="s">.114.96.0/20</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">190</span><span class="s">.93.240.0/20</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">197</span><span class="s">.234.240.0/22</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">198</span><span class="s">.41.128.0/17</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">2400</span><span class="p">:</span><span class="s">cb00::/32</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="n">2606</span><span class="p">:</span><span class="mi">4700</span><span class="p">::</span><span class="s">/32</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">2803</span><span class="p">:</span><span class="s">f800::/32</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="mi">2405</span><span class="p">:</span><span class="s">b500::/32</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="n">2405</span><span class="p">:</span><span class="mi">8100</span><span class="p">::</span><span class="s">/32</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="s">2c0f:f248::/32</span><span class="p">;</span>
-<span class="k">set_real_ip_from</span> <span class="n">2a06</span><span class="p">:</span><span class="mi">98</span><span class="s">c0::/29</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">103</span><span class="s">.21.244.0/22</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">103</span><span class="s">.22.200.0/22</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">103</span><span class="s">.31.4.0/22</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">104</span><span class="s">.16.0.0/12</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">108</span><span class="s">.162.192.0/18</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">131</span><span class="s">.0.72.0/22</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">141</span><span class="s">.101.64.0/18</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">162</span><span class="s">.158.0.0/15</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">172</span><span class="s">.64.0.0/13</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">173</span><span class="s">.245.48.0/20</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">188</span><span class="s">.114.96.0/20</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">190</span><span class="s">.93.240.0/20</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">197</span><span class="s">.234.240.0/22</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">198</span><span class="s">.41.128.0/17</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">2400</span><span class="p">:</span><span class="s">cb00::/32</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="n">2606</span><span class="p">:</span><span class="mi">4700</span><span class="p">::</span><span class="s">/32</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">2803</span><span class="p">:</span><span class="s">f800::/32</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="mi">2405</span><span class="p">:</span><span class="s">b500::/32</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="n">2405</span><span class="p">:</span><span class="mi">8100</span><span class="p">::</span><span class="s">/32</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="s">2c0f:f248::/32</span><span class="p">;</span><span class="w"></span>
+<span class="k">set_real_ip_from</span><span class="w"> </span><span class="n">2a06</span><span class="p">:</span><span class="mi">98</span><span class="s">c0::/29</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">real_ip_header</span> <span class="s">X-Forwarded-For</span><span class="p">;</span>
+<span class="k">real_ip_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <p>The IP's are from these URLS: <a href="https://www.cloudflare.com/ips-v4">https://www.cloudflare.com/ips-v4</a></p>
 <p><a href="https://www.cloudflare.com/ips-v6">https://www.cloudflare.com/ips-v6</a></p>
@@ -1327,8 +1327,8 @@
 <div class="highlight"><pre><span></span><code><span class="c1">##</span>
 <span class="c1"># CF Real IP</span>
 <span class="c1">##</span>
-<span class="k">include</span> <span class="n">/config/nginx/cf_real-ip.conf</span>;
-<span class="k">real_ip_header</span> <span class="s">X-Forwarded-For</span><span class="p">;</span>
+<span class="k">include</span><span class="w"> </span><span class="n">/config/nginx/cf_real-ip.conf</span>;<span class="w"></span>
+<span class="k">real_ip_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <p>After that you need to restart the swag container for the changes to take effect.</p>
 <p>Next you can test that it actually works by using a vpn ect and ban yourself. Set bantime to 60 for it to only ban the IP for 1 minute. After the IP is banned you can see the new firewall rule on cloudflare dashboard.</p>

@@ -1499,7 +1499,7 @@
 <span class="kd">var</span> <span class="nx">netdataServer</span> <span class="o">=</span> <span class="s1">&#39;https://YOURNETDATADOMAIN.COM/&#39;</span><span class="p">;</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
-<span class="c">&lt;!-- &lt;script type=&quot;text/javascript&quot; src=&quot;/dashboard.js&quot;&gt;&lt;/script&gt; --&gt;</span>
+<span class="cm">&lt;!-- &lt;script type=&quot;text/javascript&quot; src=&quot;/dashboard.js&quot;&gt;&lt;/script&gt; --&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;dashboard.js?v20170724-7&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -1539,25 +1539,25 @@
 <h3 id="nginx">Nginx<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h3>
 <p>In your nginx config you can add this in your main server block to create a sub-directory.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># CUSTOM NETDATA</span>
-<span class="k">location</span> <span class="s">/customnetdata</span> <span class="p">{</span>
+<span class="k">location</span><span class="w"> </span><span class="s">/customnetdata</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="c1">#auth_request /auth-user;</span>
-<span class="kn">root</span> <span class="s">/config/www/</span><span class="p">;</span>
-<span class="kn">index</span> <span class="s">custom.html</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kn">root</span><span class="w"> </span><span class="s">/config/www/</span><span class="p">;</span><span class="w"></span>
+<span class="kn">index</span><span class="w"> </span><span class="s">custom.html</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Below is the location block you need to use for the <strong><a href="https://github.com/gilbN/theme.park">theme.park</a></strong> theme.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># CUSTOM NETDATA USING THEME.PARK CSS</span>
-<span class="k">location</span> <span class="s">/customnetdata</span> <span class="p">{</span>
+<span class="k">location</span><span class="w"> </span><span class="s">/customnetdata</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="c1">#auth_request /auth-user;</span>
-<span class="kn">root</span> <span class="s">/config/www/</span><span class="p">;</span>
-<span class="kn">index</span> <span class="s">custom.html</span><span class="p">;</span>
-<span class="kn">proxy_set_header</span> <span class="s">Accept-Encoding</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
-<span class="kn">sub_filter</span>
-<span class="s">&#39;&lt;/head&gt;&#39;</span>
-<span class="s">&#39;&lt;link</span> <span class="s">rel=&quot;stylesheet&quot;</span> <span class="s">type=&quot;text/css&quot;</span> <span class="s">href=&quot;https://gilbn.github.io/theme.park/CSS/themes/netdata/organizr-dashboard.css&quot;&gt;</span>  
-<span class="s">&lt;/head&gt;&#39;</span><span class="p">;</span>
-<span class="kn">sub_filter_once</span> <span class="no">on</span><span class="p">;</span> 
-<span class="p">}</span>
+<span class="kn">root</span><span class="w"> </span><span class="s">/config/www/</span><span class="p">;</span><span class="w"></span>
+<span class="kn">index</span><span class="w"> </span><span class="s">custom.html</span><span class="p">;</span><span class="w"></span>
+<span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Accept-Encoding</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kn">sub_filter</span><span class="w"></span>
+<span class="s">&#39;&lt;/head&gt;&#39;</span><span class="w"></span>
+<span class="s">&#39;&lt;link</span><span class="w"> </span><span class="s">rel=&quot;stylesheet&quot;</span><span class="w"> </span><span class="s">type=&quot;text/css&quot;</span><span class="w"> </span><span class="s">href=&quot;https://gilbn.github.io/theme.park/CSS/themes/netdata/organizr-dashboard.css&quot;&gt;</span><span class="w">  </span>
+<span class="s">&lt;/head&gt;&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="kn">sub_filter_once</span><span class="w"> </span><span class="no">on</span><span class="p">;</span><span class="w"> </span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>By using <strong><code>https://gilbn.github.io/theme.park/CSS/themes/netdata/organizr-dashboard.css</code></strong> it will match any theme Organizr is using as the background is transparent.</p>
 <h3 id="adding-it-to-your-organizr-homepage">Adding it to your Organizr homepage<a class="headerlink" href="#adding-it-to-your-organizr-homepage" title="Permanent link">&para;</a></h3>
@@ -1576,112 +1576,112 @@
 </ul>
 <h4 id="bootstrap-slate-flat-337css">bootstrap-slate-flat-3.3.7.css<a class="headerlink" href="#bootstrap-slate-flat-337css" title="Permanent link">&para;</a></h4>
 <p>Set the background-color to what you want. I set it to transparent so if I change my Org theme it will follow that.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">body</span> <span class="p">{</span>
-<span class="k">font-family</span><span class="p">:</span> <span class="s2">&quot;Helvetica Neue&quot;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
-<span class="k">font-size</span><span class="p">:</span> <span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">line-height</span><span class="p">:</span> <span class="mf">1.42857143</span><span class="p">;</span>
-<span class="k">color</span><span class="p">:</span> <span class="mh">#c8c8c8</span><span class="p">;</span>
-<span class="k">background-color</span><span class="p">:</span> <span class="kc">transparent</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="nt">body</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Helvetica Neue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Helvetica</span><span class="p">,</span><span class="w"> </span><span class="n">Arial</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span><span class="w"></span>
+<span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">line-height</span><span class="p">:</span><span class="w"> </span><span class="mf">1.42857143</span><span class="p">;</span><span class="w"></span>
+<span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#c8c8c8</span><span class="p">;</span><span class="w"></span>
+<span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">transparent</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h5 id="dashboardslatecss">dashboard.slate.css<a class="headerlink" href="#dashboardslatecss" title="Permanent link">&para;</a></h5>
 <p>Next is changing the <strong><code>.netdata-legend-value</code></strong> The background-color is the legend percent bacground color.</p>
-<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">netdata-legend-value</span> <span class="p">{</span>
-<span class="c">/*margin-left: 14px;*/</span>
-<span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
-<span class="k">right</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">float</span><span class="p">:</span> <span class="kc">right</span><span class="p">;</span>
-<span class="k">text-align</span><span class="p">:</span> <span class="kc">right</span><span class="p">;</span>
-<span class="k">font-size</span><span class="p">:</span> <span class="mi">11</span><span class="kt">px</span><span class="p">;</span> <span class="c">/* legend: dimension value size */</span>
-<span class="k">font-weight</span><span class="p">:</span> <span class="kc">bold</span><span class="p">;</span>
-<span class="k">vertical-align</span><span class="p">:</span> <span class="kc">bottom</span><span class="p">;</span>
-<span class="k">background-color</span><span class="p">:</span> <span class="kc">transparent</span><span class="p">;</span>
-<span class="k">margin-top</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">z-index</span><span class="p">:</span> <span class="mi">10</span><span class="p">;</span>
-<span class="k">padding</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">padding-left</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">cursor</span><span class="p">:</span> <span class="kc">pointer</span><span class="p">;</span>
-<span class="c">/* -webkit-font-smoothing: none; */</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">netdata-legend-value</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="c">/*margin-left: 14px;*/</span><span class="w"></span>
+<span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span><span class="w"></span>
+<span class="k">right</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">float</span><span class="p">:</span><span class="w"> </span><span class="kc">right</span><span class="p">;</span><span class="w"></span>
+<span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">right</span><span class="p">;</span><span class="w"></span>
+<span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="c">/* legend: dimension value size */</span><span class="w"></span>
+<span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="p">;</span><span class="w"></span>
+<span class="k">vertical-align</span><span class="p">:</span><span class="w"> </span><span class="kc">bottom</span><span class="p">;</span><span class="w"></span>
+<span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">transparent</span><span class="p">;</span><span class="w"></span>
+<span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">padding-left</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">pointer</span><span class="p">;</span><span class="w"></span>
+<span class="c">/* -webkit-font-smoothing: none; */</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p><strong><code>background-color: transparent;</code></strong></p>
 <p>**<code>color: #E5A00D;</code>**I chose orange to match my Organizr theme.</p>
-<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">netdata-legend-resize-handler</span> <span class="p">{</span>
-<span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
-<span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
-<span class="k">bottom</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">right</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">height</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">width</span><span class="p">:</span> <span class="mi">30</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">background-color</span><span class="p">:</span> <span class="kc">transparent</span><span class="p">;</span>
-<span class="k">font-size</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
-<span class="k">line-height</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">cursor</span><span class="p">:</span> <span class="kc">ns-resize</span><span class="p">;</span>
-<span class="k">color</span><span class="p">:</span> <span class="mh">#E5A00D</span><span class="p">;</span>
-<span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
-<span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
-<span class="k">z-index</span><span class="p">:</span> <span class="mi">20</span><span class="p">;</span>
-<span class="k">padding</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">netdata-legend-resize-handler</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span><span class="w"></span>
+<span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span><span class="w"></span>
+<span class="k">bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">right</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">transparent</span><span class="p">;</span><span class="w"></span>
+<span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">vertical-align</span><span class="p">:</span><span class="w"> </span><span class="kc">middle</span><span class="p">;</span><span class="w"></span>
+<span class="k">line-height</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">ns-resize</span><span class="p">;</span><span class="w"></span>
+<span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#E5A00D</span><span class="p">;</span><span class="w"></span>
+<span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"></span>
+<span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span><span class="w"></span>
+<span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"></span>
+<span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>It's the same for the legend tool box, set it to transparent or what ever you like.</p>
 <p><a href="images/chart-tool-box-buttons.png"><img alt="" src="images/chart-tool-box-buttons.png" /></a></p>
-<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">netdata-legend-toolbox</span> <span class="p">{</span>
-<span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
-<span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
-<span class="k">bottom</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">right</span><span class="p">:</span> <span class="mi">30</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">height</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">width</span><span class="p">:</span> <span class="mi">110</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">background-color</span><span class="p">:</span> <span class="kc">transparent</span><span class="p">;</span>
-<span class="k">font-size</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
-<span class="k">line-height</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">color</span><span class="p">:</span> <span class="mh">#E5A00D</span><span class="p">;</span>
-<span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
-<span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
-<span class="k">z-index</span><span class="p">:</span> <span class="mi">20</span><span class="p">;</span>
-<span class="k">padding</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">netdata-legend-toolbox</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span><span class="w"></span>
+<span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span><span class="w"></span>
+<span class="k">bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">right</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">transparent</span><span class="p">;</span><span class="w"></span>
+<span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">vertical-align</span><span class="p">:</span><span class="w"> </span><span class="kc">middle</span><span class="p">;</span><span class="w"></span>
+<span class="k">line-height</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#E5A00D</span><span class="p">;</span><span class="w"></span>
+<span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"></span>
+<span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span><span class="w"></span>
+<span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"></span>
+<span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Repeat the steps. Set the background to transparent or what ever you like. Set<code>color</code>to the color you want the buttons to be.</p>
 <p><a href="images/chart-resize-buttons.png"><img alt="" src="images/chart-resize-buttons.png" /></a></p>
-<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">netdata-legend-toolbox-button</span> <span class="p">{</span>
-<span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
-<span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
-<span class="k">height</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">width</span><span class="p">:</span> <span class="mi">18</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">background-color</span><span class="p">:</span> <span class="kc">transparent</span><span class="p">;</span>
-<span class="k">font-size</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
-<span class="k">line-height</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">color</span><span class="p">:</span> <span class="mh">#E5A00D</span><span class="p">;</span>
-<span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
-<span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
-<span class="k">z-index</span><span class="p">:</span> <span class="mi">21</span><span class="p">;</span>
-<span class="k">padding</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">cursor</span><span class="p">:</span> <span class="kc">pointer</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">netdata-legend-toolbox-button</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">inline-block</span><span class="p">;</span><span class="w"></span>
+<span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span><span class="w"></span>
+<span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">transparent</span><span class="p">;</span><span class="w"></span>
+<span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">vertical-align</span><span class="p">:</span><span class="w"> </span><span class="kc">middle</span><span class="p">;</span><span class="w"></span>
+<span class="k">line-height</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#E5A00D</span><span class="p">;</span><span class="w"></span>
+<span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"></span>
+<span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span><span class="w"></span>
+<span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">;</span><span class="w"></span>
+<span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">pointer</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>To edit the text color change the html,body</p>
 <p>This will <strong>not</strong> change the graph text color</p>
-<div class="highlight"><pre><span></span><code><span class="nt">html</span><span class="o">,</span>
-<span class="nt">body</span> <span class="p">{</span>
-<span class="c">/*font-family: Calibri,&quot;Segoe UI&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;*/</span>
-<span class="k">font-family</span><span class="p">:</span> <span class="s2">&quot;Helvetica Neue&quot;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
-<span class="k">font-style</span><span class="p">:</span> <span class="kc">normal</span><span class="p">;</span>
-<span class="k">font-variant</span><span class="p">:</span> <span class="kc">normal</span><span class="p">;</span>
-<span class="k">color</span><span class="p">:</span> <span class="mh">#E5A00D</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="nt">html</span><span class="o">,</span><span class="w"></span>
+<span class="nt">body</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="c">/*font-family: Calibri,&quot;Segoe UI&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;*/</span><span class="w"></span>
+<span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Helvetica Neue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Helvetica</span><span class="p">,</span><span class="w"> </span><span class="n">Arial</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span><span class="w"></span>
+<span class="k">font-style</span><span class="p">:</span><span class="w"> </span><span class="kc">normal</span><span class="p">;</span><span class="w"></span>
+<span class="k">font-variant</span><span class="p">:</span><span class="w"> </span><span class="kc">normal</span><span class="p">;</span><span class="w"></span>
+<span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#E5A00D</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>The graph text color is changed with</p>
-<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">dygraph-axis-label</span> <span class="p">{</span>
-<span class="k">color</span><span class="p">:</span> <span class="mh">#6c7075</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">dygraph-axis-label</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#6c7075</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h5 id="customhtml">custom.html<a class="headerlink" href="#customhtml" title="Permanent link">&para;</a></h5>
 <p>Changing the data chart colors is done in the custom HTML.</p>
@@ -1699,14 +1699,14 @@
 <p>If you want to make your custom Netdata html match the<a href="https://github.com/leram84/layer.Cake/">layer#Cake blur-theme</a>you can do this:</p>
 <p>In <strong><code>dashboard.slate.css</code></strong> change this:</p>
 <p>Change the body text color to #FFFFFF</p>
-<div class="highlight"><pre><span></span><code><span class="nt">html</span><span class="o">,</span>
-<span class="nt">body</span> <span class="p">{</span>
-<span class="c">/*font-family: Calibri,&quot;Segoe UI&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;*/</span>
-<span class="k">font-family</span><span class="p">:</span> <span class="s2">&quot;Helvetica Neue&quot;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
-<span class="k">font-style</span><span class="p">:</span> <span class="kc">normal</span><span class="p">;</span>
-<span class="k">font-variant</span><span class="p">:</span> <span class="kc">normal</span><span class="p">;</span>
-<span class="k">color</span><span class="p">:</span> <span class="mh">#FFFFFF</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="nt">html</span><span class="o">,</span><span class="w"></span>
+<span class="nt">body</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="c">/*font-family: Calibri,&quot;Segoe UI&quot;,&quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;*/</span><span class="w"></span>
+<span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Helvetica Neue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Helvetica</span><span class="p">,</span><span class="w"> </span><span class="n">Arial</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span><span class="w"></span>
+<span class="k">font-style</span><span class="p">:</span><span class="w"> </span><span class="kc">normal</span><span class="p">;</span><span class="w"></span>
+<span class="k">font-variant</span><span class="p">:</span><span class="w"> </span><span class="kc">normal</span><span class="p">;</span><span class="w"></span>
+<span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#FFFFFF</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>And set the other color options in the examples above to <strong><code>(0, 0%, 100%, .45)</code></strong></p>
 <p>For the grid and axis color set it to transparent in <strong><code>dashboard.js</code></strong></p>
@@ -1714,13 +1714,13 @@
 <span class="nx">axis</span><span class="o">:</span> <span class="s1">&#39;transparent&#39;</span><span class="p">,</span>
 </code></pre></div>
 <p>In the <strong><code>bootstrap-slate-flat-3.3.7.css</code></strong> Set the background color of the graph body to <strong><code>rgba(0, 0, 0, .15);</code></strong></p>
-<div class="highlight"><pre><span></span><code><span class="nt">body</span> <span class="p">{</span>
-<span class="k">font-family</span><span class="p">:</span> <span class="s2">&quot;Helvetica Neue&quot;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
-<span class="k">font-size</span><span class="p">:</span> <span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
-<span class="k">line-height</span><span class="p">:</span> <span class="mf">1.42857143</span><span class="p">;</span>
-<span class="k">color</span><span class="p">:</span> <span class="mh">#c8c8c8</span><span class="p">;</span>
-<span class="k">background-color</span><span class="p">:</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">.15</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="nt">body</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Helvetica Neue&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Helvetica</span><span class="p">,</span><span class="w"> </span><span class="n">Arial</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span><span class="w"></span>
+<span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="k">line-height</span><span class="p">:</span><span class="w"> </span><span class="mf">1.42857143</span><span class="p">;</span><span class="w"></span>
+<span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#c8c8c8</span><span class="p">;</span><span class="w"></span>
+<span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">.15</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <hr />
 <h2 id="discord-widgetbot">Discord Widgetbot<a class="headerlink" href="#discord-widgetbot" title="Permanent link">&para;</a></h2>
@@ -1860,7 +1860,7 @@
 <span class="kd">var</span> <span class="nx">netdataServer</span> <span class="o">=</span> <span class="s1">&#39;https://YOURNETDATADOMAIN.COM/&#39;</span><span class="p">;</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
-<span class="c">&lt;!-- &lt;script type=&quot;text/javascript&quot; src=&quot;http://my.server:19999/dashboard.js&quot;&gt;&lt;/script&gt; --&gt;</span>
+<span class="cm">&lt;!-- &lt;script type=&quot;text/javascript&quot; src=&quot;http://my.server:19999/dashboard.js&quot;&gt;&lt;/script&gt; --&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;dashboard.js?v20170105-7&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>

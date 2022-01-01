@@ -57,6 +57,9 @@ Search for **`influxdb`** in Community Apps and install it using the default tem
 
 Do the same here, just search for the container in Community Apps and use the default template settings. Set the appdata location to where you want it, **but don't click install just yet!**
 
+!!! danger "Don't use the latest tag"
+    The `:latest` tag will run a version that you can't install extra packages into! Change the tag to `telegraf:1.20.2` for it to work!
+
 !!! info "Network"
     Make sure the container uses **Host** networking!
 
@@ -88,16 +91,16 @@ urls = ["http://192.168.1.34:8086"]
     5. Docker: **`[[inputs.docker]]`** and **`endpoint = "unix:///var/run/docker.sock"`**
     6. UPS: **`[[inputs.apcupsd]]`**
 
-5. Now go back to the install page of telegraf and add the following into the `Post Arguments` input field:`/bin/sh -c 'apt update && apt install -y smartmontools && apt install -y lm-sensors && telegraf' --user 0` To be able to see this field we need to click on the `Advanced View` button. This will install `smartmontools` and without it you won't be able to get the S.M.A.R.T statistics. **Note:** If you also want to add IPMI and nvme stats you can add the following: `/bin/sh -c 'apt update && apt install -y smartmontools && apt install -y lm-sensors && apt install -y nvme-cli && apt install -y ipmitool && telegraf' --user 0`
+5. Now go back to the install page of telegraf and add the following into the `Post Arguments` input field:`/bin/sh -c 'apt update && apt install -y smartmontools && apt install -y lm-sensors && telegraf' --user 0` To be able to see this field we need to click on the `Advanced View` button. This will install `smartmontools` and without it you won't be able to get the S.M.A.R.T statistics. **Note:** If you also want to add IPMI and nvme stats you can add the following: `/bin/sh -c 'apt update && apt install -y smartmontools && apt install -y lm-sensors && apt install -y nvme-cli && apt install -y ipmitool && telegraf'`
 
 !!! info "Alpine"
     If you use the alpine tag use these commands instead."
 
 [![](images/chrome_5DgrBfXwwD.png)](images/chrome_5DgrBfXwwD.png)
 
-`/bin/sh -c 'apk update && apk add smartmontools && apk add lm-sensors lm-sensors-detect perl && telegraf' --user 0`
+`/bin/sh -c 'apk update && apk add smartmontools && apk add lm-sensors lm-sensors-detect perl && telegraf'`
 
-With IPMI and nvme: `/bin/sh -c 'apk update && apk add smartmontools && apk add lm-sensors lm-sensors-detect perl && apk add nvme-cli && apk add ipmitool && telegraf' --user 0`
+With IPMI and nvme: `/bin/sh -c 'apk update && apk add smartmontools && apk add lm-sensors lm-sensors-detect perl && apk add nvme-cli && apk add ipmitool && telegraf'`
 
 [![](images/chrome_EG2uIi89cA.png)](images/chrome_EG2uIi89cA.png)
 

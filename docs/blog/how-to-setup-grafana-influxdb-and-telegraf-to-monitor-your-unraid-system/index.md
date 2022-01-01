@@ -85,7 +85,7 @@ urls = ["http://192.168.1.34:8086"]
 
 4. Uncomment the following plugins and lines:
     1. HDD temps/stats: **`[[inputs.smart]]`**
-    2. CPU temps: **`[[inputs.sensors]]`** and **`attributes = true`** (This is default set to false)
+    2. CPU temps: **`[[inputs.sensors]]`**
     3. Network: **`[[inputs.net]]`** and **`interfaces = ["eth0"]`** ect
     4. Netstat: **`[[inputs.netstat]]`**
     5. Docker: **`[[inputs.docker]]`** and **`endpoint = "unix:///var/run/docker.sock"`**

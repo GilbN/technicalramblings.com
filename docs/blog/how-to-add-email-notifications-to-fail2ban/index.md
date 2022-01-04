@@ -76,8 +76,8 @@ If you want emails on start and stop, add the code above and just change the sub
 In your jail.local file add the following in the `[DEFAULT]` section:
 
 ```bash
-action = iptables-allports
-          %(action_mw)s[from=example@gmail.com, password=secretpassword, destination=example@gmail.com, sendername=Fail2Ban]
+banaction = iptables-allports
+action = %(action_mw)s[from=example@gmail.com, password=secretpassword, destination=example@gmail.com, sendername=Fail2Ban]
 ```
 
 Let's break down the mail action. **from** = The email account it sends from. **password** = The password to the sender account. **destination** = Where you want to send the notification. **sendername** = Name of the sender.

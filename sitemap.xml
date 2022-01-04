@@ -2,137 +2,137 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.theme-park.dev/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/about/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/adding-ban-unban-notifications-from-fail2ban-to-discord/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/adding-ban-unban-notifications-from-fail2ban-with-pushover/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/blocking-countries-with-geolite2-using-the-letsencrypt-docker-container/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/blocking-ssh-connections-with-the-geolite2-database/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/cloudflare-fail2ban-integration-with-automated-set_real_ip_from-in-nginx/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/how-to-add-a-custom-login-page-for-unraid/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/how-to-add-dark-mode-to-any-app-with-this-one-simple-trick/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/how-to-add-email-notifications-to-fail2ban/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/how-to-route-different-metrics-in-telegraf-to-different-influx-databases/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/how-to-setup-a-cloudflare-worker-to-show-a-maintenance-page-when-ca-backup-plugin-is-running/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/how-to-setup-a-ghost-site-with-letsencrypt-and-mariadb-on-unraid/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/how-to-setup-grafana-influxdb-and-telegraf-to-monitor-your-unraid-system/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/howto-setup-gitlab-to-use-rack-attack-to-ban-abusive-ips/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/migrating-view-history-between-two-plex-servers-avoiding-negative-unwatched-count/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-2019-edition/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-nut-edition/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-telegraf-edition/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/my-unraid-server/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/optimizing-php-fpm-to-get-faster-load-times-of-tabs-in-organizr/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/redirecting-visitors-to-a-403-forbidden-page-when-accessing-the-wordpress-admin-page/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/remotely-accessing-the-unraid-gui-with-guacamole-and-vnc-web-browser/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/spice-up-your-homepage/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/spice-up-your-homepage-part-ii/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.theme-park.dev/blog/visualizing-nginx-geo-data-metrics-with-python-influxdb-and-grafana/</loc>
-         <lastmod>2022-01-01</lastmod>
+         <lastmod>2022-01-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

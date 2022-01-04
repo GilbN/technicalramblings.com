@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.theme-park.dev/blog/how-to-add-email-notifications-to-fail2ban/">
       
       <link rel="icon" href="../../logo.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.edf004c2.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bb3983ee.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -1138,8 +1138,8 @@
 <p>If you want emails on start and stop, add the code above and just change the subject and body of the email.</p>
 <h2 id="jaillocal">jail.local<a class="headerlink" href="#jaillocal" title="Permanent link">&para;</a></h2>
 <p>In your jail.local file add the following in the <code>[DEFAULT]</code> section:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">action</span> <span class="o">=</span> iptables-allports
-          %<span class="o">(</span>action_mw<span class="o">)</span>s<span class="o">[</span><span class="nv">from</span><span class="o">=</span>example@gmail.com, <span class="nv">password</span><span class="o">=</span>secretpassword, <span class="nv">destination</span><span class="o">=</span>example@gmail.com, <span class="nv">sendername</span><span class="o">=</span>Fail2Ban<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><span class="nv">banaction</span> <span class="o">=</span> iptables-allports
+<span class="nv">action</span> <span class="o">=</span> %<span class="o">(</span>action_mw<span class="o">)</span>s<span class="o">[</span><span class="nv">from</span><span class="o">=</span>example@gmail.com, <span class="nv">password</span><span class="o">=</span>secretpassword, <span class="nv">destination</span><span class="o">=</span>example@gmail.com, <span class="nv">sendername</span><span class="o">=</span>Fail2Ban<span class="o">]</span>
 </code></pre></div>
 <p>Let's break down the mail action. <strong>from</strong> = The email account it sends from. <strong>password</strong> = The password to the sender account. <strong>destination</strong> = Where you want to send the notification. <strong>sendername</strong> = Name of the sender.</p>
 <p>The action <code>iptables-allports</code> is needed because if you only have the send mail action it will override the action that updates the iptables! So it won't ban the IP without it.</p>
@@ -1157,7 +1157,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 4, 2022</span>
       
     
   </small>
@@ -1255,10 +1255,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.361d90f1.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      <script src="../../assets/javascripts/bundle.289a2a4b.min.js"></script>
       
     
   </body>

@@ -85,6 +85,7 @@ nav:
   - About: about/index.md
   - Support: /discord
   - Donate: https://github.com/sponsors/GilbN
+  - theme.park: https://theme-park.dev
 
 theme:
   name: material

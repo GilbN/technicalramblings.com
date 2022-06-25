@@ -8,5 +8,5 @@ mkdocs-git-revision-date-localized-plugin>=0.7.3
 markdown-include>=0.6.0
 mkdocs-material-extensions>=1.0.3
 mkdocs-video>=1.1.0
-git+git://github.com/g-provost/lightgallery-markdown#egg=lightgallery
+lightgallery>=0.5
 git+https://github.com/jldiaz/mkdocs-plugin-tags.git

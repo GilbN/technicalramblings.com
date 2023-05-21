@@ -15,6 +15,7 @@ plugins:
   - redirects:
       redirect_maps:
         discord.md: 'https://discord.gg/HM5uUKU'
+        'blog/monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-v2-0.md': https://technicalramblings.com/blog/monitoring-your-ups-stats-and-cost-with-influxdb-and-grafana-on-unraid-2019-edition/
 
 markdown_extensions:
   - pymdownx.snippets

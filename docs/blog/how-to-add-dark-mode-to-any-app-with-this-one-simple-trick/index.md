@@ -46,9 +46,9 @@ Developers hate me for sharing this one weird trick!
 
 Yes..the title is clickbait, and **no** this does not work on any app/container ;)
 
-I have for some time now been creating **[css themes/skins](https://github.com/gilbN/theme.park)** for different applications that reside in the "media server/selfhosting" category. Normally you would add the themes using a "subfilter" module like [http://nginx.org/en/docs/http/ngx_http_sub_module.html](http://nginx.org/en/docs/http/ngx_http_sub_module.html) or [https://httpd.apache.org/docs/2.4/mod/mod_filter.html](https://httpd.apache.org/docs/2.4/mod/mod_filter.html). This means that you would have to reverse proxy the application to be able to add the theme. Doing that would only apply the theme when accessing the application though the proxy and not locally.
+I have for some time now been creating **[css themes/skins](https://github.com/themepark-dev/theme.park)** for different applications that reside in the "media server/selfhosting" category. Normally you would add the themes using a "subfilter" module like [http://nginx.org/en/docs/http/ngx_http_sub_module.html](http://nginx.org/en/docs/http/ngx_http_sub_module.html) or [https://httpd.apache.org/docs/2.4/mod/mod_filter.html](https://httpd.apache.org/docs/2.4/mod/mod_filter.html). This means that you would have to reverse proxy the application to be able to add the theme. Doing that would only apply the theme when accessing the application though the proxy and not locally.
 
-So, to fix that I've created a bunch of [docker mods](https://blog.linuxserver.io/2019/09/14/customizing-our-containers/) for all the applications that have a **[linuxserver](https://www.linuxserver.io/)** container. The docker mod, will run a script at startup to inject the stylesheet into the html file using [sed](https://www.gnu.org/software/sed/manual/sed.html). The script does the exact same thing as the subfiltering module except it does it on the backend instead of on the proxy side. You can find all the mods here: [https://github.com/GilbN/theme.park/tree/master/docker-mods](https://github.com/GilbN/theme.park/tree/master/docker-mods)
+So, to fix that I've created a bunch of [docker mods](https://blog.linuxserver.io/2019/09/14/customizing-our-containers/) for all the applications that have a **[linuxserver](https://www.linuxserver.io/)** container. The docker mod, will run a script at startup to inject the stylesheet into the html file using [sed](https://www.gnu.org/software/sed/manual/sed.html). The script does the exact same thing as the subfiltering module except it does it on the backend instead of on the proxy side. You can find all the mods here: [https://github.com/themepark-dev/theme.park/tree/master/docker-mods](https://github.com/themepark-dev/theme.park/tree/master/docker-mods)
 
 The scripts are quite simple and only has a couple of variables. `TP_DOMAIN` and `TP_THEME` Both these variable have a default value if not set. `TP_DOMAIN` is set to `theme-park.dev` and `TP_THEME` is set to `organizr`
 
@@ -121,7 +121,7 @@ fi
 
 ## Adding the theme
 
-Adding the mod, is quite simple. Add the variable `DOCKER_MODS=ghcr.io/gilbn/theme.park:<app>` e.g. `ghcr.io/gilbn/theme.park:sonarr` to your docker run command or compose file.
+Adding the mod, is quite simple. Add the variable `DOCKER_MODS=https://github.com/themepark-dev/theme.park:<app>` e.g. `https://github.com/themepark-dev/theme.park:sonarr` to your docker run command or compose file.
 
 On Unraid simply click on `+ Add another Path, Port, Variable, label or Device`
 
@@ -135,4 +135,4 @@ As noted earlier it will default to the **[organizr](https://docs.theme-park.dev
 
 Click the banners here for screenshots of the different themes: [https://docs.theme-park.dev/#themes](https://docs.theme-park.dev/#themes)
 
-You can find applications that support Docker Mods installation here: [https://github.com/GilbN/theme.park/tree/master/docker-mods](https://github.com/GilbN/theme.park/tree/master/docker-mods) For other installation methods check the wiki [https://docs.theme-park.dev/setup/](https://docs.theme-park.dev/setup/)
+You can find applications that support Docker Mods installation here: [https://github.com/themepark-dev/theme.park/tree/master/docker-mods](https://github.com/themepark-dev/theme.park/tree/master/docker-mods) For other installation methods check the wiki [https://docs.theme-park.dev/setup/](https://docs.theme-park.dev/setup/)
